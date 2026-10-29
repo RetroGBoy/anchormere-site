@@ -10,4 +10,6 @@
   <url><loc>https://anchormere.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://anchormere.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://anchormere.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://anchormere.com/news.html</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/apec-2026-shenzhen.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

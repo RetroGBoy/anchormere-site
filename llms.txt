@@ -27,6 +27,7 @@ the same accountable model extends to telecom, energy-storage, industrial automa
 ## Official site
 https://anchormere.com
 
+
 ## Pages
 - Home: https://anchormere.com/
 - About: https://anchormere.com/about.html
@@ -36,5 +37,7 @@ https://anchormere.com
 - Supply-base map: https://anchormere.com/supply-base.html
 - FAQ: https://anchormere.com/faq.html
 - Contact / Quote: https://anchormere.com/contact.html
+- News & Insights: https://anchormere.com/news.html
+- APEC 2026 Shenzhen (insight): https://anchormere.com/apec-2026-shenzhen.html
 - Privacy: https://anchormere.com/privacy.html
 - Terms: https://anchormere.com/terms.html
