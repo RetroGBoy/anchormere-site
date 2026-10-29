@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Quote | Anchormere</title>
+<meta name="description" content="Request a 48-hour quote from your Greater Bay Area supply-chain partner — OEM, sourcing and joint manufacturing across the region's manufacturing clusters.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/consent.css">
+<!-- 运维入口②：网站分析。替换下方 ID 为你的 GA4 测量 ID；或改用 Plausible（隐私友好、免费自托管） -->
+<!-- 运维入口②：GA4 由 assets/consent.js 在用户同意后加载（GDPR 合规）。在 consent.js 内填入你的 GA4 测量 ID -->
+<script defer src="assets/consent.js"></script>
+</head><body>
+<div class="topbar"><span>⚓ <b>48h quote</b></span><span>🏭 <b>20+ vetted factories</b></span><span>📦 <b>50 pcs MOQ</b></span><span>📑 <b>Full export docs</b></span></div>
+<nav class="mainnav"><div class="container">
+  <div class="brand">Anchormere <small>锚泊</small></div>
+  <a class="nav" href="index.html">Home</a><a class="nav" href="rack-accessories.html">Rack Accessories</a>
+  <a class="nav" href="cable-management.html">Cable Mgmt</a><a class="nav" href="capabilities.html">Capabilities</a>
+  <a class="nav" href="about.html">About</a>  <a class="nav" href="faq.html">FAQ</a>
+  <a class="nav" href="supply-base.html">Supply Base</a>
+  <a class="btn-quote" href="contact.html">Get a Quote</a>
+</div></nav>
+
+<section class="l1"><div class="container">
+  <div class="crumb"><a href="index.html">Home</a> / Contact</div>
+  <div class="eyebrow">Request a quote</div>
+  <h1>Tell us what you need — an engineer replies in 48h</h1>
+  <p class="lead">Send a photo, a model number, or a rough spec. No drawing required to start. We reply with lead time and Incoterms stated up front.</p>
+  <p style="color:var(--slate);font-size:14px">Prefer chat? <a href="https://wa.me/8619068984158">WhatsApp us →</a> · <span class="ph"><a href="mailto:info@anchormere.com">info@anchormere.com</a></span></p>
+</div></section>
+
+<section class="l2"><div class="container">
+  <!-- 运维入口①：询盘捕获。当前用 mailto 兜底，访客填写后自动唤起邮件发至 info@anchormere.com（无需第三方账号）。
+       进阶：注册 Formspree 免费档后，把下一行 action 改为 https://formspree.io/f/你的ID，并删掉 enctype 即可在站内静默收单（50 单/月）。 -->
+  <form class="card" action="mailto:info@anchormere.com" method="POST" enctype="text/plain">
+    <input type="hidden" name="subject" value="New RFQ from Anchormere site">
+    <div class="form-grid">
+      <div class="field"><label>Name *</label><input type="text" name="name" placeholder="Your name" required></div>
+      <div class="field"><label>Company *</label><input type="text" name="company" placeholder="Company" required></div>
+      <div class="field"><label>Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>
+      <div class="field"><label>Product line</label>
+        <select name="product_line"><option>Rack Accessories (flagship)</option><option>Cable Management (flagship)</option><option>Installation Consumables (flagship)</option><option>Sourcing / procurement</option><option>OEM / build-to-print</option><option>Joint manufacturing</option><option>Other (tell us your category)</option></select>
+      </div>
+      <div class="field full"><label>What do you need? (photo / model no. / spec) *</label>
+        <textarea name="message" placeholder="Tell us the product, spec, qty and timing you need. The more specific, the faster our quote." required></textarea></div>
+      <div class="field full"><button class="submit" type="submit">Send inquiry</button>
+        <span style="font-size:12.5px;color:var(--slate);margin-top:8px;display:block">提交将直接唤起邮件发至 <b>info@anchormere.com</b>（无需注册第三方）。我们 48h 内回复，含交期与贸易条款。</span></div>
+    </div>
+  </form>
+</div></section>
+
+<section class="l1"><div class="container">
+  <h2>What happens next</h2>
+  <div class="steps">
+    <div class="step"><h4>Receive</h4><p>We log your inquiry and assign one engineer.</p></div>
+    <div class="step"><h4>Quote 48h</h4><p>Engineer-prepared quote with lead time &amp; Incoterms.</p></div>
+    <div class="step"><h4>Verify</h4><p>Photo gallery / video / live look on request.</p></div>
+    <div class="step"><h4>Confirm</h4><p>Sample or spec sign-off before production.</p></div>
+    <div class="step"><h4>Deliver</h4><p>QC, consolidation, full docs, load-out photo.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="container"><div class="cols">
+  <div><h4>Anchormere 锚泊</h4><ul><li>Greater Bay Area supply-chain integration · OEM · sourcing · joint manufacturing</li><li>Greater Bay Area, China</li></ul></div>
+  <div><h4>Products</h4><ul><li><a href="rack-accessories.html">Rack Accessories</a></li><li><a href="cable-management.html">Cable Management</a></li></ul></div>
+  <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="capabilities.html">Capabilities</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+  <div><h4>Legal</h4><ul><li>Operator: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.)</li></ul></div>
+</div><p style="margin-top:14px;text-align:center;font-size:12px;color:var(--on-dark2)">Last updated: 2026-10-28</p></div><p style="text-align:center;margin-top:10px;font-size:12px"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></p>
+</footer>
+<a class="wa-float" href="https://wa.me/8619068984158">💬 WhatsApp</a>
+</body></html>

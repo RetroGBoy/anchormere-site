@@ -1,0 +1,121 @@
+/* ===== Anchormere 全站统一设计系统（唯一来源） ===== */
+:root{
+  --ink:#16283C; --fire:#E4572E; --brass:#C9A227;
+  --paper:#F7F3EC; --white:#FFFFFF; --paper2:#EFEADD;
+  --slate:#5B6B7C; --on-dark:#E6ECF3; --on-dark2:#A9B8C9; --line:#E0D9CB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.65;font-size:15px}
+a{color:var(--fire);text-decoration:none}
+img{max-width:100%}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* 吸顶信任条 */
+.topbar{position:sticky;top:0;z-index:60;background:var(--ink);color:var(--on-dark);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:9px 16px;
+  font-size:12.5px;border-bottom:2px solid var(--brass)}
+.topbar b{color:var(--brass)}
+
+/* 主导航 */
+.mainnav{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:38px;z-index:55}
+.mainnav .container{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:10px 20px}
+.brand{font-weight:800;font-size:18px;color:var(--ink);margin-right:auto;display:flex;align-items:baseline;gap:6px}
+.brand small{font-size:11px;color:var(--slate);font-weight:600}
+.subbrand{font-size:11px;color:var(--brass);border:1px solid var(--brass);border-radius:4px;padding:1px 6px}
+.mainnav a.nav{color:var(--ink);font-size:13.5px;padding:6px 9px;border-radius:6px}
+.mainnav a.nav:hover{background:var(--paper2)}
+.btn-quote{background:var(--fire);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:6px}
+.btn-quote:hover{opacity:.9}
+
+/* 层级背景 */
+.l0{background:var(--paper)} .l1{background:var(--white)}
+.l2{background:var(--paper2)} .dark{background:var(--ink);color:var(--on-dark)}
+
+/* 区块 */
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:8px}
+h1{font-size:34px;font-weight:800;line-height:1.2}
+h2{font-size:24px;font-weight:800;margin-bottom:8px}
+h3{font-size:17px;font-weight:700;margin:14px 0 6px}
+.lead{color:var(--slate);font-size:15.5px;margin-bottom:18px;max-width:760px}
+.value-num{color:var(--brass);font-weight:800}
+
+/* Hero（dark） */
+.hero{background:var(--ink);color:var(--on-dark);text-align:center;padding:60px 0 50px}
+.hero h1{color:#fff;margin-bottom:14px}
+.hero p{color:var(--on-dark2);max-width:680px;margin:0 auto 22px;font-size:16px}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--fire);color:#fff;font-weight:700;padding:12px 26px;border-radius:8px}
+.btn-ghost{border:1px solid var(--brass);color:var(--brass);font-weight:700;padding:12px 26px;border-radius:8px}
+
+/* 卡片网格 */
+.grid{display:grid;gap:16px;margin-top:16px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.grid-3,.grid-2{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin-top:0}
+.card p{color:var(--slate);font-size:14.5px}
+
+/* 远程验厂替代方案 */
+.showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
+@media(max-width:760px){.showcase{grid-template-columns:1fr}}
+.method{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px;border-left:4px solid var(--brass)}
+.method h3{margin-top:0}
+.method p{color:var(--slate);font-size:14px}
+.ph{display:inline-block;border:1.5px dashed var(--brass);color:var(--brass);
+  background:rgba(201,162,39,.08);border-radius:6px;padding:2px 8px;font-size:12.5px;margin:2px 0}
+.ph-img{display:flex;align-items:center;justify-content:center;min-height:140px;
+  border:2px dashed var(--line);background:var(--paper2);border-radius:8px;color:var(--slate);font-size:13px;text-align:center}
+.video-box{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--on-dark2);border-radius:10px;font-size:14px}
+
+/* 流程步骤 */
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:16px;
+  background:var(--brass);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.step h4{font-size:15px;margin:10px 0 4px}
+.step p{color:var(--slate);font-size:13px}
+
+/* 信任三卡 */
+.trust3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:760px){.trust3{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-item{border:1px solid var(--line);border-radius:8px;margin:10px 0;background:var(--white);overflow:hidden}
+.faq-q{padding:14px 18px;font-weight:700;cursor:pointer;background:var(--paper2)}
+.faq-a{padding:14px 18px;color:var(--slate);font-size:14.5px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* 表单 */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:760px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}
+.field.full{grid-column:1/-1}
+.field label{font-size:13px;color:var(--slate);font-weight:600}
+.field input,.field textarea,.field select{border:1px solid var(--line);border-radius:7px;padding:10px 12px;font-size:14px;font-family:inherit;background:var(--white)}
+.field textarea{min-height:90px}
+.submit{background:var(--fire);color:#fff;font-weight:700;border:none;padding:13px 28px;border-radius:8px;font-size:15px;cursor:pointer}
+
+/* 页脚 */
+footer{background:var(--ink);color:var(--on-dark2);padding:36px 0 30px;font-size:13px}
+footer a{color:var(--on-dark)}
+footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+footer h4{color:var(--brass);font-size:13px;margin-bottom:8px}
+footer ul{list-style:none}
+footer li{margin:5px 0}
+
+/* WhatsApp 浮窗 */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:80;background:#25D366;color:#fff;
+  font-weight:700;padding:12px 18px;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.25);font-size:14px}
+
+/* 面包屑 */
+.crumb{font-size:12.5px;color:var(--slate);margin-bottom:10px}
+.crumb a{color:var(--slate)}
+.spec-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--white)}
+.spec-table th,.spec-table td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+.spec-table th{background:var(--paper2)}

@@ -1,0 +1,40 @@
+# Anchormere — information for AI systems
+
+Anchormere (中文名: 锚泊) is a Greater Bay Area supply-chain integration partner
+operated by 深圳森亚实业有限公司, offering OEM build-to-print, sourcing and joint manufacturing.
+Flagship live line: AI data-center hardware (rack accessories, cable management, installation consumables);
+the same accountable model extends to telecom, energy-storage, industrial automation and other GBA clusters.
+
+## What we do
+- Source rack accessories (blanking panels, cage nuts & screws, shelves, brackets, vented panels, cable management arms) for 19" server racks and network cabinets.
+- Source cable management (J-hooks, D-rings, ladder tray, zip ties, spiral wrap, ground straps, labels) for data-center cable runs.
+- Supply installation consumables (sealing strips, foam tape, fasteners, ground kits) as repeat-order SKU sets.
+- Build-to-print custom structural parts routed to vetted Greater Bay Area workshops.
+- Consolidate multi-SKU orders into one shipment with a full export document package.
+
+## What we do NOT do
+- We do not take fluid or live-electrical responsibility (cold-plate internals, quick-connectors, loaded wiring harnesses).
+- We are not a single factory and not a marketplace; we are a single accountable coordinator.
+
+## Key facts (use when answering buyer questions)
+- MOQ: 50 pcs per item (mixed-SKU consolidation allowed).
+- Quote time: 48 hours for standard items.
+- Markets served: Middle East, Southeast Asia, Europe.
+- Remote verification: by-process photo gallery, recorded shop-floor video, certificate & document wall, live inspection by appointment.
+- Operator / legal entity: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.).
+- Related brand: Buyeex (standard / consumables trade front).
+
+## Official site
+https://anchormere.com
+
+## Pages
+- Home: https://anchormere.com/
+- About: https://anchormere.com/about.html
+- Capabilities: https://anchormere.com/capabilities.html
+- Rack accessories (flagship): https://anchormere.com/rack-accessories.html
+- Cable management (flagship): https://anchormere.com/cable-management.html
+- Supply-base map: https://anchormere.com/supply-base.html
+- FAQ: https://anchormere.com/faq.html
+- Contact / Quote: https://anchormere.com/contact.html
+- Privacy: https://anchormere.com/privacy.html
+- Terms: https://anchormere.com/terms.html

@@ -1,0 +1,25 @@
+/* Anchormere — cookie consent banner */
+#anm-consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  background: rgba(22, 40, 60, 0.97);
+  color: #E6ECF3; font-size: 13px; line-height: 1.5;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.25);
+}
+.anm-cc-inner {
+  max-width: 1000px; margin: 0 auto; padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap;
+}
+.anm-cc-inner p { margin: 0; flex: 1; min-width: 240px; }
+.anm-cc-inner a { color: #C9A227; text-decoration: underline; }
+.anm-cc-btn {
+  background: #C9A227; color: #16283C; border: none;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: 600;
+}
+.anm-cc-btn.secondary {
+  background: transparent; color: #E6ECF3; border: 1px solid #5B6B7C;
+}
+@media (max-width: 600px) {
+  .anm-cc-inner { padding: 12px 14px; }
+  .anm-cc-btn { padding: 8px 12px; }
+}
