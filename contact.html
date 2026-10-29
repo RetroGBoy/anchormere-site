@@ -44,8 +44,6 @@
 
 <div class="page-banner"><img src="assets/img/handshake.jpg" alt="Business handshake between buyer and supplier" loading="lazy"></div>
 <section class="l2"><div class="container">
-  <!-- 运维入口①：询盘捕获。当前用 mailto 兜底，访客填写后自动唤起邮件发至 info@anchormere.com（无需第三方账号）。
-       进阶：注册 Formspree 免费档后，把下一行 action 改为 https://formspree.io/f/你的ID，并删掉 enctype 即可在站内静默收单（50 单/月）。 -->
   <form class="card" action="mailto:info@anchormere.com" method="POST" enctype="text/plain">
     <input type="hidden" name="subject" value="New RFQ from Anchormere site">
     <div class="form-grid">
