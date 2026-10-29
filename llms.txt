@@ -32,6 +32,7 @@ https://anchormere.com
 - Home: https://anchormere.com/
 - About: https://anchormere.com/about
 - Capabilities: https://anchormere.com/capabilities
+- Certifications & compliance: https://anchormere.com/certifications
 - Rack accessories (flagship): https://anchormere.com/rack-accessories
 - Cable management (flagship): https://anchormere.com/cable-management
 - Supply-base map: https://anchormere.com/supply-base

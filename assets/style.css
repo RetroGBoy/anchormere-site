@@ -112,3 +112,19 @@ footer li{margin:5px 0}
 .spec-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--white)}
 .spec-table th,.spec-table td{border:1px solid var(--line);padding:9px 12px;text-align:left}
 .spec-table th{background:var(--paper2)}
+
+/* ===== 中英双语副标 ===== */
+.cn{font-size:13.5px;color:var(--slate);font-weight:600;margin:2px 0 10px;letter-spacing:.5px}
+.dark .cn,.hero .cn{color:var(--on-dark2)}
+
+/* ===== 页面横幅图 ===== */
+.page-banner{margin:20px 0 4px}
+.page-banner img{width:100%;height:320px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+@media(max-width:760px){.page-banner img{height:190px}}
+
+/* 卡片顶部小图 */
+.card-img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:12px;display:block}
+@media(max-width:760px){.card-img{height:130px}}
+
+/* 首页 hero 背景图 */
+.hero.hero-bg{background:linear-gradient(rgba(22,40,60,.87),rgba(22,40,60,.92)),url("img/port-containers.jpg") center/cover no-repeat}
