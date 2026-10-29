@@ -20,4 +20,6 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+# Preferred host (Yandex honors this; Bing/Google ignore but harmless)
+Host: anchormere.com
 Sitemap: https://anchormere.com/sitemap.xml
