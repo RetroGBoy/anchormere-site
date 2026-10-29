@@ -136,3 +136,11 @@ footer li{margin:5px 0}
 
 /* 首页 hero 背景图 */
 .hero.hero-bg{background:linear-gradient(rgba(22,40,60,.87),rgba(22,40,60,.92)),url("img/port-containers.jpg") center/cover no-repeat}
+
+/* ===== 语言切换器（按访问区域自动提示，手动可切换） ===== */
+.lang-switch{display:inline-flex;align-items:center;gap:4px;margin-left:auto;font-size:13px;color:var(--slate);user-select:none;white-space:nowrap}
+.lang-switch button{background:none;border:1px solid var(--line);color:var(--slate);font-family:inherit;font-size:12.5px;padding:4px 9px;border-radius:6px;cursor:pointer;line-height:1;transition:.15s}
+.lang-switch button:hover{border-color:var(--brass);color:var(--ink)}
+.lang-switch button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.lang-switch .sep{opacity:.4}
+@media(max-width:760px){.lang-switch{margin-left:0;width:100%;justify-content:flex-end;padding-top:4px}}
