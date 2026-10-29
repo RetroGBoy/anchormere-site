@@ -1,7 +1,8 @@
 /*
- * Anchormere language switcher — region-aware UI localization (interface level).
+ * Anchormere language switcher — full bilingual engine (EN / 中文).
  * Detection order: saved choice -> Cloudflare Geo (cdn-cgi/trace) -> browser language -> English.
- * Body content stays English (Chinese subtitles already exist); only the UI shell is localized.
+ * Every translatable element carries data-zh (Chinese innerHTML). English is captured once as data-en.
+ * Also localizes <title>, meta description/OG/Twitter, element attributes (data-zh-attrs), and emits hreflang.
  */
 (function () {
   "use strict";
@@ -9,7 +10,7 @@
   // Regions where Chinese is the expected UI language.
   var ZH_REGIONS = ["CN", "HK", "TW", "MO", "SG"];
 
-  // Runtime dictionary for call-to-action buttons / links (varies per page).
+  // Runtime dictionary for any call-to-action not yet carrying data-zh.
   var CTA_DICT = {
     "Request a Quote": "获取报价",
     "Get a Quote": "获取报价",
@@ -58,23 +59,64 @@
     return geoLang().then(function (g) { return g || browserLang() || "en"; });
   }
 
+  var _titleEN, _descEN;
+  function applyMeta(lang) {
+    var zhTitle = document.querySelector('meta[name="title-zh"]');
+    var zhDesc = document.querySelector('meta[name="desc-zh"]');
+    if (lang === "zh") {
+      if (zhTitle && zhTitle.getAttribute("content")) document.title = zhTitle.getAttribute("content");
+      if (zhDesc) {
+        var c = zhDesc.getAttribute("content");
+        var d = document.querySelector('meta[name="description"]'); if (d) d.setAttribute("content", c);
+        var og = document.querySelector('meta[property="og:description"]'); if (og) og.setAttribute("content", c);
+        var tw = document.querySelector('meta[name="twitter:description"]'); if (tw) tw.setAttribute("content", c);
+      }
+    } else {
+      if (_titleEN) document.title = _titleEN;
+      if (_descEN) {
+        var d2 = document.querySelector('meta[name="description"]'); if (d2) d2.setAttribute("content", _descEN);
+        var og2 = document.querySelector('meta[property="og:description"]'); if (og2) og2.setAttribute("content", _descEN);
+        var tw2 = document.querySelector('meta[name="twitter:description"]'); if (tw2) tw2.setAttribute("content", _descEN);
+      }
+    }
+  }
+
+  function applyAttrs(lang) {
+    var nodes = document.querySelectorAll("[data-zh-attrs]");
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      var map;
+      try { map = JSON.parse(n.getAttribute("data-zh-attrs")); } catch (e) { continue; }
+      if (!n.getAttribute("data-en-attrs")) n.setAttribute("data-en-attrs", JSON.stringify(captureAttrs(n, map)));
+      for (var key in map) {
+        if (!map.hasOwnProperty(key)) continue;
+        n.setAttribute(key, lang === "zh" ? map[key] : JSON.parse(n.getAttribute("data-en-attrs"))[key]);
+      }
+    }
+  }
+  function captureAttrs(n, map) {
+    var o = {};
+    for (var k in map) { if (map.hasOwnProperty(k)) o[k] = n.getAttribute(k) || ""; }
+    return o;
+  }
+
   function applyLang(lang) {
     document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
 
-    // 1) Explicit data-zh elements (nav / footer links, column titles).
+    // 1) Explicit data-zh elements (nav / footer / headings / paragraphs / lists … any element).
     var nodes = document.querySelectorAll("[data-zh]");
     for (var i = 0; i < nodes.length; i++) {
       var n = nodes[i];
-      if (!n.getAttribute("data-en")) n.setAttribute("data-en", n.textContent);
-      n.textContent = (lang === "zh") ? n.getAttribute("data-zh") : n.getAttribute("data-en");
+      if (!n.getAttribute("data-en")) n.setAttribute("data-en", n.innerHTML);
+      n.innerHTML = (lang === "zh") ? n.getAttribute("data-zh") : n.getAttribute("data-en");
     }
 
-    // 2) CTA buttons / links (per-page text, matched against dictionary).
+    // 2) CTA buttons / links not yet carrying data-zh (per-page text, matched against dictionary).
     var sel = "a.btn-primary, a.btn-ghost, a.btn-quote, .cta a, .card a, button, a.wa-float";
     var btns = document.querySelectorAll(sel);
     for (var j = 0; j < btns.length; j++) {
       var b = btns[j];
-      if (b.hasAttribute("data-zh")) continue; // already handled above
+      if (b.hasAttribute("data-zh")) continue;
       var key = b.textContent.trim();
       if (CTA_DICT[key]) {
         if (!b.getAttribute("data-en")) b.setAttribute("data-en", key);
@@ -82,7 +124,13 @@
       }
     }
 
-    // 3) Highlight active switch button.
+    // 3) Attributes (title / placeholder / aria-label …).
+    applyAttrs(lang);
+
+    // 4) Document title + meta description.
+    applyMeta(lang);
+
+    // 5) Highlight active switch button.
     var sw = document.getElementById("langSwitch");
     if (sw) {
       var sbtns = sw.querySelectorAll("button");
@@ -90,6 +138,17 @@
         sbtns[k].classList.toggle("active", sbtns[k].getAttribute("data-lang") === lang);
       }
     }
+  }
+
+  function addHreflang() {
+    if (document.querySelector('link[hreflang]')) return;
+    var url = location.href.split("#")[0];
+    var head = document.head;
+    [["x-default", url], ["en", url], ["zh-CN", url]].forEach(function (p) {
+      var l = document.createElement("link");
+      l.rel = "alternate"; l.hreflang = p[0]; l.href = p[1];
+      head.appendChild(l);
+    });
   }
 
   function buildSwitch() {
@@ -104,15 +163,15 @@
       '<span class="sep">|</span>' +
       '<button type="button" data-lang="zh">中文</button>';
     nav.appendChild(wrap);
-    wrap.querySelector('[data-lang="en"]').addEventListener("click", function () {
-      setStored("en"); applyLang("en");
-    });
-    wrap.querySelector('[data-lang="zh"]').addEventListener("click", function () {
-      setStored("zh"); applyLang("zh");
-    });
+    wrap.querySelector('[data-lang="en"]').addEventListener("click", function () { setStored("en"); applyLang("en"); });
+    wrap.querySelector('[data-lang="zh"]').addEventListener("click", function () { setStored("zh"); applyLang("zh"); });
   }
 
   function init() {
+    _titleEN = document.title;
+    var d0 = document.querySelector('meta[name="description"]');
+    _descEN = d0 ? d0.getAttribute("content") : "";
+    addHreflang();
     buildSwitch();
     decide().then(function (lang) { applyLang(lang); });
   }

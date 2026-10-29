@@ -124,6 +124,8 @@ footer li{margin:5px 0}
 /* ===== 中英双语副标 ===== */
 .cn{font-size:13.5px;color:var(--slate);font-weight:600;margin:2px 0 10px;letter-spacing:.5px}
 .dark .cn,.hero .cn{color:var(--on-dark2)}
+/* 中文模式下，主标题已译为汉字，隐藏冗余的中文副标 */
+html[lang="zh-CN"] .cn{display:none}
 
 /* ===== 页面横幅图 ===== */
 .page-banner{margin:20px 0 4px}
