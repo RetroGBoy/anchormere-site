@@ -1,6 +1,6 @@
 # Anchormere — information for AI systems
 
-Anchormere (中文名: 锚泊) is a Greater Bay Area supply-chain integration partner
+Anchormere (中文名: 锚泊) is your China sourcing partner, based in the Greater Bay Area and
 operated by 深圳森亚实业有限公司, offering OEM build-to-print, sourcing and joint manufacturing.
 Flagship live line: AI data-center hardware (rack accessories, cable management, installation consumables);
 the same accountable model extends to telecom, energy-storage, industrial automation and other GBA clusters.
