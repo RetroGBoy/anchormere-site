@@ -27,12 +27,11 @@ python3 -m http.server 8102
 - 进阶（站内静默收单、不依赖访客邮件客户端）：注册 Formspree 免费档（50 单/月），把 `contact.html` 表单的
   `action="mailto:info@anchormere.com"` 改为 `action="https://formspree.io/f/你的ID"`，并删掉 `enctype="text/plain"`。
 
-## 上线前仍需你补充的字段（当前以 [待填] 标注）
-| 项 | 影响 | 位置 |
+## 可选增强项（缺失不影响上线，全站已无任何占位）
+| 项 | 作用 | 位置 |
 |----|------|------|
-| GA4 测量 ID | 无流量分析（不影响展示） | `assets/consent.js` 的 `G-【待填】` |
-| 实体地址 | 法律页披露缺口 | 各页 footer + Privacy/Terms |
-| 注册号 | 法律主体信息不全 | about / supply-base / index 的 Legal 栏 |
-| 产品规格/认证/实拍图 | 转化信任素材 | 各内容页 `[待填]` |
+| GA4 测量 ID | 流量 / 来源 / 转化分析 | 在 `assets/consent.js` 填 `GA4_ID` 即启用 |
+| 注册号 | 完善法律主体披露 | 各页 footer / Legal 栏（原占位已移除，可补填） |
+| 产品规格 / 认证 / 实拍图 | 提升转化信任 | 各内容页卡片（原占位已移除，可补真实资料） |
 
-> 注：产品规格等无需你逐项填写——买家会在询盘表单里说明需求并发到你邮箱，内容页占位仅作示例。
+> 注：上述均为“有则更好”的增强项。全站已无 `[待填]` 占位，代码整洁可直接对外；买家需求通过询盘表单发至 `info@anchormere.com`。

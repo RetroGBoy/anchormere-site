@@ -64,13 +64,6 @@ h3{font-size:17px;font-weight:700;margin:14px 0 6px}
 .method{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px;border-left:4px solid var(--brass)}
 .method h3{margin-top:0}
 .method p{color:var(--slate);font-size:14px}
-.ph{display:inline-block;border:1.5px dashed var(--brass);color:var(--brass);
-  background:rgba(201,162,39,.08);border-radius:6px;padding:2px 8px;font-size:12.5px;margin:2px 0}
-.ph-img{display:flex;align-items:center;justify-content:center;min-height:140px;
-  border:2px dashed var(--line);background:var(--paper2);border-radius:8px;color:var(--slate);font-size:13px;text-align:center}
-.video-box{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
-  background:var(--ink);color:var(--on-dark2);border-radius:10px;font-size:14px}
-
 /* 流程步骤 */
 .steps{counter-reset:step;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
 @media(max-width:760px){.steps{grid-template-columns:1fr}}

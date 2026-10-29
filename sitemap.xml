@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://anchormere.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://anchormere.com/about.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://anchormere.com/capabilities.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://anchormere.com/rack-accessories.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://anchormere.com/cable-management.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://anchormere.com/supply-base.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://anchormere.com/faq.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://anchormere.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://anchormere.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://anchormere.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://anchormere.com/news.html</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/apec-2026-shenzhen.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/canton-fair-2026.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/greater-bay-area-by-numbers.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/huaqiangbei-hardware-engine.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/guangdong-manufacturing-clusters.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/ai-data-center-sourcing.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/guangdong-ev-supply-chain.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/smart-manufacturing-gba.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/cross-border-ecommerce-sourcing.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://anchormere.com/green-manufacturing-esg.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://anchormere.com/capabilities</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://anchormere.com/rack-accessories</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://anchormere.com/cable-management</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://anchormere.com/supply-base</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://anchormere.com/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://anchormere.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://anchormere.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://anchormere.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://anchormere.com/news</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/apec-2026-shenzhen</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/canton-fair-2026</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/greater-bay-area-by-numbers</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/huaqiangbei-hardware-engine</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/guangdong-manufacturing-clusters</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/ai-data-center-sourcing</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/guangdong-ev-supply-chain</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/smart-manufacturing-gba</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/cross-border-ecommerce-sourcing</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://anchormere.com/green-manufacturing-esg</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

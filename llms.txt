@@ -30,23 +30,23 @@ https://anchormere.com
 
 ## Pages
 - Home: https://anchormere.com/
-- About: https://anchormere.com/about.html
-- Capabilities: https://anchormere.com/capabilities.html
-- Rack accessories (flagship): https://anchormere.com/rack-accessories.html
-- Cable management (flagship): https://anchormere.com/cable-management.html
-- Supply-base map: https://anchormere.com/supply-base.html
-- FAQ: https://anchormere.com/faq.html
-- Contact / Quote: https://anchormere.com/contact.html
-- News & Insights: https://anchormere.com/news.html
-- APEC 2026 Shenzhen (insight): https://anchormere.com/apec-2026-shenzhen.html
-- Canton Fair 2026 (guide): https://anchormere.com/canton-fair-2026.html
-- Greater Bay Area by the numbers (brief): https://anchormere.com/greater-bay-area-by-numbers.html
-- Huaqiangbei hardware engine (cluster): https://anchormere.com/huaqiangbei-hardware-engine.html
-- Guangdong manufacturing clusters (guide): https://anchormere.com/guangdong-manufacturing-clusters.html
-- AI data-center sourcing (insight): https://anchormere.com/ai-data-center-sourcing.html
-- Guangdong EV supply chain (insight): https://anchormere.com/guangdong-ev-supply-chain.html
-- Smart manufacturing in GBA (insight): https://anchormere.com/smart-manufacturing-gba.html
-- Cross-border e-commerce (guide): https://anchormere.com/cross-border-ecommerce-sourcing.html
-- Green manufacturing & ESG (compliance): https://anchormere.com/green-manufacturing-esg.html
-- Privacy: https://anchormere.com/privacy.html
-- Terms: https://anchormere.com/terms.html
+- About: https://anchormere.com/about
+- Capabilities: https://anchormere.com/capabilities
+- Rack accessories (flagship): https://anchormere.com/rack-accessories
+- Cable management (flagship): https://anchormere.com/cable-management
+- Supply-base map: https://anchormere.com/supply-base
+- FAQ: https://anchormere.com/faq
+- Contact / Quote: https://anchormere.com/contact
+- News & Insights: https://anchormere.com/news
+- APEC 2026 Shenzhen (insight): https://anchormere.com/apec-2026-shenzhen
+- Canton Fair 2026 (guide): https://anchormere.com/canton-fair-2026
+- Greater Bay Area by the numbers (brief): https://anchormere.com/greater-bay-area-by-numbers
+- Huaqiangbei hardware engine (cluster): https://anchormere.com/huaqiangbei-hardware-engine
+- Guangdong manufacturing clusters (guide): https://anchormere.com/guangdong-manufacturing-clusters
+- AI data-center sourcing (insight): https://anchormere.com/ai-data-center-sourcing
+- Guangdong EV supply chain (insight): https://anchormere.com/guangdong-ev-supply-chain
+- Smart manufacturing in GBA (insight): https://anchormere.com/smart-manufacturing-gba
+- Cross-border e-commerce (guide): https://anchormere.com/cross-border-ecommerce-sourcing
+- Green manufacturing & ESG (compliance): https://anchormere.com/green-manufacturing-esg
+- Privacy: https://anchormere.com/privacy
+- Terms: https://anchormere.com/terms

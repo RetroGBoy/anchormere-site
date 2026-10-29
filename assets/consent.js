@@ -1,12 +1,12 @@
 /* Anchormere — GDPR-style cookie/consent manager
  * 默认不加载任何第三方追踪；用户接受后才注入 GA4。
- * 只需在此处填入你的 GA4 测量 ID（替换 G-【待填】）即可。 */
+ * 如需启用分析，在 GA4_ID 填入你的测量 ID 即可；留空则完全不加载。 */
 (function () {
-  var GA4_ID = 'G-【待填】';          // ← 在此填入你的 GA4 测量 ID
+  var GA4_ID = '';
   var KEY = 'anm_consent';
   function injectGA() {
     if (window.__anm_ga) return;
-    if (!GA4_ID || GA4_ID.indexOf('【') !== -1) return; // 未配置则不加载
+    if (!GA4_ID) return; // 未配置则不加载
     window.__anm_ga = true;
     var s = document.createElement('script');
     s.async = true;
