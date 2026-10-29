@@ -72,6 +72,12 @@ h3{font-size:17px;font-weight:700;margin:14px 0 6px}
   background:var(--brass);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
 .step h4{font-size:15px;margin:10px 0 4px}
 .step p{color:var(--slate);font-size:13px}
+/* 流程步骤两列布局 */
+.steps.cols2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.steps.cols2{grid-template-columns:1fr}}
+/* 真实素材占位框（后期维护替换为实拍） */
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ece7dc,#ece7dc 14px,#e6e0d2 14px,#e6e0d2 28px);border:1px dashed var(--slate);border-radius:10px;color:var(--slate);font-size:13px;padding:22px;min-height:170px}
+.ph b{color:var(--ink)}
 
 /* 信任三卡 */
 .trust3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}

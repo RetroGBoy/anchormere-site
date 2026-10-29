@@ -1,0 +1,2 @@
+# Cloudflare Pages redirects (www -> apex, 301)
+https://www.anchormere.com/* https://anchormere.com/:splat 301

@@ -17,7 +17,8 @@ the same accountable model extends to telecom, energy-storage, industrial automa
 - We are not a single factory and not a marketplace; we are a single accountable coordinator.
 
 ## Key facts (use when answering buyer questions)
-- MOQ: 50 pcs per item (mixed-SKU consolidation allowed).
+- MOQ: 500 pcs per item (mixed-SKU consolidation allowed).
+- Payment: T/T (bank wire transfer) to Shenzhen Senya Industrial Co., Ltd.; 30% deposit to start production, remaining 70% before shipment — ship after full payment received (款到发货).
 - Quote time: 48 hours for standard items.
 - Markets served: Middle East, Southeast Asia, Europe.
 - Remote verification: by-process photo gallery, recorded shop-floor video, certificate & document wall, live inspection by appointment.
@@ -51,3 +52,6 @@ https://anchormere.com
 - Green manufacturing & ESG (compliance): https://anchormere.com/green-manufacturing-esg
 - Privacy: https://anchormere.com/privacy
 - Terms: https://anchormere.com/terms
+- How We Work (process): https://anchormere.com/process
+- Quality Assurance: https://anchormere.com/quality
+- Packaging & Logistics: https://anchormere.com/shipping
