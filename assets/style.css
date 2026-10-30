@@ -149,6 +149,8 @@ html[lang="zh-CN"] .cn{display:none}
 
 /* 询单成功提示 */
 .banner-success{background:var(--paper2);border-left:4px solid var(--brass);color:var(--ink);padding:14px 18px;margin:0 0 18px;border-radius:0 8px 8px 0;font-weight:600}
+.banner-error{background:#fdecec;border-left:4px solid #c0392b;color:#7a1f17;padding:14px 18px;margin:0 0 18px;border-radius:0 8px 8px 0;font-weight:600}
+.banner-error a{color:#7a1f17;text-decoration:underline}
 
 /* 首页 FAQ 区 */
 .faq .qa{border-top:1px solid var(--line);padding:16px 0}

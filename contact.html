@@ -51,9 +51,8 @@
 <div class="page-banner"><img src="assets/img/handshake.jpg" alt="Business handshake between buyer and supplier" loading="lazy"></div>
 <section class="l2"><div class="container">
   <div id="sent-banner" class="banner-success" style="display:none" data-zh="✅ 已收到您的询盘，工程师将在 48 小时内回复。">✅ Thank you — your inquiry is received. An engineer replies within 48h.</div>
-  <form class="card" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-    <input type="hidden" name="_subject" value="New RFQ from Anchormere site">
-    <input type="hidden" name="_next" value="https://anchormere.com/contact.html?sent=1">
+  <div id="error-banner" class="banner-error" style="display:none" data-zh="⚠️ 提交失败，请稍后重试，或直接发邮件至 info@anchormere.com / WhatsApp 联系。">⚠️ Submission failed — please try again, or email <a href="mailto:info@anchormere.com">info@anchormere.com</a> / WhatsApp us directly.</div>
+  <form class="card" action="/api/contact" method="POST">
     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <div class="form-grid">
       <div class="field"><label data-zh="姓名 *">Name *</label><input type="text" name="name" data-zh-attrs='{"placeholder":"您的姓名"}' placeholder="Your name" required></div>
@@ -105,6 +104,15 @@
 <a class="wa-float" href="https://wa.me/8619068984158" data-zh="💬 WhatsApp 咨询">💬 WhatsApp</a>
 <script defer src="assets/lang.js"></script>
 <script>
-  try { if (new URLSearchParams(location.search).get('sent') === '1') { var b=document.getElementById('sent-banner'); if(b) b.style.display='block'; } } catch(e){}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get('sent') === '1') {
+      var b = document.getElementById('sent-banner'); if (b) b.style.display = 'block';
+      if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'rfq_form' });
+    }
+    if (q.get('error') === '1') {
+      var eb = document.getElementById('error-banner'); if (eb) eb.style.display = 'block';
+    }
+  } catch (e) {}
 </script>
 </body></html>

@@ -2,7 +2,7 @@
  * 默认不加载任何第三方追踪；用户接受后才注入 GA4 与转化事件。
  * 如需启用分析，在 GA4_ID 填入你的测量 ID 即可；留空则完全不加载。 */
 (function () {
-  var GA4_ID = 'G-XXXXXXX'; // ← 替换为你的 GA4 测量 ID（如 G-ABC123XYZ）
+  var GA4_ID = 'G-EZE1LV2MRH'; // ← GA4 测量 ID（在 consent 接受后加载）
   var KEY = 'anm_consent';
   function track(name, params) {
     if (window.gtag) window.gtag('event', name, params || {});
