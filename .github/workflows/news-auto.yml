@@ -1,0 +1,39 @@
+name: Daily news digest
+
+on:
+  schedule:
+    # 01:00 UTC daily (~09:00 Beijing). GitHub may delay on the shared runner.
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}   # allows manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate daily digest
+        run: python3 scripts/news_digest.py
+
+      - name: Commit and push (only if changed)
+        run: |
+          git config user.name "Anchormere Bot"
+          git config user.email "ops@anchormere.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No new digest items today."
+          else
+            git commit -m "auto: daily news digest $(date -u +%F)"
+            git push
+          fi
