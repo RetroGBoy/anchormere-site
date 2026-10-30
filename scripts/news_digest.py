@@ -47,21 +47,45 @@ FEEDS = [
 ]
 
 # ---- Relevance keywords, grouped by product category ----
+# 聚焦：采购 / 大湾区 / 产品（OEM·PCBA·外壳·模组·整机）。
 KEYWORDS = {
     "consumer": ["smartphone", "phone", "tablet", "laptop", "wearable", "smartwatch",
                  "earbuds", "headphones", "display", "oled", "lcd", "battery", "charger",
-                 "usb", "pcb", "semiconductor", "chip", "electronics", "gadget", "camera",
-                 "speaker", "iot", "smart home", "appliance", "consumer tech", "mobile",
-                 "手机", "平板", "可穿戴", "消费电子", "半导体", "芯片", "显示", "智能硬件"],
+                 "usb", "pcb", "pcba", "semiconductor", "chip", "electronics",
+                 "speaker", "iot", "smart home", "appliance", "consumer tech",
+                 "手机", "平板", "可穿戴", "消费电子", "半导体", "芯片", "显示", "智能硬件", "模组"],
     "toys": ["toy", "robot", "drone", "educational", "kids", "children", "gaming",
-             "console", "ar/vr", "vr", "玩具", "机器人", "无人机", "教育硬件"],
-    "datacenter": ["data center", "data-centre", "server", "rack", "cabling",
-                   "数据中心", "服务器", "机柜"],
-    "ev": ["electric vehicle", "ev battery", "ev ", "新能源汽车", "电动车", "电池"],
+             "console", "ar/vr", "vr", "玩具", "机器人", "无人机", "教育硬件", "编程"],
+    "datacenter": ["data center", "data-centre", "server", "rack", "cabling", "edge",
+                   "数据中心", "服务器", "机柜", "算力"],
+    "ev": ["electric vehicle", "ev battery", "ev ", "新能源汽车", "电动车", "电池", "充电桩"],
     "gba": ["shenzhen", "greater bay", "guangdong", "china manufactur", "factory",
             "supply chain", "export", "tariff", "made in china", "china's",
-            "大湾区", "深圳", "广东", "制造", "供应链", "出口", "工厂"],
+            "大湾区", "深圳", "广东", "制造", "供应链", "出口", "工厂", "东莞", "长三角"],
+    # 采购/代工信号：命中即视为与买家采购高度相关
+    "procurement": ["sourcing", "oem", "odm", "contract manufacturer", "contract manufacturing",
+                    "manufactur", "assembly", "supplier", "suppliers", "production",
+                    "import", "trade war", "tariffs", "moq", "prototype",
+                    "采购", "代工", "制造", "工厂", "供应链", "出口", "关税", "贸易", "打样", "量产"],
 }
+
+# ---- Off-theme blocklist: 命中任一词即丢弃（与采购/制造无关的消费/娱乐/金融/政安新闻）----
+BLOCK = [
+    "fashion app", "stylish", "vrchat", "dating", "social media app", "influencer",
+    "streaming", "netflix", "spotify", "tiktok", "instagram", "snapchat", "tiktok shop",
+    "crypto", "bitcoin", "ethereum", "nft", "web3", "meme coin", "blockchain game",
+    "celebrity", "box office", "movie", "tv show", "album", "concert",
+    "restaurant", "recipe", "travel", "vacation", "sports", "football", "fashion week",
+    "makeup", "beauty", "skincare",
+    # 政安 / 法务 / 八卦噪声（与采购无关）
+    "spy", "investigation", "investigated", "lawsuit", "arrest", "indict",
+    "breach", "hacked", "fraud", "scam", "rumor", "leak", "layoff", "fired",
+    "bankrupt", "bribe", "corruption", "protest", "sanction",
+]
+
+# 命中后用于排序的权重：产品/采购类优先，泛科技靠后
+CAT_WEIGHT = {"consumer": 3, "toys": 3, "ev": 3, "datacenter": 2,
+              "procurement": 3, "gba": 2}
 
 CATEGORY_TARGET = {
     "consumer": ("consumer-smart-electronics.html", "consumer &amp; smart electronics", "消费与智能电子"),
@@ -69,8 +93,9 @@ CATEGORY_TARGET = {
     "datacenter": ("rack-accessories.html", "rack accessories", "机架配件"),
     "ev": ("supply-base.html", "Greater Bay Area supply base", "大湾区供应基地"),
     "gba": ("supply-base.html", "Greater Bay Area supply base", "大湾区供应基地"),
+    "procurement": ("supply-base.html", "Greater Bay Area supply base", "大湾区供应基地"),
 }
-PRIMARY_ORDER = ["consumer", "toys", "datacenter", "ev", "gba"]
+PRIMARY_ORDER = ["consumer", "toys", "datacenter", "ev", "procurement", "gba"]
 
 FRAMING = {
     "consumer": {
@@ -183,6 +208,7 @@ CATEGORY_LABELS = {
     "datacenter": ("data-center hardware", "数据中心硬件"),
     "ev": ("EV & battery", "电动车与电池"),
     "gba": ("Greater Bay Area supply", "大湾区供应链"),
+    "procurement": ("sourcing & procurement", "采购与供应链"),
 }
 
 STATIC_KEYWORDS = ["Anchormere", "China sourcing", "Greater Bay Area",
@@ -475,11 +501,14 @@ def main():
         items.extend(fetch_feed(feed))
     print(f"  collected {len(items)} raw items")
 
-    # filter relevance + recency + dedup
+    # filter relevance + recency + dedup + off-theme blocklist
     candidates = []
     for it in items:
         cats = categorize(it)
         if not cats:
+            continue
+        blob = (it["title"] + " " + it["summary"]).lower()
+        if any(b in blob for b in BLOCK):
             continue
         if it["link"] in posted:
             continue
@@ -488,10 +517,11 @@ def main():
             if age > MAX_AGE_DAYS:
                 continue
         it["cats"] = cats
+        it["score"] = sum(CAT_WEIGHT.get(c, 0) for c in cats)
         candidates.append(it)
 
-    # sort by recency (unknown dates last), take top N
-    candidates.sort(key=lambda x: x["pub"] or datetime.datetime.min, reverse=True)
+    # rank: procurement/product relevance first, then recency
+    candidates.sort(key=lambda x: (x["score"], x["pub"] or datetime.datetime.min), reverse=True)
     chosen = candidates[:MAX_POSTS_PER_RUN]
 
     print(f"  {len(chosen)} items selected for publishing")

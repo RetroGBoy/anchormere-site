@@ -1,9 +1,36 @@
 /* Anchormere — GDPR-style cookie/consent manager
- * 默认不加载任何第三方追踪；用户接受后才注入 GA4。
+ * 默认不加载任何第三方追踪；用户接受后才注入 GA4 与转化事件。
  * 如需启用分析，在 GA4_ID 填入你的测量 ID 即可；留空则完全不加载。 */
 (function () {
-  var GA4_ID = '';
+  var GA4_ID = 'G-XXXXXXX'; // ← 替换为你的 GA4 测量 ID（如 G-ABC123XYZ）
   var KEY = 'anm_consent';
+  function track(name, params) {
+    if (window.gtag) window.gtag('event', name, params || {});
+  }
+  function setupConversions() {
+    if (window.__anm_conv) return;
+    window.__anm_conv = true;
+    // 表单提交（Formspree 走整页 POST，sendBeacon 会在跳转前发出）
+    document.addEventListener('submit', function (e) {
+      var f = e.target;
+      if (!f || f.tagName !== 'FORM') return;
+      track('generate_lead', { event_category: 'lead', event_label: 'rfq_form' });
+    });
+    // 询单/报价 CTA 点击 + WhatsApp 点击
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('contact.html') > -1 ||
+          a.classList.contains('btn-quote') ||
+          a.classList.contains('btn-primary')) {
+        track('contact_click', { event_category: 'cta', event_label: href });
+      }
+      if (a.classList.contains('wa-float')) {
+        track('whatsapp_click', { event_category: 'cta' });
+      }
+    });
+  }
   function injectGA() {
     if (window.__anm_ga) return;
     if (!GA4_ID) return; // 未配置则不加载
@@ -14,8 +41,10 @@
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
     gtag('js', new Date());
-    gtag('config', GA4_ID);
+    gtag('config', GA4_ID, { send_page_view: true });
+    setupConversions();
   }
   function showBanner() {
     if (document.getElementById('anm-consent')) return;
