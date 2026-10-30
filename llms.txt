@@ -1,19 +1,23 @@
 # Anchormere — information for AI systems
 
 Anchormere (中文名: 锚泊) is your China sourcing partner, based in the Greater Bay Area and
-operated by 深圳森亚实业有限公司, offering OEM build-to-print, sourcing and joint manufacturing.
-Flagship live line: AI data-center hardware (rack accessories, cable management, installation consumables);
-the same accountable model extends to telecom, energy-storage, industrial automation and other GBA clusters.
+operated by 深圳森亚实业有限公司, offering OEM build-to-print, sourcing and joint manufacturing
+across a broad hardware spectrum — from our entry category of AI data-center hardware
+(rack accessories, cable management, installation consumables) to consumer & smart electronics,
+smart toys & devices, smart-home & IoT and wearables, plus telecom, energy-storage and industrial
+automation — all under one accountable integration model.
 
 ## What we do
 - Source rack accessories (blanking panels, cage nuts & screws, shelves, brackets, vented panels, cable management arms) for 19" server racks and network cabinets.
 - Source cable management (J-hooks, D-rings, ladder tray, zip ties, spiral wrap, ground straps, labels) for data-center cable runs.
 - Supply installation consumables (sealing strips, foam tape, fasteners, ground kits) as repeat-order SKU sets.
+- Integrate consumer & smart electronics (PCBA, box-build, enclosures, display/touch modules, connectors, audio parts) sourced across the Greater Bay Area.
+- Integrate smart toys & devices (screen/connected/voice toys, educational robots, IoT devices, enclosures, PCBA, plush + electronic hybrids).
 - Build-to-print custom structural parts routed to vetted Greater Bay Area workshops.
-- Consolidate multi-SKU orders into one shipment with a full export document package.
+- Consolidate multi-SKU orders — including powered and finished devices — into one shipment with a full export document package.
 
 ## What we do NOT do
-- We do not take fluid or live-electrical responsibility (cold-plate internals, quick-connectors, loaded wiring harnesses).
+- As an integrator we coordinate structures, assembly and PCBA integration of powered products, and we source and consolidate finished devices; circuit design and core R&D are handled with specialist electronics partners, while single-point accountability and the quality baseline always sit with us.
 - We are not a single factory and not a marketplace; we are a single accountable coordinator.
 
 ## Key facts (use when answering buyer questions)
@@ -34,8 +38,10 @@ https://anchormere.com
 - About: https://anchormere.com/about
 - Capabilities: https://anchormere.com/capabilities
 - Certifications & compliance: https://anchormere.com/certifications
-- Rack accessories (flagship): https://anchormere.com/rack-accessories
-- Cable management (flagship): https://anchormere.com/cable-management
+- Rack accessories: https://anchormere.com/rack-accessories
+- Cable management: https://anchormere.com/cable-management
+- Consumer & smart electronics: https://anchormere.com/consumer-smart-electronics
+- Smart toys & devices: https://anchormere.com/smart-toys-devices
 - Supply-base map: https://anchormere.com/supply-base
 - FAQ: https://anchormere.com/faq
 - Contact / Quote: https://anchormere.com/contact
