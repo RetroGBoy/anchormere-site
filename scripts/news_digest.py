@@ -20,6 +20,7 @@ import datetime
 from email.utils import parsedate_to_datetime
 import urllib.request
 import urllib.error
+import urllib.parse
 import xml.etree.ElementTree as ET
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -98,6 +99,124 @@ FRAMING = {
 def local(tag):
     """Return an element's local name ignoring any XML namespace."""
     return tag.rsplit("}", 1)[-1]
+
+
+# ---- Translation: DeepL (if TRANSLATE_KEY set) else keyless best-effort ----
+def _translate_deepl(text, src, tgt, key):
+    """DeepL Free API. src/tgt are 'en'/'zh-CN'."""
+    src_d = "EN" if src == "en" else "ZH"
+    tgt_d = "ZH" if tgt == "zh-CN" else "EN"
+    try:
+        url = "https://api-free.deepl.com/v2/translate"
+        body = urllib.parse.urlencode({
+            "text": text[:500],
+            "source_lang": src_d,
+            "target_lang": tgt_d,
+        }).encode("utf-8")
+        req = urllib.request.Request(url, data=body, headers={
+            "Authorization": f"DeepL-Auth-Key {key}",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": UA,
+        })
+        with urllib.request.urlopen(req, timeout=15) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+        out = resp.get("translations", [{}])[0].get("text", "")
+        if out:
+            return out.strip()
+    except Exception as e:
+        print(f"    (translate deepl failed: {e})")
+    return ""
+
+
+def translate(text, src, tgt):
+    """Translate text; return original on any failure (graceful degradation)."""
+    text = (text or "").strip()
+    if not text:
+        return text
+    key = os.environ.get("TRANSLATE_KEY")
+    if key:
+        out = _translate_deepl(text, src, tgt, key)
+        if out:
+            return out
+        print("    (no DeepL result; falling back to keyless)")
+    # Keyless best-effort (flaky on CI shared IPs; kept only as last resort)
+    q = urllib.parse.quote(text[:500])
+    try:
+        url = (f"https://translate.googleapis.com/translate_a/single"
+               f"?client=gtx&sl={src}&tl={tgt}&dt=t&q={q}")
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        parts = [seg[0] for seg in data[0] if seg and seg[0]]
+        out = "".join(parts).strip()
+        if out:
+            return out
+    except Exception:
+        pass
+    try:
+        url = f"https://api.mymemory.translated.net/get?q={q}&langpair={src}|{tgt}"
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        out = data.get("responseData", {}).get("translatedText", "")
+        if out and "MYMEMORY WARNING" not in out:
+            return out.strip()
+    except Exception:
+        pass
+    return text
+
+
+def make_titles(item):
+    """Return (en_title, zh_title), translating the missing language."""
+    if item.get("lang") == "zh":
+        zh = item["title"].strip()
+        en = translate(zh, "zh-CN", "en")
+        return en, zh
+    en = item["title"].strip()
+    zh = translate(en, "en", "zh-CN")
+    return en, zh
+
+
+CATEGORY_LABELS = {
+    "consumer": ("consumer electronics", "消费电子"),
+    "toys": ("smart toys & devices", "智能玩具与设备"),
+    "datacenter": ("data-center hardware", "数据中心硬件"),
+    "ev": ("EV & battery", "电动车与电池"),
+    "gba": ("Greater Bay Area supply", "大湾区供应链"),
+}
+
+STATIC_KEYWORDS = ["Anchormere", "China sourcing", "Greater Bay Area",
+                   "Shenzhen manufacturing", "中国采购", "大湾区",
+                   "深圳制造", "OEM", "export docs", "PCBA"]
+
+
+def matched_terms(item, cats):
+    blob = (item["title"] + " " + item["summary"]).lower()
+    seen, out = set(), []
+    for c in cats:
+        for k in KEYWORDS[c]:
+            k = k.strip()
+            if k and k in blob and k not in seen:
+                seen.add(k)
+                out.append(k)
+    return out
+
+
+def build_keywords(item, cats):
+    kws = []
+    for c in cats:
+        en, zh = CATEGORY_LABELS.get(c, (c, c))
+        kws.append(en)
+        kws.append(zh)
+    kws.extend(matched_terms(item, cats))
+    kws.extend(STATIC_KEYWORDS)
+    seen, out = set(), []
+    for k in kws:
+        k = k.strip()
+        if k and k.lower() not in seen:
+            seen.add(k.lower())
+            out.append(k)
+    return ", ".join(out[:24])
 
 
 def load_state():
@@ -197,7 +316,7 @@ def slugify(text):
     return text[:50] or "update"
 
 
-def build_post(item, cats, today):
+def build_post(item, cats, today, title_en, title_zh):
     primary = next((c for c in PRIMARY_ORDER if c in cats), "gba")
     t, a_en, a_zh = CATEGORY_TARGET[primary]
     en_why = FRAMING[primary]["en"].format(t=t, a=a_en)
@@ -209,14 +328,17 @@ def build_post(item, cats, today):
         gba_extra_en = " See how it connects to the wider <a href='supply-base.html'>Greater Bay Area supply base</a>."
         gba_extra_zh = "了解它与更广阔的<a href='supply-base.html'>大湾区供应基地</a>如何关联。"
 
-    headline = html.escape(html.unescape(item["title"]))
+    en_title = html.escape(html.unescape(title_en))
+    zh_title = html.escape(html.unescape(title_zh))
     src_title = html.escape(html.unescape(item["title"]))
     src_name = html.escape(item["source"])
     src_url = html.escape(item["link"])
+    keywords = build_keywords(item, cats)
+    kw_esc = html.escape(keywords)
 
-    en_lead = (f"Anchormere's digest bot is tracking “{headline}” and what it signals "
+    en_lead = (f"Anchormere's digest bot is tracking “{en_title}” and what it signals "
                f"for overseas buyers who source through the Greater Bay Area.{gba_extra_en}")
-    zh_lead = (f"Anchormere 摘要机器人正在追踪「{headline}」，以及它对经由大湾区采购的"
+    zh_lead = (f"Anchormere 摘要机器人正在追踪「{zh_title}」，以及它对经由大湾区采购的"
                f"海外买家的信号意义。{gba_extra_zh}")
 
     slug = slugify(item["title"])
@@ -230,7 +352,8 @@ def build_post(item, cats, today):
 
     json_ld = json.dumps({
         "@context": "https://schema.org", "@type": "Article",
-        "headline": html.unescape(item["title"]),
+        "headline": title_en,
+        "keywords": keywords,
         "datePublished": today.strftime("%Y-%m-%d"),
         "author": {"@type": "Organization", "name": "Anchormere"},
         "publisher": {"@type": "Organization", "name": "Anchormere"},
@@ -240,20 +363,22 @@ def build_post(item, cats, today):
 
     html_doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{headline} | Anchormere</title>
-<meta name="title-zh" content="{headline}">
+<title>{en_title} | Anchormere</title>
+<meta name="title-zh" content="{zh_title}">
+<meta name="keywords" content="{kw_esc}">
 <meta name="description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <link rel="canonical" href="{SITE}/{filename}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="{headline}">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:title" content="{en_title}">
 <meta property="og:description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <meta property="og:url" content="{SITE}/{filename}">
 <meta property="og:image" content="{SITE}/assets/img/warehouse.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{headline}">
+<meta name="twitter:title" content="{en_title}">
 <meta name="twitter:description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <meta name="twitter:image" content="{SITE}/assets/img/warehouse.jpg">
 <link rel="stylesheet" href="assets/style.css">
@@ -276,9 +401,9 @@ def build_post(item, cats, today):
   <a class="btn-quote" href="contact.html" data-zh="获取报价">Get a Quote</a>
 </div></nav>
 <section class="l1"><div class="container">
-  <div class="crumb"><a href="index.html" data-zh="首页">Home</a> / <a href="news.html" data-zh="资讯动态">News</a> / <span>{headline}</span></div>
+  <div class="crumb"><a href="index.html" data-zh="首页">Home</a> / <a href="news.html" data-zh="资讯动态">News</a> / <span data-zh="{zh_title}">{en_title}</span></div>
   <div class="eyebrow" data-zh="自动摘要 · {today.strftime('%Y-%m-%d')}">Auto digest · {today.strftime('%Y-%m-%d')}</div>
-  <h1 data-zh="{headline}">{headline}</h1>
+  <h1 data-zh="{zh_title}">{en_title}</h1>
   <p class="lead">{en_lead}</p>
   <p class="cn">{zh_lead}</p>
   <h2 data-zh="为何关乎买家">Why it matters for buyers</h2>
@@ -313,15 +438,16 @@ def build_post(item, cats, today):
     return filename, html_doc
 
 
-def update_index(filename, item, cats, today):
+def update_index(filename, item, cats, today, title_en, title_zh):
     with open(NEWS_INDEX, encoding="utf-8") as f:
         idx = f.read()
-    headline = html.escape(html.unescape(item["title"]))
+    headline = html.escape(html.unescape(title_en))
+    headline_zh = html.escape(html.unescape(title_zh))
     en_blurb = "Daily auto-digest: what this development means for sourcing through the Greater Bay Area."
     zh_blurb = "每日自动摘要：这一动向对经由大湾区采购意味着什么。"
     card = f"""    <div class="card">
       <div style="font-size:12px;color:var(--brass);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px" data-zh="自动摘要 · {today.strftime('%Y-%m-%d')}">Auto digest · {today.strftime('%Y-%m-%d')}</div>
-      <h3 data-zh="{headline}">{headline}</h3>
+      <h3 data-zh="{headline_zh}">{headline}</h3>
       <p data-zh="{zh_blurb}">{en_blurb}</p>
       <a href="{filename}" data-zh="阅读全文 →">Read more →</a>
     </div>
@@ -371,10 +497,11 @@ def main():
     print(f"  {len(chosen)} items selected for publishing")
     generated = []
     for it in chosen:
-        filename, doc = build_post(it, it["cats"], today)
+        title_en, title_zh = make_titles(it)
+        filename, doc = build_post(it, it["cats"], today, title_en, title_zh)
         with open(os.path.join(ROOT, filename), "w", encoding="utf-8") as f:
             f.write(doc)
-        update_index(filename, it, it["cats"], today)
+        update_index(filename, it, it["cats"], today, title_en, title_zh)
         posted.add(it["link"])
         generated.append((filename, it["title"], it["cats"]))
         print(f"  + {filename}  [{','.join(it['cats'])}]  {it['title'][:60]}")

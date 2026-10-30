@@ -24,6 +24,8 @@ jobs:
           python-version: "3.11"
 
       - name: Generate daily digest
+        env:
+          TRANSLATE_KEY: ${{ secrets.TRANSLATE_KEY }}
         run: python3 scripts/news_digest.py
 
       - name: Commit and push (only if changed)
