@@ -575,7 +575,7 @@ SECTION_INDEX = '''<section class="l1"><div class="container">
   <h1 data-zh="大湾区贸易与供应链动态">Greater Bay Area trade &amp; supply-chain signals</h1>
     <p class="cn">大湾区贸易与供应链动态</p>
   <p class="lead" data-zh="来自区域制造基地的活动、产业带动向与采购信号——专为通过大湾区采购的海外买家撰写。">Events, cluster moves and sourcing signals from the region's manufacturing base — written for overseas buyers who source through the Greater Bay Area.</p>
-  <div class="page-banner"><img src="assets/img/office-team.jpg" alt="Trade team tracking Greater Bay Area supply-chain signals" loading="lazy"></div>
+  <div class="page-banner"><picture><source srcset="assets/img/office-team.webp" type="image/webp"><img src="assets/img/office-team.jpg" alt="Trade team tracking Greater Bay Area supply-chain signals" loading="lazy"></picture></div>
   <div class="grid grid-3">
 {CARDS}
   </div>

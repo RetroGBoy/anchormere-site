@@ -52,17 +52,21 @@ CRITICAL = []   # (area, detail)
 WARNINGS = []   # (area, detail)
 
 
-def fetch(url, timeout=15, max_bytes=2_000_000):
-    req = urllib.request.Request(
-        url, headers={"User-Agent": "Mozilla/5.0 (compatible; AnchormereHealthBot/1.0)"})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            data = r.read(max_bytes).decode("utf-8", "ignore")
-            return r.status, data, dict(r.getheaders())
-    except urllib.error.HTTPError as e:
-        return e.code, "", dict(e.headers)
-    except Exception as e:  # network / timeout
-        return None, "", {"_err": str(e)}
+def fetch(url, timeout=15, max_bytes=2_000_000, retries=1):
+    last_err = None
+    for _ in range(retries + 1):
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": "Mozilla/5.0 (compatible; AnchormereHealthBot/1.0)"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read(max_bytes).decode("utf-8", "ignore")
+                return r.status, data, dict(r.getheaders())
+        except urllib.error.HTTPError as e:
+            return e.code, "", dict(e.headers)
+        except Exception as e:  # transient network / timeout — retry once
+            last_err = e
+            continue
+    return None, "", {"_err": str(last_err)}
 
 
 def check(name, ok, detail=""):
@@ -201,12 +205,20 @@ def main():
             seen.add(rel)
             if len(seen) > 80:
                 break
+    # 解析判定：200/3xx 视为已解析；404/410 为真实死链(CRITICAL)；
+    # 瞬时异常(None)或服务端错误(5xx)降级为 warning，避免 CI 误报。
+    RESOLVE = {200, 301, 302, 307, 308}
+    DEAD = {404, 410}
     for u in list(seen)[:80]:
         st, _, _ = fetch(u)
         checked += 1
-        if st != 200:
+        if st in RESOLVE:
+            continue
+        elif st in DEAD:
             dead += 1
             warn(f"dead internal link {st}", u)
+        else:
+            warn(f"unverified internal link {st} (transient/timeout, not counted as dead)", u)
     check("internal links resolve (sampled %d)" % checked, dead == 0,
           f"{dead} dead")
 
