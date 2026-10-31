@@ -28,6 +28,9 @@ jobs:
           TRANSLATE_KEY: ${{ secrets.TRANSLATE_KEY }}
         run: python3 scripts/news_digest.py
 
+      - name: Rebuild sitemap (index cap + archive pages)
+        run: python3 scripts/build_sitemap.py
+
       - name: Commit and push (only if changed)
         run: |
           git config user.name "Anchormere Bot"

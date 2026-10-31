@@ -464,30 +464,242 @@ def build_post(item, cats, today, title_en, title_zh):
     return filename, html_doc
 
 
-def update_index(filename, item, cats, today, title_en, title_zh):
-    with open(NEWS_INDEX, encoding="utf-8") as f:
-        idx = f.read()
-    headline = html.escape(html.unescape(title_en))
-    headline_zh = html.escape(html.unescape(title_zh))
-    en_blurb = "Daily auto-digest: what this development means for sourcing through the Greater Bay Area."
-    zh_blurb = "每日自动摘要：这一动向对经由大湾区采购意味着什么。"
-    card = f"""    <div class="card">
-      <div style="font-size:12px;color:var(--brass);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px" data-zh="自动摘要 · {today.strftime('%Y-%m-%d')}">Auto digest · {today.strftime('%Y-%m-%d')}</div>
-      <h3 data-zh="{headline_zh}">{headline}</h3>
-      <p data-zh="{zh_blurb}">{en_blurb}</p>
-      <a href="{filename}" data-zh="阅读全文 →">Read more →</a>
-    </div>
-"""
-    marker = '<div class="grid grid-3">'
-    if marker in idx:
-        idx = idx.replace(marker, marker + "\n" + card, 1)
+# ---- Index / archive management (bounded growth) ----
+# /news shows only the latest MAX_INDEX_CARDS; older posts are paginated into
+# news-archive.html, news-archive-2.html, ... so no single page grows forever.
+MAX_INDEX_CARDS = 48
+ARCHIVE_PAGE_SIZE = 48
+
+EN_BLURB = "Daily auto-digest: what this development means for sourcing through the Greater Bay Area."
+ZH_BLURB = "每日自动摘要：这一动向对经由大湾区采购意味着什么。"
+
+TOPBAR_NAV = '''<div class="topbar"><span data-zh="⚓ <b>48 小时报价</b>">⚓ <b>48h quote</b></span><span data-zh="🏭 <b>20+ 家认证工厂</b>">🏭 <b>20+ vetted factories</b></span><span data-zh="📦 <b>500 件起订</b>">📦 <b>500 pcs MOQ</b></span><span data-zh="📑 <b>完整出口单证</b>">📑 <b>Full export docs</b></span></div>
+<nav class="mainnav"><div class="container">
+  <div class="brand" data-zh="Anchormere <small>锚泊 · 中国采购合作伙伴</small>">Anchormere <small>锚泊 · 中国采购合作伙伴</small></div>
+  <a class="nav" href="index.html" data-zh="首页">Home</a><a class="nav" href="rack-accessories.html" data-zh="机架配件">Rack Accessories</a>
+  <a class="nav" href="cable-management.html" data-zh="线缆管理">Cable Mgmt</a><a class="nav" href="consumer-smart-electronics.html" data-zh="消费与智能电子">Consumer</a><a class="nav" href="smart-toys-devices.html" data-zh="智能玩具与设备">Toys &amp; Devices</a><a class="nav" href="capabilities.html" data-zh="供应能力">Capabilities</a>
+  <a class="nav" href="certifications.html" data-zh="认证说明">Certifications</a>
+  <a class="nav" href="about.html" data-zh="关于我们">About</a>  <a class="nav" href="faq.html" data-zh="常见问题">FAQ</a>
+  <a class="nav" href="supply-base.html" data-zh="供应基地">Supply Base</a>
+  <a class="nav" href="news.html" data-zh="资讯动态">News</a>
+  <a class="btn-quote" href="contact.html" data-zh="获取报价">Get a Quote</a>
+</div></nav>'''
+
+FOOTER = '''<footer><div class="container">
+  <div class="cols">
+    <div><h4 data-zh="Anchormere 锚泊 · 中国采购合作伙伴">Anchormere 锚泊 · 中国采购合作伙伴</h4><ul><li data-zh="中国采购合作伙伴 · OEM · 采购 · 联合制造 · 大湾区">China sourcing partner · OEM · sourcing · joint manufacturing · Greater Bay Area</li><li data-zh="中国 · 大湾区">Greater Bay Area, China</li><li>中国广东深圳市光明区特发工业园B座</li></ul></div>
+    <div><h4 data-zh="产品">Products</h4><ul><li><a href="rack-accessories.html" data-zh="机架配件">Rack Accessories</a></li><li><a href="cable-management.html" data-zh="线缆管理">Cable Management</a></li><li><a href="consumer-smart-electronics.html" data-zh="消费与智能电子">Consumer &amp; Smart Electronics</a></li><li><a href="smart-toys-devices.html" data-zh="智能玩具与设备">Smart Toys &amp; Devices</a></li><li><a href="supply-base.html" data-zh="供应基地">Supply Base</a></li></ul></div>
+    <div><h4 data-zh="公司">Company</h4><ul><li><a href="about.html" data-zh="关于我们">About</a></li><li><a href="capabilities.html" data-zh="供应能力">Capabilities</a></li><li><a href="certifications.html" data-zh="认证说明">Certifications</a></li><li><a href="faq.html" data-zh="常见问题">FAQ</a></li>
+      <li><a href="process.html" data-zh="合作流程">Process</a></li><li><a href="quality.html" data-zh="品质管控">Quality</a></li><li><a href="shipping.html" data-zh="包装物流">Shipping</a></li></ul></div>
+    <div><h4 data-zh="法律">Legal</h4><ul><li data-zh="运营主体：深圳森亚实业有限公司（Shenzhen Senya Industrial Co., Ltd.）">Operator: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.)</li><li data-zh="商标：Anchormere / Buyeex">Trade mark: Anchormere / Buyeex</li></ul></div>
+  </div>
+  <p style="margin-top:20px;text-align:center;color:var(--on-dark2)" data-zh="© 2026 Anchormere · 由深圳森亚实业有限公司运营">© 2026 Anchormere · Operated by 深圳森亚实业有限公司</p>
+  <p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：{LAST}">Last updated: {LAST}</p>
+</div><p style="text-align:center;margin-top:10px;font-size:12px"><a href="privacy.html" data-zh="隐私政策">Privacy Policy</a> · <a href="terms.html" data-zh="服务条款">Terms &amp; Conditions</a></p>
+</footer>
+<a class="wa-float" href="https://wa.me/8619068984158" data-zh="💬 WhatsApp 咨询">💬 WhatsApp</a>'''
+
+TAIL = '''<script defer src="assets/lang.js"></script>
+</body></html>'''
+
+HEAD_INDEX = '''<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News &amp; Insights | Anchormere</title>
+<meta name="title-zh" content="资讯与洞察 | Anchormere 锚泊">
+<meta name="description" content="Greater Bay Area supply-chain and trade insights for overseas buyers — events, clusters and sourcing signals from the region's manufacturing base.">
+<meta name="desc-zh" content="面向海外买家的大湾区供应链与贸易洞察——来自区域制造基地的活动、产业带与采购信号。">
+<link rel="canonical" href="https://anchormere.com/news">
+<link rel="alternate" hreflang="en" href="https://anchormere.com/news">
+<link rel="alternate" hreflang="zh-CN" href="https://anchormere.com/news">
+<link rel="alternate" hreflang="x-default" href="https://anchormere.com/news">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anchormere">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="News &amp; Insights | Anchormere">
+<meta property="og:description" content="Greater Bay Area supply-chain and trade insights for overseas buyers — events, clusters and sourcing signals from the region&#x27;s manufacturing base.">
+<meta property="og:url" content="https://anchormere.com/news">
+<meta property="og:image" content="https://anchormere.com/assets/img/office-team.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="News &amp; Insights | Anchormere">
+<meta name="twitter:description" content="Greater Bay Area supply-chain and trade insights for overseas buyers — events, clusters and sourcing signals from the region&#x27;s manufacturing base.">
+<meta name="twitter:image" content="https://anchormere.com/assets/img/office-team.jpg">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/consent.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere", "alternateName": "锚泊", "url": "https://anchormere.com", "email": "Anchormere@gmail.com", "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"}, "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.", "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "News & Insights", "item": "https://anchormere.com/news"}]}</script>
+<script defer src="assets/consent.js"></script>
+</head><body>
+'''
+
+HEAD_ARCHIVE = '''<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Archive{PAGE_TITLE} | Anchormere</title>
+<meta name="title-zh" content="资讯归档{PAGE_TITLE_ZH} | Anchormere 锚泊">
+<meta name="description" content="Archived Greater Bay Area supply-chain and trade insights for overseas buyers.">
+<meta name="desc-zh" content="面向海外买家的大湾区供应链与贸易洞察归档。">
+<link rel="canonical" href="https://anchormere.com/{CANON}">
+<link rel="alternate" hreflang="en" href="https://anchormere.com/{CANON}">
+<link rel="alternate" hreflang="zh-CN" href="https://anchormere.com/{CANON}">
+<link rel="alternate" hreflang="x-default" href="https://anchormere.com/{CANON}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Anchormere">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="News Archive | Anchormere">
+<meta property="og:description" content="Archived Greater Bay Area supply-chain and trade insights for overseas buyers.">
+<meta property="og:url" content="https://anchormere.com/{CANON}">
+<meta property="og:image" content="https://anchormere.com/assets/img/office-team.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="News Archive | Anchormere">
+<meta name="twitter:description" content="Archived Greater Bay Area supply-chain and trade insights for overseas buyers.">
+<meta name="twitter:image" content="https://anchormere.com/assets/img/office-team.jpg">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/consent.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "News", "item": "https://anchormere.com/news"}, {"@type": "ListItem", "position": 3, "name": "Archive", "item": "https://anchormere.com/{CANON}"}]}</script>
+<script defer src="assets/consent.js"></script>
+</head><body>
+'''
+
+SECTION_INDEX = '''<section class="l1"><div class="container">
+  <div class="crumb"><a href="index.html" data-zh="首页">Home</a> / <span data-zh="资讯动态">News</span></div>
+  <div class="eyebrow" data-zh="资讯与洞察">News &amp; Insights</div>
+  <h1 data-zh="大湾区贸易与供应链动态">Greater Bay Area trade &amp; supply-chain signals</h1>
+    <p class="cn">大湾区贸易与供应链动态</p>
+  <p class="lead" data-zh="来自区域制造基地的活动、产业带动向与采购信号——专为通过大湾区采购的海外买家撰写。">Events, cluster moves and sourcing signals from the region's manufacturing base — written for overseas buyers who source through the Greater Bay Area.</p>
+  <div class="page-banner"><img src="assets/img/office-team.jpg" alt="Trade team tracking Greater Bay Area supply-chain signals" loading="lazy"></div>
+  <div class="grid grid-3">
+{CARDS}
+  </div>
+{ARCHIVE_NOTE}
+</div></section>
+'''
+
+SECTION_ARCHIVE = '''<section class="l1"><div class="container">
+  <div class="crumb"><a href="index.html" data-zh="首页">Home</a> / <a href="news.html" data-zh="资讯动态">News</a> / <span data-zh="归档">Archive</span></div>
+  <div class="eyebrow" data-zh="历史归档">Archived insights</div>
+  <h1 data-zh="资讯归档{PAGE_H1}">News Archive{PAGE_H1}</h1>
+  <p class="lead" data-zh="面向海外买家的大湾区供应链与贸易历史信号归档。">Older Greater Bay Area supply-chain and trade signals for overseas buyers.</p>
+  <div class="grid grid-3">
+{CARDS}
+  </div>
+  <nav class="pager" style="margin-top:24px;text-align:center">{PAGER}</nav>
+</div></section>
+'''
+
+INDEX_TEMPLATE = HEAD_INDEX + TOPBAR_NAV + SECTION_INDEX + FOOTER + TAIL
+ARCHIVE_TEMPLATE = HEAD_ARCHIVE + TOPBAR_NAV + SECTION_ARCHIVE + FOOTER + TAIL
+
+NOTE_EMPTY = (
+    '  <p style="margin-top:18px;color:var(--slate);font-size:14px" '
+    'data-zh="随着大湾区供应基地的变化，更多洞察持续更新。<a href=\'contact.html\'>开启询盘 →</a>">'
+    'More insights as the GBA supply base moves. <a href="contact.html">Open an inquiry →</a></p>'
+)
+ARCHIVE_NOTE_TEMPLATE = (
+    '  <p style="margin-top:18px;color:var(--slate);font-size:14px" '
+    'data-zh="共 {n} 篇历史资讯已归档。<a href=\'news-archive.html\'>浏览全部归档 →</a>">'
+    'Older posts archived. <a href="news-archive.html">Browse all {n} archived posts →</a></p>'
+)
+
+
+def scan_articles():
+    """Return all dated news posts (newest first): {filename, date, en, zh}."""
+    arts = []
+    for fn in os.listdir(ROOT):
+        if not (fn.startswith("news-20") and fn.endswith(".html")):
+            continue
+        m = re.search(r"news-(\d{4}-\d{2}-\d{2})-", fn)
+        if not m:
+            continue
+        date = m.group(1)
+        t = open(os.path.join(ROOT, fn), encoding="utf-8", errors="ignore").read()
+        em = re.search(r"<title>(.*?)\s*\|\s*Anchormere</title>", t, re.S)
+        en = html.unescape(em.group(1).strip()) if em else fn
+        zm = re.search(r'<meta name="title-zh" content="(.*?)"', t, re.S)
+        zh = html.unescape(zm.group(1).strip()) if zm else en
+        arts.append({"filename": fn, "date": date, "en": en, "zh": zh})
+    arts.sort(key=lambda a: (a["date"], a["filename"]), reverse=True)
+    return arts
+
+
+def card_html(art):
+    headline = html.escape(art["en"], quote=False)
+    headline_zh = html.escape(art["zh"], quote=True)
+    return (
+        '    <div class="card">\n'
+        '      <div style="font-size:12px;color:var(--brass);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px" data-zh="自动摘要 · '
+        + art["date"] + '">Auto digest · ' + art["date"] + '</div>\n'
+        '      <h3 data-zh="' + headline_zh + '">' + headline + '</h3>\n'
+        '      <p data-zh="' + ZH_BLURB + '">' + EN_BLURB + '</p>\n'
+        '      <a href="' + art["filename"] + '" data-zh="阅读全文 →">Read more →</a>\n'
+        '    </div>\n'
+    )
+
+
+def build_pager(p, n, prev_link, next_link):
+    parts = []
+    if prev_link:
+        parts.append('<a class="pg" href="' + prev_link + '" data-zh="← 更新的文章">← Newer posts</a>')
     else:
-        print("  ! news.html grid marker not found; skipping index update")
-    # refresh Last updated dates
-    idx = idx.replace("Last updated: 2026-10-29", f"Last updated: {today.strftime('%Y-%m-%d')}")
-    idx = idx.replace("最后更新：2026-10-29", f"最后更新：{today.strftime('%Y-%m-%d')}")
+        parts.append('<span class="pg pg-disabled" data-zh="← 更新的文章">← Newer posts</span>')
+    parts.append('<span class="pg-cur" data-zh="第 ' + str(p) + ' / ' + str(n) + ' 页">Page ' + str(p) + ' of ' + str(n) + '</span>')
+    if next_link:
+        parts.append('<a class="pg" href="' + next_link + '" data-zh="更早的文章 →">Older posts →</a>')
+    else:
+        parts.append('<span class="pg pg-disabled" data-zh="更早的文章 →">Older posts →</span>')
+    return " ".join(parts)
+
+
+def rebuild_indexes(today):
+    """Cap /news at MAX_INDEX_CARDS and paginate the rest into archive pages."""
+    arts = scan_articles()
+    index_arts = arts[:MAX_INDEX_CARDS]
+    archive_arts = arts[MAX_INDEX_CARDS:]
+    last = today.strftime("%Y-%m-%d")
+
+    note = ARCHIVE_NOTE_TEMPLATE.format(n=len(archive_arts)) if archive_arts else NOTE_EMPTY
+    idx = (INDEX_TEMPLATE
+           .replace("{CARDS}", "".join(card_html(a) for a in index_arts))
+           .replace("{ARCHIVE_NOTE}", note)
+           .replace("{LAST}", last))
     with open(NEWS_INDEX, "w", encoding="utf-8") as f:
         f.write(idx)
+
+    existing = [f for f in os.listdir(ROOT)
+               if f.startswith("news-archive") and f.endswith(".html")]
+    if not archive_arts:
+        for f in existing:
+            os.remove(os.path.join(ROOT, f))
+        print(f"  index rebuilt: {len(index_arts)} cards; archive cleared ({len(existing)} removed)")
+        return
+
+    n_pages = (len(archive_arts) + ARCHIVE_PAGE_SIZE - 1) // ARCHIVE_PAGE_SIZE
+    needed = set()
+    for p in range(1, n_pages + 1):
+        chunk = archive_arts[(p - 1) * ARCHIVE_PAGE_SIZE: p * ARCHIVE_PAGE_SIZE]
+        fname = "news-archive.html" if p == 1 else f"news-archive-{p}.html"
+        canon = "news-archive" if p == 1 else f"news-archive-{p}"
+        prev_link = ("news.html" if p == 1
+                     else "news-archive.html" if p == 2
+                     else f"news-archive-{p - 1}.html")
+        next_link = f"news-archive-{p + 1}.html" if p < n_pages else None
+        page = (ARCHIVE_TEMPLATE
+                .replace("{CARDS}", "".join(card_html(a) for a in chunk))
+                .replace("{PAGER}", build_pager(p, n_pages, prev_link, next_link))
+                .replace("{CANON}", canon)
+                .replace("{LAST}", last)
+                .replace("{PAGE_TITLE}", "" if p == 1 else f" · Page {p}")
+                .replace("{PAGE_TITLE_ZH}", "" if p == 1 else f" · 第 {p} 页")
+                .replace("{PAGE_H1}", "" if p == 1 else f" · Page {p}"))
+        with open(os.path.join(ROOT, fname), "w", encoding="utf-8") as f:
+            f.write(page)
+        needed.add(fname)
+        print(f"  archive page {p}/{n_pages}: {fname} ({len(chunk)} posts)")
+
+    for f in existing:
+        if f not in needed:
+            os.remove(os.path.join(ROOT, f))
+            print(f"  removed stale archive page: {f}")
 
 
 def main():
@@ -531,10 +743,12 @@ def main():
         filename, doc = build_post(it, it["cats"], today, title_en, title_zh)
         with open(os.path.join(ROOT, filename), "w", encoding="utf-8") as f:
             f.write(doc)
-        update_index(filename, it, it["cats"], today, title_en, title_zh)
         posted.add(it["link"])
         generated.append((filename, it["title"], it["cats"]))
         print(f"  + {filename}  [{','.join(it['cats'])}]  {it['title'][:60]}")
+
+    # Rebuild /news (capped) + paginated archive from all posts on disk.
+    rebuild_indexes(today)
 
     state["posted"] = list(posted)
     save_state(state)

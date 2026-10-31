@@ -157,3 +157,10 @@ html[lang="zh-CN"] .cn{display:none}
 .faq .qa:first-child{border-top:none}
 .faq h3{font-size:17px;margin-bottom:6px}
 .faq p{color:var(--slate)}
+
+/* 资讯归档分页器 */
+.pager{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:14px}
+.pager .pg{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;background:var(--paper2)}
+.pager .pg:hover{border-color:var(--brass);color:var(--ink)}
+.pager .pg-cur{font-weight:600;color:var(--slate)}
+.pager .pg-disabled{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:8px;color:#bbb;background:#fafafa}
