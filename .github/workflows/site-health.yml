@@ -1,0 +1,30 @@
+name: Site Health Monitor
+
+# Continuously watch the production site (Cloudflare Pages) for SEO / infra
+# regressions. Runs daily + on manual dispatch. A CRITICAL finding makes the
+# job fail, which notifies the repo owner by email — this is the "keep an eye
+# on the data" mechanism that survives sandbox hibernation.
+
+on:
+  schedule:
+    # 02:17 UTC daily (~10:17 Beijing) — offset from the 01:00 digest run.
+    - cron: "17 2 * * *"
+  workflow_dispatch: {}   # manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run live health check
+        run: python3 scripts/health_check.py

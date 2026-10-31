@@ -400,6 +400,9 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta name="description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <link rel="canonical" href="{SITE}/{filename}">
+<link rel="alternate" hreflang="en" href="{SITE}/{filename}">
+<link rel="alternate" hreflang="zh-CN" href="{SITE}/{filename}">
+<link rel="alternate" hreflang="x-default" href="{SITE}/{filename}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
