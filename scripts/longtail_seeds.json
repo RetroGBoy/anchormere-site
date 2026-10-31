@@ -8,21 +8,111 @@
     "en_intro": "Shenzhen is the densest earbuds manufacturing cluster in the world: enclosure injection, battery cells, Bluetooth SoC sourcing, SMT and acoustic tuning all sit within a day's logistics. Anchormere integrates these into one accountable build — you own the brand, we own the quality baseline.",
     "zh_intro": "深圳是全球密度最高的耳机制造集群：外壳注塑、电芯、蓝牙 SoC 采购、SMT 与声学调音均在一天物流半径内。Anchormere 将其整合为单一责任制造——品牌归你，质量基线归我们。",
     "caps": [
-      ["Industrial design, tooling & private-label enclosures", "工业设计、开模与私模外壳"],
-      ["Bluetooth SoC sourcing (BES / Qualcomm / Realtek)", "蓝牙 SoC 采购（BES / Qualcomm / Realtek）"],
-      ["PCBA, SMT and acoustic tuning", "PCBA、SMT 与声学调音"],
-      ["ANC / ENC, pairing and OTA firmware", "ANC / ENC、配对与 OTA 固件"],
-      ["QC, aging test and export documentation", "质检、老化测试与出口单证"]
+      [
+        "Industrial design, tooling & private-label enclosures",
+        "工业设计、开模与私模外壳"
+      ],
+      [
+        "Bluetooth SoC sourcing (BES / Qualcomm / Realtek)",
+        "蓝牙 SoC 采购（BES / Qualcomm / Realtek）"
+      ],
+      [
+        "PCBA, SMT and acoustic tuning",
+        "PCBA、SMT 与声学调音"
+      ],
+      [
+        "ANC / ENC, pairing and OTA firmware",
+        "ANC / ENC、配对与 OTA 固件"
+      ],
+      [
+        "QC, aging test and export documentation",
+        "质检、老化测试与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "30–45 days incl. tooling", "含开模 30–45 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS, UN38.3", "可按需 CE、FCC、RoHS、UN38.3"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "30–45 days incl. tooling",
+        "含开模 30–45 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS, UN38.3",
+        "可按需 CE、FCC、RoHS、UN38.3"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "TWS earbuds OEM Shenzhen, private label earbuds China, wireless earbuds manufacturer GBA, 深圳耳机 OEM 贴牌"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "TWS earbuds OEM Shenzhen, private label earbuds China, wireless earbuds manufacturer GBA, 深圳耳机 OEM 贴牌",
+    "related": [
+      [
+        "TWS earbuds OEM factory",
+        "真无线耳机 OEM 工厂"
+      ],
+      [
+        "private label earbuds manufacturer",
+        "贴牌耳机工厂"
+      ],
+      [
+        "custom earbuds with logo",
+        "定制 logo 耳机"
+      ],
+      [
+        "Bluetooth 5.3 earbuds ODM",
+        "蓝牙5.3 耳机 ODM"
+      ],
+      [
+        "wireless earbuds wholesale China",
+        "无线耳机 中国批发"
+      ],
+      [
+        "ANC earbuds low MOQ",
+        "降噪耳机 小批量"
+      ],
+      [
+        "earbuds injection molding",
+        "耳机外壳注塑"
+      ],
+      [
+        "Shenzhen earbuds supplier",
+        "深圳耳机供应商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can I customize my own brand logo on the earbuds?",
+        "Yes. We support private label with your logo on the enclosure, packaging and user manual; MOQ starts at 500 pcs per SKU."
+      ],
+      [
+        "What is the MOQ for private-label earbuds?",
+        "500 pcs per SKU, with mixed-SKU consolidation allowed across one shipment."
+      ],
+      [
+        "Do you provide samples before mass production?",
+        "Yes. We ship pre-production samples (paid, refundable against the bulk order) for your approval before tooling and the mass run."
+      ],
+      [
+        "Which Bluetooth chips do you use?",
+        "BES, Qualcomm and Realtek platforms; we recommend per your budget and feature set (ANC, ENC, low latency)."
+      ]
+    ]
   },
   {
     "slug": "smart-toy-manufacturer-gba",
@@ -33,21 +123,111 @@
     "en_intro": "The Greater Bay Area is one of the few places that can prototype and mass-produce a smart toy end-to-end: displays, wireless modules, sensors, plush+electronics assembly and packaging. Anchormere routes your design to the right cluster and keeps a single quality owner.",
     "zh_intro": "大湾区是全球少数能端到端打样并量产智能玩具的区域：显示、无线模组、传感器、毛绒+电子组装与包装。Anchormere 把你的设计路由到对的集群，并保留单一质量责任人。",
     "caps": [
-      ["Screen & connected toy engineering", "带屏与联网玩具工程"],
-      ["Educational robots and coding kits", "教育机器人与编程套件"],
-      ["Plush + electronics hybrid assembly", "毛绒+电子混合组装"],
-      ["Wireless modules, sensors and firmware", "无线模组、传感器与固件"],
-      ["Safety testing and toy-cert documentation", "安规测试与玩具认证单证"]
+      [
+        "Screen & connected toy engineering",
+        "带屏与联网玩具工程"
+      ],
+      [
+        "Educational robots and coding kits",
+        "教育机器人与编程套件"
+      ],
+      [
+        "Plush + electronics hybrid assembly",
+        "毛绒+电子混合组装"
+      ],
+      [
+        "Wireless modules, sensors and firmware",
+        "无线模组、传感器与固件"
+      ],
+      [
+        "Safety testing and toy-cert documentation",
+        "安规测试与玩具认证单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Prototype", "10–15 days", "打样 10–15 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "EN71, ASTM F963, CPC, CE", "可按需 EN71、ASTM F963、CPC、CE"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "EN71, ASTM F963, CPC, CE",
+        "可按需 EN71、ASTM F963、CPC、CE"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["smart-toys-devices.html", "Smart toys & devices"],
-    "kw": "smart toy manufacturer Greater Bay Area, educational robot factory China, connected toy OEM GBA, 智能玩具制造商 大湾区"
+    "mother": [
+      "smart-toys-devices.html",
+      "Smart toys & devices"
+    ],
+    "kw": "smart toy manufacturer Greater Bay Area, educational robot factory China, connected toy OEM GBA, 智能玩具制造商 大湾区",
+    "related": [
+      [
+        "smart toy manufacturer China",
+        "智能玩具 制造商 中国"
+      ],
+      [
+        "educational robot factory",
+        "教育机器人 工厂"
+      ],
+      [
+        "connected toy OEM ODM",
+        "联网玩具 OEM ODM"
+      ],
+      [
+        "screen toy supplier Shenzhen",
+        "带屏玩具 深圳供应商"
+      ],
+      [
+        "plush electronic toy assembly",
+        "毛绒电子玩具组装"
+      ],
+      [
+        "STEM coding kit China",
+        "STEM 编程套件 中国"
+      ],
+      [
+        "toy safety certification EN71",
+        "玩具安规 EN71"
+      ],
+      [
+        "low MOQ toy factory GBA",
+        "小批量 玩具工厂 大湾区"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do your toys meet EN71 / ASTM F963?",
+        "Yes. We support EN71, ASTM F963, CPC and CE; test reports and documentation are provided per target market."
+      ],
+      [
+        "Can you build a toy from my prototype or idea?",
+        "Yes. We handle industrial design, electronics, firmware and plush+electronic assembly from a sample, drawing or concept."
+      ],
+      [
+        "What is the prototype lead time?",
+        "Typically 10–15 days for a functional prototype."
+      ],
+      [
+        "Is there a minimum MOQ for custom toys?",
+        "500 pcs per SKU; trial orders are supported."
+      ]
+    ]
   },
   {
     "slug": "tablet-pcba-sourcing",
@@ -58,21 +238,111 @@
     "en_intro": "Shenzhen and Dongguan hold the world's tightest EMS ecosystem for mobile devices: component sourcing, SMT lines, camera and display module integration, and final box-build. Anchormere consolidates multi-SKU orders and ships with a full document package.",
     "zh_intro": "深圳与东莞拥有全球最紧密的移动设备 EMS 生态：元器件采购、SMT 产线、摄像头与显示模组整合，以及最终整机组装。Anchormere 整合多 SKU 订单，附完整单证出运。",
     "caps": [
-      ["Component sourcing and BOM costing", "元器件采购与 BOM 核价"],
-      ["SMT, DIP and functional testing", "SMT、DIP 与功能测试"],
-      ["Camera / display module integration", "摄像头 / 显示模组整合"],
-      ["Box-build, labeling and packaging", "整机组装、贴标与包装"],
-      ["QC checkpoints and export docs", "质检节点与出口单证"]
+      [
+        "Component sourcing and BOM costing",
+        "元器件采购与 BOM 核价"
+      ],
+      [
+        "SMT, DIP and functional testing",
+        "SMT、DIP 与功能测试"
+      ],
+      [
+        "Camera / display module integration",
+        "摄像头 / 显示模组整合"
+      ],
+      [
+        "Box-build, labeling and packaging",
+        "整机组装、贴标与包装"
+      ],
+      [
+        "QC checkpoints and export docs",
+        "质检节点与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–40 days", "通常 25–40 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS, UL", "可按需 CE、FCC、RoHS、UL"],
-      ["Quote time", "48 hours for standard BOM", "标准 BOM 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days",
+        "通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS, UL",
+        "可按需 CE、FCC、RoHS、UL"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard BOM",
+        "标准 BOM 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "tablet PCBA sourcing China, phone EMS Shenzhen, box-build assembly GBA, 平板 PCBA 采购 中国"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "tablet PCBA sourcing China, phone EMS Shenzhen, box-build assembly GBA, 平板 PCBA 采购 中国",
+    "related": [
+      [
+        "tablet PCBA manufacturer",
+        "平板 PCBA 制造商"
+      ],
+      [
+        "phone EMS Shenzhen",
+        "手机 EMS 深圳"
+      ],
+      [
+        "SMT box build China",
+        "SMT 整机组装 中国"
+      ],
+      [
+        "tablet motherboard ODM",
+        "平板主板 ODM"
+      ],
+      [
+        "mobile device contract manufacturing",
+        "移动设备 代工"
+      ],
+      [
+        "camera display module integration",
+        "摄像头显示模组整合"
+      ],
+      [
+        "low volume PCBA assembly",
+        "小批量 PCBA 组装"
+      ],
+      [
+        "Greater Bay Area electronics manufacturing",
+        "大湾区 电子制造"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you offer turnkey (consignment + assembly) PCBA?",
+        "Yes. We do BOM sourcing, SMT/DIP, testing and box-build as a one-stop service."
+      ],
+      [
+        "What is your small-batch MOQ?",
+        "From 500 pcs per SKU; prototypes and pilot runs are available."
+      ],
+      [
+        "How do you control component quality?",
+        "Authorised-distributor sourcing, incoming inspection and AOI/X-ray/ICT test with full traceability."
+      ],
+      [
+        "Can you handle camera and display module integration?",
+        "Yes, including camera, touch and LCD/OLED module bonding."
+      ]
+    ]
   },
   {
     "slug": "wearable-oem-shenzhen",
@@ -83,21 +353,111 @@
     "en_intro": "Shenzhen's wearable cluster covers display modules, heart-rate and SpO2 sensors, Bluetooth SoCs, enclosures and strap supply. Anchormere integrates them under one accountable build with a 48-hour quote.",
     "zh_intro": "深圳可穿戴集群覆盖显示模组、心率与血氧传感器、蓝牙 SoC、外壳与表带供应。Anchormere 将其整合为单一责任制造，48 小时报价。",
     "caps": [
-      ["Smartwatch & band PCBA", "智能手表与手环 PCBA"],
-      ["Display, sensor and enclosure sourcing", "显示、传感器与外壳采购"],
-      ["Strap supply and assembly", "表带供应与组装"],
-      ["Firmware, pairing and OTA", "固件、配对与 OTA"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Smartwatch & band PCBA",
+        "智能手表与手环 PCBA"
+      ],
+      [
+        "Display, sensor and enclosure sourcing",
+        "显示、传感器与外壳采购"
+      ],
+      [
+        "Strap supply and assembly",
+        "表带供应与组装"
+      ],
+      [
+        "Firmware, pairing and OTA",
+        "固件、配对与 OTA"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "30–45 days", "通常 30–45 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS, UN38.3", "可按需 CE、FCC、RoHS、UN38.3"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "30–45 days",
+        "通常 30–45 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS, UN38.3",
+        "可按需 CE、FCC、RoHS、UN38.3"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "wearable OEM Shenzhen, smartwatch manufacturer China, fitness band GBA, 可穿戴 OEM 深圳"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "wearable OEM Shenzhen, smartwatch manufacturer China, fitness band GBA, 可穿戴 OEM 深圳",
+    "related": [
+      [
+        "smartwatch OEM manufacturer",
+        "智能手表 OEM 工厂"
+      ],
+      [
+        "fitness band ODM China",
+        "手环 ODM 中国"
+      ],
+      [
+        "wearable PCBA Shenzhen",
+        "可穿戴 PCBA 深圳"
+      ],
+      [
+        "custom smartwatch with logo",
+        "定制 logo 智能手表"
+      ],
+      [
+        "heart rate SpO2 sensor module",
+        "心率血氧传感器模组"
+      ],
+      [
+        "IoT watch waterproof",
+        "物联网手表 防水"
+      ],
+      [
+        "low MOQ wearable factory",
+        "小批量 可穿戴工厂"
+      ],
+      [
+        "Greater Bay Area wearable supplier",
+        "大湾区 可穿戴供应商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Is the smartwatch compatible with Android and iOS?",
+        "Yes. Our firmware pairs with both via a companion app; we can also supply the app."
+      ],
+      [
+        "Can I put my own brand on the watch?",
+        "Yes. Custom logo, strap, watch face UI and packaging under private label; MOQ 500 pcs."
+      ],
+      [
+        "What sensors can be integrated?",
+        "Heart-rate, SpO2, accelerometer, GPS and body-temperature options."
+      ],
+      [
+        "Do you provide OTA firmware updates?",
+        "Yes, OTA update and pairing are supported."
+      ]
+    ]
   },
   {
     "slug": "smart-home-module-sourcing",
@@ -108,21 +468,111 @@
     "en_intro": "The Greater Bay Area builds the world's connected-home hardware: Wi-Fi/BLE/Zigbee modules, sensors, gateways and enclosures. Anchormere sources and integrates them with one accountable quality owner.",
     "zh_intro": "大湾区制造全球联网家居硬件：Wi-Fi/BLE/Zigbee 模组、传感器、网关与外壳。Anchormere 采购并整合，保留单一质量责任人。",
     "caps": [
-      ["Wi-Fi / BLE / Zigbee module sourcing", "Wi-Fi / BLE / Zigbee 模组采购"],
-      ["Sensor nodes and gateways", "传感器节点与网关"],
-      ["PCBA and enclosure integration", "PCBA 与外壳整合"],
-      ["Firmware, app and cloud bridging", "固件、App 与云端对接"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Wi-Fi / BLE / Zigbee module sourcing",
+        "Wi-Fi / BLE / Zigbee 模组采购"
+      ],
+      [
+        "Sensor nodes and gateways",
+        "传感器节点与网关"
+      ],
+      [
+        "PCBA and enclosure integration",
+        "PCBA 与外壳整合"
+      ],
+      [
+        "Firmware, app and cloud bridging",
+        "固件、App 与云端对接"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–40 days", "通常 25–40 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS", "可按需 CE、FCC、RoHS"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days",
+        "通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "smart home module sourcing, IoT device manufacturer GBA, sensor node China, 智能家居模组 采购"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "smart home module sourcing, IoT device manufacturer GBA, sensor node China, 智能家居模组 采购",
+    "related": [
+      [
+        "smart home module manufacturer",
+        "智能家居模组 制造商"
+      ],
+      [
+        "IoT device OEM China",
+        "IoT 设备 OEM 中国"
+      ],
+      [
+        "Zigbee module supplier",
+        "Zigbee 模组供应商"
+      ],
+      [
+        "WiFi BLE sensor node",
+        "WiFi BLE 传感器节点"
+      ],
+      [
+        "smart home gateway ODM",
+        "智能家居网关 ODM"
+      ],
+      [
+        "Matter over Thread module",
+        "Matter Thread 模组"
+      ],
+      [
+        "low power IoT module GBA",
+        "低功耗 IoT 模组 大湾区"
+      ],
+      [
+        "home automation parts China",
+        "智能家居配件 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you support Matter / Thread / Zigbee?",
+        "Yes. We source and integrate Wi-Fi, BLE, Zigbee, Thread and Matter-ready modules."
+      ],
+      [
+        "Can you build a custom IoT sensor node?",
+        "Yes. We integrate MCU, wireless module, battery and enclosure with low-power firmware and OTA."
+      ],
+      [
+        "What certifications apply to smart-home RF modules?",
+        "FCC, CE-RED and RoHS; pre-certified modules are available."
+      ],
+      [
+        "Do you provide the app and cloud bridging?",
+        "Yes. Firmware, app and cloud/API bridging are part of our integration scope."
+      ]
+    ]
   },
   {
     "slug": "usb-c-charger-oem",
@@ -133,21 +583,111 @@
     "en_intro": "The Greater Bay Area is the world's power-adapter hub: GaN ICs, transformers, enclosures and safety certs all local. Anchormere sources and consolidates with full export docs and a 48-hour quote.",
     "zh_intro": "大湾区是全球电源适配器枢纽：氮化镓 IC、变压器、外壳与安全认证均本地化。Anchormere 采购并整合，附完整出口单证，48 小时报价。",
     "caps": [
-      ["GaN & silicon charger PCBA", "氮化镓与硅基充电器 PCBA"],
-      ["Transformer and enclosure sourcing", "变压器与外壳采购"],
-      ["Safety and EMC certification support", "安规与 EMC 认证支持"],
-      ["Private-label packaging", "私模包装"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "GaN & silicon charger PCBA",
+        "氮化镓与硅基充电器 PCBA"
+      ],
+      [
+        "Transformer and enclosure sourcing",
+        "变压器与外壳采购"
+      ],
+      [
+        "Safety and EMC certification support",
+        "安规与 EMC 认证支持"
+      ],
+      [
+        "Private-label packaging",
+        "私模包装"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–35 days", "通常 25–35 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, UL, PSE, RoHS", "可按需 CE、FCC、UL、PSE、RoHS"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–35 days",
+        "通常 25–35 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, UL, PSE, RoHS",
+        "可按需 CE、FCC、UL、PSE、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "USB-C charger OEM China, GaN charger manufacturer GBA, power adapter private label, 氮化镓充电器 OEM"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "USB-C charger OEM China, GaN charger manufacturer GBA, power adapter private label, 氮化镓充电器 OEM",
+    "related": [
+      [
+        "USB-C charger OEM factory",
+        "USB-C 充电器 OEM 工厂"
+      ],
+      [
+        "GaN charger manufacturer China",
+        "氮化镓充电器 制造商 中国"
+      ],
+      [
+        "power adapter private label",
+        "电源适配器 贴牌"
+      ],
+      [
+        "65W 100W GaN PD charger",
+        "65W 100W 氮化镓 PD 充电器"
+      ],
+      [
+        "USB-C PD OEM ODM",
+        "USB-C PD OEM ODM"
+      ],
+      [
+        "charger safety certification UL",
+        "充电器安规 UL"
+      ],
+      [
+        "low MOQ charger supplier",
+        "小批量 充电器供应商"
+      ],
+      [
+        "Greater Bay Area power adapter factory",
+        "大湾区 电源适配器工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What GaN charger wattages do you make?",
+        "20W/33W/65W/100W/140W PD GaN chargers, single and multi-port."
+      ],
+      [
+        "Do you support private-label packaging and logo?",
+        "Yes. Custom enclosure, logo and retail packaging; MOQ 500 pcs."
+      ],
+      [
+        "Which safety certifications can you provide?",
+        "CE, FCC, UL, PSE, UKCA and RoHS on request."
+      ],
+      [
+        "Can you do ODM with our own ID design?",
+        "Yes. We support OEM and ODM from your drawings or our reference platform."
+      ]
+    ]
   },
   {
     "slug": "educational-robot-manufacturer",
@@ -158,21 +698,111 @@
     "en_intro": "Shenzhen and Dongguan combine electronics, plastic and metal fabrication and firmware talent to build STEM toys and coding robots quickly. Anchormere keeps a single accountable owner across the build.",
     "zh_intro": "深圳与东莞融合电子、塑胶与金属加工及固件人才，快速打造 STEM 玩具与编程机器人。Anchormere 在制造全程保留单一责任主体。",
     "caps": [
-      ["Robotics PCBA and motor control", "机器人 PCBA 与电机控制"],
-      ["Plastic & metal structural parts", "塑胶与金属结构件"],
-      ["Firmware, app and curriculum", "固件、App 与课程"],
-      ["Safety testing and toy certs", "安规测试与玩具认证"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Robotics PCBA and motor control",
+        "机器人 PCBA 与电机控制"
+      ],
+      [
+        "Plastic & metal structural parts",
+        "塑胶与金属结构件"
+      ],
+      [
+        "Firmware, app and curriculum",
+        "固件、App 与课程"
+      ],
+      [
+        "Safety testing and toy certs",
+        "安规测试与玩具认证"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Prototype", "10–15 days", "打样 10–15 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "EN71, ASTM F963, CPC, CE", "可按需 EN71、ASTM F963、CPC、CE"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "EN71, ASTM F963, CPC, CE",
+        "可按需 EN71、ASTM F963、CPC、CE"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["smart-toys-devices.html", "Smart toys & devices"],
-    "kw": "educational robot manufacturer China, coding kit factory GBA, STEM toy OEM, 教育机器人 制造商 中国"
+    "mother": [
+      "smart-toys-devices.html",
+      "Smart toys & devices"
+    ],
+    "kw": "educational robot manufacturer China, coding kit factory GBA, STEM toy OEM, 教育机器人 制造商 中国",
+    "related": [
+      [
+        "educational robot manufacturer",
+        "教育机器人 制造商"
+      ],
+      [
+        "coding kit factory China",
+        "编程套件 工厂 中国"
+      ],
+      [
+        "STEM toy OEM ODM",
+        "STEM 玩具 OEM ODM"
+      ],
+      [
+        "programmable robot for kids",
+        "儿童编程机器人"
+      ],
+      [
+        "robotics PCBA motor control",
+        "机器人 PCBA 电机控制"
+      ],
+      [
+        "Arduino micro:bit kit supplier",
+        "Arduino micro:bit 套件供应商"
+      ],
+      [
+        "toy safety EN71 CPC",
+        "玩具安规 EN71 CPC"
+      ],
+      [
+        "Greater Bay Area STEM robotics factory",
+        "大湾区 STEM 机器人工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you make coding robots compatible with Scratch / micro:bit?",
+        "Yes. We build kits around micro:bit, Arduino and Scratch-compatible firmware with curriculum."
+      ],
+      [
+        "What safety certifications do STEM toys need?",
+        "EN71, ASTM F963, CPC and CE; we support documentation for your target market."
+      ],
+      [
+        "Can you develop firmware and teaching materials?",
+        "Yes. Firmware, app and lesson plans are part of our service."
+      ],
+      [
+        "What is the MOQ and prototype time?",
+        "MOQ 500 pcs; prototype 10–15 days."
+      ]
+    ]
   },
   {
     "slug": "oled-display-module-sourcing",
@@ -183,21 +813,111 @@
     "en_intro": "The Greater Bay Area is a global display-module hub — TFT, OLED and capacitive-touch supply with bonding and driver integration. Anchormere sources modules and integrates them into your product build.",
     "zh_intro": "大湾区是全球显示模组枢纽——TFT、OLED 与电容触控供应，含 bonding 与驱动整合。Anchormere 采购模组并整合进你的产品制造。",
     "caps": [
-      ["TFT / OLED module sourcing", "TFT / OLED 模组采购"],
-      ["Capacitive touch & bonding", "电容触控与 bonding"],
-      ["Driver board and integration", "驱动板与整合"],
-      ["Cover glass and optical bonding", "盖板与光学贴合"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "TFT / OLED module sourcing",
+        "TFT / OLED 模组采购"
+      ],
+      [
+        "Capacitive touch & bonding",
+        "电容触控与 bonding"
+      ],
+      [
+        "Driver board and integration",
+        "驱动板与整合"
+      ],
+      [
+        "Cover glass and optical bonding",
+        "盖板与光学贴合"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "20–35 days", "通常 20–35 天"],
-      ["Cluster", "Shenzhen / Guangzhou", "深圳 / 广州"],
-      ["Certs on request", "CE, RoHS", "可按需 CE、RoHS"],
-      ["Quote time", "48 hours for standard spec", "标准规格 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "20–35 days",
+        "通常 20–35 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Guangzhou",
+        "深圳 / 广州"
+      ],
+      [
+        "Certs on request",
+        "CE, RoHS",
+        "可按需 CE、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard spec",
+        "标准规格 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "OLED display module sourcing, LCD module China, touch panel GBA, 显示模组 采购"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "OLED display module sourcing, LCD module China, touch panel GBA, 显示模组 采购",
+    "related": [
+      [
+        "OLED display module manufacturer",
+        "OLED 显示模组 制造商"
+      ],
+      [
+        "LCD TFT module China",
+        "LCD TFT 模组 中国"
+      ],
+      [
+        "touch panel supplier Shenzhen",
+        "触控面板 深圳供应商"
+      ],
+      [
+        "AMOLED custom display",
+        "AMOLED 定制显示"
+      ],
+      [
+        "capacitive touch ODM",
+        "电容触控 ODM"
+      ],
+      [
+        "small size OLED 0.96 1.3 inch",
+        "小尺寸 OLED 0.96 1.3寸"
+      ],
+      [
+        "display module optical bonding",
+        "显示模组 光学贴合"
+      ],
+      [
+        "Greater Bay Area display module factory",
+        "大湾区 显示模组工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you customize size, interface and brightness?",
+        "Yes. We adjust pin definition, interface (I2C/SPI/MIPI), resolution and brightness to your spec."
+      ],
+      [
+        "Do you provide driver code and samples?",
+        "Yes. Free samples and example driver code are available for evaluation."
+      ],
+      [
+        "What is the MOQ for custom OLED modules?",
+        "From 500 pcs; some standard modules support a lower MOQ."
+      ],
+      [
+        "Which certifications apply?",
+        "CE and RoHS; CCC available for certain industrial models."
+      ]
+    ]
   },
   {
     "slug": "plastic-injection-molding-shenzhen",
@@ -208,21 +928,111 @@
     "en_intro": "Shenzhen and the surrounding Pearl River Delta hold dense injection-molding capacity: tooling, multi-cavity molds, overmolding and finishing. Anchormere routes your part to the right shop and owns quality.",
     "zh_intro": "深圳及珠江三角洲拥有密集注塑产能：开模、多腔模、包胶与后处理。Anchormere 把你的零件路由到对的工厂并负责质量。",
     "caps": [
-      ["Tooling and multi-cavity molds", "开模与多腔模"],
-      ["Overmolding and insert molding", "包胶与嵌件注塑"],
-      ["Finishing: painting, printing, plating", "后处理：喷涂、印刷、电镀"],
-      ["Tight-tolerance enclosures", "高精度外壳"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Tooling and multi-cavity molds",
+        "开模与多腔模"
+      ],
+      [
+        "Overmolding and insert molding",
+        "包胶与嵌件注塑"
+      ],
+      [
+        "Finishing: painting, printing, plating",
+        "后处理：喷涂、印刷、电镀"
+      ],
+      [
+        "Tight-tolerance enclosures",
+        "高精度外壳"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Tooling lead time", "15–25 days", "开模 15–25 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "RoHS, REACH", "可按需 RoHS、REACH"],
-      ["Quote time", "48 hours for standard part", "标准件 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Tooling lead time",
+        "15–25 days",
+        "开模 15–25 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "RoHS, REACH",
+        "可按需 RoHS、REACH"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard part",
+        "标准件 48 小时报价"
+      ]
     ],
-    "mother": ["supply-base.html", "Greater Bay Area supply base"],
-    "kw": "plastic injection molding Shenzhen, custom enclosure China, tooling GBA, 塑胶注塑 深圳"
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "plastic injection molding Shenzhen, custom enclosure China, tooling GBA, 塑胶注塑 深圳",
+    "related": [
+      [
+        "plastic injection molding Shenzhen",
+        "塑胶注塑 深圳"
+      ],
+      [
+        "custom enclosure manufacturer",
+        "定制外壳 制造商"
+      ],
+      [
+        "injection mold tooling China",
+        "注塑模具 中国"
+      ],
+      [
+        "overmolding insert molding",
+        "包胶 嵌件注塑"
+      ],
+      [
+        "ABS PC enclosure OEM",
+        "ABS PC 外壳 OEM"
+      ],
+      [
+        "low MOQ plastic parts",
+        "小批量 塑胶件"
+      ],
+      [
+        "3D print rapid prototype",
+        "3D打印 快速打样"
+      ],
+      [
+        "Greater Bay Area injection molding factory",
+        "大湾区 注塑工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "I have no 3D drawing, how do I start?",
+        "Send a sample or sketch; we finish the 3D drawing and confirm before tooling (T1 sample)."
+      ],
+      [
+        "What is the tooling lead time?",
+        "15–25 days for a standard mold; rush options are available."
+      ],
+      [
+        "Do you provide finishing like painting/plating?",
+        "Yes. Painting, printing, plating, anodizing and assembly."
+      ],
+      [
+        "What is the MOQ for molded parts?",
+        "500 pcs per SKU; trial runs are supported."
+      ]
+    ]
   },
   {
     "slug": "metal-sheet-fabrication-dongguan",
@@ -233,21 +1043,111 @@
     "en_intro": "Dongguan concentrates metal fabrication: laser cutting, NCT bending, welding and powder coating for racks, enclosures and brackets. Anchormere consolidates with a single quality owner.",
     "zh_intro": "东莞聚焦金属加工：激光切割、数控折弯、焊接与喷涂，用于机柜、外壳与支架。Anchormere 整合并保留单一质量责任人。",
     "caps": [
-      ["Laser cutting and NCT bending", "激光切割与数控折弯"],
-      ["Welding and powder coating", "焊接与喷涂"],
-      ["Rack and cabinet structures", "机柜与箱体结构"],
-      ["Brackets and frames", "支架与框架"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Laser cutting and NCT bending",
+        "激光切割与数控折弯"
+      ],
+      [
+        "Welding and powder coating",
+        "焊接与喷涂"
+      ],
+      [
+        "Rack and cabinet structures",
+        "机柜与箱体结构"
+      ],
+      [
+        "Brackets and frames",
+        "支架与框架"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "20–30 days", "通常 20–30 天"],
-      ["Cluster", "Dongguan / Foshan", "东莞 / 佛山"],
-      ["Certs on request", "RoHS, ISO 9001", "可按需 RoHS、ISO 9001"],
-      ["Quote time", "48 hours for standard part", "标准件 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "20–30 days",
+        "通常 20–30 天"
+      ],
+      [
+        "Cluster",
+        "Dongguan / Foshan",
+        "东莞 / 佛山"
+      ],
+      [
+        "Certs on request",
+        "RoHS, ISO 9001",
+        "可按需 RoHS、ISO 9001"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard part",
+        "标准件 48 小时报价"
+      ]
     ],
-    "mother": ["supply-base.html", "Greater Bay Area supply base"],
-    "kw": "metal sheet fabrication Dongguan, enclosure manufacturer China, bracket GBA, 钣金加工 东莞"
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "metal sheet fabrication Dongguan, enclosure manufacturer China, bracket GBA, 钣金加工 东莞",
+    "related": [
+      [
+        "metal sheet fabrication Dongguan",
+        "钣金加工 东莞"
+      ],
+      [
+        "custom enclosure manufacturer",
+        "定制外壳 制造商"
+      ],
+      [
+        "laser cutting bending China",
+        "激光切割 折弯 中国"
+      ],
+      [
+        "sheet metal bracket OEM",
+        "钣金支架 OEM"
+      ],
+      [
+        "powder coating welding",
+        "喷涂 焊接"
+      ],
+      [
+        "stainless aluminum fabrication",
+        "不锈钢 铝 加工"
+      ],
+      [
+        "no MOQ sheet metal prototype",
+        "无起订 钣金打样"
+      ],
+      [
+        "Greater Bay Area metal parts factory",
+        "大湾区 金属件工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you accept orders without a drawing?",
+        "Send a sample; we reverse-engineer the drawing and confirm before production."
+      ],
+      [
+        "What tolerances can you hold?",
+        "Laser cutting ±0.05–0.1 mm, bend angle ±1°, per your spec."
+      ],
+      [
+        "Is there a minimum order quantity?",
+        "Prototypes from 1 pc; many shops have no strict MOQ."
+      ],
+      [
+        "Do you provide welding, coating and assembly?",
+        "Yes. Laser cutting, bending, welding, powder coating and full assembly in-house."
+      ]
+    ]
   },
   {
     "slug": "pcb-assembly-shenzhen",
@@ -258,21 +1158,111 @@
     "en_intro": "Shenzhen's EMS density means fast, cost-effective PCBA: SMT lines, BOM sourcing, AOI/X-ray inspection and functional test. Anchormere owns quality and consolidates your multi-SKU orders.",
     "zh_intro": "深圳 EMS 密度意味着快速、高性价比的 PCBA：SMT 产线、BOM 采购、AOI/X-ray 检测与功能测试。Anchormere 负责质量并整合你的多 SKU 订单。",
     "caps": [
-      ["SMT and DIP assembly", "SMT 与插件组装"],
-      ["BOM sourcing and costing", "BOM 采购与核价"],
-      ["AOI / X-ray and ICT test", "AOI / X-ray 与 ICT 测试"],
-      ["Conformal coating and potting", "三防漆与灌封"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "SMT and DIP assembly",
+        "SMT 与插件组装"
+      ],
+      [
+        "BOM sourcing and costing",
+        "BOM 采购与核价"
+      ],
+      [
+        "AOI / X-ray and ICT test",
+        "AOI / X-ray 与 ICT 测试"
+      ],
+      [
+        "Conformal coating and potting",
+        "三防漆与灌封"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "15–25 days", "通常 15–25 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "IPC-A-610, RoHS, UL", "可按需 IPC-A-610、RoHS、UL"],
-      ["Quote time", "48 hours for standard BOM", "标准 BOM 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "15–25 days",
+        "通常 15–25 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "IPC-A-610, RoHS, UL",
+        "可按需 IPC-A-610、RoHS、UL"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard BOM",
+        "标准 BOM 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "PCB assembly Shenzhen, SMT China, EMS GBA, PCB 组装 深圳"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "PCB assembly Shenzhen, SMT China, EMS GBA, PCB 组装 深圳",
+    "related": [
+      [
+        "PCB assembly Shenzhen",
+        "PCB 组装 深圳"
+      ],
+      [
+        "SMT DIP EMS China",
+        "SMT DIP EMS 中国"
+      ],
+      [
+        "turnkey PCBA manufacturer",
+        "一站式 PCBA 制造商"
+      ],
+      [
+        "prototype PCB assembly 1 piece",
+        "打样 PCB 组装 1片"
+      ],
+      [
+        "AOI X-ray ICT test",
+        "AOI X-ray ICT 测试"
+      ],
+      [
+        "conformal coating potting",
+        "三防漆 灌封"
+      ],
+      [
+        "low MOQ PCBA factory",
+        "小批量 PCBA 工厂"
+      ],
+      [
+        "Greater Bay Area electronics contract manufacturing",
+        "大湾区 电子代工"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you start with a single prototype board?",
+        "Yes. Many Shenzhen shops support 1-piece SMT prototypes with 24–48h turnaround."
+      ],
+      [
+        "Do you do turnkey (we supply BOM or you source)?",
+        "Both. Consignment (you supply parts) or turnkey (we source + assemble)."
+      ],
+      [
+        "How do you ensure quality?",
+        "AOI, X-ray (BGA), ICT and functional test with 100% inspection options."
+      ],
+      [
+        "What files do you need to quote?",
+        "Gerber, BOM, centroid/placement file and assembly drawing; quote within 48h."
+      ]
+    ]
   },
   {
     "slug": "iot-sensor-module-sourcing",
@@ -283,21 +1273,111 @@
     "en_intro": "The Greater Bay Area builds the world's connected sensors: BLE/Wi-Fi/LoRa modules, MCUs, batteries and enclosures. Anchormere sources and integrates them with one accountable build.",
     "zh_intro": "大湾区制造全球联网传感器：BLE/Wi-Fi/LoRa 模组、MCU、电池与外壳。Anchormere 采购并整合，保留单一责任制造。",
     "caps": [
-      ["BLE / Wi-Fi / LoRa module sourcing", "BLE / Wi-Fi / LoRa 模组采购"],
-      ["MCU, battery and enclosure integration", "MCU、电池与外壳整合"],
-      ["Low-power firmware and OTA", "低功耗固件与 OTA"],
-      ["Edge node assembly", "边缘节点组装"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "BLE / Wi-Fi / LoRa module sourcing",
+        "BLE / Wi-Fi / LoRa 模组采购"
+      ],
+      [
+        "MCU, battery and enclosure integration",
+        "MCU、电池与外壳整合"
+      ],
+      [
+        "Low-power firmware and OTA",
+        "低功耗固件与 OTA"
+      ],
+      [
+        "Edge node assembly",
+        "边缘节点组装"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–40 days", "通常 25–40 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS", "可按需 CE、FCC、RoHS"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days",
+        "通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["consumer-smart-electronics.html", "Consumer & smart electronics"],
-    "kw": "IoT sensor module sourcing, wireless sensor China, edge device GBA, IoT 传感器 模组 采购"
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "IoT sensor module sourcing, wireless sensor China, edge device GBA, IoT 传感器 模组 采购",
+    "related": [
+      [
+        "IoT sensor module manufacturer",
+        "IoT 传感器模组 制造商"
+      ],
+      [
+        "LoRa module China",
+        "LoRa 模组 中国"
+      ],
+      [
+        "BLE WiFi sensor OEM",
+        "BLE WiFi 传感器 OEM"
+      ],
+      [
+        "NB-IoT module supplier",
+        "NB-IoT 模组供应商"
+      ],
+      [
+        "low power wireless node",
+        "低功耗 无线节点"
+      ],
+      [
+        "edge device ODM GBA",
+        "边缘设备 ODM 大湾区"
+      ],
+      [
+        "industrial sensor gateway",
+        "工业传感器 网关"
+      ],
+      [
+        "Matter Thread sensor module",
+        "Matter Thread 传感器模组"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you provide FCC / CE certified modules?",
+        "Yes. Many Wi-Fi/BLE/LoRa modules are pre-certified; delta testing is supported."
+      ],
+      [
+        "What is the battery life of a wireless sensor node?",
+        "Typically 5–10 years on a lithium cell, depending on reporting interval."
+      ],
+      [
+        "Can you do custom firmware and OTA?",
+        "Yes. AT commands, embedded firmware, OTA and secure boot."
+      ],
+      [
+        "Which protocols do your gateways support?",
+        "Modbus, MQTT, OPC UA, JSON and HTTP for SCADA/cloud."
+      ]
+    ]
   },
   {
     "slug": "drone-parts-manufacturer-gba",
@@ -308,21 +1388,111 @@
     "en_intro": "The Greater Bay Area is a global drone-hardware base: carbon frames, brushless motors, ESCs and flight-controller PCBA. Anchormere integrates the supply and keeps quality ownership.",
     "zh_intro": "大湾区是全球无人机硬件基地：碳纤机架、无刷电机、电调与飞控 PCBA。Anchormere 整合供应并保持质量责任。",
     "caps": [
-      ["Carbon and injection frames", "碳纤与注塑机架"],
-      ["Brushless motors and ESCs", "无刷电机与电调"],
-      ["Flight-controller PCBA", "飞控 PCBA"],
-      ["Propellers and hardware kits", "桨叶与硬件套件"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Carbon and injection frames",
+        "碳纤与注塑机架"
+      ],
+      [
+        "Brushless motors and ESCs",
+        "无刷电机与电调"
+      ],
+      [
+        "Flight-controller PCBA",
+        "飞控 PCBA"
+      ],
+      [
+        "Propellers and hardware kits",
+        "桨叶与硬件套件"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–40 days", "通常 25–40 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, FCC, RoHS", "可按需 CE、FCC、RoHS"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days",
+        "通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["supply-base.html", "Greater Bay Area supply base"],
-    "kw": "drone parts manufacturer Greater Bay Area, UAV components China, drone frame GBA, 无人机零件 制造商 大湾区"
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "drone parts manufacturer Greater Bay Area, UAV components China, drone frame GBA, 无人机零件 制造商 大湾区",
+    "related": [
+      [
+        "drone parts manufacturer",
+        "无人机零件 制造商"
+      ],
+      [
+        "UAV frame carbon fiber",
+        "无人机碳纤机架"
+      ],
+      [
+        "brushless motor ESC factory",
+        "无刷电机 电调工厂"
+      ],
+      [
+        "flight controller PCBA",
+        "飞控 PCBA"
+      ],
+      [
+        "FPV drone OEM ODM",
+        "FPV 无人机 OEM ODM"
+      ],
+      [
+        "drone propeller kit China",
+        "无人机桨叶套件 中国"
+      ],
+      [
+        "low MOQ drone components",
+        "小批量 无人机配件"
+      ],
+      [
+        "Greater Bay Area UAV parts supplier",
+        "大湾区 无人机配件供应商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you offer OEM branding on drone parts?",
+        "Yes. Custom logo on motors/frames, silk-screen on PCBs and branded packaging."
+      ],
+      [
+        "Can you modify KV, frame thickness or PCB layout (ODM)?",
+        "Yes. Our engineers adapt hardware specs per your project."
+      ],
+      [
+        "What is the MOQ for drone components?",
+        "Sample orders are supported; OEM branding MOQ is flexible to help new distributors."
+      ],
+      [
+        "Do you follow dual-use export controls?",
+        "Yes. Civilian-use products with full export documentation and compliance."
+      ]
+    ]
   },
   {
     "slug": "ev-charger-components-sourcing",
@@ -333,20 +1503,110 @@
     "en_intro": "The Greater Bay Area is the world's EV hardware belt: power electronics, enclosures, connectors and cabling. Anchormere sources components and integrates them with a full export document package.",
     "zh_intro": "大湾区是全球 EV 硬件带：功率电子、外壳、连接器与线缆。Anchormere 采购部件并整合，附完整出口单证包。",
     "caps": [
-      ["Power-module and PCBA sourcing", "电源模组与 PCBA 采购"],
-      ["Enclosure and thermal parts", "外壳与散热件"],
-      ["Connector and cable assembly", "连接器与线缆组装"],
-      ["Safety and EMC certification support", "安规与 EMC 认证支持"],
-      ["QC and export documentation", "质检与出口单证"]
+      [
+        "Power-module and PCBA sourcing",
+        "电源模组与 PCBA 采购"
+      ],
+      [
+        "Enclosure and thermal parts",
+        "外壳与散热件"
+      ],
+      [
+        "Connector and cable assembly",
+        "连接器与线缆组装"
+      ],
+      [
+        "Safety and EMC certification support",
+        "安规与 EMC 认证支持"
+      ],
+      [
+        "QC and export documentation",
+        "质检与出口单证"
+      ]
     ],
     "specs": [
-      ["MOQ", "500 pcs per SKU", "单品 500 件起订"],
-      ["Typical lead time", "25–40 days", "通常 25–40 天"],
-      ["Cluster", "Shenzhen / Dongguan", "深圳 / 东莞"],
-      ["Certs on request", "CE, UL, RoHS", "可按需 CE、UL、RoHS"],
-      ["Quote time", "48 hours for standard build", "标准方案 48 小时报价"]
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days",
+        "通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, UL, RoHS",
+        "可按需 CE、UL、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
     ],
-    "mother": ["supply-base.html", "Greater Bay Area supply base"],
-    "kw": "EV charger components sourcing, power module China, charging cable GBA, 充电桩部件 采购"
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "EV charger components sourcing, power module China, charging cable GBA, 充电桩部件 采购",
+    "related": [
+      [
+        "EV charger components manufacturer",
+        "充电桩部件 制造商"
+      ],
+      [
+        "power module OEM ODM",
+        "电源模组 OEM ODM"
+      ],
+      [
+        "EV charging cable China",
+        "充电桩线缆 中国"
+      ],
+      [
+        "EVSE PCBA ISO15118",
+        "EVSE PCBA ISO15118"
+      ],
+      [
+        "AC DC charger enclosure",
+        "交直流充电桩外壳"
+      ],
+      [
+        "OCPP 1.6 2.0.1 controller",
+        "OCPP 控制器"
+      ],
+      [
+        "IATF16949 charger parts",
+        "IATF16949 充电配件"
+      ],
+      [
+        "Greater Bay Area EVSE parts supplier",
+        "大湾区 EVSE 配件供应商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you provide OCPP and ISO15118 communication boards?",
+        "Yes. EVSE PCBA with OCPP 1.6J/2.0.1 and Plug&Charge ISO15118."
+      ],
+      [
+        "Which certifications do EV charger parts need?",
+        "UL, CE, TÜV, IATF 16949 and IP ratings; we supply test reports."
+      ],
+      [
+        "What is the MOQ for charger components?",
+        "Prototyping from 5–10 pcs; volume MOQ is negotiable."
+      ],
+      [
+        "Do you support ODM enclosure and power configuration?",
+        "Yes. Custom enclosure, power (7kW AC to 30/40kW DC modules) and regional compliance."
+      ]
+    ]
   }
 ]

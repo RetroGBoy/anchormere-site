@@ -68,6 +68,12 @@ def build_page(seed):
     en_lede = seed["en_lede"]
     zh_lede = seed["zh_lede"]
     kw = seed["kw"]
+    # Fold platform-sourced association terms into the meta keywords (LSI coverage).
+    related_en = [en for en, zh in seed.get("related", [])]
+    kw_full = (kw + ", " + ", ".join(related_en)) if related_en else kw
+    rel = "".join(
+        f'<span class="tag" data-zh="{html.escape(zh)}">{html.escape(en)}</span>'
+        for en, zh in seed.get("related", []))
     mother_href, mother_label = seed["mother"]
     caps = "".join(
         f'<li><span data-zh="{html.escape(zh)}">{html.escape(en)}</span></li>' for en, zh in seed["caps"])
@@ -75,12 +81,14 @@ def build_page(seed):
         f'<tr><td>{html.escape(en_p)}</td>'
         f'<td data-zh="{html.escape(zh_v)}">{html.escape(en_v)}</td></tr>'
         for en_p, en_v, zh_v in seed["specs"])
+    # Site-wide generic FAQ + platform-sourced buyer questions (B2B platform FAQs).
+    rel_qa = seed.get("related_qa", [])
     qa = "".join(
         f'<div class="qa"><h3 data-zh="">{html.escape(q)}</h3>'
-        f'<p data-zh="">{html.escape(a)}</p></div>' for q, a in FAQS)
+        f'<p data-zh="">{html.escape(a)}</p></div>' for q, a in FAQS + rel_qa)
     faq = json.dumps({"@context": "https://schema.org", "@type": "FAQPage",
                       "mainEntity": [{"@type": "Question", "name": q,
-                                      "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS]},
+                                      "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS + rel_qa]},
                      ensure_ascii=False)
     prod = json.dumps({
         "@context": "https://schema.org", "@type": "Product", "name": en_t,
@@ -105,7 +113,7 @@ def build_page(seed):
 <meta name="title-zh" content="{html.escape(zh_t)}">
 <meta name="description" content="{html.escape(en_lede)}">
 <meta name="desc-zh" content="{html.escape(zh_lede)}">
-<meta name="keywords" content="{html.escape(kw)}">
+<meta name="keywords" content="{html.escape(kw_full)}">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="en" href="{url}">
@@ -159,6 +167,12 @@ def build_page(seed):
   <h2 data-zh="常见问题">FAQ</h2>
   <p class="cn">常见问题</p>
   <div class="faq">{qa}</div>
+</div></section>
+<section class="l2"><div class="container">
+  <h2 data-zh="跨平台关联检索词">Related searches across platforms</h2>
+  <p class="cn">跨平台关联检索词 · Google / Bing / Baidu / 1688 / Alibaba / Amazon</p>
+  <div class="tags">{rel}</div>
+  <p class="rel-note" data-zh="以上为买家在海外搜索引擎与 B2B 平台（Google、Bing、百度、1688、Alibaba、Amazon、Made-in-China）实际使用的关联检索词，已整合进本页以提升相关性与收录覆盖。">These are the association terms buyers actually type across search engines and B2B platforms (Google, Bing, Baidu, 1688, Alibaba, Amazon, Made-in-China) — folded into this page to broaden relevance and indexing coverage.</p>
 </div></section>
 <section class="dark"><div class="container" style="text-align:center">
   <div class="eyebrow" style="color:var(--brass)" data-zh="下一步">Next step</div>

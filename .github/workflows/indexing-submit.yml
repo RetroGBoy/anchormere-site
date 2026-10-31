@@ -1,0 +1,34 @@
+name: Indexing Submission (IndexNow)
+
+# Push every sitemap URL to IndexNow so Bing / Yandex / Seznam / Naver pick up
+# new and updated pages quickly. This is the automatable half of "收录提报"; the
+# Google Search Console sitemap submission is manual (needs the owner's Google
+# account) and is documented in SEO_GEO系统收纳提报流程.md.
+#
+# Runs daily after the digest + health windows, plus on manual dispatch.
+# The IndexNow key is published at https://anchormere.com/<key>.txt (committed
+# in the repo root), so no secret is required.
+
+on:
+  schedule:
+    # 03:17 UTC daily (~11:17 Beijing) — after the 01:00 digest and 02:17 health.
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}   # manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Submit sitemap to IndexNow
+        run: python3 scripts/submit_indexnow.py

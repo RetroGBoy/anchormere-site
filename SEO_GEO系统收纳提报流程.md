@@ -44,6 +44,7 @@
 | 资讯自动生成 | 每日抓取→中英摘要→落地页→索引封顶 48 + 归档 | `scripts/news_digest.py` + CI | 每日自动 |
 | sitemap | 收录所有业务页（含资讯、归档） | `scripts/build_sitemap.py` | 每次生成后 |
 | GEO 资产 | `llms.txt`（给 AI 的事实卡）、`robots.txt`（放行 AI 爬虫） | 根目录静态文件 | 部署即生效 |
+| 索引提报（IndexNow） | 全量 sitemap 推送 Bing/Yandex/Seznam/Naver | `scripts/submit_indexnow.py` + 根目录 `<key>.txt` | 每日 CI + 手动 |
 | 上线部署 | 静态构建 → Cloudflare Pages 边缘缓存 | GitHub Actions + Cloudflare | push 即部署 |
 
 ---
@@ -105,17 +106,20 @@ git push origin main        # 含 workflow 文件时，token 需具备 workflow 
 
 | 平台 | 动作 | 频率 |
 |------|------|------|
-| **Google Search Console** | 提交 `https://anchormere.com/sitemap.xml`；新页用「URL 检查 → 请求编入索引」 | 首次全量提交 + 新页即时 |
-| **Bing Webmaster** | 提交同一 sitemap；启用 IndexNow（可选） | 首次 + 周度 |
+| **Google Search Console** | 提交 `https://anchormere.com/sitemap.xml`；新页用「URL 检查 → 请求编入索引」 | 首次全量提交 + 新页即时（**需 owner 的 Google 账号，无法用 API 自动化**） |
+| **Bing / Yandex / Seznam / Naver（IndexNow）** | `scripts/submit_indexnow.py` 全量推送 sitemap 至 `api.indexnow.org`；密钥发布于根目录 `<key>.txt` | 每日 CI 03:17 UTC + 手动 `workflow_dispatch`，已自动化 ✅ |
 | **GEO / AI 引擎** | 确保 `llms.txt`、`robots.txt` 放行 AI 爬虫；内容事实清晰、可被抓取 | 部署即生效，季度复核 |
 | **Schema 校验** | Rich Results Test 抽测结构化数据 | 每次大改后 |
 
+> **收录提报补全说明（2026-10-31）**：此前「IndexNow 自动提报」为待办，本次已落地——新增 `scripts/submit_indexnow.py` 与 `.github/workflows/indexing-submit.yml`，并补交根目录密钥文件 `b1700fd697c7492b958b22d8d2adf646.txt`。Bing 系引擎现已自动收录；**Google 侧仍需 owner 在 GSC 手动提交一次 sitemap.xml**（API 需 Google OAuth，沙箱无法代操作）。
+>
 > GEO 没有「提交入口」，靠的是**内容可被抓取 + 事实清晰 + llms.txt 引导**。不要做 cloaking，AI 与搜索引擎看到的内容必须一致。
 
 ### 4.3 自动提报（CI 每日）
 
 - **工作流**：`.github/workflows/news-auto.yml`，每日北京时间 09:00（UTC 01:00）调度，并含 `build_sitemap.py` 步骤。
 - **行为**：生成当日资讯 → 重建 `/news` 索引（封顶 48）→ 重建 sitemap → commit 并 push → Cloudflare 自动部署。
+- **索引提报工作流**：`.github/workflows/indexing-submit.yml`，每日 03:17 UTC 调度 + 手动 `workflow_dispatch`，调用 `scripts/submit_indexnow.py` 把全量 sitemap 推送至 IndexNow（Bing/Yandex/Seznam/Naver）。
 - **可靠性注意**：GitHub 共享 runner 的 cron 曾出现**不点火**（历史运行仅手动触发过）；目前以 `workflow_dispatch` 手动补跑兜底。若连续两日未自动生成，需人工触发并检查日志。
 
 ---
@@ -197,6 +201,8 @@ git push origin main        # 含 workflow 文件时，token 需具备 workflow 
 **待办 / 持续项**
 - GitHub Actions cron 可靠性弱，建议加「超 24h 未生成则自动补跑」兜底任务。
 - 关键词地图 `.md` 的旧 GA4 占位 / Formspree 字段已同步为 `G-EZE1LV2MRH` / Web3Forms ✅（提交于本批次）。
+- **收录提报补全** ✅（2026-10-31）：新增 `scripts/submit_indexnow.py` + `.github/workflows/indexing-submit.yml`，补交根目录密钥文件 `b1700fd697c7492b958b22d8d2adf646.txt`，Bing 系引擎自动收录已落地；Google GSC 仍需 owner 手动首次提交 sitemap.xml（见 §4.2）。
+- **跨平台关联词扩充** ✅（2026-10-31）：14 个长尾页新增 `related`（Google/Bing/Baidu/1688/Alibaba/Amazon/Made-in-China 关联检索词词云）与 `related_qa`（B2B 平台买家常见问题），已渲染「跨平台关联检索词」区块并并入 meta keywords 与 FAQPage JSON-LD（`scripts/longtail.py` + `longtail_seeds.json`）。
 
 **安全（重要）**
 - 聊天记录中曾出现 3 个 GitHub PAT（`ghp_jt8M…`、`ghp_SjOr…`、`ghp_Zwro…`），其中 `ghp_Zwro…` 具备 `admin` 权限。建议立即到 GitHub → Settings → Developer settings → PAT **全部吊销**，换一个仅限本仓库、最小权限（含 `workflow`）的新 token。
