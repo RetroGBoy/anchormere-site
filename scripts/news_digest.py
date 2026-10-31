@@ -118,6 +118,10 @@ FRAMING = {
         "en": "For buyers, this is a signal to map the <a href='{t}'>{a}</a>: Shenzhen, Dongguan and the surrounding cluster concentrate the factories that matter.",
         "zh": "对买家而言，这是一个梳理<a href='{t}'>{a}</a>的信号：深圳、东莞及周边集群集中了最关键的工厂。",
     },
+    "procurement": {
+        "en": "For buyers, this is a reminder to map the <a href='{t}'>{a}</a>: the Greater Bay Area concentrates the factories, PCBA and assembly capacity that turn a spec sheet into a shipment.",
+        "zh": "对买家而言，这提醒你梳理<a href='{t}'>{a}</a>：大湾区集中了把规格变成出货的工厂、PCBA 与组装产能。",
+    },
 }
 
 
@@ -345,8 +349,9 @@ def slugify(text):
 def build_post(item, cats, today, title_en, title_zh):
     primary = next((c for c in PRIMARY_ORDER if c in cats), "gba")
     t, a_en, a_zh = CATEGORY_TARGET[primary]
-    en_why = FRAMING[primary]["en"].format(t=t, a=a_en)
-    zh_why = FRAMING[primary]["zh"].format(t=t, a=a_zh)
+    framing = FRAMING.get(primary, FRAMING["gba"])
+    en_why = framing["en"].format(t=t, a=a_en)
+    zh_why = framing["zh"].format(t=t, a=a_zh)
 
     gba_extra_en = ""
     gba_extra_zh = ""
