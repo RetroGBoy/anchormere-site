@@ -52,7 +52,7 @@ def inject_head(c, fn):
         org = json.dumps({
             "@context": "https://schema.org", "@type": "Organization",
             "name": "Anchormere", "alternateName": "锚泊",
-            "url": "https://anchormere.com", "email": "info@anchormere.com",
+            "url": "https://anchormere.com", "email": "Anchormere@gmail.com",
             "address": {"@type": "PostalAddress",
                         "addressRegion": "Guangdong", "addressCountry": "CN"},
             "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.",

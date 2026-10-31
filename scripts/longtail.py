@@ -90,7 +90,7 @@ def build_page(seed):
                    "availability": "https://schema.org/InStock", "url": url,
                    "seller": {"@type": "Organization", "name": "Anchormere"}}}, ensure_ascii=False)
     org = json.dumps({"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere",
-                      "alternateName": "锚泊", "url": SITE, "email": "info@anchormere.com",
+                      "alternateName": "锚泊", "url": SITE, "email": "Anchormere@gmail.com",
                       "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"},
                       "description": "China sourcing partner for the Greater Bay Area manufacturing base.",
                       "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}, ensure_ascii=False)

@@ -23,7 +23,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/consent.css">
 <script defer src="assets/consent.js"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere", "alternateName": "锚泊", "url": "https://anchormere.com", "email": "info@anchormere.com", "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"}, "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.", "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere", "alternateName": "锚泊", "url": "https://anchormere.com", "email": "Anchormere@gmail.com", "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"}, "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.", "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "Get a Quote", "item": "https://anchormere.com/contact"}]}</script>
 </head><body>
 <div class="topbar"><span data-zh="⚓ <b>48 小时报价</b>">⚓ <b>48h quote</b></span><span data-zh="🏭 <b>20+ 家认证工厂</b>">🏭 <b>20+ vetted factories</b></span><span data-zh="📦 <b>500 件起订</b>">📦 <b>500 pcs MOQ</b></span><span data-zh="📑 <b>完整出口单证</b>">📑 <b>Full export docs</b></span></div>
@@ -45,14 +45,14 @@
     <p class="cn">告诉我们需求，工程师 48 小时内回复</p>
   <p class="lead" data-zh="发一张照片、一个料号，或一份粗略规格。起步无需图纸。我们回复时 upfront 写明交期与贸易条款（Incoterms）。">Send a photo, a model number, or a rough spec. No drawing required to start. We reply with lead time and Incoterms stated up front.</p>
   <p style="color:var(--slate);font-size:14px" data-zh="<b>响应时效 / Response SLA:</b> 邮件与 WhatsApp 消息在工作日由工程师于 <b>48 小时</b> 内回复；每一条询盘都会被登记并指派专属工程师。"><b>响应时效 / Response SLA:</b> emails and WhatsApp messages are answered by an engineer within <b>48 hours</b> on business days; each inquiry is logged and assigned a dedicated engineer.</p>
-  <p style="color:var(--slate);font-size:14px" data-zh="更喜欢即时沟通？<a href=&quot;https://wa.me/8619068984158&quot;>WhatsApp 联系 →</a> · 微信：<b>Anchormere_SZ</b> · <a href=&quot;mailto:info@anchormere.com&quot;>info@anchormere.com</a>">Prefer chat? <a href="https://wa.me/8619068984158">WhatsApp us →</a> · WeChat: <b>Anchormere_SZ</b> · <a href="mailto:info@anchormere.com">info@anchormere.com</a></p>
+  <p style="color:var(--slate);font-size:14px" data-zh="更喜欢即时沟通？<a href=&quot;https://wa.me/8619068984158&quot;>WhatsApp 联系 →</a> · 微信：<b>Anchormere_SZ</b> · <a href=&quot;mailto:Anchormere@gmail.com&quot;>Anchormere@gmail.com</a>">Prefer chat? <a href="https://wa.me/8619068984158">WhatsApp us →</a> · WeChat: <b>Anchormere_SZ</b> · <a href="mailto:Anchormere@gmail.com">Anchormere@gmail.com</a></p>
 </div></section>
 
 <div class="page-banner"><img src="assets/img/handshake.jpg" alt="Business handshake between buyer and supplier" loading="lazy"></div>
 <section class="l2"><div class="container">
   <div id="sent-banner" class="banner-success" style="display:none" data-zh="✅ 已收到您的询盘，工程师将在 48 小时内回复。">✅ Thank you — your inquiry is received. An engineer replies within 48h.</div>
-  <div id="error-banner" class="banner-error" style="display:none" data-zh="⚠️ 提交失败，请稍后重试，或直接发邮件至 info@anchormere.com / WhatsApp 联系。">⚠️ Submission failed — please try again, or email <a href="mailto:info@anchormere.com">info@anchormere.com</a> / WhatsApp us directly.</div>
-  <form class="card" action="/api/contact" method="POST">
+  <div id="error-banner" class="banner-error" style="display:none" data-zh="⚠️ 提交失败，请稍后重试，或直接发邮件至 Anchormere@gmail.com / WhatsApp 联系。">⚠️ Submission failed — please try again, or email <a href="mailto:Anchormere@gmail.com">Anchormere@gmail.com</a> / WhatsApp us directly.</div>
+  <form class="card" action="mailto:Anchormere@gmail.com" method="POST" enctype="text/plain">
     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <div class="form-grid">
       <div class="field"><label data-zh="姓名 *">Name *</label><input type="text" name="name" data-zh-attrs='{"placeholder":"您的姓名"}' placeholder="Your name" required></div>
@@ -112,6 +112,15 @@
     }
     if (q.get('error') === '1') {
       var eb = document.getElementById('error-banner'); if (eb) eb.style.display = 'block';
+    }
+    // mailto form: reassure the visitor that their email client should open.
+    var form = document.querySelector('form.card');
+    if (form) {
+      form.addEventListener('submit', function () {
+        var sb = document.getElementById('sent-banner');
+        if (sb) { sb.style.display = 'block'; sb.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'rfq_form_mailto' });
+      });
     }
   } catch (e) {}
 </script>

@@ -23,9 +23,9 @@ python3 -m http.server 8102
 6. 之后每次 `git push` 即自动重新部署。
 
 ## 询盘表单说明
-- 当前用 **mailto 兜底**：访客提交即唤起邮件发至 `info@anchormere.com`，无需任何第三方账号，立即可用。
+- 当前用 **mailto 兜底**：访客提交即唤起邮件发至 `Anchormere@gmail.com`，无需任何第三方账号，立即可用。
 - 进阶（站内静默收单、不依赖访客邮件客户端）：注册 Formspree 免费档（50 单/月），把 `contact.html` 表单的
-  `action="mailto:info@anchormere.com"` 改为 `action="https://formspree.io/f/你的ID"`，并删掉 `enctype="text/plain"`。
+  `action="mailto:Anchormere@gmail.com"` 改为 `action="https://formspree.io/f/你的ID"`，并删掉 `enctype="text/plain"`。
 
 ## 可选增强项（缺失不影响上线，全站已无任何占位）
 | 项 | 作用 | 位置 |
@@ -34,7 +34,7 @@ python3 -m http.server 8102
 | 注册号 | 完善法律主体披露 | 各页 footer / Legal 栏（原占位已移除，可补填） |
 | 实拍图（工厂/产品） | 提升转化信任 | 替换 `assets/img/` 内图库占图（当前为 Unsplash 免版权图） |
 
-> 注：上述均为“有则更好”的增强项。全站已无 `[待填]` 占位，代码整洁可直接对外；买家需求通过询盘表单发至 `info@anchormere.com`。
+> 注：上述均为“有则更好”的增强项。全站已无 `[待填]` 占位，代码整洁可直接对外；买家需求通过询盘表单发至 `Anchormere@gmail.com`。
 
 ## 2026-10-29 更新
 - **全站配图**：19 张 Unsplash 免版权主题图（`assets/img/`），首页 hero 背景 + 18 页横幅 + 3 张产品卡图。
