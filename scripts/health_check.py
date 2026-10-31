@@ -104,14 +104,33 @@ def main():
     # ---- 2. robots.txt + llms.txt ------------------------------------------
     print("\n[2] robots.txt / llms.txt")
     _, robots, _ = fetch(SITE + "/robots.txt")
-    for bot in ["GPTBot", "PerplexityBot", "ClaudeBot", "Google-Extended", "Applebot"]:
-        # Allow means the bot is NOT explicitly Disallowed.
-        allowed = ("Disallow: *" not in robots) or (f"Disallow: /{bot}" not in robots)
-        if f"User-agent: {bot}" in robots:
-            warn(f"robots names {bot}", "explicit block present")
-        else:
-            # not explicitly named; allowed by wildcard allow
-            pass
+    if robots:
+        # Parse user-agent groups. A bot is "blocked" only if its own group (or
+        # the catch-all "*") carries a BLANKET disallow. Naming a bot with an
+        # Allow (or a path-specific disallow) is fine and is GEO-positive.
+        groups, cur = [], None
+        for line in robots.splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.lower().startswith("user-agent:"):
+                cur = {"agent": line.split(":", 1)[1].strip().lower(), "rules": []}
+                groups.append(cur)
+            elif cur is not None:
+                cur["rules"].append(line)
+        for bot in ["GPTBot", "PerplexityBot", "ClaudeBot", "Google-Extended", "Applebot"]:
+            blocked = False
+            for g in groups:
+                if g["agent"] == bot or g["agent"] == "*":
+                    for r in g["rules"]:
+                        rl = r.lower()
+                        if rl.startswith("disallow:"):
+                            path = rl[len("disallow:"):].strip()
+                            # A blanket block under the bot's own or "*" group.
+                            if path in ("", "/", "*"):
+                                blocked = True
+            if blocked:
+                warn(f"robots blocks {bot}", "blanket Disallow present")
     check("robots.txt reachable & not blocking AI crawlers",
           bool(robots) and "Disallow: /" not in robots and "Disallow: *" not in robots,
           "missing or over-restrictive")
