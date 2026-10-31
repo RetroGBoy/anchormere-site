@@ -23,14 +23,16 @@ python3 -m http.server 8102
 6. 之后每次 `git push` 即自动重新部署。
 
 ## 询盘表单说明
-- 当前用 **mailto 兜底**：访客提交即唤起邮件发至 `Anchormere@gmail.com`，无需任何第三方账号，立即可用。
-- 进阶（站内静默收单、不依赖访客邮件客户端）：注册 Formspree 免费档（50 单/月），把 `contact.html` 表单的
-  `action="mailto:Anchormere@gmail.com"` 改为 `action="https://formspree.io/f/你的ID"`，并删掉 `enctype="text/plain"`。
+- **静默收单（当前方案）**：`contact.html` 表单经 **Web3Forms** 服务端转发，静默发至 `Anchormere@gmail.com`，
+  访客无需本地邮件客户端。表单含姓名、公司、邮箱、电话/WhatsApp（必填）、产品线、数量、需求留言。
+- **启用方式**：在 [web3forms.com](https://web3forms.com) 用 `Anchormere@gmail.com` 注册并验证，拿到
+  `access_key`，替换 `contact.html` 中 `name="access_key"` 的 `YOUR_WEB3FORMS_ACCESS_KEY` 占位即可。
+- 提交走 AJAX：成功显示绿色横幅并上报 `generate_lead` 转化事件，失败显示红色横幅。
 
 ## 可选增强项（缺失不影响上线，全站已无任何占位）
 | 项 | 作用 | 位置 |
 |----|------|------|
-| GA4 测量 ID | 流量 / 来源 / 转化分析 | 在 `assets/consent.js` 填 `GA4_ID` 即启用 |
+| GA4 测量 ID | 流量 / 来源 / 转化分析 | 已在 `assets/consent.js` 配置 `G-EZE1LV2MRH`（访客接受 Cookie 后加载） |
 | 注册号 | 完善法律主体披露 | 各页 footer / Legal 栏（原占位已移除，可补填） |
 | 实拍图（工厂/产品） | 提升转化信任 | 替换 `assets/img/` 内图库占图（当前为 Unsplash 免版权图） |
 

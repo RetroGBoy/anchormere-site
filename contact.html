@@ -52,12 +52,17 @@
 <section class="l2"><div class="container">
   <div id="sent-banner" class="banner-success" style="display:none" data-zh="✅ 已收到您的询盘，工程师将在 48 小时内回复。">✅ Thank you — your inquiry is received. An engineer replies within 48h.</div>
   <div id="error-banner" class="banner-error" style="display:none" data-zh="⚠️ 提交失败，请稍后重试，或直接发邮件至 Anchormere@gmail.com / WhatsApp 联系。">⚠️ Submission failed — please try again, or email <a href="mailto:Anchormere@gmail.com">Anchormere@gmail.com</a> / WhatsApp us directly.</div>
-  <form class="card" action="mailto:Anchormere@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+  <form class="card" id="rfq-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+    <input type="hidden" name="subject" value="New RFQ from Anchormere site">
+    <input type="hidden" name="from_name" value="Anchormere Contact Form">
+    <input type="hidden" name="redirect" value="https://anchormere.com/contact.html?sent=1">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <div class="form-grid">
       <div class="field"><label data-zh="姓名 *">Name *</label><input type="text" name="name" data-zh-attrs='{"placeholder":"您的姓名"}' placeholder="Your name" required></div>
       <div class="field"><label data-zh="公司 *">Company *</label><input type="text" name="company" data-zh-attrs='{"placeholder":"公司名称"}' placeholder="Company" required></div>
       <div class="field"><label data-zh="邮箱 *">Email *</label><input type="email" name="email" data-zh-attrs='{"placeholder":"you@company.com"}' placeholder="you@company.com" required></div>
+      <div class="field"><label data-zh="电话 / WhatsApp *">Phone / WhatsApp *</label><input type="text" name="phone" data-zh-attrs='{"placeholder":"含国际区号，如 +1 / +86"}' placeholder="+1 555 000 0000" required></div>
       <div class="field"><label data-zh="产品线">Product line</label>
         <select name="product_line">
           <option data-zh="机柜配件">Rack Accessories</option>
@@ -113,13 +118,29 @@
     if (q.get('error') === '1') {
       var eb = document.getElementById('error-banner'); if (eb) eb.style.display = 'block';
     }
-    // mailto form: reassure the visitor that their email client should open.
-    var form = document.querySelector('form.card');
+    // Web3Forms AJAX submit: silent server-side delivery to Gmail, no mail client needed.
+    var form = document.getElementById('rfq-form');
     if (form) {
-      form.addEventListener('submit', function () {
-        var sb = document.getElementById('sent-banner');
-        if (sb) { sb.style.display = 'block'; sb.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'rfq_form_mailto' });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('.submit'); if (btn) btn.disabled = true;
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d && d.success) {
+              var sb = document.getElementById('sent-banner');
+              if (sb) { sb.style.display = 'block'; sb.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+              if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'rfq_form' });
+              form.reset();
+            } else {
+              throw new Error((d && d.message) || 'submit_failed');
+            }
+          })
+          .catch(function () {
+            var er = document.getElementById('error-banner');
+            if (er) { er.style.display = 'block'; er.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          })
+          .finally(function () { if (btn) btn.disabled = false; });
       });
     }
   } catch (e) {}
