@@ -25,8 +25,7 @@ python3 -m http.server 8102
 ## 询盘表单说明
 - **静默收单（当前方案）**：`contact.html` 表单经 **Web3Forms** 服务端转发，静默发至 `Anchormere@gmail.com`，
   访客无需本地邮件客户端。表单含姓名、公司、邮箱、电话/WhatsApp（必填）、产品线、数量、需求留言。
-- **启用方式**：在 [web3forms.com](https://web3forms.com) 用 `Anchormere@gmail.com` 注册并验证，拿到
-  `access_key`，替换 `contact.html` 中 `name="access_key"` 的 `YOUR_WEB3FORMS_ACCESS_KEY` 占位即可。
+- **启用状态**：已配置 Web3Forms `access_key`，静默收单已生效，访客询盘将转发至 `Anchormere@gmail.com`。
 - 提交走 AJAX：成功显示绿色横幅并上报 `generate_lead` 转化事件，失败显示红色横幅。
 
 ## 可选增强项（缺失不影响上线，全站已无任何占位）
