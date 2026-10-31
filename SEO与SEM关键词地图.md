@@ -2,8 +2,8 @@
 
 > 用途：把"SEO 自然流量 + SEM 付费投放 + GEO（生成式引擎优化/AEO）"统一到一套关键词与落地页体系，让品牌词、母品类词、长尾产品词都能被搜到，并全部导向 `contact.html` 的一键询单转化。
 > 运营主体：深圳森亚实业有限公司（Shenzhen Senya Industrial Co., Ltd.）
-> 站点：`https://anchormere.com` · GA4 测量 ID 占位 `G-XXXXXXX`（在 `assets/consent.js` 的 `GA4_ID` 替换）
-> 表单后端：Formspree（在 `contact.html` 的 `action` 替换 `REPLACE_WITH_YOUR_FORM_ID`）
+> 站点：`https://anchormere.com` · GA4 测量 ID 已配置 `G-EZE1LV2MRH`（`assets/consent.js` 的 `GA4_ID`）
+> 表单后端：Web3Forms 静默收单（`contact.html` 的 `access_key` 已配置，提交经服务端转发至 `Anchormere@gmail.com`，电话必填）
 
 ---
 
@@ -13,7 +13,7 @@
 |---|---|---|---|---|
 | **品牌词** | 已知道我们 | anchormere, 锚泊, anchormere sourcing | `index.html` / `about.html` | 询单 / WhatsApp |
 | **母品类词** | 找"中国采购/大湾区制造" | china sourcing agent, shenzhen manufacturing, GBA OEM, 大湾区代工 | `supply-base.html` `capabilities.html` | 选品类 → 询单 |
-| **长尾产品词** | 找具体品类 OEM | tws earbuds oem shenzhen, pcb assembly shenzhen | 14 个长尾落地页（见 §3） | 一键 Get a Quote |
+| **长尾产品词** | 找具体品类 OEM | tws earbuds oem shenzhen, pcb assembly shenzhen | 长尾落地页（见 §3） | 一键 Get a Quote |
 | **对比/竞品词** | 比供应商 | anchormere vs [竞品], hqtronics alternative | 对应品类页 + `faq.html` | 询单 + 信任背书 |
 | **GEO/AEO 问答** | 问"怎么/哪里" | where to manufacture earbuds in shenzhen, how to source PCBA china | 长尾页 + `llms.txt`（已部署） | 询单 |
 
@@ -32,7 +32,7 @@
 
 ---
 
-## 3. 长尾产品词 → 落地页映射（已生成 14 页）
+## 3. 长尾产品词 → 落地页映射（已生成并持续扩充）
 
 每个长尾页都已内置：双语 H1/H2、能力清单、规格/时效表、FAQ、Product JSON-LD、面包屑、hreflang、内链回母品类 + `contact.html` CTA。
 
@@ -77,9 +77,9 @@
 
 ## 6. 转化埋点（已上线）
 
-- 全站 `assets/consent.js` 同意后注入 GA4（`G-XXXXXXX` 占位，需替换真实 ID）。
+- 全站 `assets/consent.js` 同意后注入 GA4（`G-EZE1LV2MRH`，已配置）。
 - 转化事件：
-  - `generate_lead` — 表单提交（contact.html 的 RFQ 表单，Formspree POST 前 sendBeacon 发出）
+  - `generate_lead` — 表单提交（contact.html 的 RFQ 表单，Web3Forms AJAX POST 成功后触发）
   - `contact_click` — 点击任意 `contact.html` / `.btn-quote` / `.btn-primary` CTA
   - `whatsapp_click` — 点击右下角 WhatsApp 浮窗
 - 在 GA4 中把上述三个事件标记为"关键事件（转化）"，并在 Google Ads 里导入，用于 SEM 出价优化。
@@ -88,8 +88,8 @@
 
 ## 7. 上线前待办（需用户提供）
 
-1. **GA4 测量 ID**：替换 `assets/consent.js` 中 `GA4_ID = 'G-XXXXXXX'` 为真实 ID（如 `G-ABC123XYZ`）。
-2. **Formspree 表单 ID**：替换 `contact.html` 中 `https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID` 为真实表单 ID。
+1. **GA4 测量 ID**：已配置 `G-EZE1LV2MRH`（`assets/consent.js` 的 `GA4_ID`）✅ 已完成。
+2. **表单后端**：已改用 Web3Forms 静默收单（`contact.html` 的 `access_key` 已配置，转发至 `Anchormere@gmail.com`，电话必填）✅ 已完成。
 3. **Search Console / IndexNow**：`robots.txt` 已指向 `sitemap.xml`；`b1700fd697c7492b958b22d8d2adf646.txt` 为 IndexNow key，建议在 Bing/IndexNow 提交。
 4. **定期扩词**：长尾种子在 `scripts/longtail_seeds.json`，新增品类直接加一条再跑 `python3 scripts/longtail.py` + `python3 scripts/build_sitemap.py` 即可。
 
@@ -100,7 +100,7 @@
 | 脚本 | 作用 | 何时跑 |
 |---|---|---|
 | `scripts/longtail.py` | 由种子生成 14 个长尾落地页 | 新增品类时 |
-| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（49 URL） | 增删页面后 |
+| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前约 59 条 URL，含业务页 + 资讯 + 归档，CI 自动重建） | 增删页面后 / 每次资讯生成后 |
 | `scripts/seo_inject.py` | 给既有页注入 Organization/Breadcrumb/FAQ/Product JSON-LD + hreflang | 改模板后 |
 | `scripts/inject_ga4.py` | 给缺 `consent.js` 的页面补齐（已全站覆盖） | 新增页面时 |
-| `scripts/news_digest.py` | 每日新闻：DeepL 双语标题 + SEO 关键词 | GitHub Actions 每日 cron |
+| `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页 → `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
