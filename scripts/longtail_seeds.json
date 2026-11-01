@@ -93,6 +93,14 @@
       [
         "Shenzhen earbuds supplier",
         "深圳耳机供应商"
+      ],
+      [
+        "private label earbuds",
+        "贴牌耳机"
+      ],
+      [
+        "low MOQ OEM factory",
+        "小起订 OEM 工厂"
       ]
     ],
     "related_qa": [
@@ -208,6 +216,10 @@
       [
         "low MOQ toy factory GBA",
         "小批量 玩具工厂 大湾区"
+      ],
+      [
+        "private label toy manufacturer",
+        "贴牌玩具工厂"
       ]
     ],
     "related_qa": [
@@ -323,6 +335,10 @@
       [
         "Greater Bay Area electronics manufacturing",
         "大湾区 电子制造"
+      ],
+      [
+        "PCBA contract manufacturer",
+        "合约 PCBA 制造商"
       ]
     ],
     "related_qa": [
@@ -783,6 +799,10 @@
       [
         "Greater Bay Area STEM robotics factory",
         "大湾区 STEM 机器人工厂"
+      ],
+      [
+        "low MOQ robot factory",
+        "小批量 机器人工厂"
       ]
     ],
     "related_qa": [
@@ -898,6 +918,10 @@
       [
         "Greater Bay Area display module factory",
         "大湾区 显示模组工厂"
+      ],
+      [
+        "custom display module",
+        "定制显示模组"
       ]
     ],
     "related_qa": [
@@ -1013,6 +1037,14 @@
       [
         "Greater Bay Area injection molding factory",
         "大湾区 注塑工厂"
+      ],
+      [
+        "injection molding factory China",
+        "中国注塑厂"
+      ],
+      [
+        "custom product development",
+        "定制产品开发"
       ]
     ],
     "related_qa": [
@@ -1128,6 +1160,10 @@
       [
         "Greater Bay Area metal parts factory",
         "大湾区 金属件工厂"
+      ],
+      [
+        "low MOQ sheet metal prototype",
+        "无起订 钣金打样"
       ]
     ],
     "related_qa": [
@@ -1243,6 +1279,14 @@
       [
         "Greater Bay Area electronics contract manufacturing",
         "大湾区 电子代工"
+      ],
+      [
+        "PCBA contract manufacturer",
+        "合约 PCBA 制造商"
+      ],
+      [
+        "turnkey manufacturing China",
+        "中国交钥匙代工"
       ]
     ],
     "related_qa": [
@@ -1358,6 +1402,10 @@
       [
         "Matter Thread sensor module",
         "Matter Thread 传感器模组"
+      ],
+      [
+        "IoT device OEM China",
+        "IoT 设备 OEM 中国"
       ]
     ],
     "related_qa": [
@@ -1606,6 +1654,1041 @@
       [
         "Do you support ODM enclosure and power configuration?",
         "Yes. Custom enclosure, power (7kW AC to 30/40kW DC modules) and regional compliance."
+      ]
+    ]
+  },
+  {
+    "slug": "oem-manufacturer-china",
+    "en_title": "OEM Manufacturer in China | Greater Bay Area Build-to-Print",
+    "zh_title": "中国 OEM 制造厂商 | 大湾区按图加工",
+    "en_lede": "Work with an OEM manufacturer in China built on the Greater Bay Area clusters — build-to-print, private label and joint manufacturing with one accountable owner and full export docs.",
+    "zh_lede": "与中国 OEM 制造厂商合作，立足大湾区产业集群——按图加工、贴牌与联合制造，单一责任主体，完整出口单证。",
+    "en_intro": "Shenzhen, Dongguan and the Pearl River Delta hold the world's densest OEM ecosystem: tooling, injection, SMT, metal and assembly within a day's logistics. Anchormere routes your build to the right workshop and owns quality end-to-end.",
+    "zh_intro": "深圳、东莞与珠江三角洲拥有全球最密集的 OEM 生态：开模、注塑、SMT、五金与组装均在一天物流半径内。Anchormere 把您的制造路由到对的车间，并对质量全程负责。",
+    "caps": [
+      [
+        "Build-to-print (OEM) from your drawings",
+        "按图加工（OEM）"
+      ],
+      [
+        "Tooling, injection molding & enclosures",
+        "开模、注塑与外壳"
+      ],
+      [
+        "PCBA, SMT and box-build assembly",
+        "PCBA、SMT 与整机组装"
+      ],
+      [
+        "Private-label packaging and logo",
+        "私模包装与品牌标识"
+      ],
+      [
+        "QC, inspection and export documentation",
+        "质检、验厂与出口单证"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS, UL",
+        "可按需 CE、FCC、RoHS、UL"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "OEM manufacturer in China, China OEM factory, build-to-print China, 中国 OEM 制造厂商",
+    "related": [
+      [
+        "OEM vs ODM difference",
+        "OEM 与 ODM 区别"
+      ],
+      [
+        "Shenzhen OEM factory",
+        "深圳 OEM 厂"
+      ],
+      [
+        "Guangdong manufacturer",
+        "广东制造"
+      ],
+      [
+        "reliable supplier China",
+        "可靠供应商 中国"
+      ],
+      [
+        "low MOQ OEM factory",
+        "小起订 OEM 工厂"
+      ],
+      [
+        "turnkey manufacturing China",
+        "中国交钥匙代工"
+      ],
+      [
+        "custom manufacturer",
+        "定制制造厂"
+      ],
+      [
+        "China sourcing agent vs factory",
+        "代理 vs 工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you build strictly to our drawings (OEM)?",
+        "Yes. We build to your drawings and specs; tooling and enclosures are made to your files, with 500 pcs MOQ per SKU."
+      ],
+      [
+        "Which certifications can you provide?",
+        "CE, FCC, RoHS and UL on request, with test reports per target market."
+      ],
+      [
+        "How can I verify you are a real OEM manufacturer?",
+        "By-process photo gallery, recorded shop-floor video, a certificate wall and live inspection by appointment."
+      ],
+      [
+        "What is your quote turnaround?",
+        "Standard builds are quoted within 48 hours by an engineer."
+      ]
+    ]
+  },
+  {
+    "slug": "odm-factory-guangdong",
+    "en_title": "ODM Factory Guangdong | Pearl River Delta Product Development",
+    "zh_title": "广东 ODM 工厂 | 珠江三角洲产品开发",
+    "en_lede": "Partner with an ODM factory in Guangdong for full product development — industrial design, engineering, tooling and mass production across the Pearl River Delta.",
+    "zh_lede": "与广东 ODM 工厂合作，承接完整产品开发——工业设计、结构工程、开模与量产，覆盖珠江三角洲。",
+    "en_intro": "Guangdong's Pearl River Delta is the only place that can take a concept to mass production in one region: ID, electronics, firmware, tooling and assembly. Anchormere runs the program and keeps a single accountable owner.",
+    "zh_intro": "广东珠江三角洲是唯一能把概念在区域内完成量产的地点：工业设计、电子、固件、开模与组装。Anchormere 统筹项目并保留单一责任主体。",
+    "caps": [
+      [
+        "Industrial & structural design",
+        "工业与结构设计"
+      ],
+      [
+        "Electronics & firmware",
+        "电子与固件"
+      ],
+      [
+        "Tooling & private mold",
+        "开模与私模"
+      ],
+      [
+        "Pilot and mass production",
+        "试产与量产"
+      ],
+      [
+        "IP & NNN protection",
+        "知识产权与 NNN 保护"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard build",
+        "标准方案 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "ODM factory Guangdong, Pearl River Delta ODM, product development China, 广东 ODM 工厂",
+    "related": [
+      [
+        "ODM vs OEM difference",
+        "ODM 与 OEM 区别"
+      ],
+      [
+        "Shenzhen ODM factory",
+        "深圳 ODM 厂"
+      ],
+      [
+        "Guangdong manufacturer",
+        "广东制造"
+      ],
+      [
+        "private mold development",
+        "私模开发"
+      ],
+      [
+        "custom product development",
+        "定制产品开发"
+      ],
+      [
+        "small batch manufacturing",
+        "小批量制造"
+      ],
+      [
+        "why manufacture in China 2026",
+        "为何仍在中国制造"
+      ],
+      [
+        "Pearl River Delta supply chain",
+        "珠三角供应链"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the difference between ODM and OEM?",
+        "ODM means we design and you brand it; OEM means we build to your design. We do both."
+      ],
+      [
+        "Can you develop a product from just a concept?",
+        "Yes. ID, electronics, firmware, tooling and pilot production from a sketch, sample or concept."
+      ],
+      [
+        "How is my IP protected in ODM?",
+        "NNN / confidentiality terms, dual-sourcing on key items, and limited drawing release per PO."
+      ],
+      [
+        "What is the typical ODM lead time?",
+        "Prototype 10–15 days; mass production typically 30–45 days including tooling."
+      ]
+    ]
+  },
+  {
+    "slug": "low-moq-oem-factory",
+    "en_title": "Low MOQ OEM Factory | Small-Batch China Manufacturing",
+    "zh_title": "小起订量 OEM 工厂 | 小批量中国制造",
+    "en_lede": "Source from a low MOQ OEM factory in the Greater Bay Area — 500 pcs per SKU, mixed-SKU consolidation, and pilot runs for new brands.",
+    "zh_lede": "在大湾区小起订量 OEM 工厂采购——单品 500 件起订，多 SKU 拼柜，为新品牌提供试产。",
+    "en_intro": "Most Greater Bay Area workshops quote high MOQs, but Anchormere consolidates multi-SKU orders and runs pilot batches so new brands can validate without over-committing. 500 pcs per SKU is our standard; trials are supported.",
+    "zh_intro": "多数大湾区车间起订量高，但 Anchormere 整合多 SKU 订单并承接试产，让新品牌无需过量承诺即可验证。单品 500 件为标准，支持试产。",
+    "caps": [
+      [
+        "Low MOQ 500 pcs per SKU",
+        "小起订 500 件/单品"
+      ],
+      [
+        "Mixed-SKU consolidation",
+        "多 SKU 拼柜"
+      ],
+      [
+        "Pilot & trial runs",
+        "试产与打样"
+      ],
+      [
+        "Rapid prototyping",
+        "快速打样"
+      ],
+      [
+        "One accountable owner",
+        "单一责任主体"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU (trials flexible)",
+        "单品 500 件（试产可谈）"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours",
+        "48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "low MOQ OEM factory, small batch manufacturing China, low minimum order OEM, 小起订量 OEM 工厂",
+    "related": [
+      [
+        "low MOQ toy factory GBA",
+        "小批量 玩具工厂 大湾区"
+      ],
+      [
+        "small volume PCBA assembly",
+        "小批量 PCBA 组装"
+      ],
+      [
+        "MOQ negotiation",
+        "MOQ 怎么谈"
+      ],
+      [
+        "how to start a private label business",
+        "如何做贴牌生意"
+      ],
+      [
+        "custom manufacturer",
+        "定制制造厂"
+      ],
+      [
+        "reliable supplier China",
+        "可靠供应商 中国"
+      ],
+      [
+        "turnkey manufacturing",
+        "交钥匙代工"
+      ],
+      [
+        "private label manufacturer",
+        "贴牌制造商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is your minimum order quantity?",
+        "500 pcs per SKU; trial orders and mixed-SKU consolidation are supported to reach MOQ."
+      ],
+      [
+        "Can I mix several SKUs in one shipment?",
+        "Yes. Mixed-SKU consolidation lets you reach MOQ across one shipment."
+      ],
+      [
+        "Do you support trial / pilot runs?",
+        "Yes. Pilot batches help new brands validate before scaling."
+      ],
+      [
+        "How do I negotiate a lower MOQ?",
+        "Share your full product roadmap; we consolidate across SKUs and seasons to lower effective MOQ."
+      ]
+    ]
+  },
+  {
+    "slug": "private-label-manufacturer",
+    "en_title": "Private Label Manufacturer China | White-Label Hardware",
+    "zh_title": "中国贴牌制造商 | 白牌硬件",
+    "en_lede": "Build your brand with a private label manufacturer in China — custom logo, packaging and documentation across electronics, toys, smart-home and IoT hardware.",
+    "zh_lede": "与中国贴牌制造商共建品牌——覆盖电子、玩具、智能家居与 IoT 硬件的定制 logo、包装与单证。",
+    "en_intro": "Private label is more than a logo: we handle enclosure, packaging, manual and certification under your brand, with 500 pcs MOQ and a 48h quote. White-label ready platforms are also available.",
+    "zh_intro": "贴牌不止于 logo：我们以您的品牌承接外壳、包装、说明书与认证，500 件起订、48 小时报价。亦提供白牌就绪平台。",
+    "caps": [
+      [
+        "Private-label enclosures & logo",
+        "私模外壳与 logo"
+      ],
+      [
+        "Custom retail packaging",
+        "定制零售包装"
+      ],
+      [
+        "Manual & documentation",
+        "说明书与单证"
+      ],
+      [
+        "White-label platforms",
+        "白牌就绪平台"
+      ],
+      [
+        "Brand IP protection",
+        "品牌知识产权保护"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS, CPC",
+        "可按需 CE、FCC、RoHS、CPC"
+      ],
+      [
+        "Quote time",
+        "48 hours",
+        "48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "private label manufacturer China, white label supplier, OEM private label, 中国贴牌制造商",
+    "related": [
+      [
+        "private label vs white label",
+        "贴牌 vs 白牌"
+      ],
+      [
+        "custom with logo",
+        "定制 logo"
+      ],
+      [
+        "white label supplier",
+        "白牌供应商"
+      ],
+      [
+        "low MOQ private label",
+        "小批量 贴牌"
+      ],
+      [
+        "how to start a private label business",
+        "如何做贴牌生意"
+      ],
+      [
+        "Shenzhen private label factory",
+        "深圳 贴牌工厂"
+      ],
+      [
+        "branding & packaging",
+        "品牌与包装"
+      ],
+      [
+        "Amazon private label",
+        "亚马逊 贴牌"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can I put my own brand on the product?",
+        "Yes. Custom logo on enclosure, packaging and manual under private label; MOQ 500 pcs per SKU."
+      ],
+      [
+        "What is the MOQ for private label?",
+        "500 pcs per SKU; mixed-SKU consolidation and trial runs are supported."
+      ],
+      [
+        "What is the difference between private label and white label?",
+        "Private label = your branding on a customised product; white label = reselling a ready platform under your name."
+      ],
+      [
+        "Do you provide retail packaging and manuals?",
+        "Yes. Custom packaging, user manuals and certification documentation are part of the service."
+      ]
+    ]
+  },
+  {
+    "slug": "pcba-contract-manufacturer",
+    "en_title": "PCBA Contract Manufacturer | EMS & Box-Build China",
+    "zh_title": "PCBA 合约制造商 | 中国 EMS 与整机组装",
+    "en_lede": "A PCBA contract manufacturer in the Greater Bay Area for turnkey electronics — BOM sourcing, SMT/DIP, testing and box-build with one accountable owner.",
+    "zh_lede": "大湾区 PCBA 合约制造商，承接一站式电子制造——BOM 采购、SMT/DIP、测试与整机组装，单一责任主体。",
+    "en_intro": "Shenzhen and Dongguan concentrate the world's fastest EMS: component sourcing, SMT lines, functional test and final assembly. Anchormere manages the contract as a single point of accountability.",
+    "zh_intro": "深圳与东莞聚集全球最快的 EMS：元器件采购、SMT 产线、功能测试与终装。Anchormere 以单一责任主体管理该合约。",
+    "caps": [
+      [
+        "BOM sourcing & costing",
+        "BOM 采购与核价"
+      ],
+      [
+        "SMT / DIP assembly",
+        "SMT / DIP 组装"
+      ],
+      [
+        "AOI / X-ray / ICT test",
+        "AOI / X-ray / ICT 测试"
+      ],
+      [
+        "Conformal coating & potting",
+        "三防漆与灌封"
+      ],
+      [
+        "Box-build & export docs",
+        "整机装联与出口单证"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU (prototype 1 pc)",
+        "单品 500 件（样机 1 片）"
+      ],
+      [
+        "Typical lead time",
+        "15–25 days",
+        "通常 15–25 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "IPC-A-610, RoHS, UL",
+        "可按需 IPC-A-610、RoHS、UL"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard BOM",
+        "标准 BOM 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "PCBA contract manufacturer, EMS China, turnkey PCBA, 合约 PCBA 制造商",
+    "related": [
+      [
+        "PCB assembly Shenzhen",
+        "PCB 组装 深圳"
+      ],
+      [
+        "SMT EMS China",
+        "SMT EMS 中国"
+      ],
+      [
+        "turnkey manufacturing",
+        "交钥匙代工"
+      ],
+      [
+        "low volume PCBA assembly",
+        "小批量 PCBA 组装"
+      ],
+      [
+        "tablet PCBA manufacturer",
+        "平板 PCBA 制造商"
+      ],
+      [
+        "wearable PCBA Shenzhen",
+        "可穿戴 PCBA 深圳"
+      ],
+      [
+        "AOI X-ray ICT test",
+        "AOI X-ray ICT 测试"
+      ],
+      [
+        "Greater Bay Area electronics",
+        "大湾区 电子制造"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you offer turnkey (consignment + assembly) PCBA?",
+        "Yes. We do BOM sourcing, SMT/DIP, testing and box-build as a one-stop contract."
+      ],
+      [
+        "Can you start from a single prototype board?",
+        "Yes. Many shops support 1-piece SMT prototypes with 24–48h turnaround."
+      ],
+      [
+        "How do you ensure quality?",
+        "Authorised-distributor sourcing, incoming inspection and AOI/X-ray/ICT test with full traceability."
+      ],
+      [
+        "What files do you need to quote?",
+        "Gerber, BOM, centroid/placement file and assembly drawing; quote within 48h."
+      ]
+    ]
+  },
+  {
+    "slug": "custom-product-development",
+    "en_title": "Custom Product Development China | From Prototype to Production",
+    "zh_title": "中国定制产品开发 | 从打样到量产",
+    "en_lede": "Custom product development service in the Greater Bay Area — industrial design, engineering, prototyping and mass production under one program.",
+    "zh_lede": "大湾区定制产品开发服务——工业设计、结构工程、打样与量产，同一项目统筹。",
+    "en_intro": "From a sketch, sample or concept, Anchormere drives ID, electronics, firmware, tooling and pilot production, then scales to mass. Private mold development and packaging customization are included.",
+    "zh_intro": "从草图、样品或概念出发，Anchormere 驱动工业设计、电子、固件、开模与试产，再放大到量产。含私模开发与包装定制。",
+    "caps": [
+      [
+        "Industrial & structural design",
+        "工业与结构设计"
+      ],
+      [
+        "Electronics & firmware",
+        "电子与固件"
+      ],
+      [
+        "Prototyping (3D print / CNC)",
+        "打样（3D 打印 / CNC）"
+      ],
+      [
+        "Tooling & private mold",
+        "开模与私模"
+      ],
+      [
+        "Pilot to mass production",
+        "试产到量产"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU",
+        "单品 500 件起订"
+      ],
+      [
+        "Prototype",
+        "10–15 days",
+        "打样 10–15 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, FCC, RoHS",
+        "可按需 CE、FCC、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours",
+        "48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "custom product development China, product prototyping service, new product development, 定制产品开发",
+    "related": [
+      [
+        "product prototyping service China",
+        "打样服务 中国"
+      ],
+      [
+        "private mold development",
+        "私模开发"
+      ],
+      [
+        "injection molding factory China",
+        "中国注塑厂"
+      ],
+      [
+        "small batch manufacturing",
+        "小批量制造"
+      ],
+      [
+        "how to develop a product",
+        "如何开发产品"
+      ],
+      [
+        "Shenzhen development",
+        "深圳 开发"
+      ],
+      [
+        "ODM factory Guangdong",
+        "广东 ODM 工厂"
+      ],
+      [
+        "packaging customization",
+        "包装定制"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you start from just an idea or sketch?",
+        "Yes. We drive industrial design, electronics, firmware and tooling from a sketch, sample or concept."
+      ],
+      [
+        "How long does a prototype take?",
+        "Typically 10–15 days for a functional prototype."
+      ],
+      [
+        "Do you handle tooling and private molds?",
+        "Yes. Tooling, multi-cavity molds and private mold development are part of the program."
+      ],
+      [
+        "How is my IP protected during development?",
+        "NNN / confidentiality, dual-sourcing on key items, and limited drawing release per PO."
+      ]
+    ]
+  },
+  {
+    "slug": "small-batch-manufacturing",
+    "en_title": "Small-Batch Manufacturing China | Pilot Runs & Low Volume",
+    "zh_title": "小批量制造中国 | 试产与低产量",
+    "en_lede": "Small-batch manufacturing in the Greater Bay Area for pilots and low-volume runs — 500 pcs MOQ, fast iteration and one accountable owner.",
+    "zh_lede": "大湾区小批量制造，面向试产与低产量——500 件起订、快速迭代，单一责任主体。",
+    "en_intro": "Validate before scaling: Anchormere runs pilot and low-volume production across electronics, plastics and metal, consolidating multi-SKU orders so small batches stay economical.",
+    "zh_intro": "在放量前先验证：Anchormere 在电子、塑胶与金属领域承接试产与低产量，整合多 SKU 订单，让小批量依然经济。",
+    "caps": [
+      [
+        "Pilot & trial production",
+        "试产与打样"
+      ],
+      [
+        "Low-volume electronics",
+        "低产量电子"
+      ],
+      [
+        "Small plastic & metal runs",
+        "小批量塑胶与金属"
+      ],
+      [
+        "Rapid iteration",
+        "快速迭代"
+      ],
+      [
+        "Consolidation & docs",
+        "拼柜与单证"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU (trials flexible)",
+        "单品 500 件（试产可谈）"
+      ],
+      [
+        "Typical lead time",
+        "15–25 days",
+        "通常 15–25 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan",
+        "深圳 / 东莞"
+      ],
+      [
+        "Certs on request",
+        "CE, RoHS",
+        "可按需 CE、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours",
+        "48 小时报价"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "small batch manufacturing China, low volume production, pilot run manufacturing, 小批量制造",
+    "related": [
+      [
+        "low MOQ OEM factory",
+        "小起订 OEM 工厂"
+      ],
+      [
+        "small volume PCBA assembly",
+        "小批量 PCBA 组装"
+      ],
+      [
+        "prototype manufacturing",
+        "样件制造"
+      ],
+      [
+        "MOQ negotiation",
+        "MOQ 怎么谈"
+      ],
+      [
+        "custom product development",
+        "定制产品开发"
+      ],
+      [
+        "injection molding small run",
+        "小批量 注塑"
+      ],
+      [
+        "metal sheet prototype",
+        "钣金打样"
+      ],
+      [
+        "why manufacture in China",
+        "为何在中国制造"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the minimum batch you accept?",
+        "500 pcs per SKU; trial runs and mixed-SKU consolidation are supported."
+      ],
+      [
+        "Do you do pilot runs before mass production?",
+        "Yes. Pilot batches validate design and process before scaling."
+      ],
+      [
+        "Can I iterate quickly on a small batch?",
+        "Yes. Low-volume runs are built for fast design iteration."
+      ],
+      [
+        "Is small-batch production economical?",
+        "Consolidating multi-SKU orders keeps small batches cost-effective."
+      ]
+    ]
+  },
+  {
+    "slug": "oem-vs-odm",
+    "en_title": "OEM vs ODM: Which Manufacturing Model Fits Your Brand?",
+    "zh_title": "OEM 与 ODM 的区别：哪种制造模式适合你的品牌？",
+    "en_lede": "OEM vs ODM explained for overseas buyers — definitions, differences, and when to choose build-to-print versus full development in China.",
+    "zh_lede": "为海外买家详解 OEM 与 ODM——定义、区别，以及在中国何时选按图加工、何时选完整开发。",
+    "en_intro": "OEM means we build to your design; ODM means we design and you brand it. This guide helps you pick the right model for your stage, budget and IP strategy when sourcing from the Greater Bay Area.",
+    "zh_intro": "OEM 是按您的设计代工；ODM 是我们设计、您贴牌。本指南帮助您在大湾区采购时，依据阶段、预算与知识产权策略选对模式。",
+    "caps": [
+      [
+        "OEM definition",
+        "OEM 定义"
+      ],
+      [
+        "ODM definition",
+        "ODM 定义"
+      ],
+      [
+        "Key differences",
+        "核心区别"
+      ],
+      [
+        "Which to choose",
+        "如何选择"
+      ],
+      [
+        "IP considerations",
+        "知识产权考量"
+      ]
+    ],
+    "specs": [
+      [
+        "Model",
+        "OEM — build to your drawings",
+        "OEM — 按图加工"
+      ],
+      [
+        "Model",
+        "ODM — we design, you brand",
+        "ODM — 我们设计，您贴牌"
+      ],
+      [
+        "Best for",
+        "Brands with finished designs",
+        "已有完整设计的品牌"
+      ],
+      [
+        "Best for",
+        "New brands needing speed",
+        "需要速度的新品牌"
+      ],
+      [
+        "Quote time",
+        "48 hours",
+        "48 小时"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "OEM vs ODM, ODM vs OEM difference, OEM ODM meaning, OEM 与 ODM 区别",
+    "related": [
+      [
+        "private label vs white label",
+        "贴牌 vs 白牌"
+      ],
+      [
+        "what is OEM ODM OEMM OBM",
+        "代工术语全景"
+      ],
+      [
+        "China sourcing agent vs factory",
+        "代理 vs 工厂"
+      ],
+      [
+        "custom product development",
+        "定制产品开发"
+      ],
+      [
+        "ODM factory Guangdong",
+        "广东 ODM 工厂"
+      ],
+      [
+        "how to find a manufacturer in China",
+        "如何在中国找工厂"
+      ],
+      [
+        "turnkey manufacturing",
+        "交钥匙代工"
+      ],
+      [
+        "build to print",
+        "按图加工"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the difference between OEM and ODM?",
+        "OEM builds to your design; ODM designs the product and you brand it. Both can be done in the Greater Bay Area."
+      ],
+      [
+        "Which is cheaper, OEM or ODM?",
+        "ODM is usually faster and cheaper to launch because development is reuse; OEM gives more control over the design."
+      ],
+      [
+        "Which should a new brand choose?",
+        "Start with ODM or private label for speed, then move to OEM as your design matures."
+      ],
+      [
+        "How do I protect IP in OEM/ODM?",
+        "Use NNN / confidentiality terms, dual-sourcing on key items, and limit full drawing release to the assigned workshop."
+      ]
+    ]
+  },
+  {
+    "slug": "how-to-find-manufacturer-china",
+    "en_title": "How to Find a Manufacturer in China | Buyer's Guide 2026",
+    "zh_title": "如何在中国找工厂 | 采购者指南 2026",
+    "en_lede": "A practical guide on how to find a manufacturer in China — verify suppliers, audit factories, negotiate MOQ and avoid scams in the Greater Bay Area.",
+    "zh_lede": "关于如何在中国找工厂的实用指南——核实供应商、验厂、谈 MOQ 与避坑（大湾区）。",
+    "en_intro": "Finding a reliable manufacturer in China is less about a single directory and more about verification. This guide covers how to shortlist, verify, audit and contract a Greater Bay Area supplier safely.",
+    "zh_intro": "在中国找可靠工厂，关键不在单一名录，而在核实。本指南涵盖如何在大湾区安全地进行初筛、核实、验厂与签约。",
+    "caps": [
+      [
+        "Shortlist & screen",
+        "初筛与甄别"
+      ],
+      [
+        "Verify & audit",
+        "核实与验厂"
+      ],
+      [
+        "Negotiate MOQ & terms",
+        "谈 MOQ 与条款"
+      ],
+      [
+        "Avoid scams",
+        "规避骗局"
+      ],
+      [
+        "Contract & IP",
+        "签约与知识产权"
+      ]
+    ],
+    "specs": [
+      [
+        "Verification",
+        "Photos, video, live audit",
+        "核实：照片、视频、在线验厂"
+      ],
+      [
+        "Audit",
+        "Factory audit checklist",
+        "验厂清单"
+      ],
+      [
+        "MOQ",
+        "From 500 pcs / SKU",
+        "起订 500 件 / 单品"
+      ],
+      [
+        "Contract",
+        "T/T 30/70, NNN available",
+        "电汇 30/70，可提供 NNN"
+      ],
+      [
+        "Quote",
+        "48 hours",
+        "48 小时"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "how to find a manufacturer in China, verify Chinese manufacturer, factory audit checklist, 如何在中国找工厂",
+    "related": [
+      [
+        "how to import products from China",
+        "如何从中国进口"
+      ],
+      [
+        "how to negotiate with Chinese factory",
+        "怎么和中国工厂谈"
+      ],
+      [
+        "how to avoid scams manufacturing China",
+        "怎么避坑"
+      ],
+      [
+        "MOQ meaning in manufacturing",
+        "MOQ 是什么意思"
+      ],
+      [
+        "China sourcing agent vs factory",
+        "代理 vs 工厂"
+      ],
+      [
+        "reliable supplier China",
+        "可靠供应商 中国"
+      ],
+      [
+        "OEM manufacturer in China",
+        "中国 OEM 制造厂商"
+      ],
+      [
+        "Guangdong manufacturer",
+        "广东制造"
+      ]
+    ],
+    "related_qa": [
+      [
+        "How do I verify a Chinese manufacturer?",
+        "Use a by-process photo gallery, a recorded shop-floor video, a certificate wall and a live inspection by appointment — no blind trust."
+      ],
+      [
+        "What is a factory audit checklist?",
+        "Licenses, production capacity, QC process, certifications and verifiable references. We provide ours on request."
+      ],
+      [
+        "How do I avoid scams when manufacturing in China?",
+        "Verify the legal entity, use staged payments (30% deposit / 70% before shipment), request NNN, and inspect before full payment."
+      ],
+      [
+        "What does MOQ mean in manufacturing?",
+        "Minimum Order Quantity — the smallest batch a factory accepts. Ours starts at 500 pcs per SKU with consolidation."
       ]
     ]
   }
