@@ -44,7 +44,7 @@ FOOTER = ('<footer><div class="container"><div class="cols">'
           '<li data-zh="运营主体：深圳森亚实业有限公司（Shenzhen Senya Industrial Co., Ltd.）">Operator: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.)</li>'
           '<li data-zh="商标：Anchormere / Buyeex">Trade mark: Anchormere / Buyeex</li></ul></div>'
           '</div><p style="margin-top:20px;text-align:center;color:var(--on-dark2)" data-zh="© 2026 Anchormere · 由深圳森亚实业有限公司运营">© 2026 Anchormere · Operated by 深圳森亚实业有限公司</p>'
-          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-10-30">Last updated: 2026-10-30</p></div>'
+          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-11-01">Last updated: 2026-11-01</p></div>'
           '<p style="text-align:center;margin-top:10px;font-size:12px"><a href="privacy.html" data-zh="隐私政策">Privacy Policy</a> · <a href="terms.html" data-zh="服务条款">Terms &amp; Conditions</a></p></footer>')
 
 FAQS = [
@@ -80,6 +80,22 @@ def build_page(seed):
     mother_href, mother_label = seed["mother"]
     caps = "".join(
         f'<li><span data-zh="{html.escape(zh)}">{html.escape(en)}</span></li>' for en, zh in seed["caps"])
+    # Case-sharing block: associate the page with leading brand names / hot model
+    # names / product names (proper nouns) as market context — no supply implication.
+    cases = seed.get("cases", [])
+    if cases:
+        cases_html = "".join(
+            f'<div class="card"><div class="brand" data-zh="{html.escape(zh_b)}">{html.escape(en_b)}</div>'
+            f'<p data-zh="{html.escape(zh_d)}">{html.escape(en_d)}</p></div>'
+            for en_b, zh_b, en_d, zh_d in cases)
+        case_section = ('<section class="l2"><div class="container">\n'
+            '  <h2 data-zh="案例分享 · 品类与头部品牌参考">Case sharing &middot; categories &amp; leading brands</h2>\n'
+            '  <p class="cn">案例分享 · 品类与头部品牌参考（市场认知，非合作背书）</p>\n'
+            f'  <div class="cases">{cases_html}</div>\n'
+            '  <p class="rel-note" data-zh="以上品牌与型号仅作品类与市场需求参考，与本公司无关联、无合作或供应关系；商标归各自所有者所有。">The brands and models above are referenced only as category and market context. They are not affiliated with, endorsed by, or supplied by Anchormere; all trademarks belong to their respective owners.</p>\n'
+            '</div></section>')
+    else:
+        case_section = ""
     specs = "".join(
         f'<tr><td>{html.escape(en_p)}</td>'
         f'<td data-zh="{html.escape(zh_v)}">{html.escape(en_v)}</td></tr>'
@@ -161,6 +177,7 @@ def build_page(seed):
   <p class="cn">我们能整合的能力</p>
   <ul class="check">{caps}</ul>
 </div></section>
+{case_section}
 <section class="l2"><div class="container">
   <h2 data-zh="典型规格与时效">Typical specs &amp; lead times</h2>
   <p class="cn">典型规格与时效</p>

@@ -3,7 +3,7 @@
     "slug": "earbuds-oem-shenzhen",
     "en_title": "TWS Earbuds OEM Shenzhen | Private-Label Audio Manufacturing",
     "zh_title": "TWS 耳机 OEM 深圳 | 私模/贴牌音频制造",
-    "en_lede": "Source private-label true-wireless earbuds from the Shenzhen cluster — from industrial design and tooling to PCBA, acoustics tuning and fulfilled export docs.",
+    "en_lede": "Source private-label TWS earbuds from Shenzhen — benchmark your build against AirPods and Soundcore. ID, tooling, PCBA, 500 pcs MOQ, 48h quote.",
     "zh_lede": "从深圳集群私模/贴牌真无线耳机——从工业设计、开模，到 PCBA、声学调音与完整出口单证。",
     "en_intro": "Shenzhen is the densest earbuds manufacturing cluster in the world: enclosure injection, battery cells, Bluetooth SoC sourcing, SMT and acoustic tuning all sit within a day's logistics. Anchormere integrates these into one accountable build — you own the brand, we own the quality baseline.",
     "zh_intro": "深圳是全球密度最高的耳机制造集群：外壳注塑、电芯、蓝牙 SoC 采购、SMT 与声学调音均在一天物流半径内。Anchormere 将其整合为单一责任制造——品牌归你，质量基线归我们。",
@@ -119,6 +119,32 @@
       [
         "Which Bluetooth chips do you use?",
         "BES, Qualcomm and Realtek platforms; we recommend per your budget and feature set (ANC, ENC, low latency)."
+      ]
+    ],
+    "cases": [
+      [
+        "Apple AirPods",
+        "苹果 AirPods",
+        "The benchmark TWS form factor; AirPods set the reference for in-ear fit, instant pairing and ecosystem handoff — a direction we can benchmark for private-label builds.",
+        "真无线耳机的标杆形态，AirPods 把入耳佩戴、开盖连接与生态联动做成行业参考——我们可据此做私模与功能对标。"
+      ],
+      [
+        "Anker Soundcore",
+        "安克 声阔",
+        "Soundcore Liberty is known for ANC at value pricing — a popular benchmark for private-label audio.",
+        "Soundcore Liberty 系列以主动降噪与高性价比著称，是消费音频贴牌的热门对标对象。"
+      ],
+      [
+        "Sony WF series",
+        "索尼 WF 系列",
+        "Sony's WF line sets the flagship ANC and sound benchmark often used as an experience reference.",
+        "索尼 WF 系列代表高端降噪与音质标杆，常用于旗舰级 TWS 的体验对标。"
+      ],
+      [
+        "Bose QuietComfort Earbuds",
+        "博士 QuietComfort 耳塞",
+        "Bose leads on transparent ANC and comfort — a reference point for premium audio brands.",
+        "Bose 以通透降噪与佩戴舒适见长，是高端音频品牌的参考坐标。"
       ]
     ]
   },
@@ -239,6 +265,32 @@
         "Is there a minimum MOQ for custom toys?",
         "500 pcs per SKU; trial orders are supported."
       ]
+    ],
+    "cases": [
+      [
+        "LEGO Mindstorms",
+        "乐高 Mindstorms",
+        "The classic build-motor-code platform — the benchmark reference for STEM kits.",
+        "将积木、电机与编程结合的经典教育机器人平台，是 STEM 套件的标杆参考。"
+      ],
+      [
+        "Makeblock",
+        "童心制物 Makeblock",
+        "Classroom coding robots and laser kits — a leading educational-hardware brand.",
+        "面向课堂的编程机器人与激光切割套件，是教育硬件的头部品牌之一。"
+      ],
+      [
+        "micro:bit",
+        "micro:bit 微比特",
+        "The BBC's beginner coding board widely used in schools — a common compatibility target for kits.",
+        "英国 BBC 推出的入门编程板，广泛进入学校，是教育套件的常见兼容对象。"
+      ],
+      [
+        "Sphero / Anki Cozmo",
+        "Sphero / Anki Cozmo",
+        "Spherical robots and expressive companion bots — top references for toy-plus-AI experiences.",
+        "球形机器人与带表情的陪伴机器人，是「玩具+AI」体验的头部参考。"
+      ]
     ]
   },
   {
@@ -358,13 +410,39 @@
         "Can you handle camera and display module integration?",
         "Yes, including camera, touch and LCD/OLED module bonding."
       ]
+    ],
+    "cases": [
+      [
+        "Apple iPad",
+        "苹果 iPad",
+        "The benchmark for tablet PCBA and box-build — reference for unibody and display integration.",
+        "平板 PCBA 与整机组装的工艺标杆，金属一体机身与显示模组整合的参考对象。"
+      ],
+      [
+        "Samsung Galaxy Tab",
+        "三星 Galaxy Tab",
+        "A leading Android tablet — reference for AMOLED and S-Pen module integration.",
+        "安卓平板头部型号，代表了 AMOLED 与 S-Pen 模组的整合方向。"
+      ],
+      [
+        "Xiaomi Pad",
+        "小米 Pad",
+        "A value tablet representative — a benchmark for cost-sensitive box-build.",
+        "高性价比平板代表，是价格敏感型整机组装的对标样本。"
+      ],
+      [
+        "Huawei MatePad",
+        "华为 MatePad",
+        "A flagship domestic tablet — reference for high-precision display and multi-device synergy.",
+        "国产旗舰平板，代表高精度显示与多设备协同的整合方向。"
+      ]
     ]
   },
   {
     "slug": "wearable-oem-shenzhen",
     "en_title": "Wearable OEM Shenzhen | Smartwatch & Fitness Band Manufacturing",
     "zh_title": "可穿戴 OEM 深圳 | 智能手表与手环制造",
-    "en_lede": "Manufacture private-label smartwatches and fitness bands in Shenzhen — from PCBA and display to straps, firmware and fulfilled export docs.",
+    "en_lede": "Manufacture private-label smartwatches & fitness bands in Shenzhen — benchmark your build against Apple Watch and Xiaomi Mi Band. 500 pcs MOQ, 48h quote.",
     "zh_lede": "在深圳制造私模智能手表与手环——从 PCBA、显示到表带、固件与完整出口单证。",
     "en_intro": "Shenzhen's wearable cluster covers display modules, heart-rate and SpO2 sensors, Bluetooth SoCs, enclosures and strap supply. Anchormere integrates them under one accountable build with a 48-hour quote.",
     "zh_intro": "深圳可穿戴集群覆盖显示模组、心率与血氧传感器、蓝牙 SoC、外壳与表带供应。Anchormere 将其整合为单一责任制造，48 小时报价。",
@@ -473,13 +551,39 @@
         "Do you provide OTA firmware updates?",
         "Yes, OTA update and pairing are supported."
       ]
+    ],
+    "cases": [
+      [
+        "Apple Watch",
+        "苹果 Apple Watch",
+        "The functional and ecosystem benchmark for smartwatches — reference for health sensors and band ecosystem.",
+        "智能手表的功能与生态标杆，健康传感（心率/血氧/ECG）与表带生态的参考坐标。"
+      ],
+      [
+        "Garmin",
+        "佳明",
+        "A top sport/health watch brand — GPS and battery life benchmark for outdoor categories.",
+        "运动与健康手表头部品牌，GPS 与长续航是户外品类的对标方向。"
+      ],
+      [
+        "Huawei Watch GT",
+        "华为 Watch GT",
+        "A domestic benchmark for long battery life and health tracking — reference for watch-face and sensor integration.",
+        "长续航与健康监测的国产标杆，是 GT 系列表盘与传感整合的参考。"
+      ],
+      [
+        "Xiaomi Mi Band",
+        "小米 手环",
+        "The volume benchmark for fitness bands — defined the form factor at extreme value.",
+        "手环品类的销量标杆，以极致性价比定义了健身手环的形态。"
+      ]
     ]
   },
   {
     "slug": "smart-home-module-sourcing",
     "en_title": "Smart Home Module Sourcing | IoT Devices & Sensor Nodes",
     "zh_title": "智能家居模组采购 | IoT 设备与传感器节点",
-    "en_lede": "Source smart-home modules, IoT devices and sensor nodes across the Greater Bay Area — PCBA, wireless and enclosure integration.",
+    "en_lede": "Source smart-home modules & IoT sensor nodes from the GBA — benchmark your build against the Tuya and Aqara ecosystems. Wi-Fi/BLE/Zigbee PCBA, 500 pcs MOQ.",
     "zh_lede": "在大湾区采购智能家居模组、IoT 设备与传感器节点——PCBA、无线与外壳整合。",
     "en_intro": "The Greater Bay Area builds the world's connected-home hardware: Wi-Fi/BLE/Zigbee modules, sensors, gateways and enclosures. Anchormere sources and integrates them with one accountable quality owner.",
     "zh_intro": "大湾区制造全球联网家居硬件：Wi-Fi/BLE/Zigbee 模组、传感器、网关与外壳。Anchormere 采购并整合，保留单一质量责任人。",
@@ -588,13 +692,39 @@
         "Do you provide the app and cloud bridging?",
         "Yes. Firmware, app and cloud/API bridging are part of our integration scope."
       ]
+    ],
+    "cases": [
+      [
+        "Tuya",
+        "涂鸦智能",
+        "One of the largest IoT cloud/module platforms — the default integration reference for smart-home export.",
+        "全球最大的 IoT 设备云与模组平台之一，是智能家居出口的默认接入参考。"
+      ],
+      [
+        "Xiaomi Mi Home",
+        "小米 米家",
+        "Mi Home's unified app and value devices — a consumer smart-home benchmark.",
+        "米家生态以统一 App 与高性价比连接设备著称，是消费级智能家居的对标样本。"
+      ],
+      [
+        "Aqara",
+        "绿米 Aqara",
+        "Strong in Zigbee/Thread sensors and gateways — a leading Matter smart-home brand.",
+        "以 Zigbee/Thread 传感器与网关见长，是 Matter 智能家居的头部品牌。"
+      ],
+      [
+        "Philips Hue",
+        "飞利浦 Hue",
+        "The smart-lighting benchmark — defined premium scene and color experiences.",
+        "智能照明的标杆，定义了灯组联动与色彩体验的高端参考。"
+      ]
     ]
   },
   {
     "slug": "usb-c-charger-oem",
     "en_title": "USB-C Charger OEM China | GaN Power Adapter Manufacturing",
     "zh_title": "USB-C 充电器 OEM 中国 | 氮化镓电源适配器制造",
-    "en_lede": "Source private-label USB-C and GaN chargers from the Greater Bay Area — certified power adapters with one accountable quality owner.",
+    "en_lede": "Source private-label USB-C & GaN chargers from the Greater Bay Area — home to category leaders like Anker and Baseus. Certified, 500 pcs MOQ, 48h quote.",
     "zh_lede": "从大湾区采购私模 USB-C 与氮化镓充电器——认证电源适配器，由单一质量责任人统筹。",
     "en_intro": "The Greater Bay Area is the world's power-adapter hub: GaN ICs, transformers, enclosures and safety certs all local. Anchormere sources and consolidates with full export docs and a 48-hour quote.",
     "zh_intro": "大湾区是全球电源适配器枢纽：氮化镓 IC、变压器、外壳与安全认证均本地化。Anchormere 采购并整合，附完整出口单证，48 小时报价。",
@@ -702,6 +832,32 @@
       [
         "Can you do ODM with our own ID design?",
         "Yes. We support OEM and ODM from your drawings or our reference platform."
+      ]
+    ],
+    "cases": [
+      [
+        "Anker GaNPrime",
+        "安克 GaNPrime",
+        "The leading GaN multi-port fast-charge series — 33W/65W/100W PD is the private-label benchmark.",
+        "氮化镓多口快充的头部系列，33W/65W/100W PD 是私模充电器的对标方向。"
+      ],
+      [
+        "Baseus",
+        "倍思",
+        "Known for design and high power density — a leading consumer charging-accessory brand.",
+        "以设计感与高功率密度快充著称，是消费充电配件的头部品牌之一。"
+      ],
+      [
+        "Ugreen",
+        "绿联",
+        "A top full-line accessory brand — 65W/100W GaN chargers are a popular export OEM sample.",
+        "全品类数码配件头部，65W/100W 氮化镓充电器是出口贴牌的热门样本。"
+      ],
+      [
+        "Xiaomi 67W/120W",
+        "小米 67W/120W",
+        "Representative of ultra-high-power phone charging — defined the high-power compact PSU form.",
+        "手机超大功率快充代表，定义了高功率小体积的电源形态。"
       ]
     ]
   },
@@ -822,6 +978,32 @@
         "What is the MOQ and prototype time?",
         "MOQ 500 pcs; prototype 10–15 days."
       ]
+    ],
+    "cases": [
+      [
+        "LEGO Mindstorms",
+        "乐高 Mindstorms",
+        "Block-coding plus mechanics — the classic educational-robotics platform.",
+        "图形化编程+机械搭建的标杆，是教育机器人课程的经典平台。"
+      ],
+      [
+        "Makeblock mBot",
+        "童心制物 mBot",
+        "An entry coding-robot kit widely used in K-12 STEM classrooms.",
+        "入门编程机器人套件，广泛用于中小学 STEM 课堂。"
+      ],
+      [
+        "Arduino",
+        "Arduino",
+        "The de-facto open-source hardware standard for sensor and motor-control teaching.",
+        "开源硬件事实标准，是传感器与电机控制教学的基础平台。"
+      ],
+      [
+        "Raspberry Pi",
+        "树莓派",
+        "The single-board computer benchmark powering project-based learning from coding to AI.",
+        "单板计算机标杆，支撑从编程到 AI 入门的项目式学习。"
+      ]
     ]
   },
   {
@@ -940,6 +1122,32 @@
       [
         "Which certifications apply?",
         "CE and RoHS; CCC available for certain industrial models."
+      ]
+    ],
+    "cases": [
+      [
+        "Samsung Display",
+        "三星显示",
+        "A top AMOLED supplier — benchmark for high-refresh, low-power display modules.",
+        "AMOLED 的头部供应商，代表了高刷新与低功耗显示模组的标杆。"
+      ],
+      [
+        "LG Display",
+        "LG 显示",
+        "A major OLED/POLED source — reference for flexible display modules.",
+        "OLED 与 POLED 的主要来源，是柔性显示模组的参考坐标。"
+      ],
+      [
+        "BOE",
+        "京东方",
+        "A leading domestic display maker — a main supplier for phone and automotive panels.",
+        "国产显示龙头，手机与车载屏的主力供应商之一。"
+      ],
+      [
+        "Sharp",
+        "夏普",
+        "Representative of high-quality small/mid LCDs — common for industrial and portable devices.",
+        "中小尺寸高品质 LCD 的代表，是工控与便携设备的常用选型。"
       ]
     ]
   },
@@ -1064,6 +1272,32 @@
         "What is the MOQ for molded parts?",
         "500 pcs per SKU; trial runs are supported."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer-electronics enclosures",
+        "消费电子外壳",
+        "Phone, earbud and charger enclosures are largely molded in the GBA — precision molding is highly concentrated here.",
+        "手机、耳机、充电器外壳多采用大湾区注塑，精密成型高度集中于此。"
+      ],
+      [
+        "Smart-hardware housings",
+        "智能硬件外壳",
+        "Robot-vacuum, router and camera housings — integrated molding plus finishing.",
+        "扫地机、路由、摄像头等智能家居外壳，是注塑+后处理的一体化样本。"
+      ],
+      [
+        "Automotive interior parts",
+        "汽车内饰件",
+        "Dash, vent and trim interior parts — reference for automotive RoHS/REACH.",
+        "仪表板、出风口、饰条等内饰注塑，是车规 RoHS/REACH 的参考方向。"
+      ],
+      [
+        "Medical-device enclosures",
+        "医疗器械外壳",
+        "Monitor and portable-instrument enclosures demanding high precision and clean finishing — medical-grade molding sample.",
+        "监护仪、便携器械外壳要求高精度与洁净后处理，是医疗级注塑样本。"
+      ]
     ]
   },
   {
@@ -1182,6 +1416,32 @@
       [
         "Do you provide welding, coating and assembly?",
         "Yes. Laser cutting, bending, welding, powder coating and full assembly in-house."
+      ]
+    ],
+    "cases": [
+      [
+        "Server chassis / racks",
+        "服务器机箱/机架",
+        "Dell/HPE-class chassis and 19-inch racks — benchmark for high-precision sheet metal and coating.",
+        "Dell / HPE 级机箱与 19 英寸机架结构，是钣金高精度与喷涂的标杆。"
+      ],
+      [
+        "Network-equipment enclosures",
+        "网络设备外壳",
+        "Switch and router enclosures demanding EMC shielding and thermal design — reference for comms sheet metal.",
+        "交换机、路由器外壳要求 EMC 屏蔽与散热，是通信钣金的参考。"
+      ],
+      [
+        "EV battery enclosures",
+        "新能源电池箱体",
+        "Battery pack covers and trays in sheet/aluminum — integration direction for automotive structural parts.",
+        "电池包上盖与托盘的钣金/铝加工，是车规结构件的整合方向。"
+      ],
+      [
+        "Industrial control cabinets",
+        "工业控制机柜",
+        "PLC and control cabinets — sample for outdoor protection and coating.",
+        "PLC 与电控柜体，是户外防护与喷涂工艺的样本。"
       ]
     ]
   },
@@ -1306,6 +1566,32 @@
         "What files do you need to quote?",
         "Gerber, BOM, centroid/placement file and assembly drawing; quote within 48h."
       ]
+    ],
+    "cases": [
+      [
+        "Raspberry Pi",
+        "树莓派",
+        "The SBC benchmark — its PCBA process and BOM are a reference for dev-board volume.",
+        "单板计算机标杆，其 PCBA 工艺与 BOM 是开发板量产的参考。"
+      ],
+      [
+        "Arduino",
+        "Arduino",
+        "Open-source control boards — the de-facto standard for education and prototype PCBA.",
+        "开源控制板，是教育与原型 PCBA 的事实标准平台。"
+      ],
+      [
+        "NVIDIA Jetson",
+        "英伟达 Jetson",
+        "The edge-AI module benchmark — reference for high-density, high-reliability PCBA.",
+        "边缘 AI 模组标杆，代表了高密度、高可靠 PCBA 的整合方向。"
+      ],
+      [
+        "ESP32",
+        "乐鑫 ESP32",
+        "A low-cost Wi-Fi/BT SoC — the popular core for IoT module and node PCBA.",
+        "低成本 Wi-Fi/蓝牙 SoC，是 IoT 模组与节点 PCBA 的热门核心。"
+      ]
     ]
   },
   {
@@ -1425,13 +1711,39 @@
         "Which protocols do your gateways support?",
         "Modbus, MQTT, OPC UA, JSON and HTTP for SCADA/cloud."
       ]
+    ],
+    "cases": [
+      [
+        "Shelly",
+        "Shelly",
+        "Known for plug-and-play Wi-Fi relays and sensors — a top DIY smart-device brand.",
+        "以即插即用 Wi-Fi 继电器与传感器著称，是 DIY 智能设备的头部品牌。"
+      ],
+      [
+        "Aqara",
+        "绿米 Aqara",
+        "Top Zigbee/Thread sensor and gateway brand — reference for Matter node modules.",
+        "Zigbee/Thread 传感器与网关头部，是 Matter 节点模组的参考。"
+      ],
+      [
+        "Xiaomi",
+        "小米",
+        "Mi Home's low-cost sensor matrix — the volume benchmark for consumer IoT.",
+        "米家生态以低成本传感器矩阵著称，是消费 IoT 的销量标杆。"
+      ],
+      [
+        "Espressif ESP32",
+        "乐鑫 ESP32",
+        "The de-facto Wi-Fi/BT SoC standard — the core of most IoT nodes.",
+        "Wi-Fi/蓝牙 SoC 事实标准，是绝大多数 IoT 节点的核心。"
+      ]
     ]
   },
   {
     "slug": "drone-parts-manufacturer-gba",
     "en_title": "Drone Parts Manufacturer Greater Bay Area | Frames, Motors & PCBA",
     "zh_title": "无人机零件制造商大湾区 | 机架、电机与 PCBA",
-    "en_lede": "Source drone frames, motors, propellers and flight-controller PCBA in the Greater Bay Area — one accountable build.",
+    "en_lede": "Source drone frames, motors & flight-controller PCBA from the GBA — benchmark your build against DJI and Autel. One accountable build, 48h quote.",
     "zh_lede": "在大湾区采购无人机机架、电机、桨叶与飞控 PCBA——单一责任制造。",
     "en_intro": "The Greater Bay Area is a global drone-hardware base: carbon frames, brushless motors, ESCs and flight-controller PCBA. Anchormere integrates the supply and keeps quality ownership.",
     "zh_intro": "大湾区是全球无人机硬件基地：碳纤机架、无刷电机、电调与飞控 PCBA。Anchormere 整合供应并保持质量责任。",
@@ -1540,13 +1852,39 @@
         "Do you follow dual-use export controls?",
         "Yes. Civilian-use products with full export documentation and compliance."
       ]
+    ],
+    "cases": [
+      [
+        "DJI",
+        "大疆",
+        "The consumer and industrial drone leader — benchmark for flight control, gimbal and imaging modules.",
+        "消费与行业无人机龙头，代表了飞控、云台与影像模组的工艺标杆。"
+      ],
+      [
+        "Autel",
+        "道通 Autel",
+        "A top premium consumer-drone brand — benchmark for flight control and video link.",
+        "高端消费无人机头部，是飞控与图传整合的对标对象。"
+      ],
+      [
+        "Holy Stone",
+        "Holy Stone",
+        "An entry-level volume drone brand — reference for low-cost frames and kits.",
+        "入门级无人机销量品牌，是低成本机架与套件的参考样本。"
+      ],
+      [
+        "BetaFPV",
+        "BetaFPV",
+        "A top FPV brand — reference for lightweight frames and high-KV motors.",
+        "FPV 穿越机头部，代表了轻量化机架与高 KV 电机的整合方向。"
+      ]
     ]
   },
   {
     "slug": "ev-charger-components-sourcing",
     "en_title": "EV Charger Components Sourcing | Power & Enclosure Parts",
     "zh_title": "充电桩部件采购 | 电源与外壳件",
-    "en_lede": "Source EV charger components across the Greater Bay Area — power modules, enclosures, cables and certified parts.",
+    "en_lede": "Source EV charger components from the GBA — benchmark your parts against the specs used by EV leaders like BYD and Tesla. Power modules, enclosures, 500 pcs MOQ.",
     "zh_lede": "在大湾区采购充电桩部件——电源模组、外壳、线缆与认证件。",
     "en_intro": "The Greater Bay Area is the world's EV hardware belt: power electronics, enclosures, connectors and cabling. Anchormere sources components and integrates them with a full export document package.",
     "zh_intro": "大湾区是全球 EV 硬件带：功率电子、外壳、连接器与线缆。Anchormere 采购部件并整合，附完整出口单证包。",
@@ -1655,13 +1993,39 @@
         "Do you support ODM enclosure and power configuration?",
         "Yes. Custom enclosure, power (7kW AC to 30/40kW DC modules) and regional compliance."
       ]
+    ],
+    "cases": [
+      [
+        "Tesla",
+        "特斯拉",
+        "The supercharging and onboard-charge benchmark — defined high-power charging experience and connector direction.",
+        "超充与车端充电标杆，定义了高功率充电的体验与接口方向。"
+      ],
+      [
+        "BYD",
+        "比亚迪",
+        "A NEV and charging-ecosystem leader — top reference for automotive-grade power modules.",
+        "新能源整车与充电生态龙头，是车规级电源模组的头部参考。"
+      ],
+      [
+        "ChargePoint",
+        "ChargePoint",
+        "A top North-American charging network — reference for AC stations and OCPP platforms.",
+        "北美充电网络头部，是交流桩与 OCPP 平台的参考坐标。"
+      ],
+      [
+        "ABB",
+        "ABB",
+        "A top industrial and DC-fast brand — reference for high-power modules and IEC compliance.",
+        "工业与直流快充头部，代表了高功率模块与 IEC 合规方向。"
+      ]
     ]
   },
   {
     "slug": "oem-manufacturer-china",
     "en_title": "OEM Manufacturer in China | Greater Bay Area Build-to-Print",
     "zh_title": "中国 OEM 制造厂商 | 大湾区按图加工",
-    "en_lede": "Work with an OEM manufacturer in China built on the Greater Bay Area clusters — build-to-print, private label and joint manufacturing with one accountable owner and full export docs.",
+    "en_lede": "Partner with an OEM manufacturer in China's Greater Bay Area — the cluster that builds the world's electronics. Build-to-print, 500 pcs MOQ, 48h quote.",
     "zh_lede": "与中国 OEM 制造厂商合作，立足大湾区产业集群——按图加工、贴牌与联合制造，单一责任主体，完整出口单证。",
     "en_intro": "Shenzhen, Dongguan and the Pearl River Delta hold the world's densest OEM ecosystem: tooling, injection, SMT, metal and assembly within a day's logistics. Anchormere routes your build to the right workshop and owns quality end-to-end.",
     "zh_intro": "深圳、东莞与珠江三角洲拥有全球最密集的 OEM 生态：开模、注塑、SMT、五金与组装均在一天物流半径内。Anchormere 把您的制造路由到对的车间，并对质量全程负责。",
@@ -1770,13 +2134,51 @@
         "What is your quote turnaround?",
         "Standard builds are quoted within 48 hours by an engineer."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "odm-factory-guangdong",
     "en_title": "ODM Factory Guangdong | Pearl River Delta Product Development",
     "zh_title": "广东 ODM 工厂 | 珠江三角洲产品开发",
-    "en_lede": "Partner with an ODM factory in Guangdong for full product development — industrial design, engineering, tooling and mass production across the Pearl River Delta.",
+    "en_lede": "Partner with an ODM factory in Guangdong's Pearl River Delta for full product development — ID, engineering, tooling, mass production, 48h quote.",
     "zh_lede": "与广东 ODM 工厂合作，承接完整产品开发——工业设计、结构工程、开模与量产，覆盖珠江三角洲。",
     "en_intro": "Guangdong's Pearl River Delta is the only place that can take a concept to mass production in one region: ID, electronics, firmware, tooling and assembly. Anchormere runs the program and keeps a single accountable owner.",
     "zh_intro": "广东珠江三角洲是唯一能把概念在区域内完成量产的地点：工业设计、电子、固件、开模与组装。Anchormere 统筹项目并保留单一责任主体。",
@@ -1885,13 +2287,51 @@
         "What is the typical ODM lead time?",
         "Prototype 10–15 days; mass production typically 30–45 days including tooling."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "low-moq-oem-factory",
     "en_title": "Low MOQ OEM Factory | Small-Batch China Manufacturing",
     "zh_title": "小起订量 OEM 工厂 | 小批量中国制造",
-    "en_lede": "Source from a low MOQ OEM factory in the Greater Bay Area — 500 pcs per SKU, mixed-SKU consolidation, and pilot runs for new brands.",
+    "en_lede": "Source from a low MOQ OEM factory in the Greater Bay Area — just 500 pcs per SKU, mixed-SKU consolidation and pilot runs for new brands.",
     "zh_lede": "在大湾区小起订量 OEM 工厂采购——单品 500 件起订，多 SKU 拼柜，为新品牌提供试产。",
     "en_intro": "Most Greater Bay Area workshops quote high MOQs, but Anchormere consolidates multi-SKU orders and runs pilot batches so new brands can validate without over-committing. 500 pcs per SKU is our standard; trials are supported.",
     "zh_intro": "多数大湾区车间起订量高，但 Anchormere 整合多 SKU 订单并承接试产，让新品牌无需过量承诺即可验证。单品 500 件为标准，支持试产。",
@@ -2000,13 +2440,51 @@
         "How do I negotiate a lower MOQ?",
         "Share your full product roadmap; we consolidate across SKUs and seasons to lower effective MOQ."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "private-label-manufacturer",
     "en_title": "Private Label Manufacturer China | White-Label Hardware",
     "zh_title": "中国贴牌制造商 | 白牌硬件",
-    "en_lede": "Build your brand with a private label manufacturer in China — custom logo, packaging and documentation across electronics, toys, smart-home and IoT hardware.",
+    "en_lede": "Build your brand with a private label manufacturer in China — custom logo, packaging and docs across electronics, toys, smart-home and IoT. 500 pcs MOQ, 48h quote.",
     "zh_lede": "与中国贴牌制造商共建品牌——覆盖电子、玩具、智能家居与 IoT 硬件的定制 logo、包装与单证。",
     "en_intro": "Private label is more than a logo: we handle enclosure, packaging, manual and certification under your brand, with 500 pcs MOQ and a 48h quote. White-label ready platforms are also available.",
     "zh_intro": "贴牌不止于 logo：我们以您的品牌承接外壳、包装、说明书与认证，500 件起订、48 小时报价。亦提供白牌就绪平台。",
@@ -2115,13 +2593,51 @@
         "Do you provide retail packaging and manuals?",
         "Yes. Custom packaging, user manuals and certification documentation are part of the service."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "pcba-contract-manufacturer",
     "en_title": "PCBA Contract Manufacturer | EMS & Box-Build China",
     "zh_title": "PCBA 合约制造商 | 中国 EMS 与整机组装",
-    "en_lede": "A PCBA contract manufacturer in the Greater Bay Area for turnkey electronics — BOM sourcing, SMT/DIP, testing and box-build with one accountable owner.",
+    "en_lede": "A PCBA contract manufacturer in the Greater Bay Area for turnkey electronics — BOM sourcing, SMT/DIP, testing, box-build, one accountable owner. 48h quote.",
     "zh_lede": "大湾区 PCBA 合约制造商，承接一站式电子制造——BOM 采购、SMT/DIP、测试与整机组装，单一责任主体。",
     "en_intro": "Shenzhen and Dongguan concentrate the world's fastest EMS: component sourcing, SMT lines, functional test and final assembly. Anchormere manages the contract as a single point of accountability.",
     "zh_intro": "深圳与东莞聚集全球最快的 EMS：元器件采购、SMT 产线、功能测试与终装。Anchormere 以单一责任主体管理该合约。",
@@ -2230,13 +2746,51 @@
         "What files do you need to quote?",
         "Gerber, BOM, centroid/placement file and assembly drawing; quote within 48h."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "custom-product-development",
     "en_title": "Custom Product Development China | From Prototype to Production",
     "zh_title": "中国定制产品开发 | 从打样到量产",
-    "en_lede": "Custom product development service in the Greater Bay Area — industrial design, engineering, prototyping and mass production under one program.",
+    "en_lede": "Custom product development in the Greater Bay Area — industrial design, engineering, prototyping and mass production under one program. 500 pcs MOQ, 48h quote.",
     "zh_lede": "大湾区定制产品开发服务——工业设计、结构工程、打样与量产，同一项目统筹。",
     "en_intro": "From a sketch, sample or concept, Anchormere drives ID, electronics, firmware, tooling and pilot production, then scales to mass. Private mold development and packaging customization are included.",
     "zh_intro": "从草图、样品或概念出发，Anchormere 驱动工业设计、电子、固件、开模与试产，再放大到量产。含私模开发与包装定制。",
@@ -2345,13 +2899,51 @@
         "How is my IP protected during development?",
         "NNN / confidentiality, dual-sourcing on key items, and limited drawing release per PO."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "small-batch-manufacturing",
     "en_title": "Small-Batch Manufacturing China | Pilot Runs & Low Volume",
     "zh_title": "小批量制造中国 | 试产与低产量",
-    "en_lede": "Small-batch manufacturing in the Greater Bay Area for pilots and low-volume runs — 500 pcs MOQ, fast iteration and one accountable owner.",
+    "en_lede": "Small-batch manufacturing in the Greater Bay Area for pilots and low-volume runs — 500 pcs MOQ, fast iteration, one accountable owner.",
     "zh_lede": "大湾区小批量制造，面向试产与低产量——500 件起订、快速迭代，单一责任主体。",
     "en_intro": "Validate before scaling: Anchormere runs pilot and low-volume production across electronics, plastics and metal, consolidating multi-SKU orders so small batches stay economical.",
     "zh_intro": "在放量前先验证：Anchormere 在电子、塑胶与金属领域承接试产与低产量，整合多 SKU 订单，让小批量依然经济。",
@@ -2460,13 +3052,51 @@
         "Is small-batch production economical?",
         "Consolidating multi-SKU orders keeps small batches cost-effective."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "oem-vs-odm",
     "en_title": "OEM vs ODM: Which Manufacturing Model Fits Your Brand?",
     "zh_title": "OEM 与 ODM 的区别：哪种制造模式适合你的品牌？",
-    "en_lede": "OEM vs ODM explained for overseas buyers — definitions, differences, and when to choose build-to-print versus full development in China.",
+    "en_lede": "OEM vs ODM explained for overseas buyers — definitions, key differences, and when to choose build-to-print vs full development in China. 48h quote.",
     "zh_lede": "为海外买家详解 OEM 与 ODM——定义、区别，以及在中国何时选按图加工、何时选完整开发。",
     "en_intro": "OEM means we build to your design; ODM means we design and you brand it. This guide helps you pick the right model for your stage, budget and IP strategy when sourcing from the Greater Bay Area.",
     "zh_intro": "OEM 是按您的设计代工；ODM 是我们设计、您贴牌。本指南帮助您在大湾区采购时，依据阶段、预算与知识产权策略选对模式。",
@@ -2575,13 +3205,51 @@
         "How do I protect IP in OEM/ODM?",
         "Use NNN / confidentiality terms, dual-sourcing on key items, and limit full drawing release to the assigned workshop."
       ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
+      ]
     ]
   },
   {
     "slug": "how-to-find-manufacturer-china",
     "en_title": "How to Find a Manufacturer in China | Buyer's Guide 2026",
     "zh_title": "如何在中国找工厂 | 采购者指南 2026",
-    "en_lede": "A practical guide on how to find a manufacturer in China — verify suppliers, audit factories, negotiate MOQ and avoid scams in the Greater Bay Area.",
+    "en_lede": "How to find a manufacturer in China — verify suppliers, audit factories, negotiate MOQ and avoid scams in the Greater Bay Area. 500 pcs MOQ, 48h quote.",
     "zh_lede": "关于如何在中国找工厂的实用指南——核实供应商、验厂、谈 MOQ 与避坑（大湾区）。",
     "en_intro": "Finding a reliable manufacturer in China is less about a single directory and more about verification. This guide covers how to shortlist, verify, audit and contract a Greater Bay Area supplier safely.",
     "zh_intro": "在中国找可靠工厂，关键不在单一名录，而在核实。本指南涵盖如何在大湾区安全地进行初筛、核实、验厂与签约。",
@@ -2689,6 +3357,44 @@
       [
         "What does MOQ mean in manufacturing?",
         "Minimum Order Quantity — the smallest batch a factory accepts. Ours starts at 500 pcs per SKU with consolidation."
+      ]
+    ],
+    "cases": [
+      [
+        "Consumer electronics · Anker · Xiaomi · Samsung",
+        "消费电子 · Anker · 小米 · 三星",
+        "Supply chains for leading charging, audio and wearable brands sit in the GBA — common OEM/ODM benchmarks.",
+        "充电、音频与穿戴头部品牌的供应链多位于大湾区，是 OEM/ODM 的常见对标。"
+      ],
+      [
+        "Smart devices · Apple · Huawei · Google",
+        "智能硬件 · Apple · 华为 · Google",
+        "Manufacturing and module integration for top phone, tablet and watch models are highly concentrated here.",
+        "手机、平板与手表头部型号的制造与模组整合高度集中于此。"
+      ],
+      [
+        "Smart home · Tuya · Aqara · Xiaomi",
+        "智能家居 · 涂鸦 · Aqara · 小米",
+        "Leading IoT module and sensor-node ecosystems come from GBA factories.",
+        "IoT 模组与传感器节点的头部生态多出自大湾区工厂。"
+      ],
+      [
+        "New energy · BYD · Tesla · ABB",
+        "新能源 · 比亚迪 · 特斯拉 · ABB",
+        "Top charging and power-module brands correspond to automotive-grade manufacturing.",
+        "充电桩与电源模组的头部品牌，对应车规级制造能力。"
+      ],
+      [
+        "Education & toys · LEGO · Makeblock · micro:bit",
+        "教育与玩具 · LEGO · Makeblock · micro:bit",
+        "Benchmark ecosystems for educational robotics and coding kits.",
+        "教育机器人与编程套件的标杆生态，是 STEM 硬件的对标。"
+      ],
+      [
+        "Drones · DJI · Autel",
+        "无人机 · 大疆 · Autel",
+        "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
+        "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ]
   }

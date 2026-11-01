@@ -165,6 +165,13 @@ html[lang="zh-CN"] .cn{display:none}
 .tag:hover{border-color:var(--brass);color:var(--ink);transform:translateY(-1px)}
 .rel-note{margin-top:14px;color:var(--slate);font-size:14px;opacity:.9}
 
+/* 案例分享 · 头部品牌/型号参考（专有名词锚点） */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:760px){.cases{grid-template-columns:1fr}}
+.cases .card{padding:18px}
+.cases .card .brand{font-weight:700;color:var(--ink);margin-bottom:6px;font-size:15px}
+.cases .card p{color:var(--slate);font-size:14px;margin:0}
+
 /* 资讯归档分页器 */
 .pager{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:14px}
 .pager .pg{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;background:var(--paper2)}
