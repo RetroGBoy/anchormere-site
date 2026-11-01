@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 """
-Anchormere — Cloudflare Pages 过去24小时流量拉取脚本
+Anchormere — Cloudflare 流量拉取脚本（GraphQL Analytics, 天级分组）
 
 前置条件：
   1) pip install requests
-  2) 在 Cloudflare 后台获取：
-       - Zone ID（站点 anchormere.com 概览页）
-       - API Token（My Profile → API Tokens → 创建，授予 Zone:Zone Analytics 读权限）
-  3) 设置环境变量：
-       export CF_API_TOKEN="你的token"
-       export CF_ZONE_ID="你的zone_id"
+  2) Cloudflare 后台获取 Zone ID 与 Analytics:Read 权限的 API Token（限定 anchormere.com zone）
+  3) 环境变量 CF_API_TOKEN / CF_ZONE_ID
   4) 运行： python3 scripts/fetch_traffic_cloudflare.py
 
-说明：Cloudflare Analytics 几乎实时（分钟级），比 GA4 更快出数，
-但只统计已接受/未拒绝 cookie 之外的所有边缘请求（含爬虫），
-因此 PV/请求数通常高于 GA4 的"已同意用户"。
+实现说明（重要）：
+  - 当前 zone 为 Free 套餐，GraphQL Analytics 仅支持 date 维度，且无可靠的逐小时数据集。
+  - 故用 httpRequests1dGroups 按天(date)分组，取最近数日明细。
+  - Cloudflare Analytics 通常有数小时~半天延迟，最新「完整分析日」即网站最近约24h流量的可靠近似。
+  - 真人/机器人、热门路径/国家/来源等维度需 Pro+ 套餐，请到 Cloudflare UI 或 GA4(Consent Mode v2)补充。
+  - uniques 为指纹近似；threats 为被拦截/威胁请求数。
 """
 import os
 import sys
@@ -35,59 +34,106 @@ def main():
         sys.exit("未设置 CF_API_TOKEN 或 CF_ZONE_ID")
 
     now = int(time.time())
-    since = now - 24 * 3600
-    url = f"https://api.cloudflare.com/client/v4/zones/{zone}/analytics/dashboard"
-    params = {"since": since, "until": now, "continuous": "true"}
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json",
+    date_geq = datetime.fromtimestamp(now - 3 * 86400, tz=timezone.utc).strftime("%Y-%m-%d")
+    date_leq = datetime.fromtimestamp(now, tz=timezone.utc).strftime("%Y-%m-%d")
+
+    url = "https://api.cloudflare.com/client/v4/graphql"
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    query = """
+    query GetAnalytics($zone: String!, $since: String!, $until: String!, $limit: Int!) {
+      viewer {
+        zones(filter: { zoneTag: $zone }) {
+          daily: httpRequests1dGroups(
+            limit: $limit
+            filter: { date_geq: $since, date_leq: $until }
+          ) {
+            dimensions { date }
+            sum { requests pageViews bytes threats }
+            uniq { uniques }
+          }
+        }
+      }
     }
-    r = requests.get(url, params=params, headers=headers, timeout=30)
+    """
+    payload = {
+        "query": query,
+        "variables": {"zone": zone, "since": date_geq, "until": date_leq, "limit": 100},
+    }
+    r = requests.post(url, json=payload, headers=headers, timeout=30)
     if r.status_code != 200:
-        sys.exit(f"Cloudflare API 返回 {r.status_code}: {r.text[:500]}")
+        sys.exit(f"Cloudflare GraphQL 返回 HTTP {r.status_code}: {r.text[:500]}")
     data = r.json()
-    if not data.get("success"):
-        sys.exit(f"Cloudflare API 失败：{data.get('errors')}")
+    if data.get("errors"):
+        sys.exit(f"Cloudflare GraphQL 错误：{json.dumps(data['errors'], ensure_ascii=False)}")
+    zones = data.get("data", {}).get("viewer", {}).get("zones", [])
+    if not zones:
+        sys.exit("未找到该 zone（zone id 错误或 token 无该 zone 的 Analytics 读权限）")
+    days = zones[0].get("daily") or []
 
-    tots = data["result"]["totals"]
-    ts = data["result"].get("timeseries", [])
+    def g(obj, *path, default=0):
+        cur = obj
+        for p in path:
+            if not isinstance(cur, dict) or p not in cur:
+                return default
+            cur = cur[p]
+        return cur
 
-    print("=== Cloudflare 过去24小时（边缘统计，含爬虫） ===")
-    print(f"窗口：{datetime.fromtimestamp(since, tz=timezone.utc):%Y-%m-%d %H:%M} → "
-          f"{datetime.fromtimestamp(now, tz=timezone.utc):%Y-%m-%d %H:%M} UTC")
-    print(f"  总请求数 (requests)      : {tots.get('requests'):,}")
-    print(f"  页面浏览量 (pageViews)   : {tots.get('pageViews'):,}")
-    print(f"  独立访客 (uniqVisitors)  : {tots.get('uniqVisitors'):,}")
-    print(f"  带宽 (bandwidth, MB)     : {tots.get('bandwidth', 0)/1e6:,.1f}")
-    print(f"  威胁/拦截 (threats)      : {tots.get('threats'):,}")
+    def fnum(v):
+        try:
+            return f"{int(float(v)):,}"
+        except Exception:
+            return str(v)
 
-    top_paths = data["result"].get("top_paths", [])
-    if top_paths:
-        print("\n=== 热门路径 Top 10 ===")
-        for i, p in enumerate(top_paths[:10], 1):
-            print(f"  {i:>2}. {p.get('path'):<55} 浏览量 {p.get('pageViews'):,}")
+    def parse_day(v):
+        try:
+            return str(v)
+        except Exception:
+            return ""
 
-    top_countries = data["result"].get("top_countries", [])
-    if top_countries:
-        print("\n=== 访客国家/地区 Top 10 ===")
-        for i, c in enumerate(top_countries[:10], 1):
-            print(f"  {i:>2}. {c.get('alpha3', c.get('name','?')):<8} 访客 {c.get('uniqVisitors'):,}")
+    rows = []
+    for d in days:
+        day = parse_day(d.get("dimensions", {}).get("date"))
+        rows.append({
+            "day": day,
+            "requests": int(float(g(d, "sum", "requests"))),
+            "pageViews": int(float(g(d, "sum", "pageViews"))),
+            "bytes": float(g(d, "sum", "bytes", default=0)),
+            "threats": int(float(g(d, "sum", "threats"))),
+            "uniques": int(float(g(d, "uniq", "uniques"))),
+        })
+    rows.sort(key=lambda x: x["day"])
 
-    top_referrers = data["result"].get("top_referers") or data["result"].get("top_referrers", [])
-    if top_referrers:
-        print("\n=== 来源域名 Top 10 ===")
-        for i, rf in enumerate(top_referrers[:10], 1):
-            print(f"  {i:>2}. {rf.get('referrer','?'):<45} 浏览量 {rf.get('pageViews'):,}")
+    print("=== Cloudflare 流量报告（真实边缘流量）===")
+    print(f"查询窗口：{date_geq} → {date_leq} UTC（最近数日，天级）")
+    print(f"注：Cloudflare Analytics 通常延迟数小时~半天，『最新完整分析日』即最近约24h 可靠近似\n")
 
-    # 逐小时趋势
-    if ts:
-        print("\n=== 逐小时请求量（UTC） ===")
-        for t in ts:
-            ts_dt = datetime.fromtimestamp(t.get("min", t.get("when")), tz=timezone.utc)
-            print(f"  {ts_dt:%m-%d %H:00}  请求 {t.get('requests'):>8,}  浏览 {t.get('pageViews'):>8,}")
+    if rows:
+        latest = rows[-1]
+        print("=== ⭐ 最新完整分析日（≈ 过去24小时，受 Analytics 延迟）===")
+        print(f"  日期 (UTC)        : {latest['day']}")
+        print(f"  请求数 (requests)  : {fnum(latest['requests'])}")
+        print(f"  页面浏览量 (PV)    : {fnum(latest['pageViews'])}")
+        print(f"  独立访客 (近似)    : {fnum(latest['uniques'])}")
+        print(f"  带宽 (GB)         : {latest['bytes']/1e9:,.2f}")
+        print(f"  威胁/拦截         : {fnum(latest['threats'])}")
 
-    print("\n完成。提示：pageViews 含所有边缘请求；若数值明显大于 GA4，"
-          "属正常（GA4 仅统计已接受 cookie 的真实访客）。")
+        last2 = rows[-2:]
+        if len(last2) == 2:
+            print("\n=== 近两日合计 ===")
+            print(f"  日期              : {last2[0]['day']} + {last2[1]['day']}")
+            print(f"  请求数            : {fnum(sum(r['requests'] for r in last2))}")
+            print(f"  页面浏览量        : {fnum(sum(r['pageViews'] for r in last2))}")
+            print(f"  独立访客(各日近似): {fnum(last2[0]['uniques'])} + {fnum(last2[1]['uniques'])}")
+            print(f"  威胁/拦截         : {fnum(sum(r['threats'] for r in last2))}")
+
+        print("\n=== 逐日趋势 ===")
+        print(f"{'日期':<14}{'请求':>10}{'浏览量':>10}{'独立访客':>12}{'拦截':>8}")
+        for r in rows:
+            print(f"{r['day']:<14}{fnum(r['requests']):>10}{fnum(r['pageViews']):>10}{fnum(r['uniques']):>12}{fnum(r['threats']):>8}")
+
+    print("\n完成。Free 套餐 GraphQL 仅支持 date 维度；热门路径/国家/来源/真人机器人等明细")
+    print("请到 Cloudflare 控制台 Analytics 查看，或用 GA4（已部署 Consent Mode v2）补充维度。")
 
 
 if __name__ == "__main__":
