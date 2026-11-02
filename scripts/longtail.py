@@ -112,6 +112,7 @@ def build_page(seed, all_seeds):
     prod = json.dumps({
         "@context": "https://schema.org", "@type": "Product", "name": en_t,
         "brand": {"@type": "Brand", "name": "Anchormere"},
+        "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
         "description": seed["en_intro"], "category": "Greater Bay Area OEM sourcing",
         "offers": {"@type": "Offer", "priceCurrency": "USD",
                    "availability": "https://schema.org/InStock", "url": url,
@@ -120,7 +121,18 @@ def build_page(seed, all_seeds):
                       "alternateName": "锚泊", "url": SITE, "email": "Anchormere@gmail.com",
                       "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"},
                       "description": "China sourcing partner for the Greater Bay Area manufacturing base.",
-                      "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}, ensure_ascii=False)
+                      "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"},
+                      "slogan": "Your accountable China sourcing partner in the Greater Bay Area",
+                      "areaServed": [{"@type": "Place", "name": "Worldwide"},
+                                     {"@type": "Place", "name": "Greater Bay Area, China"},
+                                     {"@type": "Country", "name": "China"}],
+                      "knowsAbout": ["OEM manufacturing", "ODM manufacturing", "private label manufacturing",
+                                     "contract manufacturing", "PCBA", "SMT assembly", "EMS",
+                                     "injection molding", "sheet metal fabrication", "low MOQ manufacturing",
+                                     "China sourcing", "Greater Bay Area manufacturing", "product development",
+                                     "small batch manufacturing", "electronic manufacturing services",
+                                     "IoT modules", "wearable manufacturing", "toy manufacturing",
+                                     "drone parts", "EV charger components", "USB-C charger OEM"]}, ensure_ascii=False)
     bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "Products", "item": SITE + "/supply-base"},
@@ -146,8 +158,9 @@ def build_page(seed, all_seeds):
 
     website = json.dumps({
         "@context": "https://schema.org", "@type": "WebSite",
-        "name": "Anchormere", "url": SITE,
+        "name": "Anchormere", "url": SITE, "inLanguage": ["en", "zh"],
         "publisher": {"@type": "Organization", "name": "Anchormere", "url": SITE},
+        "about": {"@type": "Organization", "name": "Anchormere", "url": SITE},
         "potentialAction": {"@type": "SearchAction",
             "target": {"@type": "EntryPoint",
                        "urlTemplate": "https://www.google.com/search?q=site:anchormere.com+{search_term_string}"},
