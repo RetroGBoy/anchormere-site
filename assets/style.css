@@ -164,6 +164,9 @@ html[lang="zh-CN"] .cn{display:none}
   background:var(--paper2);color:var(--slate);font-size:13.5px;line-height:1.3;transition:.15s}
 .tag:hover{border-color:var(--brass);color:var(--ink);transform:translateY(-1px)}
 .rel-note{margin-top:14px;color:var(--slate);font-size:14px;opacity:.9}
+.rel-topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+.rel-topic{display:block;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;line-height:1.3;transition:border-color .15s,box-shadow .15s}
+.rel-topic:hover{border-color:var(--brass);box-shadow:0 2px 10px rgba(22,40,60,.08)}
 
 /* 案例分享 · 头部品牌/型号参考（专有名词锚点） */
 .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}

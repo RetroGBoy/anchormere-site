@@ -146,7 +146,8 @@
         "Bose leads on transparent ANC and comfort — a reference point for premium audio brands.",
         "Bose 以通透降噪与佩戴舒适见长，是高端音频品牌的参考坐标。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "smart-toy-manufacturer-gba",
@@ -291,7 +292,8 @@
         "Spherical robots and expressive companion bots — top references for toy-plus-AI experiences.",
         "球形机器人与带表情的陪伴机器人，是「玩具+AI」体验的头部参考。"
       ]
-    ]
+    ],
+    "cluster": "toys"
   },
   {
     "slug": "tablet-pcba-sourcing",
@@ -436,7 +438,8 @@
         "A flagship domestic tablet — reference for high-precision display and multi-device synergy.",
         "国产旗舰平板，代表高精度显示与多设备协同的整合方向。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "wearable-oem-shenzhen",
@@ -577,7 +580,8 @@
         "The volume benchmark for fitness bands — defined the form factor at extreme value.",
         "手环品类的销量标杆，以极致性价比定义了健身手环的形态。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "smart-home-module-sourcing",
@@ -718,7 +722,8 @@
         "The smart-lighting benchmark — defined premium scene and color experiences.",
         "智能照明的标杆，定义了灯组联动与色彩体验的高端参考。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "usb-c-charger-oem",
@@ -859,7 +864,8 @@
         "Representative of ultra-high-power phone charging — defined the high-power compact PSU form.",
         "手机超大功率快充代表，定义了高功率小体积的电源形态。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "educational-robot-manufacturer",
@@ -1004,7 +1010,8 @@
         "The single-board computer benchmark powering project-based learning from coding to AI.",
         "单板计算机标杆，支撑从编程到 AI 入门的项目式学习。"
       ]
-    ]
+    ],
+    "cluster": "toys"
   },
   {
     "slug": "oled-display-module-sourcing",
@@ -1149,7 +1156,8 @@
         "Representative of high-quality small/mid LCDs — common for industrial and portable devices.",
         "中小尺寸高品质 LCD 的代表，是工控与便携设备的常用选型。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "plastic-injection-molding-shenzhen",
@@ -1298,7 +1306,8 @@
         "Monitor and portable-instrument enclosures demanding high precision and clean finishing — medical-grade molding sample.",
         "监护仪、便携器械外壳要求高精度与洁净后处理，是医疗级注塑样本。"
       ]
-    ]
+    ],
+    "cluster": "industrial"
   },
   {
     "slug": "metal-sheet-fabrication-dongguan",
@@ -1443,7 +1452,8 @@
         "PLC and control cabinets — sample for outdoor protection and coating.",
         "PLC 与电控柜体，是户外防护与喷涂工艺的样本。"
       ]
-    ]
+    ],
+    "cluster": "industrial"
   },
   {
     "slug": "pcb-assembly-shenzhen",
@@ -1592,7 +1602,8 @@
         "A low-cost Wi-Fi/BT SoC — the popular core for IoT module and node PCBA.",
         "低成本 Wi-Fi/蓝牙 SoC，是 IoT 模组与节点 PCBA 的热门核心。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "iot-sensor-module-sourcing",
@@ -1737,7 +1748,8 @@
         "The de-facto Wi-Fi/BT SoC standard — the core of most IoT nodes.",
         "Wi-Fi/蓝牙 SoC 事实标准，是绝大多数 IoT 节点的核心。"
       ]
-    ]
+    ],
+    "cluster": "electronics"
   },
   {
     "slug": "drone-parts-manufacturer-gba",
@@ -1878,7 +1890,8 @@
         "A top FPV brand — reference for lightweight frames and high-KV motors.",
         "FPV 穿越机头部，代表了轻量化机架与高 KV 电机的整合方向。"
       ]
-    ]
+    ],
+    "cluster": "industrial"
   },
   {
     "slug": "ev-charger-components-sourcing",
@@ -2019,7 +2032,8 @@
         "A top industrial and DC-fast brand — reference for high-power modules and IEC compliance.",
         "工业与直流快充头部，代表了高功率模块与 IEC 合规方向。"
       ]
-    ]
+    ],
+    "cluster": "industrial"
   },
   {
     "slug": "oem-manufacturer-china",
@@ -2172,7 +2186,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "odm-factory-guangdong",
@@ -2325,7 +2340,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "low-moq-oem-factory",
@@ -2478,7 +2494,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "private-label-manufacturer",
@@ -2631,7 +2648,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "pcba-contract-manufacturer",
@@ -2784,7 +2802,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "custom-product-development",
@@ -2937,7 +2956,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "small-batch-manufacturing",
@@ -3090,7 +3110,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "capability"
   },
   {
     "slug": "oem-vs-odm",
@@ -3243,7 +3264,8 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "knowledge"
   },
   {
     "slug": "how-to-find-manufacturer-china",
@@ -3396,6 +3418,7 @@
         "Leading consumer and industrial drones — corresponding to precision machining and flight-control PCBA.",
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
-    ]
+    ],
+    "cluster": "knowledge"
   }
 ]

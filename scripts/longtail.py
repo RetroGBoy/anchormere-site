@@ -44,7 +44,7 @@ FOOTER = ('<footer><div class="container"><div class="cols">'
           '<li data-zh="运营主体：深圳森亚实业有限公司（Shenzhen Senya Industrial Co., Ltd.）">Operator: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.)</li>'
           '<li data-zh="商标：Anchormere / Buyeex">Trade mark: Anchormere / Buyeex</li></ul></div>'
           '</div><p style="margin-top:20px;text-align:center;color:var(--on-dark2)" data-zh="© 2026 Anchormere · 由深圳森亚实业有限公司运营">© 2026 Anchormere · Operated by 深圳森亚实业有限公司</p>'
-          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-11-01">Last updated: 2026-11-01</p></div>'
+          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-11-02">Last updated: 2026-11-02</p></div>'
           '<p style="text-align:center;margin-top:10px;font-size:12px"><a href="privacy.html" data-zh="隐私政策">Privacy Policy</a> · <a href="terms.html" data-zh="服务条款">Terms &amp; Conditions</a></p></footer>')
 
 FAQS = [
@@ -63,7 +63,7 @@ FAQS = [
 GA4 = ('<!-- GA4 is loaded consent-gated via assets/consent.js (set GA4_ID there) -->')
 
 
-def build_page(seed):
+def build_page(seed, all_seeds):
     slug = seed["slug"]
     url = SITE + "/" + slug
     en_t = seed["en_title"]
@@ -126,6 +126,33 @@ def build_page(seed):
         {"@type": "ListItem", "position": 2, "name": "Products", "item": SITE + "/supply-base"},
         {"@type": "ListItem", "position": 3, "name": html.escape(en_t), "item": url}]}, ensure_ascii=False)
 
+    # ---- Related sourcing topics: contextual internal links deepen subject<->keyword weight ----
+    cl = seed.get("cluster")
+    if cl == "knowledge":
+        # Knowledge guides act as hubs → link to all capability (service) pages.
+        rel_links = [s for s in all_seeds if s.get("cluster") == "capability"]
+    else:
+        rel_links = [s for s in all_seeds if s.get("cluster") == cl and s["slug"] != seed["slug"]]
+        rel_links += [s for s in all_seeds if s.get("cluster") == "knowledge"]
+    rel_links = rel_links[:8]
+    rel_links_html = "".join(
+        f'<a class="card rel-topic" href="{s["slug"]}.html" data-zh="{html.escape(s["zh_title"], quote=True)}">{html.escape(s["en_title"])}</a>'
+        for s in rel_links)
+    related_section = ('<section class="l2"><div class="container">\n'
+        '  <h2 data-zh="相关采购主题">Related sourcing topics</h2>\n'
+        '  <p class="cn">相关采购主题 · 同主体下更多长尾专题</p>\n'
+        f'  <div class="rel-topics">{rel_links_html}</div>\n'
+        '</div></section>')
+
+    website = json.dumps({
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": "Anchormere", "url": SITE,
+        "publisher": {"@type": "Organization", "name": "Anchormere", "url": SITE},
+        "potentialAction": {"@type": "SearchAction",
+            "target": {"@type": "EntryPoint",
+                       "urlTemplate": "https://www.google.com/search?q=site:anchormere.com+{search_term_string}"},
+            "query-input": "required name=search_term_string"}}, ensure_ascii=False)
+
     doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(en_t)}</title>
@@ -154,6 +181,7 @@ def build_page(seed):
 <link rel="stylesheet" href="assets/consent.css">
 <script defer src="assets/consent.js"></script>
 <script type="application/ld+json">{org}</script>
+<script type="application/ld+json">{website}</script>
 <script type="application/ld+json">{bc}</script>
 <script type="application/ld+json">{faq}</script>
 <script type="application/ld+json">{prod}</script>
@@ -194,6 +222,7 @@ def build_page(seed):
   <div class="tags">{rel}</div>
   <p class="rel-note" data-zh="以上为买家在海外搜索引擎与 B2B 平台（Google、Bing、百度、1688、Alibaba、Amazon、Made-in-China）实际使用的关联检索词，已整合进本页以提升相关性与收录覆盖。">These are the association terms buyers actually type across search engines and B2B platforms (Google, Bing, Baidu, 1688, Alibaba, Amazon, Made-in-China) — folded into this page to broaden relevance and indexing coverage.</p>
 </div></section>
+{related_section}
 <section class="dark"><div class="container" style="text-align:center">
   <div class="eyebrow" style="color:var(--brass)" data-zh="下一步">Next step</div>
   <h2 style="color:#fff" data-zh="发一张照片或一个料号，48 小时内工程师回复">Send a photo or a part number — an engineer replies within 48h</h2>
@@ -214,7 +243,7 @@ def main():
     for s in seeds:
         p = os.path.join(ROOT, s["slug"] + ".html")
         with open(p, "w", encoding="utf-8") as f:
-            f.write(build_page(s))
+            f.write(build_page(s, seeds))
         n += 1
         print("  ✓", s["slug"])
     print(f"generated {n} long-tail pages")
