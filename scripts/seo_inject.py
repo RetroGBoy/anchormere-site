@@ -3,6 +3,8 @@
 BreadcrumbList JSON-LD, Product JSON-LD on product pages, and new-category nav anchors."""
 import os, re, json, html
 
+ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 PRODUCT_PAGES = {"rack-accessories", "cable-management",
                  "consumer-smart-electronics", "smart-toys-devices", "supply-base"}
@@ -49,15 +51,7 @@ def inject_head(c, fn):
     name = re.sub(r'\s*\|\s*Anchormere.*$', '', raw).strip() or raw
     # 0) Organization JSON-LD (site-wide; restore if stripped by earlier runs)
     if "parentOrganization" not in c:
-        org = json.dumps({
-            "@context": "https://schema.org", "@type": "Organization",
-            "name": "Anchormere", "alternateName": "锚泊",
-            "url": "https://anchormere.com", "email": "Anchormere@gmail.com",
-            "address": {"@type": "PostalAddress",
-                        "addressRegion": "Guangdong", "addressCountry": "CN"},
-            "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.",
-            "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}},
-            ensure_ascii=False)
+        org = ORG_LD
         c = c.replace("</head>", f'<script type="application/ld+json">{org}</script>\n</head>', 1)
     # 1) hreflang (self-referential; site serves one URL, both locales)
     hl = (f'<link rel="alternate" hreflang="en" href="{url}">\n'
@@ -87,10 +81,7 @@ def inject_head(c, fn):
             "brand": {"@type": "Brand", "name": "Anchormere"},
             "description": desc,
             "category": "Greater Bay Area OEM sourcing",
-            "offers": {"@type": "Offer", "priceCurrency": "USD",
-                       "availability": "https://schema.org/InStock",
-                       "url": url,
-                       "seller": {"@type": "Organization", "name": "Anchormere"}},
+            "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": "https://anchormere.com"},
         }, ensure_ascii=False)
         c = c.replace("</head>", f'<script type="application/ld+json">{prod}</script>\n</head>', 1)
     # 3b) FAQPage JSON-LD on homepage + product pages (GEO: machine-readable answers)

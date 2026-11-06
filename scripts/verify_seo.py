@@ -7,6 +7,8 @@ SEO 验证闭环 (Verification Loop)
   - hreflang 合法性（无 zh-CN、无“不同语言指向同一 URL”的冲突声明）
   - 孤儿页检测（sitemap 内但无任何站内入链的页面）
   - JSON-LD 解析与核心实体类型覆盖
+  - Organization 单一数据源一致性（全站含 news-* 与 scripts/org_entity.json 完全一致）
+  - E-E-A-T 审核署名与 WebPage.lastReviewed 成对一致
   - canonical 存在且与扩展名省略式 URL 一致
   - robots.txt 放行主流 AI 爬虫（GEO 前提）
   - IndexNow key 落地
@@ -124,8 +126,50 @@ if per_page_missing:
     fail(f"{per_page_missing} 个核心页缺少核心实体结构化数据 (Organization/WebSite/Product)")
 else:
     ok("全部核心页均含核心实体结构化数据")
-if news_pages:
-    warn(f"{len(news_pages)} 个 news-* 非核心资讯页未含实体数据（按既定策略保持原样，超出本次范围）")
+# ---- 3b. Organization 单一数据源一致性（防 CI 每夜重生漂移） ----
+# 全站（含 news-* 资讯页）统一为 scripts/org_entity.json 的唯一定义，
+# 且必须包含 E-E-A-T 关键字段 contactPoint / telephone / knowsAbout。
+ORG_FILE = os.path.join(ROOT, "scripts", "org_entity.json")
+if not os.path.exists(ORG_FILE):
+    fail("缺少 scripts/org_entity.json（Organization 单一数据源）")
+else:
+    canonical = json.load(open(ORG_FILE, encoding="utf-8"))
+    drift = []
+    for f in pages:
+        t = open(f, encoding="utf-8").read()
+        orgs = []
+        for b in LD_RE.findall(t):
+            try:
+                o = json.loads(b)
+                for x in (o if isinstance(o, list) else [o]):
+                    if isinstance(x, dict) and x.get("@type") == "Organization":
+                        orgs.append(x)
+            except Exception:
+                pass
+        if not orgs:
+            drift.append(f + ":缺实体")
+        elif len(orgs) > 1:
+            drift.append(f + ":重复实体")
+        elif orgs[0] != canonical:
+            drift.append(f + ":与单一数据源不一致")
+    if drift:
+        fail(f"Organization 实体漂移 {len(drift)} 页: " + ", ".join(drift[:3]))
+    else:
+        ok(f"全站 {len(pages)} 页 Organization 与 org_entity.json 完全一致（含 news 页）")
+    for need in ("contactPoint", "telephone", "knowsAbout", "address"):
+        if need in canonical:
+            ok(f"Organization 含 E-E-A-T 字段 {need}")
+        else:
+            fail(f"Organization 缺 E-E-A-T 字段 {need}")
+
+# E-E-A-T: 可见审核署名必须与 WebPage.lastReviewed 成对出现
+signed = [f for f in pages if "Reviewed by the Anchormere sourcing desk" in open(f, encoding="utf-8").read()]
+unsigned = [f for f in signed if "lastReviewed" not in open(f, encoding="utf-8").read()]
+if unsigned:
+    warn(f"{len(unsigned)} 页有可见审核署名但缺 WebPage.lastReviewed")
+else:
+    ok(f"E-E-A-T 审核署名与 WebPage.lastReviewed 成对一致（{len(signed)} 页）")
+
 for need in ('Organization', 'WebSite', 'Product', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")

@@ -147,7 +147,63 @@
         "Bose 以通透降噪与佩戴舒适见长，是高端音频品牌的参考坐标。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "A TWS program is won or lost on acoustic tuning and battery fit — the driver, Bluetooth SoC and charging-case cell must be qualified as one system, not sourced separately.",
+      "zh_intro": "TWS 项目成败在声学调音与电池适配：喇叭、蓝牙 SoC 与充电仓电芯必须作为一套系统共同验证，不能拆开采购。",
+      "process": [
+        [
+          "Bluetooth SoC selection (BES, Qualcomm, Realtek) fixes the ANC, LE Audio and pairing ceiling before any tooling starts.",
+          "蓝牙 SoC 选型（BES / Qualcomm / Realtek）在开模前就决定了 ANC、LE Audio 与配对能力的上限。"
+        ],
+        [
+          "Driver and acoustic chamber tuning is validated on prototype samples; a 0.2 mm change in enclosure wall thickness shifts frequency response by several dB.",
+          "喇叭与声腔需在样机上调音；外壳壁厚变化 0.2 mm 就会让频响偏移数个 dB。"
+        ],
+        [
+          "Charging-case cell, pogo-pin contact and hinge tolerance are gated together to prevent intermittent-charging returns.",
+          "充电仓电芯、pogo-pin 触点与铰链公差需联动验收，避免间歇性充不上电的退货。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State ANC / ENC and LE Audio requirements at RFQ stage — they change the SoC BOM and the certification path.",
+          "在询价阶段就明确 ANC / ENC 与 LE Audio 需求，它们会改变 SoC 物料清单与认证路径。"
+        ],
+        [
+          "Approve a sealed golden sample carrying your own logo before tooling release; laser-marked logos cannot be reworked.",
+          "开模放行前确认带自有 logo 的封样；激光镭雕 logo 一旦成型无法返工。"
+        ],
+        [
+          "Budget for Bluetooth SIG qualification, CE / FCC / RoHS and UN38.3 battery transport testing.",
+          "预留蓝牙 SIG 认证、CE / FCC / RoHS 与 UN38.3 电池运输测试的费用与周期。"
+        ]
+      ],
+      "qc": [
+        [
+          "100% RF pairing test and audio frequency sweep, with ANC depth sampled per production lot.",
+          "100% 射频配对测试与音频扫频，每批抽检 ANC 降噪深度。"
+        ],
+        [
+          "Battery cycle test and 1.2 m drop test on the charging case; pogo-pin contact resistance logged per lot.",
+          "充电仓做电池循环与 1.2 m 跌落测试，逐批记录 pogo-pin 接触电阻。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can I specify my own Bluetooth SoC or companion app?",
+          "Yes for ODM programs. For private-label runs we normally qualify a proven SoC so SIG and radio certification stay on a short lead time.",
+          "可以指定自有蓝牙 SoC 或配套 App 吗？",
+          "ODM 项目可以；贴牌项目通常选用已验证的 SoC，以缩短 SIG 与射频认证周期。"
+        ],
+        [
+          "How long does private-label earbud tooling take?",
+          "Injection tooling is typically 25–35 days, followed by 30–45 days for pilot run and mass production at 500 pcs per SKU MOQ.",
+          "贴牌耳机开模要多久？",
+          "注塑开模一般 25–35 天，随后 30–45 天完成试产与量产，单品 500 件起订。"
+        ]
+      ]
+    }
   },
   {
     "slug": "smart-toy-manufacturer-gba",
@@ -295,7 +351,63 @@
     ],
     "cluster": "toys",
     "serp_title": "Smart Toy Manufacturer GBA | Screen & Connected Toys",
-    "serp_desc": "Build screen, connected and educational toys in the GBA — prototyping to mass production of plush-electronic hybrids and robots."
+    "serp_desc": "Build screen, connected and educational toys in the GBA — prototyping to mass production of plush-electronic hybrids and robots.",
+    "expertise": {
+      "en_intro": "Smart toys sit at the intersection of toy safety and electronics compliance — EN71 / ASTM F963 and radio plus battery rules apply to the very same unit.",
+      "zh_intro": "智能玩具同时受玩具安全与电子合规约束：EN71 / ASTM F963 与射频、电池法规都落在同一件产品上。",
+      "process": [
+        [
+          "Voice, screen and plush-electronic hybrids are integrated on one PCBA; placement drives both EMC behaviour and small-parts safety.",
+          "语音、屏幕与毛绒电子混合结构集成在同一块 PCBA 上，布局同时影响 EMC 与小零件安全。"
+        ],
+        [
+          "Firmware is locked before safety testing — a late voice-library change can force a full retest of the radio module.",
+          "固件需在安规测试前冻结；语音库后期变更可能导致射频模块重新全套测试。"
+        ],
+        [
+          "Battery compartments use captive screws and tool-access-only covers to satisfy accessible-battery clauses.",
+          "电池仓采用防脱螺丝与需工具开启的盖板，满足电池不可触及条款。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Fix the age grading first: 0–3, 3–8 and 8+ trigger different small-parts, torque and chemical migration limits.",
+          "先定年龄分级：0–3 / 3–8 / 8+ 对应不同的小零件、扭力与化学迁移限值。"
+        ],
+        [
+          "Request EN71-1/2/3, ASTM F963, CPSIA plus CE RED / FCC and UN38.3 as one test plan, not separate orders.",
+          "把 EN71-1/2/3、ASTM F963、CPSIA 与 CE RED / FCC、UN38.3 合并成一份测试计划，不要分开下单。"
+        ],
+        [
+          "Confirm who owns the voice content and firmware source before tooling; content licensing is separate from hardware.",
+          "开模前确认语音内容与固件源码归属；内容授权与硬件是两回事。"
+        ]
+      ],
+      "qc": [
+        [
+          "Small-parts torque and tension tests after drop and impact conditioning, not only on fresh samples.",
+          "跌落与冲击预处理后再做小零件扭力/拉力测试，不能只测新样。"
+        ],
+        [
+          "Saliva and sweat simulant wipe tests on printed decals and painted surfaces; check for phthalate and heavy-metal migration.",
+          "对贴纸与喷涂面做唾液、汗液模拟擦拭，并检测邻苯与重金属迁移。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can one SKU be certified for both the EU and US?",
+          "Yes, but the test plan must be written for both upfront; retesting after a failed US children's-product clause is far more expensive than a dual-market plan.",
+          "一个 SKU 能同时做欧盟和美国认证吗？",
+          "可以，但测试计划必须一开始就按双市场编写；美国儿童用品条款不合格后返测，成本远高于双市场并行。"
+        ],
+        [
+          "Do you handle plush plus electronics in one shipment?",
+          "Yes. Plush shells, PCBA and packaging are consolidated into one export document package with the toy and electronics certificates kept together.",
+          "毛绒与电子件能合并出货吗？",
+          "可以。毛绒外壳、PCBA 与包材合并为一套出口单证，玩具与电子证书随货同行。"
+        ]
+      ]
+    }
   },
   {
     "slug": "tablet-pcba-sourcing",
@@ -441,7 +553,63 @@
         "国产旗舰平板，代表高精度显示与多设备协同的整合方向。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "Tablet and phone PCBA is a high-density interconnect job: BGA, eMMC/UFS and display bonding tolerances decide yield long before assembly starts.",
+      "zh_intro": "平板与手机 PCBA 属于高密度互连：BGA、eMMC/UFS 与显示绑定的公差，在投产前就决定了良率。",
+      "process": [
+        [
+          "HDI stack-up and via-in-pad design are reviewed in DFM before Gerber release to avoid delamination during reflow.",
+          "Gerber 放行前在 DFM 阶段评审 HDI 叠层与盘中孔设计，避免回流焊分层。"
+        ],
+        [
+          "eMMC/UFS firmware pre-programming and SoC matching are verified on a pilot lot before the full BOM is committed.",
+          "eMMC/UFS 预烧录固件与 SoC 匹配需在小批试产验证后，才锁定整份 BOM。"
+        ],
+        [
+          "Display FPC bonding and backlight driver current are checked as a paired station to prevent mura and early dimming.",
+          "显示 FPC 绑定与背光驱动电流在同一工位成对检验，避免 mura 与早期亮度衰减。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Send a complete BOM with approved alternates and lifecycle status — EOL memory parts are the most common delay.",
+          "提供含已批准替代料与生命周期状态的完整 BOM；停产存储料是最常见的延期原因。"
+        ],
+        [
+          "Specify ICT / FCT coverage and the acceptable AOI false-call rate in the RFQ, not after first article.",
+          "在询价中写明 ICT / FCT 覆盖率与可接受的 AOI 误报率，不要等首件后再谈。"
+        ],
+        [
+          "Clarify whether the display module and battery are consigned or turnkey; liability for dead pixels must be assigned.",
+          "明确显示屏模组与电池是客供还是统购；亮点/坏点责任必须事先划分。"
+        ]
+      ],
+      "qc": [
+        [
+          "SPI solder-paste inspection plus X-ray on all BGA sites; AOI alone cannot see head-in-pillow defects.",
+          " SPI 锡膏检测 + 全部 BGA 点位 X 光；AOI 无法发现枕头效应（head-in-pillow）缺陷。"
+        ],
+        [
+          "FCT with thermal soak and a documented yield Pareto; any lot below the agreed first-pass yield is held.",
+          "FCT 含热浸泡并出具良率 Pareto 图；低于约定直通率的批次暂缓放行。"
+        ]
+      ],
+      "faq": [
+        [
+          "Do you support consigned components?",
+          "Yes. Consigned SoCs, memory and displays are logged by lot code, stored separately and reconciled against yield reports at shipment.",
+          "支持客供料吗？",
+          "支持。客供 SoC、存储与显示屏按批次码登记、分区存放，出货时与良率报告一并核对。"
+        ],
+        [
+          "What is a realistic first-pass yield for a tablet PCBA pilot?",
+          "A controlled pilot typically lands in the low-to-mid 90s percent; we agree the target in writing before the run and report the Pareto by defect class.",
+          "平板 PCBA 试产直通率多少算合理？",
+          "受控试产通常落在 90% 出头到中段；目标在投产前书面约定，并按缺陷类别出具 Pareto 报告。"
+        ]
+      ]
+    }
   },
   {
     "slug": "wearable-oem-shenzhen",
@@ -584,7 +752,63 @@
       ]
     ],
     "cluster": "electronics",
-    "serp_title": "Wearable OEM Shenzhen | Smartwatch & Bands"
+    "serp_title": "Wearable OEM Shenzhen | Smartwatch & Bands",
+    "expertise": {
+      "en_intro": "Wearables fail in the field on sealing and sensor accuracy, not on the PCB — IP rating and optical calibration are the two gates that matter.",
+      "zh_intro": "可穿戴产品的现场失效多出在密封与传感器精度，而非 PCB；IP 防护等级与光学校准才是关键两道关。",
+      "process": [
+        [
+          "Optical PPG and accelerometer placement is fixed against the enclosure curvature; a 0.5 mm shift changes heart-rate signal quality.",
+          "PPG 光学与加速度计位置需贴合外壳曲率定位；偏移 0.5 mm 就会改变心率信号质量。"
+        ],
+        [
+          "IP67/IP68 sealing is achieved with gasket compression plus ultrasonic welding or adhesive bonding, validated by air-leak test.",
+          "IP67/IP68 靠密封圈压缩配合超声焊接或胶封实现，并以气密性检测验证。"
+        ],
+        [
+          "Strap material, quick-release lug and skin-contact coatings are qualified together for nickel release and sweat corrosion.",
+          "表带材质、快拆生耳与接触皮肤涂层需一体验证镍释放与汗液腐蚀。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Fix the sensor feature set (SpO2, ECG, GPS) at RFQ — each addition changes the BOM, power budget and regulatory class.",
+          "询价阶段锁定传感器功能（血氧 / ECG / GPS），每加一项都会改变 BOM、功耗与法规类别。"
+        ],
+        [
+          "Ask for a water-bath and thermal-cycling report on production units, not just a prototype IP certificate.",
+          "索取量产机的浸水与冷热循环报告，而不只是样机的 IP 证书。"
+        ],
+        [
+          "Confirm charger pogo-pin plating and magnet polarity if you plan a shared dock across SKUs.",
+          "若计划多 SKU 共用充电座，需确认 pogo-pin 镀层与磁铁极性。"
+        ]
+      ],
+      "qc": [
+        [
+          "100% air-leak test after final assembly; sample units go through 1 m immersion and 48 h humidity soak.",
+          "总装后 100% 气密检测，抽样做 1 m 浸水与 48 h 湿热。"
+        ],
+        [
+          "Optical sensor calibration against a reference device on a sampled basis, with drift logged after burn-in.",
+          "按抽样用基准设备校准光学传感器，并记录老化后的漂移量。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can I reuse an existing enclosure design for my brand?",
+          "Yes for ODM-derived tooling, provided the sealing geometry is re-validated; we re-run the air-leak and drop tests rather than relying on the original certificate.",
+          "可以复用现有外壳设计做自有品牌吗？",
+          "ODM 衍生模具可以，但密封结构需重新验证；我们会重跑气密与跌落测试，不沿用原证书。"
+        ],
+        [
+          "What does the 500 pcs MOQ cover for wearables?",
+          "500 pcs per SKU covers one colourway and one firmware build; mixed-SKU consolidation across strap colours is allowed within a single shipment.",
+          "可穿戴 500 件起订包含什么？",
+          "单 SKU 500 件对应一个配色与一个固件版本；同一出货批次内允许跨表带配色拼柜。"
+        ]
+      ]
+    }
   },
   {
     "slug": "smart-home-module-sourcing",
@@ -726,7 +950,63 @@
         "智能照明的标杆，定义了灯组联动与色彩体验的高端参考。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "Smart-home modules are a protocol and mains-safety problem first: Matter / Wi-Fi / Zigbee choice and creepage distances shape the whole enclosure.",
+      "zh_intro": "智能家居模组首先是协议与市电安全问题：Matter / Wi-Fi / Zigbee 选型与爬电距离决定整个外壳结构。",
+      "process": [
+        [
+          "Radio coexistence between Wi-Fi, BLE and Zigbee/Thread is validated in-situ, since relay switching noise raises the packet-error floor.",
+          "Wi-Fi、BLE 与 Zigbee/Thread 的射频共存需实机验证，继电器开关噪声会抬高低层丢包率。"
+        ],
+        [
+          "Mains-fed relay or dimmer layouts keep creepage and clearance to the low-voltage antenna area; the PCB cut-out is a safety feature, not a cost cut.",
+          "市电继电器/调光布局需保证对低压天线区的爬电与电气间隙；PCB 开槽是安规设计，不是省料。"
+        ],
+        [
+          "OTA firmware and device credentials are provisioned at the test station so each unit ships with a unique identity.",
+          "OTA 固件与设备凭证在测试工位烧录，确保每台出厂设备拥有唯一身份。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Name the target ecosystem (Apple Home, Google Home, Alexa, Matter) before RFQ; certification and app review lead times differ.",
+          "询价前明确目标生态（Apple Home / Google Home / Alexa / Matter），认证与 App 审核周期各不相同。"
+        ],
+        [
+          "Specify 100–240 V or a fixed regional voltage, plus plug standard, at the enquiry stage.",
+          "在询盘中写明 100–240 V 宽压还是固定区域电压，以及插头制式。"
+        ],
+        [
+          "Require a documented OTA rollback plan — a failed field update is the most common warranty claim.",
+          "要求提供书面 OTA 回滚方案；现场升级失败是最常见的保修诉求。"
+        ]
+      ],
+      "qc": [
+        [
+          "Hi-pot / dielectric withstand test on every mains-fed unit, plus relay endurance cycling on sampled lots.",
+          "每台市电供电产品做耐压测试，抽检批次做继电器寿命循环。"
+        ],
+        [
+          "Radio TX power and packet-error-rate check in the final assembled enclosure, not on a bare board.",
+          "在最终整机外壳内测射频发射功率与丢包率，而非裸板测试。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you build to a Matter-certified reference design?",
+          "Yes. We work from a certified module and keep the radio section unchanged so the existing certification can be transferred rather than re-earned.",
+          "能按已过 Matter 认证的参考设计生产吗？",
+          "可以。基于已认证模组、保持射频部分不变，可沿用既有认证而无需重新申请。"
+        ],
+        [
+          "Who handles cloud and app integration?",
+          "We integrate and test the hardware and provisioning flow; cloud backend and consumer app remain with your team or your platform partner, with the interface documented at handover.",
+          "云端与 App 由谁负责？",
+          "我们负责硬件与配网流程的集成测试；云端与消费者 App 归贵方或平台方，交接时提供接口文档。"
+        ]
+      ]
+    }
   },
   {
     "slug": "usb-c-charger-oem",
@@ -868,7 +1148,63 @@
         "手机超大功率快充代表，定义了高功率小体积的电源形态。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "GaN chargers are a thermal and safety-certification exercise: PD 3.1 / PPS negotiation must survive a sealed enclosure at full load.",
+      "zh_intro": "GaN 充电器本质是热设计与安规认证：PD 3.1 / PPS 协商必须在满载、密闭外壳内稳定工作。",
+      "process": [
+        [
+          "GaN HEMT switching frequency is traded against transformer size; higher frequency shrinks the body but raises EMI filter cost.",
+          "GaN HEMT 开关频率与变压器体积相互制约：频率提高可缩小体积，但会推高 EMI 滤波成本。"
+        ],
+        [
+          "PD 3.1 EPR (28 V / 36 V / 48 V) and PPS profiles are flashed and verified with a protocol analyser on every pilot lot.",
+          "PD 3.1 EPR（28/36/48 V）与 PPS 档位需烧录并在每批试产用协议分析仪验证。"
+        ],
+        [
+          "Thermal potting and internal copper spreading are qualified together; a hot-spot above the case limit triggers derating.",
+          "灌封导热胶与内部铜箔均热需一体验证；外壳热点超限会触发降额。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the target wattage, port count and EPR/PPS support at RFQ — they determine the topology and the safety standard scope.",
+          "询价写明目标功率、端口数与 EPR/PPS 支持，它们决定拓扑与安规范围。"
+        ],
+        [
+          "Require EN 62368-1 / UL 62368-1 plus CE / FCC and the plug standard per destination market.",
+          "按目的市场要求 EN 62368-1 / UL 62368-1、CE / FCC 及对应插头制式。"
+        ],
+        [
+          "Ask for a 4-hour full-load burn-in curve at the highest ambient temperature you sell into.",
+          "索取在最高销售环境温度下的 4 小时满载老化曲线。"
+        ]
+      ],
+      "qc": [
+        [
+          "100% ATE load test across all PD profiles plus hi-pot and leakage-current test on every unit.",
+          "100% ATE 全 PD 档位负载测试，并逐台做耐压与漏电流测试。"
+        ],
+        [
+          "Thermal imaging at full load after burn-in; case temperature logged against the agreed limit.",
+          "老化后满载红外测温，外壳温度按约定限值逐台记录。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can the same charger carry my brand across EU and US plugs?",
+          "Yes — the PCB and certification stay shared, with foldable or interchangeable plug modules; the retail packaging and plug SKU are split per market.",
+          "同一充电器能换欧盟/美规插头做自有品牌吗？",
+          "可以。PCB 与认证共用，配折叠或可换插头模块；零售包装与插头 SKU 按市场拆分。"
+        ],
+        [
+          "Do you support USB PD 3.1 140 W EPR?",
+          "Yes for ODM-based 140 W designs, subject to a 28 V EPR cable and a thermal validation at full load; we confirm feasibility at RFQ before committing tooling.",
+          "支持 PD 3.1 140 W EPR 吗？",
+          "基于 ODM 的 140 W 方案支持，需配 28 V EPR 线材并完成满载热验证；开模前先在询价阶段确认可行性。"
+        ]
+      ]
+    }
   },
   {
     "slug": "educational-robot-manufacturer",
@@ -1015,7 +1351,63 @@
       ]
     ],
     "cluster": "toys",
-    "serp_title": "Educational Robot Manufacturer China | STEM"
+    "serp_title": "Educational Robot Manufacturer China | STEM",
+    "expertise": {
+      "en_intro": "Educational robots are a kit-consistency problem: servo torque, sensor calibration and the coding curriculum must match a single BOM across every classroom set.",
+      "zh_intro": "教育机器人考验套件一致性：舵机扭矩、传感器校准与编程课程必须对应同一份 BOM，覆盖每一套课堂装。",
+      "process": [
+        [
+          "Servo gear trains, hall or IR sensors and the main controller are locked to one BOM so lesson code behaves identically across a class set.",
+          "舵机齿轮组、霍尔/红外传感器与主控锁定同一份 BOM，保证课堂代码在同批套件上表现一致。"
+        ],
+        [
+          "Snap-fit structural parts are validated for repeated assembly cycles, since students rebuild the same kit dozens of times.",
+          "卡扣结构件按反复拆装循环验证，因为学生会多次重组同一套教具。"
+        ],
+        [
+          "Firmware exposes a fixed block-based API; a late API change breaks the printed curriculum and the teacher guide.",
+          "固件对外提供固定的图形化 API；后期变更会作废已印刷的课程与教师手册。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Confirm age grading, small-parts limits and EN71 / ASTM F963 / CPSIA scope before design freeze.",
+          "设计冻结前确认年龄分级、小零件限值及 EN71 / ASTM F963 / CPSIA 适用范围。"
+        ],
+        [
+          "Specify whether curriculum, teacher guide and app are in scope — hardware and content are separate deliverables.",
+          "明确课程、教师手册与 App 是否在供货范围内；硬件与内容是两项独立交付。"
+        ],
+        [
+          "Ask for spare-part ratios for servos and cables; classroom wear is far higher than consumer use.",
+          "索取舵机与线材的备件配比；课堂损耗远高于个人消费使用。"
+        ]
+      ],
+      "qc": [
+        [
+          "Servo stall-torque and no-load current sampled per lot, plus 500-cycle snap-fit assembly test on structural parts.",
+          "逐批抽检舵机堵转扭矩与空载电流，结构件做 500 次卡扣拆装测试。"
+        ],
+        [
+          "Every kit is power-on tested with a scripted lesson sequence before packing; missing-part check by weight.",
+          "每套出货前跑一段脚本化课程流程上电测试，并用称重核对缺件。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you print our school logo and local-language manual?",
+          "Yes. Logo, packaging and manual are localised at 500 pcs per SKU MOQ, with the artwork files and a signed print proof kept on file.",
+          "能印学校 logo 与本地语言手册吗？",
+          "可以。logo、包材与手册按单 SKU 500 件起订本地化，并保留设计文件与签样。"
+        ],
+        [
+          "Do you supply spare parts separately?",
+          "Yes. Servos, sensors and cables can be consolidated as a spare SKU set in the same shipment, with a documented part-number cross-reference.",
+          "备件能单独供货吗？",
+          "可以。舵机、传感器与线材可作为备件 SKU 同批拼柜，并附料号对照表。"
+        ]
+      ]
+    }
   },
   {
     "slug": "oled-display-module-sourcing",
@@ -1161,7 +1553,63 @@
         "中小尺寸高品质 LCD 的代表，是工控与便携设备的常用选型。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "Display modules are an interface and bonding job: MIPI DSI / LVDS timing, cover-glass adhesion and ESD handling decide whether a good panel survives assembly.",
+      "zh_intro": "显示模组是接口与贴合工程：MIPI DSI / LVDS 时序、盖板贴合与 ESD 防护，决定一块好屏能否活过总装。",
+      "process": [
+        [
+          "Interface timing and init code are matched to the host SoC before sample approval; a wrong lane count gives a black panel even on good hardware.",
+          "接口时序与初始化代码需在样品确认前与主控 SoC 匹配；lane 数不对即使硬件完好也会黑屏。"
+        ],
+        [
+          "OCA/full lamination is done in a cleanroom; dust inclusions and bubble residue are the main cause of field returns.",
+          "OCA 全贴合在无尘车间完成；粉尘夹杂与气泡残留是现场退货主因。"
+        ],
+        [
+          "Backlight driver current and PWM frequency are set to avoid visible flicker under camera capture.",
+          "背光驱动电流与 PWM 频率需设定为在摄像头拍摄下无可视频闪。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide the host SoC, interface, resolution, brightness and touch requirement together — panel availability follows the controller, not the diagonal size.",
+          "一次性提供主控 SoC、接口、分辨率、亮度与触摸需求；屏的可得性取决于控制器，而非尺寸。"
+        ],
+        [
+          "Specify dead-pixel and mura acceptance criteria in writing; 'A-grade' alone is not a measurable spec.",
+          "书面约定亮点/坏点与 mura 验收标准；只写「A 规」无法量化。"
+        ],
+        [
+          "Confirm EOL and long-term supply status for the panel model if your product has a multi-year lifecycle.",
+          "若产品生命周期跨年，需确认屏型号的 EOL 与长期供货状态。"
+        ]
+      ],
+      "qc": [
+        [
+          "100% power-on display test with white/black/RGB patterns and touch linearity check before packing.",
+          "100% 上电点亮，走白/黑/RGB 画面并校验触摸线性度后再包装。"
+        ],
+        [
+          "ESD audit on the assembly line plus anti-static packaging with surface-resistance records.",
+          "产线 ESD 稽核，防静电包装并留存表面电阻记录。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you match an existing display part number?",
+          "Yes. Send the model and init code and we cross-reference to an available panel, then validate timing on a sample before any commitment.",
+          "能按现有屏料号匹配吗？",
+          "可以。提供型号与初始化代码，我们先匹配可得屏并在样品上验证时序，再谈承诺。"
+        ],
+        [
+          "Is cover-glass printing and logo supported?",
+          "Yes. Cover-glass silk printing, logo and cut-outs are done at tooling stage, with a signed print proof and an abrasion test on the ink.",
+          "盖板能丝印 logo 吗？",
+          "可以。盖板丝印、logo 与开孔在开模阶段完成，提供签样并做油墨耐磨测试。"
+        ]
+      ]
+    }
   },
   {
     "slug": "plastic-injection-molding-shenzhen",
@@ -1311,7 +1759,63 @@
         "监护仪、便携器械外壳要求高精度与洁净后处理，是医疗级注塑样本。"
       ]
     ],
-    "cluster": "industrial"
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "Injection moulding is decided at the tool design review: gate position, draft angle and wall thickness fix both cosmetic sink marks and the per-unit cycle time.",
+      "zh_intro": "注塑成败在模具评审：浇口位置、拔模角与壁厚，同时决定了外观缩水与单件成型周期。",
+      "process": [
+        [
+          "Mould-flow review sets gate location and weld-line position before steel is cut; weld lines on a visible face cannot be polished away.",
+          "切钢前用模流分析确定浇口与熔接痕位置；外观面的熔接痕无法靠抛光消除。"
+        ],
+        [
+          "Uniform wall thickness with proper ribs prevents sink and warp; a 0.5 mm local thickening can add seconds to the cooling cycle.",
+          "壁厚均匀配合加强筋可避免缩水与翘曲；局部加厚 0.5 mm 就可能让冷却周期多出数秒。"
+        ],
+        [
+          "T1 samples are measured against the drawing, T2 after tool correction, then the tool is signed off with a dimension report.",
+          "T1 样品按图纸测量，T2 在修模后复测，最终以尺寸报告签模。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide 3D data plus critical-to-quality dimensions and the resin grade; material choice drives shrink rate and tool steel.",
+          "提供 3D 数据、关键尺寸与牌号；材料决定收缩率与模钢选型。"
+        ],
+        [
+          "Agree who owns the tool and where it is stored; tool ownership must be explicit before the deposit.",
+          "约定模具归属与存放地点；付定金前必须写明模具所有权。"
+        ],
+        [
+          "State surface finish (VDI / SPI / texture) and colour standard up front, since texture changes require re-polishing the tool.",
+          " upfront 明确表面处理（VDI / SPI / 皮纹）与色号，改皮纹需重新抛光模具。"
+        ]
+      ],
+      "qc": [
+        [
+          "First-article dimension report on T1/T2 with Cpk on critical dimensions; shot-weight consistency logged per lot.",
+          "T1/T2 出首件尺寸报告，关键尺寸做 Cpk，逐批记录射出重量一致性。"
+        ],
+        [
+          "Cosmetic inspection under agreed lighting for sink, flash, weld lines and colour delta against the approved master.",
+          "在约定光源下按签样检查缩水、毛边、熔接痕与色差。"
+        ]
+      ],
+      "faq": [
+        [
+          "What does the 500 pcs MOQ mean for a custom moulded part?",
+          "The mould is a one-time tooling cost; production runs start at 500 pcs per item, and mixed-SKU consolidation lets several moulded parts share one shipment.",
+          "定制注塑件的 500 件起订如何理解？",
+          "模具为一次性费用；量产单品 500 件起，多个注塑件可跨 SKU 拼柜同批出货。"
+        ],
+        [
+          "Can you work from a sample part without 3D drawings?",
+          "Yes for reverse-engineering cases: we 3D-scan the sample, review the reconstructed model with you, and only cut steel after you approve the dimensions.",
+          "只有样品、没有 3D 图能做吗？",
+          "可以逆向：先 3D 扫描样品、与你确认重建模型，尺寸确认后才切钢。"
+        ]
+      ]
+    }
   },
   {
     "slug": "metal-sheet-fabrication-dongguan",
@@ -1457,7 +1961,63 @@
         "PLC 与电控柜体，是户外防护与喷涂工艺的样本。"
       ]
     ],
-    "cluster": "industrial"
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "Sheet metal is a tolerance-chain problem: laser cut edge, bend K-factor and coating build-up each eat into the final assembly fit.",
+      "zh_intro": "钣金是公差链问题：激光切割边、折弯 K 因子与涂层厚度，都会逐层吃掉最终装配余量。",
+      "process": [
+        [
+          "Bend allowance uses a measured K-factor for the actual material lot, not a handbook table, to hold ±0.2 mm on multi-bend enclosures.",
+          "折弯展开按该批材料的实测 K 因子计算，而非手册表值，以保证多折弯机箱 ±0.2 mm。"
+        ],
+        [
+          "Laser / punch nesting is planned around grain direction and flatness; a poorly nested part warps after welding.",
+          "激光/冲床排版需考虑纹理方向与平面度；排版不当的件在焊接后会变形。"
+        ],
+        [
+          "Powder-coat or anodise build-up is compensated in the pre-coat dimensions so threaded inserts still fit.",
+          "喷粉/阳极氧化膜厚需在前工序尺寸中补偿，保证螺纹镶件仍可装配。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Send a flat pattern or a 3D model with bend radii, material grade and gauge; gauge changes the bend deduction.",
+          "提供展开图或含折弯半径、材质与板厚的 3D 模型；板厚变化会改变折弯扣除量。"
+        ],
+        [
+          "Specify which faces are cosmetic and require no scratches after coating — it determines handling and packaging cost.",
+          "指定哪些面为外观面、喷涂后不得有划伤，这决定周转与包装成本。"
+        ],
+        [
+          "Confirm insert, weld and rivet standards, and whether a painted or bare assembly is the acceptance state.",
+          "确认镶件、焊接与铆接标准，并明确验收态是喷涂后还是裸件。"
+        ]
+      ],
+      "qc": [
+        [
+          "In-process bend-angle check on the first piece of every setup, plus a final assembly-fit gauge on the coated part.",
+          "每次调机首件测折弯角度，并对喷涂后成品做装配检具验证。"
+        ],
+        [
+          "Coating thickness and adhesion cross-hatch test sampled per lot; salt-spray hours agreed in the RFQ.",
+          "逐批抽检涂层厚度与百格附着力，盐雾小时数在询价中约定。"
+        ]
+      ],
+      "faq": [
+        [
+          "Prototypes have no strict MOQ — what is the production rule?",
+          "Prototypes can start from a single piece. Production runs follow the standard 500 pcs per item MOQ, with mixed-SKU consolidation available across one shipment.",
+          "打样无起订，量产规则是什么？",
+          "原型可从 1 件起；量产按单品 500 件起订，多个钣金件可跨 SKU 拼柜。"
+        ],
+        [
+          "Can you handle welded frames and powder coating in one PO?",
+          "Yes. Cutting, bending, welding, insert installation and coating are consolidated under one accountable order with a single dimension report.",
+          "焊接框架与喷粉能下在同一订单吗？",
+          "可以。切割、折弯、焊接、镶件与喷涂合并为单一责任订单，并出具一份尺寸报告。"
+        ]
+      ]
+    }
   },
   {
     "slug": "pcb-assembly-shenzhen",
@@ -1607,7 +2167,63 @@
         "低成本 Wi-Fi/蓝牙 SoC，是 IoT 模组与节点 PCBA 的热门核心。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "SMT yield is engineered at the stencil and reflow profile, then proven by SPI, AOI and X-ray — not by a final functional test alone.",
+      "zh_intro": "SMT 良率在钢网与回流曲线阶段就决定了，再靠 SPI、AOI 与 X 光验证，而不是只靠末端功能测试。",
+      "process": [
+        [
+          "Stencil aperture design and nano-coating are set by pad geometry; insufficient paste on fine-pitch QFN is the top defect driver.",
+          "钢网开孔与纳米涂层按焊盘几何设定；细间距 QFN 锡膏不足是首要缺陷来源。"
+        ],
+        [
+          "A board-specific reflow profile is recorded and locked; oven drift is caught by a weekly thermal profiler run.",
+          "每款板记录并锁定专属回流曲线，炉温漂移通过每周炉温测试仪校验。"
+        ],
+        [
+          "Conformal coating, if required, is masked at connectors and test points before the board enters the coating line.",
+          "如需三防漆，进涂覆线前先对连接器与测试点做遮蔽。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide Gerber, BOM, pick-and-place file and a test spec together; a missing CPL file is the most common RFQ delay.",
+          "一次性提供 Gerber、BOM、坐标文件与测试规范；缺坐标文件是最常见的询价延误。"
+        ],
+        [
+          "State turnkey or consigned, and the accepted alternate-part policy, in the RFQ.",
+          "在询价中写明统购或客供，以及可接受的替代料政策。"
+        ],
+        [
+          "Agree first-pass yield target and the rework rule (how many touch-ups allowed per board) before the pilot.",
+          "试产前约定直通率目标与返修规则（单板允许补焊次数）。"
+        ]
+      ],
+      "qc": [
+        [
+          "SPI on 100% of prints, AOI after reflow and X-ray on all BGA/QFN/bottom-terminated parts.",
+          "100% SPI 锡膏检测、回流后 AOI，全部 BGA/QFN/底部端子器件做 X 光。"
+        ],
+        [
+          "ICT/FCT with a logged serial number per board; defect Pareto issued with each lot.",
+          "ICT/FCT 逐板记录序列号，每批出具缺陷 Pareto 报告。"
+        ]
+      ],
+      "faq": [
+        [
+          "Do you accept consigned components?",
+          "Yes. Consigned parts are stored by lot code, moisture-sensitive devices are baked and tracked, and unused stock is reconciled at shipment.",
+          "接受客供料吗？",
+          "接受。客供料按批次码存放，湿敏器件烘烤并跟踪，余料在出货时核对退回。"
+        ],
+        [
+          "Is a pilot run possible below 500 pcs?",
+          "Yes. Prototype and pilot builds can start from a handful of boards; the 500 pcs per item MOQ applies to production runs, not to engineering validation.",
+          "试产能低于 500 件吗？",
+          "可以。原型与试产可从小批量板子起步；单品 500 件起订适用于量产，不约束工程验证。"
+        ]
+      ]
+    }
   },
   {
     "slug": "iot-sensor-module-sourcing",
@@ -1753,7 +2369,63 @@
         "Wi-Fi/蓝牙 SoC 事实标准，是绝大多数 IoT 节点的核心。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "IoT modules are a calibration and connectivity problem: sensor drift, antenna detuning inside the enclosure and field firmware updates are the real lifecycle costs.",
+      "zh_intro": "IoT 模组是校准与连接问题：传感器漂移、装壳后天线失谐与现场固件升级，才是真正的全生命周期成本。",
+      "process": [
+        [
+          "Sensor calibration coefficients are written per unit at the test station, not as one shared firmware constant.",
+          "传感器校准系数在测试工位逐台写入，而非固件里共用一组常数。"
+        ],
+        [
+          "Antenna matching is re-tuned in the final enclosure with battery and cabling present; a bare-board VSWR reading is not representative.",
+          "天线匹配需在装入外壳、接上电池与线材后重调；裸板 VSWR 读数不具代表性。"
+        ],
+        [
+          "LPWAN choice (NB-IoT, LoRaWAN, Wi-Fi HaLow) is fixed by the deployment region and the operator certification list.",
+          "NB-IoT / LoRaWAN / Wi-Fi HaLow 的选择由部署地区与运营商认证清单决定。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the deployment country, network operator and power budget at RFQ; module certification is region-locked.",
+          "询价写明部署国家、运营商与功耗预算；模组认证按地区锁定。"
+        ],
+        [
+          "Require a calibration certificate traceable to a reference instrument and a defined recalibration interval.",
+          "要求可溯源至基准仪器的校准证书，并约定复校周期。"
+        ],
+        [
+          "Ask for the OTA rollback and key-provisioning plan before mass production, not after field failures.",
+          "量产前索取 OTA 回滚与密钥烧录方案，不要等现场故障后再补。"
+        ]
+      ],
+      "qc": [
+        [
+          "Per-unit calibration verification against a reference, plus a 24 h burn-in drift check on sampled lots.",
+          "逐台对照基准做校准验证，抽检批次做 24 h 老化漂移检查。"
+        ],
+        [
+          "TRP/TIS or conducted RF check in the assembled enclosure; IP-rated units go through an air-leak test.",
+          "整机外壳内做 TRP/TIS 或传导射频测试，带 IP 等级的单元做气密检测。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can I use my own cloud endpoint and device certificates?",
+          "Yes. Provisioning can use your PKI and endpoint; we document the provisioning flow at handover and keep the credentials off the production line logs.",
+          "能用自有云端与设备证书吗？",
+          "可以。烧录可使用贵方 PKI 与接入点，交接时提供流程文档，且产线日志不留存凭证。"
+        ],
+        [
+          "What is the MOQ for a calibrated sensor module?",
+          "500 pcs per item applies to production; calibration fixtures and coefficients are set up once and reused across subsequent lots.",
+          "校准型传感器模组起订量？",
+          "量产单品 500 件起；校准治具与系数一次建立，后续批次复用。"
+        ]
+      ]
+    }
   },
   {
     "slug": "drone-parts-manufacturer-gba",
@@ -1896,7 +2568,63 @@
       ]
     ],
     "cluster": "industrial",
-    "serp_title": "Drone Parts Manufacturer GBA | Frames & PCBA"
+    "serp_title": "Drone Parts Manufacturer GBA | Frames & PCBA",
+    "expertise": {
+      "en_intro": "Drone parts are a balance-and-stiffness problem: carbon-fibre layup, CNC tolerances and propeller dynamic balance drive flight behaviour more than raw motor power.",
+      "zh_intro": "无人机零件是动平衡与刚度问题：碳布铺层、CNC 公差与桨叶动平衡，比电机功率更直接影响飞行表现。",
+      "process": [
+        [
+          "Carbon-fibre plate layup orientation and resin content are controlled per batch; a layup change alters frame torsional stiffness.",
+          "碳板铺层方向与含胶量逐批管控；铺层一变，机架抗扭刚度随之改变。"
+        ],
+        [
+          "CNC motor mounts and arm interfaces are machined to a shared datum so arms remain interchangeable in the field.",
+          "电机座与机臂接口按同一基准加工，保证现场机臂可互换。"
+        ],
+        [
+          "Propellers are dynamically balanced as a set and matched by weight class before packing.",
+          "桨叶按套做动平衡，并按重量分级配对后包装。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide the frame drawing with datum scheme, layup spec and the motor mount pattern; tolerances on arm interfaces are flight-critical.",
+          "提供含基准体系、铺层规范与电机孔位的机架图；机臂接口公差属飞行关键项。"
+        ],
+        [
+          "Specify whether you need matched propeller sets, spare arms and a documented part-number cross-reference.",
+          "明确是否需要配对桨叶、备用机臂与料号对照表。"
+        ],
+        [
+          "Clarify regulatory scope for the finished assembly (CE / FCC / drone registration) versus parts-only supply.",
+          "区分整机合规（CE / FCC / 无人机登记）与仅供零件的范围。"
+        ]
+      ],
+      "qc": [
+        [
+          "Dynamic balance and weight-class verification on propeller sets; runout check on motor mounts.",
+          "桨叶套做动平衡与重量分级，电机座做跳动检测。"
+        ],
+        [
+          "Carbon plate thickness and layup record per lot, plus a pull/bend test on sampled arm joints.",
+          "逐批记录碳板厚度与铺层，抽检机臂接头做拉/弯测试。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you supply a parts kit rather than a finished drone?",
+          "Yes. Frames, mounts, propellers and harnesses are consolidated as a kit with one part-number list and a single export document package.",
+          "能供零件套件而非整机吗？",
+          "可以。机架、电机座、桨叶与线束按套件拼柜，附一份料号清单与一套出口单证。"
+        ],
+        [
+          "Do you support custom carbon layups?",
+          "Yes, subject to a drawing review and a sample stiffness check; we confirm the layup and datum scheme before any cutting.",
+          "支持定制碳布铺层吗？",
+          "支持，需先评审图纸并做样品刚度验证；开切前确认铺层与基准体系。"
+        ]
+      ]
+    }
   },
   {
     "slug": "ev-charger-components-sourcing",
@@ -2039,7 +2767,63 @@
       ]
     ],
     "cluster": "industrial",
-    "serp_desc": "Source EV charger components from the GBA — power modules and enclosures benchmarked to BYD/Tesla specs. 500 pcs MOQ."
+    "serp_desc": "Source EV charger components from the GBA — power modules and enclosures benchmarked to BYD/Tesla specs. 500 pcs MOQ.",
+    "expertise": {
+      "en_intro": "EV charging hardware is a standards and thermal problem: IEC 61851 / 62196, connector type and cable heat rise set the enclosure and BOM before styling.",
+      "zh_intro": "充电硬件是标准与热问题：IEC 61851 / 62196、连接器制式与线缆温升，在外观之前就决定了外壳与 BOM。",
+      "process": [
+        [
+          "AC vs DC topology is fixed by the standard and connector (Type 2, CCS1/CCS2, GB/T); a connector change re-opens safety testing.",
+          "AC/DC 拓扑由标准与连接器（Type 2、CCS1/2、GB/T）决定；换枪型就要重做安规测试。"
+        ],
+        [
+          "Cable cross-section and terminal crimp are qualified by temperature-rise test at rated current, not by conductor gauge alone.",
+          "线缆截面与端子压接需按额定电流做温升试验验证，不能只看线规。"
+        ],
+        [
+          "RCD/protection, contactor and metering are laid out to keep creepage and heat sources apart in a sealed IP54 enclosure.",
+          "漏保、接触器与计量单元分区布局，在 IP54 密闭外壳内同时保证爬电距离与热源隔离。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Name the destination market and connector standard at RFQ; CE, UL and GB/T certification paths do not overlap.",
+          "询价写明目标市场与枪型标准；CE、UL 与 GB/T 认证路径互不通用。"
+        ],
+        [
+          "Specify rated power, single/three-phase and cable length; these drive thermal design and the bill of materials.",
+          "写明额定功率、单/三相与线长，它们决定热设计与物料清单。"
+        ],
+        [
+          "Require an IP and IK rating plus a salt-spray plan for outdoor wall-box units.",
+          "户外壁挂箱需约定 IP / IK 等级与盐雾方案。"
+        ]
+      ],
+      "qc": [
+        [
+          "Hi-pot, insulation resistance and continuity test on every unit, plus RCD trip-time verification.",
+          "逐台做耐压、绝缘与导通测试，并验证漏保动作时间。"
+        ],
+        [
+          "Full-load temperature-rise test on cable and terminals with logged thermocouple data per pilot lot.",
+          "试产批次对线缆与端子做满载温升测试并留存热电偶数据。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can one enclosure serve both Type 2 and GB/T markets?",
+          "The housing can be shared; the inlet, cable assembly and certification are market-specific SKUs, consolidated into one shipment with separate document sets.",
+          "同一外壳能兼顾 Type 2 与 GB/T 吗？",
+          "外壳可共用；枪座、线缆总成与认证按市场拆分 SKU，同批出货并附各自单证。"
+        ],
+        [
+          "Do you supply charging modules or only structural parts?",
+          "We integrate structural enclosures, cable assemblies, mounts and thermal parts, and consolidate them with sourced power electronics under one accountable order.",
+          "供充电模块还是仅结构件？",
+          "我们整合结构外壳、线缆总成、支架与散热件，并与采购的功率电子件合并为单一责任订单。"
+        ]
+      ]
+    }
   },
   {
     "slug": "oem-manufacturer-china",
@@ -2193,7 +2977,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "expertise": {
+      "en_intro": "Build-to-print OEM is an IP and first-article discipline: the drawing package, the NDA and the signed sample define accountability before production begins.",
+      "zh_intro": "按图 OEM 是知识产权与首件 discipline：图纸包、NDA 与签样，在投产前就划清了责任边界。",
+      "process": [
+        [
+          "We work from your drawings, Gerber/BOM and specification; DFM feedback is issued in writing before any tooling or fixture is committed.",
+          "按贵方图纸、Gerber/BOM 与规格作业；开模或制治具前以书面提出 DFM 反馈。"
+        ],
+        [
+          "A first article is measured against the drawing and signed as the golden sample; subsequent lots are judged against it.",
+          "首件按图纸测量并签为 golden sample，后续批次以此为判定基准。"
+        ],
+        [
+          "Engineering change notes are version-controlled: a revision change triggers a new first article, never an informal swap.",
+          "工程变更按版本管控：改版即触发新首件，不允许口头换料。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide a complete drawing package with tolerance scheme, material specs and acceptance criteria — not a reference photo alone.",
+          "提供含公差体系、材料规格与验收标准的完整图纸包，而非仅参考照片。"
+        ],
+        [
+          "Sign an NDA and state who owns tooling, firmware and any derived IP before the deposit.",
+          "付定金前签 NDA，并写明模具、固件与衍生 IP 的归属。"
+        ],
+        [
+          "Agree the inspection level (AQL or full check) and who pays for third-party testing.",
+          "约定检验水平（AQL 或全检）与第三方测试费用承担方。"
+        ]
+      ],
+      "qc": [
+        [
+          "First-article inspection report with dimension-by-dimension results against the drawing revision.",
+          "按图纸版本出具逐尺寸首件检验报告。"
+        ],
+        [
+          "In-process checks at the agreed control points, with a by-process photo gallery and recorded shop-floor video available remotely.",
+          "按约定控制点做过程检验，并提供分工序照片库与车间录像供远程查验。"
+        ]
+      ],
+      "faq": [
+        [
+          "Who owns the tooling in a build-to-print program?",
+          "Tooling ownership is agreed in writing before the deposit; the tool is tagged with your project code and stored at the contracted workshop, with a photo and location record.",
+          "按图 OEM 的模具归谁？",
+          "模具归属在付定金前书面约定；模具挂贵方项目代码、存放于签约车间，并留存照片与位置记录。"
+        ],
+        [
+          "Can you sign our NDA before we share drawings?",
+          "Yes. An NDA is executed before any drawing, Gerber or BOM is exchanged, and documents are shared only with the named engineering contacts.",
+          "能在提供图纸前签 NDA 吗？",
+          "可以。交换任何图纸、Gerber 或 BOM 之前先签 NDA，且文件仅对指定工程联系人开放。"
+        ]
+      ]
+    }
   },
   {
     "slug": "odm-factory-guangdong",
@@ -2348,7 +3188,63 @@
       ]
     ],
     "cluster": "capability",
-    "serp_title": "ODM Factory Guangdong | Product Development"
+    "serp_title": "ODM Factory Guangdong | Product Development",
+    "expertise": {
+      "en_intro": "ODM shortens time to market by starting from a qualified reference design — the trade-off is that platform-level choices are shared and only the agreed layers are yours to change.",
+      "zh_intro": "ODM 从已验证参考设计起步以缩短上市周期；代价是平台级选型共用，仅约定层级可改。",
+      "process": [
+        [
+          "A reference platform (SoC, radio, mechanical stack) is carried over unchanged to preserve its certification and reliability history.",
+          "参考平台（SoC、射频、结构栈）保持不变，以沿用既有认证与可靠性记录。"
+        ],
+        [
+          "Customisation is layered: ID/housing, logo, packaging, firmware skin and selected BOM options, each with a documented cost impact.",
+          "定制分层进行：外观/外壳、logo、包材、固件界面与可选 BOM 项，逐项列明成本影响。"
+        ],
+        [
+          "Any change to the radio or power section re-opens certification, so those requests are reviewed separately before tooling.",
+          "射频或电源部分变更会重开认证，因此开模前单独评审此类需求。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Decide early which layers you must own (housing tool, firmware source, packaging artwork) versus which can stay shared.",
+          "尽早确定哪些层级必须自有（外壳模具、固件源码、包材设计），哪些可沿用共用。"
+        ],
+        [
+          "Ask for the reference platform's existing certificate list and its expiry dates.",
+          "索取参考平台现有证书清单及有效期。"
+        ],
+        [
+          "Clarify exclusivity: a shared platform is generally non-exclusive unless a tooling buyout is agreed.",
+          "明确排他性：共用平台通常非独家，除非约定买断模具。"
+        ]
+      ],
+      "qc": [
+        [
+          "Golden sample approval covers ID, colour, logo placement and UI language before production release.",
+          "量产放行前对 ID、颜色、logo 位置与界面语言做签样确认。"
+        ],
+        [
+          "Reliability tests carry over from the reference platform; delta tests are run only on the changed layers.",
+          "可靠性测试沿用参考平台记录，仅对变更层做差异验证。"
+        ]
+      ],
+      "faq": [
+        [
+          "How is ODM different from OEM for tooling cost?",
+          "ODM reuses an existing platform so there is little or no new platform tooling; you pay for custom housing, artwork and any delta testing rather than a full ground-up programme.",
+          "ODM 与 OEM 的模具成本差在哪？",
+          "ODM 复用现有平台，几乎无全新平台模具；费用集中在外壳、包材与差异测试，而非从零开发。"
+        ],
+        [
+          "Can I later move an ODM product to a build-to-print model?",
+          "Yes. We document the platform BOM and interfaces at handover so a later transfer to your own drawings is possible without re-qualifying the whole supply chain.",
+          "ODM 产品后续能转按图 OEM 吗？",
+          "可以。交接时提供平台 BOM 与接口文档，后续转自有图纸无需重新认证整条供应链。"
+        ]
+      ]
+    }
   },
   {
     "slug": "low-moq-oem-factory",
@@ -2502,7 +3398,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "expertise": {
+      "en_intro": "Low-MOQ manufacturing is an economics problem, not a capacity one: shared tooling, a fixed BOM and mixed-SKU consolidation are what make 500 pcs viable.",
+      "zh_intro": "小批量制造是经济性而非产能问题：共用模具、固定 BOM 与跨 SKU 拼柜，才让 500 件起订成立。",
+      "process": [
+        [
+          "Shared or modular tooling keeps the one-time tooling cost off a small first order; only brand-specific inserts are new.",
+          "共用/模块化模具把一次性开模费从小首单中剥离，仅品牌专属镶件需新做。"
+        ],
+        [
+          "A frozen BOM for the first run avoids line re-qualification; alternates are qualified only after the pilot.",
+          "首单冻结 BOM 避免产线重新验证；替代料在试产后才导入。"
+        ],
+        [
+          "Mixed-SKU consolidation lets several low-volume items share one shipment and one export document package.",
+          "跨 SKU 拼柜让多个小批量件共用一次出货与一套出口单证。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Prioritise one colourway and one firmware build for the first order; variants multiply changeover cost.",
+          "首单优先单一配色与单一固件版本；变体会成倍增加换线成本。"
+        ],
+        [
+          "Decide whether you want a pilot run with a small engineering batch before the 500 pcs production gate.",
+          "确定是否在 500 件量产门槛前先做小批工程试产。"
+        ],
+        [
+          "Ask which components have long lead times so the first order is not held by a single EOL part.",
+          "询问长交期料，避免首单被单一停产料卡住。"
+        ]
+      ],
+      "qc": [
+        [
+          "First-piece and last-piece inspection on short runs, since there is no steady-state process to sample.",
+          "短单做首件与末件检验，因为没有稳态过程可供抽样。"
+        ],
+        [
+          "Same AQL and by-process photo documentation as full production runs — volume does not reduce the record.",
+          "与量产同 AQL 与分工序照片记录，不因数量少而降低留档标准。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is 500 pcs per item or per order?",
+          "500 pcs per item, but mixed-SKU consolidation is allowed, so several 500-pc items can share one order and one shipment.",
+          "500 件是按单品还是按订单？",
+          "按单品 500 件；允许跨 SKU 拼柜，多个 500 件单品可合并为一张订单一次出货。"
+        ],
+        [
+          "Can a first order be smaller than 500 pcs?",
+          "Engineering prototypes and pilot builds can be smaller; the 500 pcs gate applies to production runs, where line setup and material minimums dominate the unit cost.",
+          "首单能低于 500 件吗？",
+          "工程原型与试产可低于 500 件；500 件门槛针对量产，因产线调机与物料最小起订主导单件成本。"
+        ]
+      ]
+    }
   },
   {
     "slug": "private-label-manufacturer",
@@ -2657,7 +3609,63 @@
       ]
     ],
     "cluster": "capability",
-    "serp_desc": "Private label manufacturer in China — custom logo, packaging and docs across electronics, toys, smart-home and IoT. 500 pcs MOQ, 48h quote."
+    "serp_desc": "Private label manufacturer in China — custom logo, packaging and docs across electronics, toys, smart-home and IoT. 500 pcs MOQ, 48h quote.",
+    "expertise": {
+      "en_intro": "Private label is an artwork and compliance-chain exercise: logo, retail packaging, manual, barcode and trademark proof must all be signed before the production slot.",
+      "zh_intro": "贴牌是美术稿与合规链工程：logo、零售包材、说明书、条码与商标证明，都需在排产前签样。",
+      "process": [
+        [
+          "Logo application method (laser, pad print, silk screen, embossed tool) is chosen by substrate and approved on a golden sample.",
+          "logo 工艺（镭雕、移印、丝印、模具蚀纹）按基材选定，并在签样上确认。"
+        ],
+        [
+          "Retail artwork, manual language, barcode/GTIN and outer-carton marks are frozen together as one artwork pack.",
+          "零售稿、说明书语言、条码/GTIN 与外箱唛头合并为一套美术包冻结。"
+        ],
+        [
+          "Trademark authorisation is filed before printing; a late brand-name change scraps packaging and re-opens the print proof.",
+          "印刷前归档商标授权；品牌名后期变更会作废包材并重新签印刷样。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Supply vector logo files, Pantone/CMYK colour standards and the trademark authorisation letter at RFQ.",
+          "询价提供矢量 logo、Pantone/CMYK 色标与商标授权书。"
+        ],
+        [
+          "List destination-market labelling requirements (CE/UKCA/WEEE, FCC ID, country of origin, warning text).",
+          "列出目的市场标签要求（CE/UKCA/WEEE、FCC ID、原产地、警示语）。"
+        ],
+        [
+          "Confirm whether FNSKU / Amazon labelling or retail-ready packaging is needed.",
+          "确认是否需要 FNSKU / 亚马逊标签或零售-ready 包装。"
+        ]
+      ],
+      "qc": [
+        [
+          "Print-proof colour check against the approved master and an abrasion/tape test on the logo.",
+          "对照签样做印刷色差检查，logo 做耐磨/胶带测试。"
+        ],
+        [
+          "Carton drop test and a barcode scan check on every packed master carton.",
+          "整箱跌落测试，每外箱做条码可扫性检查。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can I use my own packaging design?",
+          "Yes. Send dieline-ready artwork and we return a signed print proof before the production run; the packaging is consolidated with the goods in one shipment.",
+          "能用自己的包材设计吗？",
+          "可以。提供刀线稿，量产前回签印刷样；包材与货物同批出货。"
+        ],
+        [
+          "Do you provide a trademark authorisation template?",
+          "We provide the standard letter format and file your signed copy against the project code; we do not print brand marks without that record on file.",
+          "提供商标授权书模板吗？",
+          "提供标准格式，并按项目代码归档贵方签署件；无归档记录不印制品牌标识。"
+        ]
+      ]
+    }
   },
   {
     "slug": "pcba-contract-manufacturer",
@@ -2811,7 +3819,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "expertise": {
+      "en_intro": "Contract electronics manufacturing is a traceability contract: turnkey versus consigned material, DFM sign-off and lot-level genealogy define who owns a field failure.",
+      "zh_intro": "电子合约制造是一份可追溯契约：统购/客供、DFM 签核与批次级谱系，决定现场失效由谁承担。",
+      "process": [
+        [
+          "DFM/DFT review is issued before the build, flagging panelisation, fiducials, test-point access and moisture-sensitive parts.",
+          "投产前出具 DFM/DFT 评审，涵盖拼板、Mark 点、测试点可达性与湿敏器件。"
+        ],
+        [
+          "Material is either turnkey with documented alternates or consigned with lot-code reconciliation at shipment.",
+          "物料或为带书面替代料的统购，或为按批次码在出货时核对的客供。"
+        ],
+        [
+          "Each board carries a serial number linking solder paste lot, reflow profile, operator and test results.",
+          "每块板带序列号，可关联锡膏批次、回流曲线、操作员与测试结果。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Specify turnkey or consigned, the accepted alternate policy and liability for EOL parts in the RFQ.",
+          "询价写明统购/客供、替代料政策与停产料责任。"
+        ],
+        [
+          "Provide an ICT/FCT test specification and define the rework limit per board.",
+          "提供 ICT/FCT 测试规范并约定单板返修上限。"
+        ],
+        [
+          "Ask for the traceability report format and retention period before the pilot run.",
+          "试产前确认追溯报告格式与留存年限。"
+        ]
+      ],
+      "qc": [
+        [
+          "SPI + AOI + X-ray + ICT/FCT with per-serial test logs; yield Pareto issued per lot.",
+          "SPI + AOI + X 光 + ICT/FCT，逐序列号留测试日志，每批出良率 Pareto。"
+        ],
+        [
+          "MSL component baking and floor-life tracking, plus ESD audit records on the line.",
+          "湿敏器件烘烤与车间寿命跟踪，产线留存 ESD 稽核记录。"
+        ]
+      ],
+      "faq": [
+        [
+          "What is the difference between turnkey and consigned in your RFQ?",
+          "Turnkey means we source and warrant the BOM against agreed alternates; consigned means you supply parts and we warrant the assembly process and reconcile your stock by lot code.",
+          "统购与客供在询价中有何区别？",
+          "统购由我方按约定替代料采购并对 BOM 负责；客供由贵方供料，我方对组装制程负责并按批次码核对余料。"
+        ],
+        [
+          "Do you keep test records after shipment?",
+          "Yes. Per-serial test logs, reflow profile and material lot codes are retained against the project code and can be produced for a field-failure investigation.",
+          "出货后保留测试记录吗？",
+          "保留。逐序列号测试日志、回流曲线与物料批次码按项目代码归档，可用于现场失效追溯。"
+        ]
+      ]
+    }
   },
   {
     "slug": "custom-product-development",
@@ -2967,7 +4031,63 @@
     ],
     "cluster": "capability",
     "serp_title": "Custom Product Development China | Prototypes",
-    "serp_desc": "Custom product development in the GBA — design, engineering, prototyping and mass production. 500 pcs MOQ, 48h quote."
+    "serp_desc": "Custom product development in the GBA — design, engineering, prototyping and mass production. 500 pcs MOQ, 48h quote.",
+    "expertise": {
+      "en_intro": "Custom development is a stage-gate process: EVT proves the circuit, DVT proves the design, PVT proves the line — skipping a gate moves the cost into warranty.",
+      "zh_intro": "定制开发是阶段门流程：EVT 验电路、DVT 验设计、PVT 验产线；跳门等于把成本挪到保修期。",
+      "process": [
+        [
+          "EVT builds a small engineering batch to validate the schematic, thermal behaviour and firmware before any industrial design is frozen.",
+          "EVT 用小批工程板验证原理图、热行为与固件，工业设计此时尚未冻结。"
+        ],
+        [
+          "DVT units use production-intent materials and tooling and go through drop, thermal, EMC and reliability testing.",
+          "DVT 样机使用量产意向材料与模具，走跌落、高低温、EMC 与可靠性测试。"
+        ],
+        [
+          "PVT is a full-speed pilot on the actual line to prove yield, fixture coverage and the assembly work instructions.",
+          "PVT 在真实产线全速试产，验证良率、治具覆盖与作业指导书。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Agree the stage-gate deliverables and sign-off owner in writing at kickoff.",
+          "启动时书面约定各阶段门交付物与签核责任人。"
+        ],
+        [
+          "Name the target certification list and test lab early; DVT samples should be the ones submitted.",
+          "尽早确定认证清单与实验室；送检样机最好就是 DVT 样机。"
+        ],
+        [
+          "Budget for at least one tooling correction loop between DVT and PVT.",
+          "在 DVT 与 PVT 之间预留至少一轮修模预算。"
+        ]
+      ],
+      "qc": [
+        [
+          "Each gate closes with a documented test report, an open-issue list and a signed sample.",
+          "每个阶段门以测试报告、未关闭问题清单与签样收口。"
+        ],
+        [
+          "Design-change traceability from the issue list through to the released drawing revision.",
+          "从未关闭问题清单到放行图纸版本，全程记录设计变更追溯。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you start from just an idea or a sketch?",
+          "Yes. We begin with a feasibility note covering architecture, rough BOM, certification path and cost band, then move to EVT only after you approve that scope.",
+          "只有一个想法或草图能启动吗？",
+          "可以。先出可行性说明（架构、粗 BOM、认证路径与成本区间），贵方确认范围后再进 EVT。"
+        ],
+        [
+          "Who owns the design IP at the end of development?",
+          "Ownership is defined at kickoff; by default the drawings and firmware produced for your project are handed over with a documented file list at PVT close.",
+          "开发结束设计 IP 归谁？",
+          "归属在启动时约定；默认在项目 PVT 收口时，将本项目产出的图纸与固件按文件清单移交贵方。"
+        ]
+      ]
+    }
   },
   {
     "slug": "small-batch-manufacturing",
@@ -3121,7 +4241,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "expertise": {
+      "en_intro": "Small-batch and bridge production exists to de-risk a ramp: it validates the line, the fixture and the supply chain before a full-volume commitment.",
+      "zh_intro": "小批量与桥接量产用于为爬坡降险：在大批量承诺前，先验证产线、治具与供应链。",
+      "process": [
+        [
+          "A bridge run uses production tooling and the real line at low volume, so yield data is representative rather than hand-built.",
+          "桥接批使用量产模具与真实产线低量跑，良率数据才具代表性，而非手工样。"
+        ],
+        [
+          "Fixtures, work instructions and test coverage are proven on the bridge lot and then carried unchanged into volume.",
+          "治具、作业指导书与测试覆盖在桥接批验证后，原样带入量产。"
+        ],
+        [
+          "Material is ordered to the pilot quantity with a documented scale-up path to the volume BOM.",
+          "物料按试产量下单，并写明向量产 BOM 放大的路径。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Use the bridge run to validate packaging and shipping, not only the product.",
+          "用桥接批同时验证包装与运输，而不只是产品本身。"
+        ],
+        [
+          "Freeze the design before the bridge lot; changes after this point invalidate the yield baseline.",
+          "桥接批前冻结设计；此后变更会让良率基线失效。"
+        ],
+        [
+          "Ask for a scale-up cost curve so the volume unit price is known before commitment.",
+          "索取放量成本曲线，在承诺前掌握量产单价。"
+        ]
+      ],
+      "qc": [
+        [
+          "Full inspection on the bridge lot with a per-unit data sheet, rather than AQL sampling.",
+          "桥接批做全检并逐件出具数据表，而非 AQL 抽样。"
+        ],
+        [
+          "Line-changeover and first-piece/last-piece checks documented as the volume-run baseline.",
+          "记录换线与首/末件检验，作为量产基线。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can a bridge run ship to customers?",
+          "Yes, if the lot passes the same release criteria as production; we mark it as a pilot lot in the traceability record so any field feedback is easy to isolate.",
+          "桥接批能发给客户吗？",
+          "通过与量产相同放行标准即可；追溯记录中标注为试产批，便于隔离现场反馈。"
+        ],
+        [
+          "How does small batch relate to the 500 pcs MOQ?",
+          "Engineering and pilot lots can be below 500 pcs; the 500 pcs per item MOQ applies once the programme moves to a repeatable production run.",
+          "小批量与 500 件起订是什么关系？",
+          "工程与试产批可低于 500 件；进入可复量产阶段后按单品 500 件起订。"
+        ]
+      ]
+    }
   },
   {
     "slug": "oem-vs-odm",
@@ -3275,7 +4451,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "knowledge"
+    "cluster": "knowledge",
+    "expertise": {
+      "en_intro": "OEM versus ODM is an ownership decision, not a quality one: who holds the design, the tooling and the certification determines your switching cost and time to market.",
+      "zh_intro": "OEM 与 ODM 是归属选择而非质量差别：设计、模具与认证归谁，决定你的切换成本与上市速度。",
+      "process": [
+        [
+          "OEM (build-to-print) starts from your drawings; you own the design and usually the tooling, with a longer development lead time.",
+          "OEM（按图）从贵方图纸起步；设计与通常模具归贵方，开发周期较长。"
+        ],
+        [
+          "ODM starts from a qualified reference platform; the supplier owns the base design and its certificates, and you customise agreed layers.",
+          "ODM 从已验证参考平台起步；基础设计及证书归供方，贵方定制约定层级。"
+        ],
+        [
+          "Hybrid models exist: bought-out housing tooling on a shared platform is the most common middle path.",
+          "存在混合模式：共用平台 + 买断外壳模具，是最常见的中间路线。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Ask three questions: who owns the tool, who holds the certificates, and can the BOM be transferred.",
+          "问三件事：模具归谁、证书在谁名下、BOM 能否转移。"
+        ],
+        [
+          "If time to market dominates, ODM; if differentiation and IP control dominate, OEM.",
+          "上市速度优先选 ODM；差异化与 IP 管控优先选 OEM。"
+        ],
+        [
+          "Put the answer in the supply agreement, not only in the quotation.",
+          "把答案写进供货协议，而不只是报价单。"
+        ]
+      ],
+      "qc": [
+        [
+          "For OEM, verify the first article against your drawing revision; for ODM, verify the delta layers only.",
+          "OEM 按贵方图纸版本验首件；ODM 只验变更层。"
+        ],
+        [
+          "Check the certificate holder name on every document — it must match the party that will support a market audit.",
+          "核对每份证书上的持证人名称，须与将来应对市场审查的主体一致。"
+        ]
+      ],
+      "faq": [
+        [
+          "Which is cheaper for a first order?",
+          "ODM is usually cheaper and faster for a first order because platform tooling and certification already exist; OEM costs more upfront but gives full control of the design and supply chain.",
+          "首单哪种更便宜？",
+          "首单通常 ODM 更省更快，因平台模具与认证已存在；OEM 前期投入高，但换来设计与供应链的完全控制。"
+        ],
+        [
+          "Can I switch from ODM to OEM later?",
+          "Yes, if the platform BOM, interfaces and test limits are documented at handover; we provide that file list so a later build-to-print transfer does not restart qualification.",
+          "后续能从 ODM 转 OEM 吗？",
+          "可以，前提是交接时留存平台 BOM、接口与测试限值文档；我们提供该文件清单，使后续转按图无需重做认证。"
+        ]
+      ]
+    }
   },
   {
     "slug": "how-to-find-manufacturer-china",
@@ -3429,7 +4661,63 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "knowledge"
+    "cluster": "knowledge",
+    "expertise": {
+      "en_intro": "Finding a factory is a verification sequence: licence, capability match, sample, audit, then a contract with an inspection clause — never a price comparison first.",
+      "zh_intro": "找工厂是一套验证顺序：执照、能力匹配、样品、验厂、含验货条款的合同——绝不是先比价。",
+      "process": [
+        [
+          "Check the business licence, registered capital, legal representative and whether the entity actually holds the claimed factory.",
+          "核验营业执照、注册资本、法定代表人，以及该主体是否真持有所称工厂。"
+        ],
+        [
+          "Match the capability to your category: an injection shop is not a PCBA house, and a trading company is not a factory.",
+          "按品类匹配能力：注塑厂不是 PCBA 厂，贸易公司也不是工厂。"
+        ],
+        [
+          "Order a paid sample from the production-intent line, then audit before any deposit.",
+          "从量产意向产线订付费样品，验厂之后再付定金。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Request a by-process photo gallery, a recorded shop-floor video and a live inspection by appointment.",
+          "索取分工序照片库、车间录像，并预约实时验厂。"
+        ],
+        [
+          "Verify certificates by holder name and issue date, and check the scope covers your product.",
+          "按持证人名称与签发日期核验证书，并确认覆盖你的产品范围。"
+        ],
+        [
+          "Write acceptance criteria, AQL level and third-party inspection rights into the contract.",
+          "把验收标准、AQL 水平与第三方验货权写进合同。"
+        ]
+      ],
+      "qc": [
+        [
+          "Cross-check the invoice entity, the bank account name and the licence name — mismatches are the clearest red flag.",
+          "交叉核对开票主体、银行账户名与执照名称；三者不一致是最明确的红旗。"
+        ],
+        [
+          "Confirm the production address matches the audit address, not only the registered office.",
+          "确认生产地址与验厂地址一致，而不只是注册办公地址。"
+        ]
+      ],
+      "faq": [
+        [
+          "How do I tell a factory from a trading company?",
+          "Ask for the licence scope, the production address, equipment list and a live shop-floor walkthrough; an integrator like Anchormere should state plainly that it coordinates vetted workshops rather than owning one factory.",
+          "怎么区分工厂与贸易公司？",
+          "查执照经营范围、生产地址、设备清单并要求车间实时走查；像 Anchormere 这类整合方应明确说明是协调已审核车间，而非自有单一工厂。"
+        ],
+        [
+          "Should I always choose the lowest quote?",
+          "No. Compare quotes only after scope, BOM, AQL, tooling ownership and payment terms are identical; an unusually low number usually hides a material substitution or an excluded test.",
+          "该选最低报价吗？",
+          "不建议。只有在范围、BOM、AQL、模具归属与付款条款完全一致后再比价；异常低价通常藏着换料或省掉的测试。"
+        ]
+      ]
+    }
   },
   {
     "slug": "amazon-private-label-manufacturer",
@@ -3609,7 +4897,63 @@
     ],
     "buyer_guide": true,
     "serp_title": "Amazon Private Label Manufacturer China | FBA",
-    "serp_desc": "Amazon FBA private-label sourcing from the Greater Bay Area: 500 pcs MOQ, 48h quote, FNSKU-ready cartons, bundling, full export docs."
+    "serp_desc": "Amazon FBA private-label sourcing from the Greater Bay Area: 500 pcs MOQ, 48h quote, FNSKU-ready cartons, bundling, full export docs.",
+    "expertise": {
+      "en_intro": "Amazon private label adds a fulfilment layer to manufacturing: FNSKU labelling, carton rules, hazmat review and listing compliance must be ready before the goods leave the floor.",
+      "zh_intro": "亚马逊贴牌在制造之上多了一层履约：FNSKU 标签、外箱规则、危险品审核与 Listing 合规，都需在出厂前就绪。",
+      "process": [
+        [
+          "FNSKU or manufacturer barcode labelling is applied at unit level and verified by scan before carton sealing.",
+          "FNSKU 或制造商条码在单件层级粘贴，封箱前逐件扫码核对。"
+        ],
+        [
+          "Carton weight, dimensions and the shipment-plan ID are checked against the FBA inbound rules for the destination FC.",
+          "按目的 FC 的入仓规则核对箱重、尺寸与货件计划 ID。"
+        ],
+        [
+          "Battery, magnet, liquid or powder goods go through a hazmat / documentation review before booking.",
+          "含电池、磁体、液体或粉末的货品在订舱前走危险品与单证审核。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the marketplace, fulfilment channel and whether you need FBA prep or retail-ready packaging at RFQ.",
+          "询盘写明站点、履约渠道，以及需要 FBA 预处理还是零售-ready 包装。"
+        ],
+        [
+          "Provide the FNSKU file and carton-label format before the production slot, not after packing.",
+          "排产前提供 FNSKU 文件与箱唛格式，不要等装箱后。"
+        ],
+        [
+          "Check category-specific compliance (CPSIA for children's items, FCC/CE for radio, UN38.3 for batteries).",
+          "核对类目合规（儿童用品 CPSIA、射频 FCC/CE、电池 UN38.3）。"
+        ]
+      ],
+      "qc": [
+        [
+          "100% barcode scan on units and cartons, plus a carton drop test on packed masters.",
+          "单件与外箱 100% 扫码，整箱做跌落测试。"
+        ],
+        [
+          "Carton content manifest cross-checked against the shipment plan before the container is sealed.",
+          "封柜前按货件计划核对装箱清单。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you apply FNSKU labels for my shipment?",
+          "Yes. Send the FNSKU file and we apply and scan-verify labels at unit level, then consolidate multi-SKU cartons into one export document package.",
+          "能贴 FNSKU 标签吗？",
+          "可以。提供 FNSKU 文件后逐件贴标并扫码核验，再把多 SKU 外箱合并为一套出口单证。"
+        ],
+        [
+          "Do you handle battery products for FBA?",
+          "Yes, subject to UN38.3 and the carrier's hazmat documentation; we flag battery SKUs at RFQ so the test report and packing method are ready before booking.",
+          "带电池产品能发 FBA 吗？",
+          "可以，需 UN38.3 与承运方危险品单证；我们在询价阶段标注电池 SKU，确保订舱前备齐测试报告与包装方式。"
+        ]
+      ]
+    }
   },
   {
     "slug": "china-sourcing-agent",
@@ -3789,7 +5133,63 @@
     ],
     "buyer_guide": true,
     "serp_title": "China Sourcing Agent & Procurement | GBA",
-    "serp_desc": "China sourcing agent in the Greater Bay Area: supplier vetting, quoting, QC, consolidation and export docs for international trade buyers."
+    "serp_desc": "China sourcing agent in the Greater Bay Area: supplier vetting, quoting, QC, consolidation and export docs for international trade buyers.",
+    "expertise": {
+      "en_intro": "A sourcing agent is an accountability model: one party owns supplier selection, quotation, QC and consolidation, and should state plainly what it is not.",
+      "zh_intro": "采购代理是一种责任模型：由一方承担选厂、报价、质检与拼柜，并应明确说明自己不是什么。",
+      "process": [
+        [
+          "We map a requirement to a shortlist of vetted workshops, then return one consolidated quote with lead time and Incoterms stated up front.",
+          "把需求匹配到已审核车间短名单，再回一份含交期与 Incoterms 的合并报价。"
+        ],
+        [
+          "Single-point accountability means one contact for RFQ, sample, production, QC, consolidation and export documents.",
+          "单点责任指询价、样品、生产、质检、拼柜与出口单证由同一对接人负责。"
+        ],
+        [
+          "We are not a single factory and not a marketplace; circuit design and core R&D stay with specialist partners.",
+          "我们不是单一工厂也不是平台；电路设计与核心研发由专业伙伴承担。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Ask for the fee model and whether it is a disclosed margin, a service fee or both.",
+          "询问收费模式：明示价差、服务费，还是两者兼有。"
+        ],
+        [
+          "Require a named legal entity on the contract and on the bank account for the deposit.",
+          "合同与定金账户须为具名法律主体。"
+        ],
+        [
+          "Specify the QC deliverable you expect: by-process photos, recorded video, live inspection, third-party report.",
+          "明确期望的质检交付：分工序照片、录像、实时验厂或第三方报告。"
+        ]
+      ],
+      "qc": [
+        [
+          "By-process photo gallery and recorded shop-floor video available remotely, plus live inspection by appointment.",
+          "可远程查看分工序照片库与车间录像，并预约实时验厂。"
+        ],
+        [
+          "Certificate and document wall kept per project, with holder names and expiry dates visible.",
+          "按项目建立证书与单证墙，展示持证人名称与有效期。"
+        ]
+      ],
+      "faq": [
+        [
+          "Are you a factory or a sourcing agent?",
+          "We are a single accountable coordinator working with 20+ vetted Greater Bay Area workshops — not a single factory and not a marketplace; the legal entity is Shenzhen Senya Industrial Co., Ltd.",
+          "你们是工厂还是采购代理？",
+          "我们是单一责任整合方，协调大湾区 20+ 家已审核车间，既非单一工厂也非平台；法律主体为深圳森亚实业有限公司。"
+        ],
+        [
+          "How is a 48h quote possible?",
+          "Standard items map to existing workshop capacity and BOM templates; an engineer returns lead time and Incoterms within 48 hours. Custom tooling programmes take longer and are quoted separately.",
+          "48 小时报价怎么做到的？",
+          "标准件可对应现有车间产能与 BOM 模板，工程师 48 小时内回交期与 Incoterms；需开模的定制项目另行列期报价。"
+        ]
+      ]
+    }
   },
   {
     "slug": "import-from-china-guide",
@@ -3955,7 +5355,63 @@
     ],
     "cases": [],
     "buyer_guide": true,
-    "serp_title": "How to Import from China | 2026 Guide"
+    "serp_title": "How to Import from China | 2026 Guide",
+    "expertise": {
+      "en_intro": "Importing is a document and cost chain: HS code, Incoterms 2020, duty, freight and the payment schedule must be agreed before the PO, not at the port.",
+      "zh_intro": "进口是一条单证与成本链：HS 编码、Incoterms 2020、关税、运费与付款节奏，都要在下 PO 前谈定，而不是到港才处理。",
+      "process": [
+        [
+          "Incoterms 2020 defines exactly where cost and risk transfer — EXW, FOB, CIF and DAP put very different duties on the buyer.",
+          "Incoterms 2020 明确费用与风险转移点；EXW、FOB、CIF、DAP 对买方的责任差别很大。"
+        ],
+        [
+          "The HS code drives duty rate, origin marking and any licence or conformity requirement at destination.",
+          "HS 编码决定税率、原产地标记及目的国许可/符合性要求。"
+        ],
+        [
+          "A full export document package (commercial invoice, packing list, B/L or AWB, certificate of origin, test reports) is assembled before the container is sealed.",
+          "封柜前备齐商业发票、装箱单、提单/运单、原产地证与测试报告。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Confirm the Incoterm and the named place in the contract, and who books freight and insurance.",
+          "合同写明 Incoterm 与指定地点，并明确订舱与投保方。"
+        ],
+        [
+          "Ask your broker to pre-classify the HS code and check for anti-dumping or quota measures.",
+          "让报关行预归类 HS 编码，并核查反倾销或配额措施。"
+        ],
+        [
+          "Align the 30% deposit / 70% before shipment schedule with your cash flow and inspection rights.",
+          "把 30% 定金 / 70% 发货前付清的节奏，与现金流和验货权对齐。"
+        ]
+      ],
+      "qc": [
+        [
+          "Document pack cross-checked against the packing list and the commercial invoice before release.",
+          "放行前按装箱单与商业发票交叉核对单证包。"
+        ],
+        [
+          "Carton marks, gross/net weight and piece count verified against the booking.",
+          "箱唛、毛净重与件数按订舱信息核对。"
+        ]
+      ],
+      "faq": [
+        [
+          "Which Incoterm should a first-time importer choose?",
+          "FOB with a named Chinese port is the common starting point: the supplier handles export clearance and you control the main carriage, but whatever you choose must be written into the contract with a named place.",
+          "新手进口商选哪个 Incoterm？",
+          "常见起点是 FOB + 具名中国港口：供方负责出口清关，贵方掌控主运输；无论选哪个，都要在合同写明具名地点。"
+        ],
+        [
+          "Do you provide the export documents?",
+          "Yes. Every shipment leaves with a full export document package, and multi-SKU consolidated orders share one coordinated set rather than separate paperwork per workshop.",
+          "提供出口单证吗？",
+          "提供。每批出货附完整出口单证包；多 SKU 拼柜订单共用一套协调单证，而非每家车间各出一套。"
+        ]
+      ]
+    }
   },
   {
     "slug": "hardware-startup-manufacturer",
@@ -4135,7 +5591,63 @@
     ],
     "buyer_guide": true,
     "serp_title": "Hardware Startup Manufacturer China | NPI",
-    "serp_desc": "Prototype to crowdfunding-ready production in the GBA: NPI, low-volume runs, enclosures, PCBA and assembly for hardware startups."
+    "serp_desc": "Prototype to crowdfunding-ready production in the GBA: NPI, low-volume runs, enclosures, PCBA and assembly for hardware startups.",
+    "expertise": {
+      "en_intro": "A hardware startup needs a manufacturing partner that can survive the gap between a working prototype and a repeatable production line — that gap is where most launches slip.",
+      "zh_intro": "硬件创业最需要能陪跑「可用原型 → 可复量产线」这段差距的合作方，多数产品延期正发生在这里。",
+      "process": [
+        [
+          "Prototype boards and 3D-printed parts prove function; they say nothing about yield, tooling or certification.",
+          "原型板与 3D 打印件只证明功能，不能说明良率、模具或认证。"
+        ],
+        [
+          "DFM at the EVT stage removes features that are expensive to mould or impossible to test on a line.",
+          "EVT 阶段做 DFM，去掉难开模或产线无法测试的设计特征。"
+        ],
+        [
+          "Crowdfunding commitments should be priced against the PVT yield and tooling-correction loop, not the prototype BOM.",
+          "众筹交付承诺应按 PVT 良率与修模轮次定价，而非原型 BOM。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Share your target unit cost and launch date at the first call; they determine whether ODM or build-to-print fits.",
+          "首次沟通就给出目标单价与上市日期，它们决定走 ODM 还是按图。"
+        ],
+        [
+          "Reserve budget for certification and at least one tooling correction before quoting backers.",
+          "向支持者报价前，预留认证费与至少一轮修模预算。"
+        ],
+        [
+          "Ask for a documented scale-up path from 50 prototype units to the 500 pcs production gate.",
+          "索取从 50 台原型到 500 件量产门槛的书面放量路径。"
+        ]
+      ],
+      "qc": [
+        [
+          "EVT/DVT/PVT gate reports with an open-issue list signed at each stage.",
+          "EVT/DVT/PVT 各阶段门出具报告与未关闭问题清单并签核。"
+        ],
+        [
+          "Pilot lot full inspection with per-unit data, so early backer feedback can be traced to a build.",
+          "试产批全检并逐台留数据，便于把首批用户反馈追溯到具体批次。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you build 50 units for a crowdfunding pilot?",
+          "Yes. Engineering and pilot builds can be small; we document the scale-up path to the 500 pcs per item production MOQ so the backer pricing is based on real yield data.",
+          "众筹试产 50 台能做吗？",
+          "可以。工程与试产可小批；我们会书面给出到单品 500 件量产的放量路径，让支持者报价基于真实良率数据。"
+        ],
+        [
+          "Do you help with certification for a first product?",
+          "We map the destination-market test list at the feasibility stage and use DVT units for submission, so the certificate scope matches the production design rather than the prototype.",
+          "首款产品能协助认证吗？",
+          "可行性阶段列出目的市场测试清单，并尽量用 DVT 样机送检，使认证范围对应量产设计而非原型。"
+        ]
+      ]
+    }
   },
   {
     "slug": "verify-chinese-manufacturer",
@@ -4302,6 +5814,62 @@
     "cases": [],
     "buyer_guide": true,
     "serp_title": "How to Verify a Chinese Manufacturer | Factory Audit",
-    "serp_desc": "Checklist to verify a Chinese manufacturer: business license, factory audit, third-party inspection, payment safety and scam red flags."
+    "serp_desc": "Checklist to verify a Chinese manufacturer: business license, factory audit, third-party inspection, payment safety and scam red flags.",
+    "expertise": {
+      "en_intro": "Supplier verification is evidence, not reassurance: licence, certificate holder, production address, equipment and a live shop-floor walkthrough must all agree.",
+      "zh_intro": "验供应商靠证据而非承诺：执照、证书持证人、生产地址、设备清单与车间实时走查，必须彼此对得上。",
+      "process": [
+        [
+          "Start with the business licence: registered entity, scope, legal representative and whether it matches the bank account name.",
+          "从营业执照开始：注册主体、经营范围、法定代表人，以及是否与银行账户名一致。"
+        ],
+        [
+          "Check certificates by holder name, issue date and scope — a certificate for a sister company does not cover your order.",
+          "按持证人、签发日期与范围核证书；关联公司的证书不覆盖你的订单。"
+        ],
+        [
+          "Confirm the production address, not the registered office, and walk the actual line on a live video call.",
+          "确认生产地址而非注册办公地址，并通过实时视频走查真实产线。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Request a by-process photo gallery, recorded shop-floor video and a live inspection by appointment.",
+          "索取分工序照片库、车间录像并预约实时验厂。"
+        ],
+        [
+          "Cross-check the quotation entity, the contract party and the deposit account.",
+          "交叉核对报价主体、合同签署方与定金账户。"
+        ],
+        [
+          "Write third-party inspection rights and AQL acceptance into the contract before the deposit.",
+          "付定金前把第三方验货权与 AQL 验收写进合同。"
+        ]
+      ],
+      "qc": [
+        [
+          "A document wall per project with licence, certificates, test reports and expiry dates visible.",
+          "按项目建立单证墙，展示执照、证书、测试报告与有效期。"
+        ],
+        [
+          "Pre-shipment inspection against the signed golden sample with a written report, not a verbal confirmation.",
+          "按签样做出货前验货并出具书面报告，而非口头确认。"
+        ]
+      ],
+      "faq": [
+        [
+          "What is the fastest red flag in a supplier check?",
+          "A mismatch between the licence name, the bank account name and the invoice entity. That single inconsistency should stop a deposit until it is explained in writing.",
+          "验厂最快的红旗是什么？",
+          "执照名称、银行账户名与开票主体三者不一致。出现这一处不一致，就应在书面澄清前暂停付定金。"
+        ],
+        [
+          "Can I verify remotely without flying to China?",
+          "Yes. We provide a by-process photo gallery, a recorded shop-floor video, a certificate and document wall, and live inspection by appointment; a third-party inspection can be added before shipment.",
+          "不来中国能远程验厂吗？",
+          "可以。提供分工序照片库、车间录像、证书与单证墙，并预约实时验厂；出货前也可加做第三方验货。"
+        ]
+      ]
+    }
   }
 ]

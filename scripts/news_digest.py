@@ -13,6 +13,8 @@ Pure standard library (no pip installs) so it runs on GitHub Actions' ubuntu run
 """
 
 import os
+
+ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
 import re
 import json
 import html
@@ -451,6 +453,7 @@ def build_post(item, cats, today, title_en, title_zh):
 <script type="application/ld+json">
 {json_ld}
 </script>
+<script type="application/ld+json">{ORG_LD}</script>
 <script defer src="assets/consent.js"></script>
 </head><body>
 <div class="topbar"><span data-zh="⚓ <b>48 小时报价</b>">⚓ <b>48h quote</b></span><span data-zh="🏭 <b>20+ 家认证工厂</b>">🏭 <b>20+ vetted factories</b></span><span data-zh="📦 <b>500 件起订</b>">📦 <b>500 pcs MOQ</b></span><span data-zh="📑 <b>完整出口单证</b>">📑 <b>Full export docs</b></span></div>
@@ -563,7 +566,7 @@ HEAD_INDEX = '''<!DOCTYPE html><html lang="en"><head>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/consent.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere", "alternateName": "锚泊", "url": "https://anchormere.com", "email": "Anchormere@gmail.com", "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"}, "description": "China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.", "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://anchormere.com/#organization","name":"Anchormere","alternateName":"锚泊","url":"https://anchormere.com","email":"Anchormere@gmail.com","telephone":"+86-190-6898-4158","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"Anchormere@gmail.com","telephone":"+86-190-6898-4158","availableLanguage":["English","Chinese"],"areaServed":["Worldwide","Middle East","Southeast Asia","Europe"]},"address":{"@type":"PostalAddress","streetAddress":"B Block, Tefa Industrial Park, Guangming District","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"},"logo":{"@type":"ImageObject","url":"https://anchormere.com/assets/favicon.svg"},"description":"China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.","parentOrganization":{"@type":"Organization","name":"深圳森亚实业有限公司"},"slogan":"Your accountable China sourcing partner in the Greater Bay Area","areaServed":[{"@type":"Place","name":"Worldwide"},{"@type":"Place","name":"Greater Bay Area, China"},{"@type":"Country","name":"China"}],"knowsAbout":["OEM manufacturing","ODM manufacturing","private label manufacturing","contract manufacturing","PCBA","SMT assembly","EMS","injection molding","sheet metal fabrication","low MOQ manufacturing","China sourcing","Greater Bay Area manufacturing","product development","small batch manufacturing","electronic manufacturing services","IoT modules","wearable manufacturing","toy manufacturing","drone parts","EV charger components","USB-C charger OEM","cross-border ecommerce sourcing","China sourcing agent","international trade procurement","Amazon private label","import from China","supplier verification","hardware startup manufacturing"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "News & Insights", "item": "https://anchormere.com/news"}]}</script>
 <script defer src="assets/consent.js"></script>
 </head><body>

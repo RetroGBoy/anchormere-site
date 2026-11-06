@@ -5,6 +5,8 @@ procurement keyword, with internal links, a one-click quote CTA and full SEO/JSO
 Pure standard library; run manually or wire into the nightly workflow."""
 import os, json, html
 
+ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://anchormere.com"
 
@@ -44,7 +46,7 @@ FOOTER = ('<footer><div class="container"><div class="cols">'
           '<li data-zh="运营主体：深圳森亚实业有限公司（Shenzhen Senya Industrial Co., Ltd.）">Operator: 深圳森亚实业有限公司 (Shenzhen Senya Industrial Co., Ltd.)</li>'
           '<li data-zh="商标：Anchormere / Buyeex">Trade mark: Anchormere / Buyeex</li></ul></div>'
           '</div><p style="margin-top:20px;text-align:center;color:var(--on-dark2)" data-zh="© 2026 Anchormere · 由深圳森亚实业有限公司运营">© 2026 Anchormere · Operated by 深圳森亚实业有限公司</p>'
-          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-11-06">Last updated: 2026-11-06</p></div>'
+          '<p style="margin-top:6px;text-align:center;color:var(--on-dark2);font-size:12px;opacity:.75" data-zh="最后更新：2026-11-07">Last updated: 2026-11-07</p></div>'
           '<p style="text-align:center;margin-top:10px;font-size:12px"><a href="privacy.html" data-zh="隐私政策">Privacy Policy</a> · <a href="terms.html" data-zh="服务条款">Terms &amp; Conditions</a></p></footer>')
 
 FAQS = [
@@ -61,6 +63,11 @@ FAQS = [
 ]
 
 GA4 = ('<!-- GA4 is loaded consent-gated via assets/consent.js (set GA4_ID there) -->')
+
+# Date of the most recent editorial/engineering review. Surfaced as visible
+# text AND WebPage.lastReviewed so the E-E-A-T signal is policy-compliant
+# (structured data must match on-page content).
+REVIEW_DATE = "2026-11-07"
 
 
 # --- SERP display-layer constraints (Google: title ~60 / description ~155 display chars) ---
@@ -132,14 +139,20 @@ def build_page(seed, all_seeds):
         f'<tr><td>{html.escape(en_p)}</td>'
         f'<td data-zh="{html.escape(zh_v)}">{html.escape(en_v)}</td></tr>'
         for en_p, en_v, zh_v in seed["specs"])
-    # Site-wide generic FAQ + platform-sourced buyer questions (B2B platform FAQs).
+    # Site-wide generic FAQ + platform-sourced buyer questions + category-specific
+    # expertise FAQ (the latter makes each page's answer set genuinely distinct,
+    # which is what AI answer engines actually quote).
     rel_qa = seed.get("related_qa", [])
+    ex = seed.get("expertise", {})
+    ex_faq = [(f[0], f[1], f[2], f[3]) for f in ex.get("faq", [])]
+    all_qa = [(q, a, "", "") for q, a in FAQS + rel_qa] + ex_faq
     qa = "".join(
-        f'<div class="qa"><h3 data-zh="">{html.escape(q)}</h3>'
-        f'<p data-zh="">{html.escape(a)}</p></div>' for q, a in FAQS + rel_qa)
+        f'<div class="qa"><h3 data-zh="{html.escape(qz, quote=True)}">{html.escape(q)}</h3>'
+        f'<p data-zh="{html.escape(az, quote=True)}">{html.escape(a)}</p></div>'
+        for q, a, qz, az in all_qa)
     faq = json.dumps({"@context": "https://schema.org", "@type": "FAQPage",
                       "mainEntity": [{"@type": "Question", "name": q,
-                                      "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS + rel_qa]},
+                                      "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _, _ in all_qa]},
                      ensure_ascii=False)
     # 仅保留 Product 实体信号（name/brand/description/category/isPartOf），
     # 主动移除 offers/Offer 电商字段，避免 GSC 将 B2B 采购站误归类为"购物/电商"，
@@ -149,26 +162,7 @@ def build_page(seed, all_seeds):
         "brand": {"@type": "Brand", "name": "Anchormere"},
         "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
         "description": seed["en_intro"], "category": "Greater Bay Area OEM sourcing"}, ensure_ascii=False)
-    org = json.dumps({"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere",
-                      "alternateName": "锚泊", "url": SITE, "email": "Anchormere@gmail.com",
-                      "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"},
-                      "description": "China sourcing partner for the Greater Bay Area manufacturing base.",
-                      "parentOrganization": {"@type": "Organization", "name": "深圳森亚实业有限公司"},
-                      "slogan": "Your accountable China sourcing partner in the Greater Bay Area",
-                      "areaServed": [{"@type": "Place", "name": "Worldwide"},
-                                     {"@type": "Place", "name": "Greater Bay Area, China"},
-                                     {"@type": "Country", "name": "China"}],
-                      "knowsAbout": ["OEM manufacturing", "ODM manufacturing", "private label manufacturing",
-                                     "contract manufacturing", "PCBA", "SMT assembly", "EMS",
-                                     "injection molding", "sheet metal fabrication", "low MOQ manufacturing",
-                                     "China sourcing", "Greater Bay Area manufacturing", "product development",
-                                     "small batch manufacturing", "electronic manufacturing services",
-                                     "IoT modules", "wearable manufacturing", "toy manufacturing",
-                                     "drone parts", "EV charger components", "USB-C charger OEM",
-                                     "cross-border ecommerce sourcing", "China sourcing agent",
-                                     "international trade procurement", "Amazon private label",
-                                     "import from China", "supplier verification",
-                                     "hardware startup manufacturing"]}, ensure_ascii=False)
+    org = ORG_LD
     bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "Products", "item": SITE + "/supply-base"},
@@ -218,6 +212,56 @@ def build_page(seed, all_seeds):
                        "urlTemplate": "https://www.google.com/search?q=site:anchormere.com+{search_term_string}"},
             "query-input": "required name=search_term_string"}}, ensure_ascii=False)
 
+    # ---- Category-specific expertise: the substantive, non-templated part of
+    #      every page. ~10 unique bilingual statements per page, none shared with
+    #      other pages -> removes the "scaled content" pattern while keeping all
+    #      keywords, h1, CTAs and the conversion path untouched. ----
+    ex = seed.get("expertise", {})
+    if ex:
+        is_service = cl in ("capability", "knowledge")
+        if is_service:
+            h2_en, h2_zh = "How the engagement works", "合作如何推进"
+            h3s = [("What we do, step by step", "我们逐步做什么"),
+                   ("What to prepare as a buyer", "买家需要准备什么"),
+                   ("How we verify &amp; report", "我们如何核验与留档")]
+        else:
+            h2_en, h2_zh = "Engineering &amp; sourcing notes", "工程与采购要点"
+            h3s = [("Process &amp; technical notes", "工艺与技术要点"),
+                   ("Buyer checklist", "买家核对清单"),
+                   ("QC &amp; inspection focus", "质检与验厂重点")]
+
+        def li_rows(rows):
+            return "".join(
+                f'<li><span data-zh="{html.escape(zh, quote=True)}">{html.escape(en)}</span></li>'
+                for en, zh in rows)
+
+        expertise_section = (
+            '<section class="l2"><div class="container">\n'
+            f'  <h2 data-zh="{h2_zh}">{h2_en}</h2>\n'
+            f'  <p class="cn">{h2_zh}</p>\n'
+            f'  <p class="lead" data-zh="{html.escape(ex.get("zh_intro", ""), quote=True)}">{html.escape(ex.get("en_intro", ""))}</p>\n'
+            f'  <h3 data-zh="{h3s[0][1]}">{h3s[0][0]}</h3><ul class="check">{li_rows(ex.get("process", []))}</ul>\n'
+            f'  <h3 data-zh="{h3s[1][1]}">{h3s[1][0]}</h3><ul class="check">{li_rows(ex.get("buyer", []))}</ul>\n'
+            f'  <h3 data-zh="{h3s[2][1]}">{h3s[2][0]}</h3><ul class="check">{li_rows(ex.get("qc", []))}</ul>\n'
+            f'  <p class="rel-note" data-zh="本页工程要点由 Anchormere 采购工程组于 {REVIEW_DATE} 复核，反映大湾区供应基地与当期适用标准；具体规格以询价时按贵方图纸确认的版本为准。">'
+            f'Reviewed by the Anchormere sourcing desk on {REVIEW_DATE}. These notes reflect the Greater Bay Area supplier base and the standards current at review; specifications are confirmed against your drawing at RFQ.</p>\n'
+            '</div></section>')
+    else:
+        expertise_section = ""
+
+    # E-E-A-T: an explicit, visible review statement mirrored in structured data.
+    # lastReviewed + reviewedBy are valid WebPage properties (no invented author
+    # or founding date, no fabricated sameAs links).
+    webpage = json.dumps({
+        "@context": "https://schema.org", "@type": "WebPage",
+        "@id": url + "#webpage", "url": url, "name": en_t,
+        "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
+        "inLanguage": "en", "lastReviewed": REVIEW_DATE,
+        "reviewedBy": {"@type": "Organization", "name": "Anchormere sourcing desk", "url": SITE},
+        "publisher": {"@type": "Organization", "name": "Anchormere", "url": SITE},
+        "about": {"@type": "Thing", "name": en_t},
+    }, ensure_ascii=False)
+
     doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{html.escape(serp_t)}</title>
@@ -249,6 +293,7 @@ def build_page(seed, all_seeds):
 <script type="application/ld+json">{bc}</script>
 <script type="application/ld+json">{faq}</script>
 <script type="application/ld+json">{prod}</script>
+<script type="application/ld+json">{webpage}</script>
 </head><body>
 <div class="topbar"><span data-zh="⚓ <b>48 小时报价</b>">⚓ <b>48h quote</b></span><span data-zh="🏭 <b>20+ 家认证工厂</b>">🏭 <b>20+ vetted factories</b></span><span data-zh="📦 <b>500 件起订</b>">📦 <b>500 pcs MOQ</b></span><span data-zh="📑 <b>完整出口单证</b>">📑 <b>Full export docs</b></span></div>
 {NAV}
@@ -275,6 +320,7 @@ def build_page(seed, all_seeds):
   <p class="cn">典型规格与时效</p>
   <table class="spec-table"><thead><tr><th data-zh="项目">Parameter</th><th data-zh="说明">Detail</th></tr></thead><tbody>{specs}</tbody></table>
 </div></section>
+{expertise_section}
 <section class="l1"><div class="container">
   <h2 data-zh="常见问题">FAQ</h2>
   <p class="cn">常见问题</p>

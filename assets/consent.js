@@ -55,7 +55,7 @@
   function setupConversions() {
     if (window.__anm_conv) return;
     window.__anm_conv = true;
-    // 表单提交（Formspree 走整页 POST，sendBeacon 会在跳转前发出）
+    // 表单提交（Web3Forms AJAX 提交成功后触发；sendBeacon 作为跳转前兜底）
     document.addEventListener('submit', function (e) {
       var f = e.target;
       if (!f || f.tagName !== 'FORM') return;
