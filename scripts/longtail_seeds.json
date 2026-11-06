@@ -3420,5 +3420,864 @@
       ]
     ],
     "cluster": "knowledge"
+  },
+  {
+    "slug": "amazon-private-label-manufacturer",
+    "en_title": "Amazon Private Label Manufacturer China | FBA Sourcing & White-Label",
+    "zh_title": "亚马逊贴牌制造商中国 | FBA 采购与白牌",
+    "cluster": "capability",
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "en_lede": "Source private-label products for Amazon FBA from the Greater Bay Area: 500 pcs MOQ, 48h engineer quote, FNSKU-ready cartons, bundling and inserts, with a full export document package.",
+    "zh_lede": "从大湾区为亚马逊 FBA 采购贴牌产品：500 件起订、48 小时工程师报价、FNSKU 就绪纸箱、组合装与卡片，配完整出口单证。",
+    "en_intro": "Why build Amazon private-label products in the Greater Bay Area: Shenzhen and the Pearl River Delta hold the world's densest consumer-electronics and hardware supply cluster. Component markets, tooling shops, PCBA houses and packaging printers sit within an hour of each other. That density is what lets a new seller move from a product idea to a 500-piece test run and then scale, without tying up capital in huge MOQs. Anchormere sits inside that cluster and acts as your buying office: one quote covers industrial design, tooling, PCBA, assembly, FNSKU labeling and export docs, so you are not juggling a dozen sub-suppliers while protecting your margin and your seller rating.",
+    "zh_intro": "为什么在大湾区做亚马逊贴牌：深圳与珠三角拥有全球最密集的消费电子与硬件供应集群，元器件市场、开模作坊、PCBA 工厂与包装印刷厂彼此在一小时车程内。正是这种密度，让新卖家能从产品想法走到 500 件试产再放量，而不必被大起订量占用资金。Anchormere 身处该集群，充当你的采购办：一份报价覆盖工业设计、开模、PCBA、组装、FNSKU 贴标与出口单证，你无需在十几个供应商之间周旋，也能守住利润与店铺评分。",
+    "kw": "Amazon private label manufacturer China, Amazon FBA supplier, private label products for Amazon, white label Amazon seller, FBA sourcing agent, 亚马逊 贴牌 制造商",
+    "caps": [
+      [
+        "Amazon-ready labeling: FNSKU, Made-in-China, bilingual carton, polybag warning",
+        "亚马逊就绪贴标：FNSKU、Made in China、双语外箱、PE 袋警告"
+      ],
+      [
+        "Private-label & white-label product development",
+        "贴牌与白牌产品开发"
+      ],
+      [
+        "Bundling, kitting, retail box and branded insert services",
+        "组合装、套件、彩盒与品牌卡片服务"
+      ],
+      [
+        "Small-batch runs from 500 pcs for test marketing",
+        "500 件起小批量试销"
+      ],
+      [
+        "PCBA, enclosure, packaging and box-build under one roof",
+        "PCBA、外壳、包装与整机组装一体"
+      ],
+      [
+        "Sample verification, inline QC and pre-shipment inspection",
+        "样品确认、产线巡检与出货前检验"
+      ],
+      [
+        "Multi-SKU consolidation and FBA-forwarding documents",
+        "多 SKU 拼柜与 FBA 转运单证"
+      ],
+      [
+        "48h engineer quote with Incoterms stated up front",
+        "48 小时工程师报价并标明贸易术语"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (mixed-SKU consolidation allowed)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Sample lead time",
+        "7-12 days (existing tooling) / 15-25 days (new tooling)",
+        "7-12 天（现模）/ 15-25 天（新开模）"
+      ],
+      [
+        "Production lead time",
+        "20-35 days after sample approval",
+        "样品确认后 20-35 天"
+      ],
+      [
+        "Labeling",
+        "FNSKU, Made-in-China, bilingual carton, polybag warning",
+        "FNSKU、Made in China、双语外箱、PE 袋警告"
+      ],
+      [
+        "Packaging",
+        "Retail box, bundle, mailer or FBA-ready carton",
+        "彩盒、组合装、快递箱或 FBA 就绪纸箱"
+      ],
+      [
+        "Incoterms",
+        "EXW / FOB Shenzhen / CIF / DDP available",
+        "EXW / FOB 深圳 / CIF / DDP 可选"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, packing list, FNSKU mapping",
+        "商业发票、装箱单、产地证、FNSKU 对照"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "related": [
+      [
+        "Amazon private label manufacturer China",
+        "亚马逊 贴牌 制造商 中国"
+      ],
+      [
+        "FBA sourcing agent Shenzhen",
+        "FBA 采购代理 深圳"
+      ],
+      [
+        "private label products for Amazon",
+        "亚马逊 贴牌产品"
+      ],
+      [
+        "white label supplier for Amazon sellers",
+        "亚马逊卖家 白牌供应商"
+      ],
+      [
+        "Amazon FBA manufacturer",
+        "亚马逊 FBA 制造商"
+      ],
+      [
+        "low MOQ Amazon products China",
+        "亚马逊 小批量 产品 中国"
+      ],
+      [
+        "Amazon bundling and inserts service",
+        "亚马逊 组合装 与 卡片服务"
+      ],
+      [
+        "FNSKU labeling manufacturer",
+        "FNSKU 贴标 制造商"
+      ],
+      [
+        "Alibaba vs Amazon private label",
+        "阿里巴巴 vs 亚马逊 贴牌"
+      ],
+      [
+        "Shopify private label supplier",
+        "Shopify 贴牌 供应商"
+      ],
+      [
+        "Amazon product sourcing agent",
+        "亚马逊 产品 采购代理"
+      ],
+      [
+        "OEM for Amazon sellers",
+        "亚马逊卖家 OEM"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you produce FNSKU-ready cartons and polybag warnings?",
+        "Yes. We apply FNSKU labels, Made-in-China marks, bilingual carton labels and polybag suffocation warnings before shipment so goods arrive FBA-ready."
+      ],
+      [
+        "What is the MOQ for Amazon private label?",
+        "500 pcs per item. Mixed-SKU consolidation lets you split one shipment across several SKUs to lower per-SKU risk during test marketing."
+      ],
+      [
+        "Do you help with bundles, inserts and retail packaging?",
+        "Yes. We handle bundling, kitting, branded inserts, retail boxes and mailer cartons so the products are shelf- and ship-ready."
+      ],
+      [
+        "Can you ship directly to Amazon FBA warehouses?",
+        "We prepare FBA-forwarding documents (CI, PL, FNSKU mapping) and coordinate with your freight forwarder. We do not act as the importer of record."
+      ],
+      [
+        "How fast can I get a sample and start production?",
+        "Samples in 7-12 days on existing tooling, 15-25 days for new tooling; production starts 20-35 days after sample approval."
+      ]
+    ],
+    "cases": [
+      [
+        "Anker / Soundcore",
+        "安克 / 声阔",
+        "Category reference: consumer charging and audio brands grown through Shenzhen private-label and ODM supply chains.",
+        "品类参考：经深圳贴牌与 ODM 供应链成长起来的消费充电与音频品牌。"
+      ],
+      [
+        "Mpow / Tribit",
+        "Mpow / Tribit",
+        "Category reference: audio and accessory brands that scaled via Guangdong OEM and Amazon FBA.",
+        "品类参考：经广东 OEM 与亚马逊 FBA 起量的音频与配件品牌。"
+      ]
+    ]
+  },
+  {
+    "slug": "china-sourcing-agent",
+    "en_title": "China Sourcing Agent & Procurement | Greater Bay Area Buying Office",
+    "zh_title": "中国采购代理与采购服务 | 大湾区采购办",
+    "cluster": "capability",
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "en_lede": "A accountable China sourcing agent and procurement office in the Greater Bay Area: supplier vetting, quoting, QC, consolidation and full export docs for international trade buyers.",
+    "zh_lede": "大湾区可信赖的中国采购代理与采购办：供应商筛选、报价、质控、拼柜与完整出口单证，服务国际贸易采购商。",
+    "en_intro": "Why use a China sourcing agent in the Greater Bay Area: international trade procurement is not just about finding a factory — it is about matching the right vetted workshop to your spec, negotiating on your behalf, catching quality issues before they ship, and consolidating scattered orders into one clean shipment. Anchormere is your buying office inside the cluster: we sit between you and 20+ certified factories across Shenzhen, Dongguan and Guangzhou, so you get one accountable partner instead of managing a dozen relationships across language, timezone and contract risk. We are not a marketplace and not a single factory — we are the coordinator who owns the quality baseline.",
+    "zh_intro": "为什么用大湾区的中国采购代理：国际贸易采购不只是找一家工厂，而是把合适的认证车间匹配到你的规格、代你议价、在出货前拦截质量问题，并把分散的订单拼成一票干净的货。Anchormere 是你身处集群内的采购办：我们介于你与深圳、东莞、广州 20 多家认证工厂之间，让你拥有单一可信赖的合作伙伴，而不必在语言、时区与合同风险中管理十几个关系。我们不是平台，也不是单一工厂，而是对质量基线负责的协调方。",
+    "kw": "China sourcing agent, international trade procurement, procurement agent China, global sourcing company, China buying office, 中国 采购代理 国际贸易采购",
+    "caps": [
+      [
+        "Supplier vetting across 20+ certified Greater Bay Area factories",
+        "大湾区 20+ 家认证工厂筛选"
+      ],
+      [
+        "RFQ consolidation and like-for-like engineer quoting",
+        "RFQ 整合与工程师同口径报价"
+      ],
+      [
+        "Sample verification and inline / pre-shipment QC",
+        "样品确认与产线/出货前质控"
+      ],
+      [
+        "Multi-SKU consolidation into one shipment",
+        "多 SKU 拼柜成一票货"
+      ],
+      [
+        "Negotiation, contract and Incoterms handling",
+        "议价、合同与贸易术语处理"
+      ],
+      [
+        "Full export document package (CI, PL, CO)",
+        "完整出口单证（发票、箱单、产地证）"
+      ],
+      [
+        "Remote verification: photos, video, live inspection",
+        "远程核验：照片、视频、直播验厂"
+      ],
+      [
+        "48h turnaround on standard-item quotes",
+        "标准品 48 小时报价"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (consolidation across SKUs)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Quote time",
+        "48h for standard items",
+        "标准品 48 小时"
+      ],
+      [
+        "Supplier coverage",
+        "Electronics, molds, sheet metal, PCBA, toys",
+        "电子、模具、钣金、PCBA、玩具"
+      ],
+      [
+        "QC",
+        "Sample, inline, pre-shipment inspection",
+        "样品、产线、出货前检验"
+      ],
+      [
+        "Incoterms",
+        "EXW / FOB Shenzhen / CIF / DDP",
+        "EXW / FOB 深圳 / CIF / DDP"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, packing list",
+        "商业发票、装箱单、产地证、包装清单"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ],
+      [
+        "Regions served",
+        "Middle East, Southeast Asia, Europe",
+        "中东、东南亚、欧洲"
+      ]
+    ],
+    "related": [
+      [
+        "China sourcing agent",
+        "中国 采购代理"
+      ],
+      [
+        "international trade procurement",
+        "国际贸易采购"
+      ],
+      [
+        "procurement agent China",
+        "中国 采购代理 公司"
+      ],
+      [
+        "global sourcing company",
+        "全球 采购 公司"
+      ],
+      [
+        "China buying office",
+        "中国 采购办"
+      ],
+      [
+        "sourcing company Shenzhen",
+        "深圳 采购公司"
+      ],
+      [
+        "import from China agent",
+        "从中国进口 代理"
+      ],
+      [
+        "Alibaba sourcing agent",
+        "阿里巴巴 采购代理"
+      ],
+      [
+        "Made-in-China agent",
+        "中国制造网 代理"
+      ],
+      [
+        "sourcing agent vs factory",
+        "代理 vs 工厂"
+      ],
+      [
+        "Chinese trading company",
+        "中国 贸易公司"
+      ],
+      [
+        "OEM sourcing agent",
+        "OEM 采购代理"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the difference between a sourcing agent and a factory?",
+        "A factory makes one product line; an agent coordinates many vetted factories, quotes like-for-like, runs QC and consolidates shipments. You get one accountable partner instead of many suppliers."
+      ],
+      [
+        "How does an agent protect the buyer?",
+        "By vetting suppliers, holding a single quality baseline, catching defects before shipment, and handling contracts, Incoterms and export docs on your behalf."
+      ],
+      [
+        "What are typical agent fees?",
+        "Structures vary — fixed commission, markup or retainer. We quote transparently per RFQ so you can compare against buying direct."
+      ],
+      [
+        "Can you consolidate orders from multiple factories?",
+        "Yes. We merge scattered SKUs into one shipment with a single export document package to cut freight and clearance friction."
+      ],
+      [
+        "How do I verify the agent is real?",
+        "Request the operating entity (Shenzhen Senya Industrial Co., Ltd.), business license, a recorded shop-floor video and references — we provide all on request."
+      ]
+    ],
+    "cases": [
+      [
+        "Alibaba / Made-in-China",
+        "阿里巴巴 / 中国制造网",
+        "Platform reference: where many buyers start supplier search before moving to a dedicated agent for accountability.",
+        "平台参考：许多买家先在这些平台找供应商，再转给专属代理以获得责任主体。"
+      ],
+      [
+        "1688",
+        "1688",
+        "Domestic supply reference: the wholesale market many Guangdong factories list on before exporting.",
+        "内贸供应参考：众多广东工厂出口前挂货的批发市场。"
+      ]
+    ]
+  },
+  {
+    "slug": "import-from-china-guide",
+    "en_title": "How to Import from China (2026 Guide) | Steps, Costs & Customs",
+    "zh_title": "如何从中国进口（2026 指南）| 流程、成本与清关",
+    "cluster": "knowledge",
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "en_lede": "A practical 2026 guide to importing from China: find a supplier, choose Incoterms, estimate landed cost, clear customs and avoid common beginner mistakes.",
+    "zh_lede": "2026 从中国进口的实操指南：找供应商、选贸易术语、估算到岸成本、清关，并避开新手常见坑。",
+    "en_intro": "Importing from China in 2026 is more accessible than ever, but the margin for error sits in the details: the wrong Incoterm, an unclear HS code, or a supplier you never verified can turn a good unit price into a failed shipment. This guide walks the end-to-end path — supplier discovery, quotation and sampling, contracting on the right Incoterms, quality control, freight and customs clearance, and payment discipline. Anchormere's role is to compress that path: one accountable buying office in the Greater Bay Area that handles vetting, quoting, QC and consolidation so your import looks like a single clean transaction rather than a dozen risky ones.",
+    "zh_intro": "2026 年从中国进口比以往更便捷，但犯错空间恰恰在细节里：错用贸易术语、HS 编码不清、或从未核验的供应商，都能让漂亮的单价变成一票失败 shipment。本指南走通端到端路径——供应商开发、报价与打样、按正确贸易术语签约、质控、货运与清关，以及付款纪律。Anchormere 的角色是把这条路径压缩：大湾区一个可信赖的采购办，负责筛选、报价、质控与拼柜，让你的进口看起来是一笔干净的交易，而非十几个高风险动作。",
+    "kw": "how to import from China, import products from China, China import guide, customs clearance China, Incoterms EXW FOB CIF, 如何从中国进口",
+    "caps": [
+      [
+        "Supplier discovery and verification",
+        "供应商开发与核验"
+      ],
+      [
+        "Quotation, sampling and tooling",
+        "报价、打样与开模"
+      ],
+      [
+        "Incoterms selection (EXW / FOB / CIF / DDP)",
+        "贸易术语选择（EXW / FOB / CIF / DDP）"
+      ],
+      [
+        "Quality control and pre-shipment inspection",
+        "质控与出货前检验"
+      ],
+      [
+        "Freight forwarding and customs clearance",
+        "货运代理与清关"
+      ],
+      [
+        "Landed-cost estimation",
+        "到岸成本估算"
+      ],
+      [
+        "Export document package",
+        "出口单证包"
+      ],
+      [
+        "Payment discipline (T/T deposit + balance)",
+        "付款纪律（定金 + 尾款）"
+      ]
+    ],
+    "specs": [
+      [
+        "Step 1",
+        "Define spec, find and verify supplier",
+        "明确规格，找并核验供应商"
+      ],
+      [
+        "Step 2",
+        "RFQ, sample and tooling confirmation",
+        "询价、打样与确认开模"
+      ],
+      [
+        "Step 3",
+        "Contract on Incoterms (FOB Shenzhen common)",
+        "按贸易术语签约（常用 FOB 深圳）"
+      ],
+      [
+        "Step 4",
+        "Inline and pre-shipment QC",
+        "产线与出货前质控"
+      ],
+      [
+        "Step 5",
+        "Freight + customs clearance",
+        "货运 + 清关"
+      ],
+      [
+        "Step 6",
+        "Pay balance after QC pass",
+        "质控通过后付尾款"
+      ],
+      [
+        "Docs",
+        "CI, PL, CO, packing list, HS code",
+        "发票、箱单、产地证、包装清单、HS 编码"
+      ],
+      [
+        "MOQ",
+        "500 pcs per item",
+        "单品 500 件起"
+      ]
+    ],
+    "related": [
+      [
+        "how to import from China",
+        "如何从中国进口"
+      ],
+      [
+        "import products from China",
+        "从中国进口产品"
+      ],
+      [
+        "China import guide 2026",
+        "中国进口指南 2026"
+      ],
+      [
+        "customs clearance China",
+        "中国 清关"
+      ],
+      [
+        "Incoterms EXW FOB CIF DDP",
+        "贸易术语 EXW FOB CIF DDP"
+      ],
+      [
+        "freight forwarder China",
+        "中国 货代"
+      ],
+      [
+        "import duty calculator",
+        "进口关税计算"
+      ],
+      [
+        "how to find supplier China",
+        "如何找中国供应商"
+      ],
+      [
+        "Alibaba import guide",
+        "阿里巴巴 进口指南"
+      ],
+      [
+        "Made in China import",
+        "中国制造网 进口"
+      ],
+      [
+        "Chinese factory MOQ",
+        "中国工厂 起订量"
+      ],
+      [
+        "import license China",
+        "中国 进口许可证"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What are the basic steps to import from China?",
+        "Define your spec, find and verify a supplier, quote and sample, contract on the right Incoterms, run QC, arrange freight and customs clearance, then pay the balance after QC passes."
+      ],
+      [
+        "Which Incoterm should a beginner use?",
+        "FOB Shenzhen is common: the seller delivers to the port, you control freight and insurance. EXW shifts all logistics to you; DDP shifts everything to the seller but costs more."
+      ],
+      [
+        "How do I estimate landed cost?",
+        "Unit price plus freight, insurance, import duty, VAT and last-mile delivery. Always get the HS code right — it drives duty."
+      ],
+      [
+        "How do I find and verify a supplier?",
+        "Start on B2B platforms, then verify the operating entity, business license and a recorded shop-floor video. A buying office can do this on your behalf."
+      ],
+      [
+        "What documents do I need to clear customs?",
+        "Commercial invoice, packing list, certificate of origin, HS code and a clean packing list. Your supplier or freight forwarder prepares these."
+      ]
+    ],
+    "cases": []
+  },
+  {
+    "slug": "hardware-startup-manufacturer",
+    "en_title": "Hardware Startup Manufacturer China | Prototype to Crowdfunding",
+    "zh_title": "硬件创业制造商中国 | 从原型到众筹",
+    "cluster": "capability",
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "en_lede": "From prototype to crowdfunding-ready production in the Greater Bay Area: NPI, low-volume runs, enclosures, PCBA and assembly for hardware startups and IoT ventures.",
+    "zh_lede": "在大湾区从原型走到众筹级量产：NPI、小批量、外壳、PCBA 与组装，服务硬件创业与 IoT 项目。",
+    "en_intro": "Why build hardware startups in the Greater Bay Area: a hardware venture lives or dies on iteration speed and cash burn. Shenzhen's cluster puts industrial designers, rapid tooling, PCBA houses, 3D printing and small-batch molders within the same metro, so a prototype can become a crowdfunding-ready batch without a six-month tooling cycle. Anchormere is the coordinator for that journey: we take your NPI from prototype to a 500-piece pilot, protect your IP with controlled drawings and NDAs, and consolidate the build so you present backers with a real, shippable product instead of a render.",
+    "zh_intro": "为什么在大湾区做硬件创业：硬件项目的生死在于迭代速度与现金消耗。深圳集群把工业设计师、快速开模、PCBA 工厂、3D 打印与小批量注塑放在同一都市圈，原型不必经历半年开模周期就能变成众筹级批次。Anchormere 是这段旅程的协调方：把你的 NPI 从原型带到 500 件试产，用受控图纸与 NDA 保护 IP，并整合制造，让你向支持者交付真实可发货的产品而非渲染图。",
+    "kw": "hardware startup manufacturer, Kickstarter manufacturer China, crowdfunding product development, IoT startup manufacturing, prototype to production, 硬件 创业 制造商",
+    "caps": [
+      [
+        "NPI: prototype to pilot production",
+        "NPI：从原型到试产"
+      ],
+      [
+        "Rapid tooling and 3D-printed enclosures",
+        "快速开模与 3D 打印外壳"
+      ],
+      [
+        "PCBA, box-build and firmware integration",
+        "PCBA、整机与固件整合"
+      ],
+      [
+        "Low-volume runs from 500 pcs",
+        "500 件起小批量"
+      ],
+      [
+        "IP protection: controlled drawings and NDA",
+        "IP 保护：受控图纸与 NDA"
+      ],
+      [
+        "Crowdfunding-ready batches (Kickstarter / Indiegogo)",
+        "众筹级批次（Kickstarter / Indiegogo）"
+      ],
+      [
+        "Sample verification and inline QC",
+        "样品确认与产线质控"
+      ],
+      [
+        "Consolidation and export docs",
+        "拼柜与出口单证"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs pilot run",
+        "500 件试产"
+      ],
+      [
+        "Prototype lead time",
+        "7-15 days (3D print / CNC)",
+        "7-15 天（3D 打印 / CNC）"
+      ],
+      [
+        "Pilot lead time",
+        "20-35 days after sample approval",
+        "样品确认后 20-35 天"
+      ],
+      [
+        "Tooling",
+        "Rapid soft tooling, aluminum / steel later",
+        "快速软模，后续铝/钢模"
+      ],
+      [
+        "Incoterms",
+        "EXW / FOB Shenzhen / CIF",
+        "EXW / FOB 深圳 / CIF"
+      ],
+      [
+        "IP",
+        "Controlled drawings, NDA on request",
+        "受控图纸，按需签 NDA"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, packing list",
+        "发票、箱单、产地证、包装清单"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "related": [
+      [
+        "hardware startup manufacturer",
+        "硬件 创业 制造商"
+      ],
+      [
+        "Kickstarter manufacturer China",
+        "Kickstarter 制造商 中国"
+      ],
+      [
+        "crowdfunding product development",
+        "众筹 产品开发"
+      ],
+      [
+        "IoT startup manufacturing",
+        "IoT 创业 制造"
+      ],
+      [
+        "prototype to production China",
+        "原型到量产 中国"
+      ],
+      [
+        "hardware accelerator manufacturing",
+        "硬件加速器 制造"
+      ],
+      [
+        "Indiegogo manufacturer",
+        "Indiegogo 制造商"
+      ],
+      [
+        "NPI new product introduction",
+        "NPI 新产品导入"
+      ],
+      [
+        "small batch hardware China",
+        "小批量 硬件 中国"
+      ],
+      [
+        "electronics startup OEM",
+        "电子创业 OEM"
+      ],
+      [
+        "rapid prototyping Shenzhen",
+        "深圳 快速原型"
+      ],
+      [
+        "custom enclosure manufacturer",
+        "定制外壳 制造商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you take a prototype to a crowdfunding-ready batch?",
+        "Yes. We run NPI from your prototype to a 500-piece pilot, with rapid tooling and 3D-printed enclosures so you can ship real units to backers."
+      ],
+      [
+        "How do you protect my IP?",
+        "We work from controlled drawings under NDA, limit drawing distribution to vetted workshops, and never list your product openly without consent."
+      ],
+      [
+        "What is the minimum for a pilot run?",
+        "500 pcs per item. Mixed-SKU consolidation is available if your campaign spans several SKUs."
+      ],
+      [
+        "How fast can tooling and first units happen?",
+        "Rapid soft tooling and 3D-printed enclosures in 7-15 days; pilot production 20-35 days after sample approval."
+      ],
+      [
+        "Do you support IoT and connected devices?",
+        "Yes. We integrate PCBA, wireless modules, enclosures and firmware hand-off, and consolidate finished connected devices into one shipment."
+      ]
+    ],
+    "cases": [
+      [
+        "Pebble / Ouya era",
+        "Pebble / Ouya 时代",
+        "Category reference: early crowdfunded hardware that proved Shenzhen supply chains could serve startups.",
+        "品类参考：早期众筹硬件证明了深圳供应链能服务创业项目。"
+      ],
+      [
+        "Seeed / HAX",
+        "Seeed / HAX",
+        "Ecosystem reference: Shenzhen-based hardware accelerators linking prototypes to factories.",
+        "生态参考：扎根深圳的硬件加速器，连接原型与工厂。"
+      ]
+    ]
+  },
+  {
+    "slug": "verify-chinese-manufacturer",
+    "en_title": "How to Verify a Chinese Manufacturer | Factory Audit & Scam Avoidance",
+    "zh_title": "如何核实中国工厂 | 验厂与避坑",
+    "cluster": "knowledge",
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "en_lede": "A practical checklist to verify a Chinese manufacturer: business license, factory audit, third-party inspection, payment safety and the red flags that signal a scam.",
+    "zh_lede": "核实中国工厂的实操清单：营业执照、验厂、第三方检验、付款安全，以及预示骗局的危险信号。",
+    "en_intro": "Verifying a Chinese manufacturer is the single highest-leverage step in overseas procurement. A real, vetted factory protects your deposit, your IP and your shipment; a fake one or a trading company pretending to be a factory can cost you both money and a season. This guide covers the checks that matter: confirm the operating entity and business license, request a recorded shop-floor video and certificate wall, commission a third-party inspection, and structure payment so you never prepay 100%. Anchormere publishes its operating entity (Shenzhen Senya Industrial Co., Ltd.), vetted factory network and remote-verification assets up front, because accountable sourcing starts with verifiable identity.",
+    "zh_intro": "核实中国工厂是海外采购中杠杆最高的一步。一家真实、经核验的工厂保护你的定金、IP 与货物；而一家假厂或冒充工厂的贸易公司，可能让你同时损失钱与一整个销售季。本指南讲清关键核验：确认运营主体与营业执照、索要录制车间视频与证书墙、委托第三方检验，并把付款结构设计成绝不预付 100%。Anchormere 主动公示运营主体（深圳森亚实业有限公司）、认证工厂网络与远程核验材料，因为可信赖的采购始于可验证的身份。",
+    "kw": "verify Chinese manufacturer, factory audit checklist, how to avoid scams manufacturing China, supplier verification China, China factory due diligence, 如何 核实 中国 工厂",
+    "caps": [
+      [
+        "Confirm operating entity and business license",
+        "确认运营主体与营业执照"
+      ],
+      [
+        "Recorded shop-floor video and certificate wall",
+        "录制车间视频与证书墙"
+      ],
+      [
+        "Third-party inspection (AQSIQ / SGS / TUV)",
+        "第三方检验（AQSIQ / SGS / TUV）"
+      ],
+      [
+        "Sample verification before bulk",
+        "大货前样品确认"
+      ],
+      [
+        "Payment discipline: never prepay 100%",
+        "付款纪律：绝不预付 100%"
+      ],
+      [
+        "Red-flag screening",
+        "危险信号筛查"
+      ],
+      [
+        "Live inspection by appointment",
+        "预约直播验厂"
+      ],
+      [
+        "Contract and IP protection",
+        "合同与 IP 保护"
+      ]
+    ],
+    "specs": [
+      [
+        "Step 1",
+        "Verify business license (统一社会信用代码)",
+        "核验营业执照（统一社会信用代码）"
+      ],
+      [
+        "Step 2",
+        "Request shop-floor video + certificate wall",
+        "索要车间视频 + 证书墙"
+      ],
+      [
+        "Step 3",
+        "Commission third-party inspection",
+        "委托第三方检验"
+      ],
+      [
+        "Step 4",
+        "Sample approval before bulk",
+        "大货前样品确认"
+      ],
+      [
+        "Step 5",
+        "Contract + NDA + IP clause",
+        "合同 + NDA + IP 条款"
+      ],
+      [
+        "Step 6",
+        "T/T 30% deposit, 70% after QC",
+        "T/T 30% 定金，质控后 70%"
+      ],
+      [
+        "Red flags",
+        "No license, 100% prepay, no video",
+        "危险信号：无执照、100% 预付、无视频"
+      ],
+      [
+        "Documents",
+        "License, ISO, inspection report",
+        "执照、ISO、检验报告"
+      ]
+    ],
+    "related": [
+      [
+        "verify Chinese manufacturer",
+        "核实 中国 工厂"
+      ],
+      [
+        "factory audit checklist China",
+        "验厂 清单 中国"
+      ],
+      [
+        "avoid scams China manufacturing",
+        "避免 骗局 中国 制造"
+      ],
+      [
+        "supplier verification China",
+        "供应商 核验 中国"
+      ],
+      [
+        "how to spot fake factory",
+        "如何识别 假工厂"
+      ],
+      [
+        "China factory due diligence",
+        "中国工厂 尽职调查"
+      ],
+      [
+        "Trade Assurance vs Escrow",
+        "信保 vs 托管"
+      ],
+      [
+        "third party inspection China",
+        "第三方 检验 中国"
+      ],
+      [
+        "check business license China",
+        "查 营业执照 中国"
+      ],
+      [
+        "Alibaba gold supplier verification",
+        "阿里巴巴 金牌供应商 核验"
+      ],
+      [
+        "how to verify supplier",
+        "如何 核验 供应商"
+      ],
+      [
+        "China sourcing agent vs factory",
+        "中国 采购代理 vs 工厂"
+      ]
+    ],
+    "related_qa": [
+      [
+        "How do I verify a Chinese manufacturer is real?",
+        "Confirm the uniform social credit code on the business license, match it to the operating entity, and request a recorded shop-floor video and certificate wall. A legitimate factory will provide these."
+      ],
+      [
+        "What are the red flags of a scam?",
+        "No verifiable business license, refusal to show the factory, pressure to prepay 100%, prices far below market, and only communicating through a platform chat with no company identity."
+      ],
+      [
+        "Should I use a third-party inspection?",
+        "For any order of meaningful value, yes. Independent inspectors (SGS, TUV, AQSIQ-licensed local firms) confirm quantity, quality and packaging before you release the balance."
+      ],
+      [
+        "How should I structure payment safely?",
+        "Never prepay 100%. A common safe structure is T/T 30% deposit to start, 70% after QC pass and before shipment."
+      ],
+      [
+        "Is a trading company safer than a factory?",
+        "Not inherently. What matters is verifiable identity and a single accountable party. A coordinator that discloses its operating entity and vetted network is safer than an anonymous factory."
+      ]
+    ],
+    "cases": []
   }
 ]

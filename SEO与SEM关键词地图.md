@@ -53,6 +53,17 @@
 | `drone-parts-manufacturer-gba.html` | Drone Parts Manufacturer Greater Bay Area | 无人机零件制造商大湾区 | Greater Bay Area supply base |
 | `ev-charger-components-sourcing.html` | EV Charger Components Sourcing | 充电桩部件采购 | Greater Bay Area supply base |
 
+**买家身份 / 场景词（新增，2026-11-06）**——补足"找具体品类"之外的"我是谁、我要干什么"层。每个页均内置双语 H1/H2、FAQ（FAQPage JSON-LD）、Product 实体（方案A：无 offers）、面包屑、`en/x-default` hreflang、内链回 `supply-base.html` + `contact.html` CTA：
+
+| 落地页（slug.html） | 英文主词 | 中文主词 | 买家角色 |
+|---|---|---|---|
+| `amazon-private-label-manufacturer.html` | Amazon Private Label Manufacturer China | 亚马逊贴牌制造商 | 跨境电商品牌卖家 |
+| `china-sourcing-agent.html` | China Sourcing Agent & Procurement | 中国采购代理 / 国际贸易采购 | 贸易公司 / 采购商 |
+| `import-from-china-guide.html` | How to Import from China (2026 Guide) | 如何从中国进口 | 进口新手（引流大词） |
+| `hardware-startup-manufacturer.html` | Hardware Startup Manufacturer China | 硬件创业制造商 | 创业 / 众筹项目 |
+| `verify-chinese-manufacturer.html` | How to Verify a Chinese Manufacturer | 如何核实中国工厂 | 风控 / 信任建立 |
+| `cross-border-ecommerce-sourcing.html` | Cross-border e-commerce Sourcing Guangdong | 跨境电商采购广东 | 线上卖家（已增强） |
+
 **SEM 投放建议**：每页开一个"仅该词"广告组，匹配类型用"词组/精确"，落地页用对应 slug 页（不要都用首页），质量得分更高、转化更便宜。
 
 ---

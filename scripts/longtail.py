@@ -132,7 +132,11 @@ def build_page(seed, all_seeds):
                                      "China sourcing", "Greater Bay Area manufacturing", "product development",
                                      "small batch manufacturing", "electronic manufacturing services",
                                      "IoT modules", "wearable manufacturing", "toy manufacturing",
-                                     "drone parts", "EV charger components", "USB-C charger OEM"]}, ensure_ascii=False)
+                                     "drone parts", "EV charger components", "USB-C charger OEM",
+                                     "cross-border ecommerce sourcing", "China sourcing agent",
+                                     "international trade procurement", "Amazon private label",
+                                     "import from China", "supplier verification",
+                                     "hardware startup manufacturing"]}, ensure_ascii=False)
     bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
         {"@type": "ListItem", "position": 2, "name": "Products", "item": SITE + "/supply-base"},
