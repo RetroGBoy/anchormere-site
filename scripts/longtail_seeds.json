@@ -293,7 +293,9 @@
         "球形机器人与带表情的陪伴机器人，是「玩具+AI」体验的头部参考。"
       ]
     ],
-    "cluster": "toys"
+    "cluster": "toys",
+    "serp_title": "Smart Toy Manufacturer GBA | Screen & Connected Toys",
+    "serp_desc": "Build screen, connected and educational toys in the GBA — prototyping to mass production of plush-electronic hybrids and robots."
   },
   {
     "slug": "tablet-pcba-sourcing",
@@ -581,7 +583,8 @@
         "手环品类的销量标杆，以极致性价比定义了健身手环的形态。"
       ]
     ],
-    "cluster": "electronics"
+    "cluster": "electronics",
+    "serp_title": "Wearable OEM Shenzhen | Smartwatch & Bands"
   },
   {
     "slug": "smart-home-module-sourcing",
@@ -1011,7 +1014,8 @@
         "单板计算机标杆，支撑从编程到 AI 入门的项目式学习。"
       ]
     ],
-    "cluster": "toys"
+    "cluster": "toys",
+    "serp_title": "Educational Robot Manufacturer China | STEM"
   },
   {
     "slug": "oled-display-module-sourcing",
@@ -1891,7 +1895,8 @@
         "FPV 穿越机头部，代表了轻量化机架与高 KV 电机的整合方向。"
       ]
     ],
-    "cluster": "industrial"
+    "cluster": "industrial",
+    "serp_title": "Drone Parts Manufacturer GBA | Frames & PCBA"
   },
   {
     "slug": "ev-charger-components-sourcing",
@@ -2033,7 +2038,8 @@
         "工业与直流快充头部，代表了高功率模块与 IEC 合规方向。"
       ]
     ],
-    "cluster": "industrial"
+    "cluster": "industrial",
+    "serp_desc": "Source EV charger components from the GBA — power modules and enclosures benchmarked to BYD/Tesla specs. 500 pcs MOQ."
   },
   {
     "slug": "oem-manufacturer-china",
@@ -2341,7 +2347,8 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "serp_title": "ODM Factory Guangdong | Product Development"
   },
   {
     "slug": "low-moq-oem-factory",
@@ -2649,7 +2656,8 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "serp_desc": "Private label manufacturer in China — custom logo, packaging and docs across electronics, toys, smart-home and IoT. 500 pcs MOQ, 48h quote."
   },
   {
     "slug": "pcba-contract-manufacturer",
@@ -2957,7 +2965,9 @@
         "消费与行业无人机的龙头，对应高精度机加与飞控 PCBA。"
       ]
     ],
-    "cluster": "capability"
+    "cluster": "capability",
+    "serp_title": "Custom Product Development China | Prototypes",
+    "serp_desc": "Custom product development in the GBA — design, engineering, prototyping and mass production. 500 pcs MOQ, 48h quote."
   },
   {
     "slug": "small-batch-manufacturing",
@@ -3597,7 +3607,9 @@
         "品类参考：经广东 OEM 与亚马逊 FBA 起量的音频与配件品牌。"
       ]
     ],
-    "buyer_guide": true
+    "buyer_guide": true,
+    "serp_title": "Amazon Private Label Manufacturer China | FBA",
+    "serp_desc": "Amazon FBA private-label sourcing from the Greater Bay Area: 500 pcs MOQ, 48h quote, FNSKU-ready cartons, bundling, full export docs."
   },
   {
     "slug": "china-sourcing-agent",
@@ -3775,7 +3787,9 @@
         "内贸供应参考：众多广东工厂出口前挂货的批发市场。"
       ]
     ],
-    "buyer_guide": true
+    "buyer_guide": true,
+    "serp_title": "China Sourcing Agent & Procurement | GBA",
+    "serp_desc": "China sourcing agent in the Greater Bay Area: supplier vetting, quoting, QC, consolidation and export docs for international trade buyers."
   },
   {
     "slug": "import-from-china-guide",
@@ -3940,7 +3954,8 @@
       ]
     ],
     "cases": [],
-    "buyer_guide": true
+    "buyer_guide": true,
+    "serp_title": "How to Import from China | 2026 Guide"
   },
   {
     "slug": "hardware-startup-manufacturer",
@@ -4118,7 +4133,9 @@
         "生态参考：扎根深圳的硬件加速器，连接原型与工厂。"
       ]
     ],
-    "buyer_guide": true
+    "buyer_guide": true,
+    "serp_title": "Hardware Startup Manufacturer China | NPI",
+    "serp_desc": "Prototype to crowdfunding-ready production in the GBA: NPI, low-volume runs, enclosures, PCBA and assembly for hardware startups."
   },
   {
     "slug": "verify-chinese-manufacturer",
@@ -4283,6 +4300,8 @@
       ]
     ],
     "cases": [],
-    "buyer_guide": true
+    "buyer_guide": true,
+    "serp_title": "How to Verify a Chinese Manufacturer | Factory Audit",
+    "serp_desc": "Checklist to verify a Chinese manufacturer: business license, factory audit, third-party inspection, payment safety and scam red flags."
   }
 ]

@@ -63,6 +63,34 @@ FAQS = [
 GA4 = ('<!-- GA4 is loaded consent-gated via assets/consent.js (set GA4_ID there) -->')
 
 
+# --- SERP display-layer constraints (Google: title ~60 / description ~155 display chars) ---
+# Only <title>/meta/og/twitter are clipped. The on-page <h1>, lead paragraph,
+# BreadcrumbList and Product.name keep the FULL keyword-rich text, so topical
+# coverage and conversion content are never weakened by this display optimization.
+def clip_title(t, limit=60):
+    t = html.unescape(t)
+    if len(t) <= limit:
+        return t
+    cut = t[:limit]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:-–—")
+
+
+def clip_desc(d, limit=155):
+    d = html.unescape(d)
+    if len(d) <= limit:
+        return d
+    cut = d[:limit]
+    # Prefer a sentence boundary if it is reasonably close, else word boundary.
+    sentences = [m.end() for m in __import__("re").finditer(r"[.!?]\s", cut)]
+    if sentences and sentences[-1] >= limit * 0.55:
+        return cut[:sentences[-1]].strip()
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:-–—")
+
+
 def build_page(seed, all_seeds):
     slug = seed["slug"]
     url = SITE + "/" + slug
@@ -71,6 +99,10 @@ def build_page(seed, all_seeds):
     en_lede = seed["en_lede"]
     zh_lede = seed["zh_lede"]
     kw = seed["kw"]
+    # SERP display layer: prefer hand-tuned seed overrides, else auto-clip.
+    # en_t / en_lede (full text) still drive h1, lead, BreadcrumbList, Product.name.
+    serp_t = seed.get("serp_title") or clip_title(en_t)
+    serp_d = seed.get("serp_desc") or clip_desc(en_lede)
     # Fold platform-sourced association terms into the meta keywords (LSI coverage).
     related_en = [en for en, zh in seed.get("related", [])]
     kw_full = (kw + ", " + ", ".join(related_en)) if related_en else kw
@@ -188,9 +220,9 @@ def build_page(seed, all_seeds):
 
     doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{html.escape(en_t)}</title>
+<title>{html.escape(serp_t)}</title>
 <meta name="title-zh" content="{html.escape(zh_t)}">
-<meta name="description" content="{html.escape(en_lede)}">
+<meta name="description" content="{html.escape(serp_d)}">
 <meta name="desc-zh" content="{html.escape(zh_lede)}">
 <meta name="keywords" content="{html.escape(kw_full)}">
 <meta name="robots" content="index, follow">
@@ -200,13 +232,13 @@ def build_page(seed, all_seeds):
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="{html.escape(en_t)}">
-<meta property="og:description" content="{html.escape(en_lede)}">
+<meta property="og:title" content="{html.escape(serp_t)}">
+<meta property="og:description" content="{html.escape(serp_d)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{SITE}/assets/img/warehouse.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{html.escape(en_t)}">
-<meta name="twitter:description" content="{html.escape(en_lede)}">
+<meta name="twitter:title" content="{html.escape(serp_t)}">
+<meta name="twitter:description" content="{html.escape(serp_d)}">
 <meta name="twitter:image" content="{SITE}/assets/img/warehouse.jpg">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">

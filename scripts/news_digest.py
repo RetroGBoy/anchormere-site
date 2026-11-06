@@ -346,6 +346,33 @@ def slugify(text):
     return text[:50] or "update"
 
 
+# --- SERP display-layer constraints (Google: title ~60 / description ~155 display chars) ---
+# Only the <title>/meta/og/twitter tags are clipped. The on-page headline, the
+# Article JSON-LD headline and the body keep the full source wording untouched.
+NEWS_TITLE_SUFFIX = " | Anchormere"
+
+
+def clip_serp_title(raw, limit=60):
+    t = html.unescape(raw).strip()
+    budget = limit - len(NEWS_TITLE_SUFFIX)
+    if len(t) <= budget:
+        return t
+    cut = t[:budget]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:-–—")
+
+
+def clip_serp_desc(raw, limit=155):
+    d = html.unescape(raw).strip()
+    if len(d) <= limit:
+        return d
+    cut = d[:limit]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:-–—")
+
+
 def build_post(item, cats, today, title_en, title_zh):
     primary = next((c for c in PRIMARY_ORDER if c in cats), "gba")
     t, a_en, a_zh = CATEGORY_TARGET[primary]
@@ -366,6 +393,10 @@ def build_post(item, cats, today, title_en, title_zh):
     src_url = html.escape(item["link"])
     keywords = build_keywords(item, cats)
     kw_esc = html.escape(keywords)
+    # SERP display layer (clipped); full headline still used in body + Article JSON-LD.
+    serp_t = html.escape(clip_serp_title(title_en))
+    _summary_raw = item["summary"] or item["title"]
+    serp_d = html.escape(clip_serp_desc(_summary_raw))
 
     en_lead = (f"Anchormere's digest bot is tracking “{en_title}” and what it signals "
                f"for overseas buyers who source through the Greater Bay Area.{gba_extra_en}")
@@ -394,10 +425,10 @@ def build_post(item, cats, today, title_en, title_zh):
 
     html_doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{en_title} | Anchormere</title>
+<title>{serp_t} | Anchormere</title>
 <meta name="title-zh" content="{zh_title}">
 <meta name="keywords" content="{kw_esc}">
-<meta name="description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
+<meta name="description" content="{serp_d}">
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <link rel="canonical" href="{SITE}/{filename}">
 <link rel="alternate" hreflang="en" href="{SITE}/{filename}">
@@ -406,13 +437,13 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="zh_CN">
-<meta property="og:title" content="{en_title}">
-<meta property="og:description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
+<meta property="og:title" content="{serp_t} | Anchormere">
+<meta property="og:description" content="{serp_d}">
 <meta property="og:url" content="{SITE}/{filename}">
 <meta property="og:image" content="{SITE}/assets/img/warehouse.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{en_title}">
-<meta name="twitter:description" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
+<meta name="twitter:title" content="{serp_t} | Anchormere">
+<meta name="twitter:description" content="{serp_d}">
 <meta name="twitter:image" content="{SITE}/assets/img/warehouse.jpg">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
