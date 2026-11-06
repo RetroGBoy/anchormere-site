@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regenerate sitemap.xml from all *.html in the site root (excludes 404.html).
 Pure standard library; wired into the nightly news workflow so new posts appear."""
-import os, html
+import os, html, datetime
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://anchormere.com"
@@ -35,7 +35,13 @@ def main():
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for url, pri in urls:
+        fn = url.rsplit("/", 1)[-1] + ".html"
+        try:
+            lm = datetime.date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, fn))).isoformat()
+        except OSError:
+            lm = datetime.date.today().isoformat()
         out.append(f'  <url><loc>{html.escape(url)}</loc>'
+                   f'<lastmod>{lm}</lastmod>'
                    f'<changefreq>weekly</changefreq><priority>{pri}</priority></url>')
     out.append('</urlset>')
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
