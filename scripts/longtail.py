@@ -109,14 +109,14 @@ def build_page(seed, all_seeds):
                       "mainEntity": [{"@type": "Question", "name": q,
                                       "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS + rel_qa]},
                      ensure_ascii=False)
+    # 仅保留 Product 实体信号（name/brand/description/category/isPartOf），
+    # 主动移除 offers/Offer 电商字段，避免 GSC 将 B2B 采购站误归类为"购物/电商"，
+    # 从而消除"产品摘要/商家信息"27 个错误。实体链 Product→WebSite→Organization 仍保留，不影响 GEO。
     prod = json.dumps({
         "@context": "https://schema.org", "@type": "Product", "name": en_t,
         "brand": {"@type": "Brand", "name": "Anchormere"},
         "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
-        "description": seed["en_intro"], "category": "Greater Bay Area OEM sourcing",
-        "offers": {"@type": "Offer", "priceCurrency": "USD",
-                   "availability": "https://schema.org/InStock", "url": url,
-                   "seller": {"@type": "Organization", "name": "Anchormere"}}}, ensure_ascii=False)
+        "description": seed["en_intro"], "category": "Greater Bay Area OEM sourcing"}, ensure_ascii=False)
     org = json.dumps({"@context": "https://schema.org", "@type": "Organization", "name": "Anchormere",
                       "alternateName": "锚泊", "url": SITE, "email": "Anchormere@gmail.com",
                       "address": {"@type": "PostalAddress", "addressRegion": "Guangdong", "addressCountry": "CN"},
@@ -176,7 +176,6 @@ def build_page(seed, all_seeds):
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="en" href="{url}">
-<link rel="alternate" hreflang="zh-CN" href="{url}">
 <link rel="alternate" hreflang="x-default" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anchormere">
