@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SEO injection across the site (idempotent): static hreflang (en/zh-CN/x-default),
+"""SEO injection across the site (idempotent): static hreflang (en/x-default),
 BreadcrumbList JSON-LD, Product JSON-LD on product pages, and new-category nav anchors."""
 import os, re, json, html
 
@@ -61,7 +61,6 @@ def inject_head(c, fn):
         c = c.replace("</head>", f'<script type="application/ld+json">{org}</script>\n</head>', 1)
     # 1) hreflang (self-referential; site serves one URL, both locales)
     hl = (f'<link rel="alternate" hreflang="en" href="{url}">\n'
-          f'<link rel="alternate" hreflang="zh-CN" href="{url}">\n'
           f'<link rel="alternate" hreflang="x-default" href="{url}">')
     cm = re.search(r'(<(?:meta name="canonical"|link rel="canonical") href="[^"]*"[^>]*>)', c)
     if cm:

@@ -8,7 +8,7 @@ critical SEO / infrastructure invariants that were historically fragile:
   - Core pages return HTTP 200
   - Every HTML page uses a proper <link rel="canonical"> (NOT the invalid
     <meta name="canonical"> form)
-  - Index / news / archive pages carry hreflang alternates (en / zh-CN / x-default)
+  - Index / news / archive pages carry hreflang alternates (en / x-default)
   - sitemap.xml is well-formed and every listed URL resolves 200
   - robots.txt + llms.txt are reachable; robots allows the AI crawlers
   - consent.js ships the correct GA4 id; contact.html carries the live

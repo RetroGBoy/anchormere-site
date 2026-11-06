@@ -401,7 +401,6 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
 <link rel="canonical" href="{SITE}/{filename}">
 <link rel="alternate" hreflang="en" href="{SITE}/{filename}">
-<link rel="alternate" hreflang="zh-CN" href="{SITE}/{filename}">
 <link rel="alternate" hreflang="x-default" href="{SITE}/{filename}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
@@ -518,7 +517,6 @@ HEAD_INDEX = '''<!DOCTYPE html><html lang="en"><head>
 <meta name="desc-zh" content="面向海外买家的大湾区供应链与贸易洞察——来自区域制造基地的活动、产业带与采购信号。">
 <link rel="canonical" href="https://anchormere.com/news">
 <link rel="alternate" hreflang="en" href="https://anchormere.com/news">
-<link rel="alternate" hreflang="zh-CN" href="https://anchormere.com/news">
 <link rel="alternate" hreflang="x-default" href="https://anchormere.com/news">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anchormere">
@@ -548,7 +546,6 @@ HEAD_ARCHIVE = '''<!DOCTYPE html><html lang="en"><head>
 <meta name="desc-zh" content="面向海外买家的大湾区供应链与贸易洞察归档。">
 <link rel="canonical" href="https://anchormere.com/{CANON}">
 <link rel="alternate" hreflang="en" href="https://anchormere.com/{CANON}">
-<link rel="alternate" hreflang="zh-CN" href="https://anchormere.com/{CANON}">
 <link rel="alternate" hreflang="x-default" href="https://anchormere.com/{CANON}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Anchormere">
