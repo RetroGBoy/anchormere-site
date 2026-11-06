@@ -3596,7 +3596,8 @@
         "Category reference: audio and accessory brands that scaled via Guangdong OEM and Amazon FBA.",
         "品类参考：经广东 OEM 与亚马逊 FBA 起量的音频与配件品牌。"
       ]
-    ]
+    ],
+    "buyer_guide": true
   },
   {
     "slug": "china-sourcing-agent",
@@ -3773,7 +3774,8 @@
         "Domestic supply reference: the wholesale market many Guangdong factories list on before exporting.",
         "内贸供应参考：众多广东工厂出口前挂货的批发市场。"
       ]
-    ]
+    ],
+    "buyer_guide": true
   },
   {
     "slug": "import-from-china-guide",
@@ -3937,7 +3939,8 @@
         "Commercial invoice, packing list, certificate of origin, HS code and a clean packing list. Your supplier or freight forwarder prepares these."
       ]
     ],
-    "cases": []
+    "cases": [],
+    "buyer_guide": true
   },
   {
     "slug": "hardware-startup-manufacturer",
@@ -4114,7 +4117,8 @@
         "Ecosystem reference: Shenzhen-based hardware accelerators linking prototypes to factories.",
         "生态参考：扎根深圳的硬件加速器，连接原型与工厂。"
       ]
-    ]
+    ],
+    "buyer_guide": true
   },
   {
     "slug": "verify-chinese-manufacturer",
@@ -4278,6 +4282,7 @@
         "Not inherently. What matters is verifiable identity and a single accountable party. A coordinator that discloses its operating entity and vetted network is safer than an anonymous factory."
       ]
     ],
-    "cases": []
+    "cases": [],
+    "buyer_guide": true
   }
 ]

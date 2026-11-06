@@ -160,6 +160,22 @@ def build_page(seed, all_seeds):
         f'  <div class="rel-topics">{rel_links_html}</div>\n'
         '</div></section>')
 
+    # ---- Buyer's guides by role: stable, deterministic internal links that guide
+    #      every long-tail reader toward the buyer-persona enhancement pages
+    #      (Amazon sellers, procurement agents, importers, hardware startups,
+    #      factory verification). NOT subject to the [:8] cluster rotation, so each
+    #      persona page always receives full link equity from the whole cluster. ----
+    bg = [s for s in all_seeds if s.get("buyer_guide") and s["slug"] != slug]
+    bg_html = "".join(
+        f'<a class="card rel-topic" href="{s["slug"]}.html" data-zh="{html.escape(s["zh_title"], quote=True)}">{html.escape(s["en_title"])}</a>'
+        for s in bg)
+    buyer_guide_section = ('<section class="l2"><div class="container">\n'
+        '  <h2 data-zh="按你的采购场景选指南">Guides for your buying scenario</h2>\n'
+        '  <p class="cn">按你的采购场景选指南 · 同主体下的买家攻略</p>\n'
+        '  <p class="lead" data-zh="无论你是以品牌卖家、采购代理、进口商、硬件创业者还是风控买家的身份来到这里，下面这些针对具体买家角色的专题，都能把你的需求落到可执行步骤。">Whether you arrived as a brand seller, procurement agent, importer, hardware founder or a risk-conscious buyer, these role-specific guides turn your intent into concrete next steps.</p>\n'
+        f'  <div class="rel-topics">{bg_html}</div>\n'
+        '</div></section>')
+
     website = json.dumps({
         "@context": "https://schema.org", "@type": "WebSite",
         "name": "Anchormere", "url": SITE, "inLanguage": ["en", "zh"],
@@ -239,6 +255,7 @@ def build_page(seed, all_seeds):
   <p class="rel-note" data-zh="以上为买家在海外搜索引擎与 B2B 平台（Google、Bing、百度、1688、Alibaba、Amazon、Made-in-China）实际使用的关联检索词，已整合进本页以提升相关性与收录覆盖。">These are the association terms buyers actually type across search engines and B2B platforms (Google, Bing, Baidu, 1688, Alibaba, Amazon, Made-in-China) — folded into this page to broaden relevance and indexing coverage.</p>
 </div></section>
 {related_section}
+{buyer_guide_section}
 <section class="dark"><div class="container" style="text-align:center">
   <div class="eyebrow" style="color:var(--brass)" data-zh="下一步">Next step</div>
   <h2 style="color:#fff" data-zh="发一张照片或一个料号，48 小时内工程师回复">Send a photo or a part number — an engineer replies within 48h</h2>
