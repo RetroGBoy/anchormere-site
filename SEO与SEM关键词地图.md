@@ -80,7 +80,7 @@
 
 ## 5. GEO / AEO（生成式引擎优化）
 
-- 已部署 `llms.txt`（根目录），列出 13 条典型买家长尾意图，供 ChatGPT/Perplexity/文心等引用。
+- 已部署 `llms.txt`（根目录），列出 13 条典型买家长尾意图 + 10 篇带外链来源标注的采购情报简报入口，供 ChatGPT/Perplexity 等引用。
 - 每个长尾页的 FAQ 段落（含 FAQPage JSON-LD）直接回答"MOQ 多少 / 多久报价 / 怎么远程验厂 / 付款方式 / 是否做成品"——这些是 AI 摘要最爱抓取的结构化问答。
 - 建议在长尾页持续补充"how to / where to / cost of"类段落，提升被 AI 答案引用的概率。
 
@@ -111,10 +111,24 @@
 | 脚本 | 作用 | 何时跑 |
 |---|---|---|
 | `scripts/longtail.py` | 由 28 条种子生成长尾落地页（含品类专属工程要点 + E-E-A-T 审核署名） | 新增品类时 |
-| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前 98 条 URL，含业务页 + 资讯 + 归档，CI 自动重建） | 增删页面后 / 每次资讯生成后 |
+| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前 109 条 URL，含业务页 + 资讯 + 简报 + 归档，CI 自动重建） | 增删页面后 / 每次资讯生成后 |
 | `scripts/seo_inject.py` | 给既有页注入 Organization/Breadcrumb/FAQ/Product JSON-LD + hreflang | 改模板后 |
 | `scripts/inject_ga4.py` | 给缺 `consent.js` 的页面补齐（已全站覆盖） | 新增页面时 |
-| `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页 → `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
+| `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页（含权威外链 + 明文 URL 来源标注 + 专有名词 + `citation`）→ `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
+| `scripts/build_briefings.py` | 由 `scripts/briefings.json` 渲染 10 篇采购情报简报（每篇 10 条要点 + 术语表 + 完整 URL 来源标注） | 新增/修订简报内容时 |
+| `scripts/enhance_news_citations.py` | 幂等升级历史 digest 页：补明文 URL 来源标注、类目权威外链、专有名词、`Article.citation` | 生成器模板升级后 |
+| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=18 / WARN=0 / FAIL=0） | 每次改动后 / CI |
+
+---
+
+## 10. 新闻外链、来源标注与专有名词（2026-11-07 增强）
+
+- **10 篇全新简报**（非改动既有内容）：跨境电商合规、Incoterms 与到岸成本、OEM/ODM/贴牌、PCBA/SMT 能力表、验厂审核、HS 编码与原产地、出口认证、低 MOQ 试产、充电桩标准、AI 数据中心硬件。每篇 10 条可核对要点，共 **100 条**中英双语内容。
+- **外链与来源标注**：`scripts/briefings.json` 是唯一引用池，含 **45 个已 HTTP 校验（43×200 + 2×202，零死链）** 的公开标准机构 / 政府来源 URL。正文以编辑性引用嵌入外链，页尾 "Sources & references" 逐条打印**完整链接网址**（`Source URL:`），可复制、可点击、可独立核验；`Article.citation` 同步声明引用关系。
+- **专有名词**：76 个行业术语定义（英文释义 + 中文简注），10 篇简报各带 10 条 "Key terms" 词汇表并输出 `DefinedTermSet` 结构化数据；正文术语可点击跳转对应词条。
+- **既有 42 篇 digest 页**：按类目补 2 个权威外链、1 个轮转专有名词、明文 URL 来源标注与 `Article.citation`；`content-kind` / `card-title` meta 让索引卡片区分「采购情报简报」与「自动摘要」。
+- **根治**：`news_digest.py` 每日生成的新页自动带上述三要素，且引用池与简报共用同一份 `briefings.json`；归档页模板补上 Organization 实体（单一数据源）。CI 每夜重建不会覆盖或漂移。
+- **口径边界**：外链均为编辑性引用，明确声明与来源无隶属、不主张背书；未编造认证或第三方背书。全站 `title>60=0`、`desc>155=0`、377 个 JSON-LD 块全部合法、10 篇简报两两相似度最高 0.469（无 >0.70 组合）。
 
 
 ---
@@ -123,6 +137,6 @@
 
 - **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。
 - **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
-- **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**99 个页面实体 100% 一致**（含 40 个原本缺失的 news 页），CI 每夜重生不漂移。
+- **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
 - **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实外部链接，待提供），避免虚构实体信号。
 - **回归清理**：`seo_inject.py` 残留的 `Offer`/`offers` 电商字段已移除，防止重注入时带回 GSC 购物误归类。

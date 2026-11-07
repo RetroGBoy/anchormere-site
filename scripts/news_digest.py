@@ -34,6 +34,62 @@ MAX_AGE_DAYS = 4  # only surface items newer than this
 
 UA = "Mozilla/5.0 (compatible; AnchormereNewsBot/1.0; +https://anchormere.com)"
 
+# ---- Single source of truth for outbound citations & domain terms ----
+# briefings.json holds the HTTP-verified authority URLs and the glossary that the
+# sourcing briefings use. Daily digest posts draw from the same pool so the whole
+# news section shares one citation standard (no duplicated / drifting link lists).
+_DATA_PATH = os.path.join(os.path.dirname(__file__), "briefings.json")
+BRIEFINGS = json.load(open(_DATA_PATH, encoding="utf-8"))
+CITED = BRIEFINGS["sources"]      # key -> {name,url,title,zh}
+TERMS = BRIEFINGS["glossary"]     # key -> {term,en,zh}
+
+# Two authority references per category, chosen for relevance to the digest topic.
+CAT_SOURCES = {
+    "consumer": ["ipc", "usb_docs"],
+    "toys": ["bluetooth", "epa"],
+    "datacenter": ["ocp", "bicsi"],
+    "ev": ["charin", "iec"],
+    "gba": ["wto", "comtrade"],
+    "procurement": ["icc", "wco_hs"],
+}
+# Domain terms per category; one is rotated per post to keep pages distinct.
+CAT_TERMS = {
+    "consumer": ["pcba", "smt", "aoi", "yield", "dfm", "bom"],
+    "toys": ["pcba", "fcc", "ce", "rohs", "moq", "golden_sample"],
+    "datacenter": ["rack_unit", "pdu", "pue", "structured_cabling", "blanking_panel", "bend_radius"],
+    "ev": ["ccs", "iec_62196", "mode_3", "ocpp", "ip_rating", "chademo"],
+    "gba": ["hs_code", "incoterms", "rules_of_origin", "fob", "landed_cost", "moq"],
+    "procurement": ["hs_code", "incoterms", "moq", "qms", "factory_audit", "golden_sample"],
+}
+URL_STYLE = ("font-size:12px;color:var(--slate);word-break:break-all;"
+             "font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace")
+
+
+def source_attribution(url, title, publisher, zh=""):
+    """Render one cited source with its FULL URL printed verbatim (source attribution)."""
+    u = html.escape(url, quote=False)
+    ua = html.escape(url, quote=True)
+    return (
+        f'<a href="{ua}" target="_blank" rel="noopener noreferrer">{html.escape(title)}</a>'
+        f' — {html.escape(publisher)}'
+        + (f' <span class="cn">（{html.escape(zh)}）</span>' if zh else "")
+        + f'<br><span style="{URL_STYLE}">Source URL: '
+          f'<a href="{ua}" target="_blank" rel="noopener noreferrer"><code>{u}</code></a></span>'
+    )
+
+
+def citation_objects(keys, extra=None):
+    """schema.org citation array for Article JSON-LD."""
+    objs = []
+    for k in keys:
+        s = CITED[k]
+        objs.append({"@type": "CreativeWork", "name": s["title"], "url": s["url"],
+                     "publisher": {"@type": "Organization", "name": s["name"]}})
+    if extra:
+        objs.append({"@type": "CreativeWork", "name": extra[0], "url": extra[1],
+                     "publisher": {"@type": "Organization", "name": extra[2]}})
+    return objs
+
 # ---- Curated feeds (consumer electronics / smart devices / GBA manufacturing) ----
 FEEDS = [
     {"url": "https://techcrunch.com/feed/", "lang": "en", "name": "TechCrunch"},
@@ -405,6 +461,28 @@ def build_post(item, cats, today, title_en, title_zh):
     zh_lead = (f"Anchormere 摘要机器人正在追踪「{zh_title}」，以及它对经由大湾区采购的"
                f"海外买家的信号意义。{gba_extra_zh}")
 
+    # ---- Outbound editorial citations + one domain term (single source: briefings.json) ----
+    # Two HTTP-verified authority links per category, plus one rotated glossary term.
+    # Rotating by headline keeps same-category posts textually distinct.
+    ref_keys = CAT_SOURCES.get(primary, CAT_SOURCES["gba"])
+    ref_items = [CITED[k] for k in ref_keys]
+    term_keys = CAT_TERMS.get(primary, CAT_TERMS["gba"])
+    term_key = term_keys[sum(ord(c) for c in title_en) % len(term_keys)]
+    term = TERMS[term_key]
+    context_en = " and ".join(
+        f'<a href="{html.escape(s["url"], quote=True)}" target="_blank" '
+        f'rel="noopener noreferrer">{html.escape(s["name"])}</a>' for s in ref_items
+    )
+    context_zh = "、".join(html.escape(s["zh"], quote=True) for s in ref_items)
+    term_en = html.escape(term["term"])
+    term_def_en = html.escape(term["en"])
+    term_def_zh = html.escape(term["zh"])
+    src_lines = [source_attribution(item["link"], item["title"], item["source"])]
+    src_lines += [source_attribution(s["url"], s["title"], s["name"], s["zh"])
+                  for s in ref_items]
+    sources_html = "\n".join(f"    <li>{x}</li>" for x in src_lines)
+    cite = citation_objects(ref_keys, extra=(item["title"], item["link"], item["source"]))
+
     slug = slugify(item["title"])
     filename = f"news-{today.strftime('%Y-%m-%d')}-{slug}.html"
     # avoid collisions
@@ -423,12 +501,16 @@ def build_post(item, cats, today, title_en, title_zh):
         "publisher": {"@type": "Organization", "name": "Anchormere"},
         "description": html.unescape(item["summary"][:160] or item["title"]),
         "mainEntityOfPage": f"{SITE}/{filename}",
+        "citation": cite,
     }, ensure_ascii=False)
 
     html_doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{serp_t} | Anchormere</title>
 <meta name="title-zh" content="{zh_title}">
+<meta name="card-title" content="{en_title}">
+<meta name="card-title-zh" content="{zh_title}">
+<meta name="content-kind" content="digest">
 <meta name="keywords" content="{kw_esc}">
 <meta name="description" content="{serp_d}">
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
@@ -476,12 +558,20 @@ def build_post(item, cats, today, title_en, title_zh):
   <h2 data-zh="为何关乎买家">Why it matters for buyers</h2>
   <p>{en_why}</p>
   <p class="cn">{zh_why}</p>
-  <h2 data-zh="来源">Source</h2>
+  <h2 data-zh="延伸阅读与专有名词">Further reading &amp; key term</h2>
+  <p data-zh="背景参考：{context_zh}的公开标准与官方资料。">Background reference: public standards and official material from {context_en}.</p>
+  <p class="cn">背景参考：{context_zh}的公开标准与官方资料。</p>
+  <div style="background:var(--paper2);border-left:3px solid var(--brass);padding:12px 16px;margin:14px 0;border-radius:0 6px 6px 0">
+    <b data-zh="专有名词释义">Key term: {term_en}</b>
+    <p style="margin:4px 0 0">{term_def_en}</p>
+    <p class="cn" style="margin:3px 0 0">{term_def_zh}</p>
+  </div>
+  <h2 data-zh="来源与外链网址标注">Sources &amp; references</h2>
   <ul>
-    <li>Original: <a href="{src_url}" target="_blank" rel="nofollow noopener">{src_title}</a> — {src_name}</li>
+{sources_html}
   </ul>
-  <p class="cn">原文：<a href="{src_url}" target="_blank" rel="nofollow noopener">{src_title}</a> —— {src_name}</p>
-  <p style="color:var(--slate);font-size:13px">This is an automated news digest. The headline and link credit the original publisher; Anchormere adds buyer-focused commentary only and is not affiliated with the source. 本内容为自动资讯摘要，标题与链接归属原发布方，Anchormere 仅补充买家视角解读，与来源无隶属关系。</p>
+  <p class="cn">每条来源均标注完整链接网址（Source URL），便于独立核验。</p>
+  <p style="color:var(--slate);font-size:13px">This is an automated news digest. The headline and link credit the original publisher; outbound references are editorial citations to public standards bodies and government sources. Anchormere adds buyer-focused commentary only and is not affiliated with, nor endorsed by, any cited source. 本内容为自动资讯摘要，标题与链接归属原发布方；外部引用为对公开标准机构与政府来源的编辑性引用，Anchormere 仅补充买家视角解读，与来源无隶属关系，亦不主张其背书。</p>
   <div style="background:var(--paper2);border-left:4px solid var(--brass);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0">
     <b data-zh="想要一份属于你产品的集群地图？">Want a cluster map for your product?</b> <span data-zh="告诉我们品类，我们将为你匹配最合适的大湾区城市与认证工厂。">Tell us the category and we'll map the right GBA cities and vetted factories.</span> <a href="contact.html" data-zh="获取报价 →">Get a quote →</a>
   </div>
@@ -566,7 +656,7 @@ HEAD_INDEX = '''<!DOCTYPE html><html lang="en"><head>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/consent.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://anchormere.com/#organization","name":"Anchormere","alternateName":"锚泊","url":"https://anchormere.com","email":"Anchormere@gmail.com","telephone":"+86-190-6898-4158","contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"Anchormere@gmail.com","telephone":"+86-190-6898-4158","availableLanguage":["English","Chinese"],"areaServed":["Worldwide","Middle East","Southeast Asia","Europe"]},"address":{"@type":"PostalAddress","streetAddress":"B Block, Tefa Industrial Park, Guangming District","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"},"logo":{"@type":"ImageObject","url":"https://anchormere.com/assets/favicon.svg"},"description":"China sourcing partner for the Greater Bay Area manufacturing base — OEM, sourcing and joint manufacturing for global buyers.","parentOrganization":{"@type":"Organization","name":"深圳森亚实业有限公司"},"slogan":"Your accountable China sourcing partner in the Greater Bay Area","areaServed":[{"@type":"Place","name":"Worldwide"},{"@type":"Place","name":"Greater Bay Area, China"},{"@type":"Country","name":"China"}],"knowsAbout":["OEM manufacturing","ODM manufacturing","private label manufacturing","contract manufacturing","PCBA","SMT assembly","EMS","injection molding","sheet metal fabrication","low MOQ manufacturing","China sourcing","Greater Bay Area manufacturing","product development","small batch manufacturing","electronic manufacturing services","IoT modules","wearable manufacturing","toy manufacturing","drone parts","EV charger components","USB-C charger OEM","cross-border ecommerce sourcing","China sourcing agent","international trade procurement","Amazon private label","import from China","supplier verification","hardware startup manufacturing"]}</script>
+<script type="application/ld+json">{ORG_LD}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "News & Insights", "item": "https://anchormere.com/news"}]}</script>
 <script defer src="assets/consent.js"></script>
 </head><body>
@@ -595,6 +685,7 @@ HEAD_ARCHIVE = '''<!DOCTYPE html><html lang="en"><head>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/consent.css">
+<script type="application/ld+json">{ORG_LD}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://anchormere.com/"}, {"@type": "ListItem", "position": 2, "name": "News", "item": "https://anchormere.com/news"}, {"@type": "ListItem", "position": 3, "name": "Archive", "item": "https://anchormere.com/{CANON}"}]}</script>
 <script defer src="assets/consent.js"></script>
 </head><body>
@@ -626,8 +717,10 @@ SECTION_ARCHIVE = '''<section class="l1"><div class="container">
 </div></section>
 '''
 
-INDEX_TEMPLATE = HEAD_INDEX + TOPBAR_NAV + SECTION_INDEX + FOOTER + TAIL
-ARCHIVE_TEMPLATE = HEAD_ARCHIVE + TOPBAR_NAV + SECTION_ARCHIVE + FOOTER + TAIL
+INDEX_TEMPLATE = (HEAD_INDEX.replace('{ORG_LD}', ORG_LD) + TOPBAR_NAV
+                   + SECTION_INDEX + FOOTER + TAIL)
+ARCHIVE_TEMPLATE = (HEAD_ARCHIVE.replace('{ORG_LD}', ORG_LD) + TOPBAR_NAV
+                    + SECTION_ARCHIVE + FOOTER + TAIL)
 
 NOTE_EMPTY = (
     '  <p style="margin-top:18px;color:var(--slate);font-size:14px" '
@@ -642,7 +735,12 @@ ARCHIVE_NOTE_TEMPLATE = (
 
 
 def scan_articles():
-    """Return all dated news posts (newest first): {filename, date, en, zh}."""
+    """Return all dated news posts (newest first): {filename, date, en, zh, kind}.
+
+    card-title / card-title-zh hold the full headline (the <title> tag is clipped
+    for SERP display); content-kind distinguishes editorial briefings from the
+    daily auto digest. Old posts without either meta fall back gracefully.
+    """
     arts = []
     for fn in os.listdir(ROOT):
         if not (fn.startswith("news-20") and fn.endswith(".html")):
@@ -656,20 +754,35 @@ def scan_articles():
         en = html.unescape(em.group(1).strip()) if em else fn
         zm = re.search(r'<meta name="title-zh" content="(.*?)"', t, re.S)
         zh = html.unescape(zm.group(1).strip()) if zm else en
-        arts.append({"filename": fn, "date": date, "en": en, "zh": zh})
+        cm = re.search(r'<meta name="card-title" content="(.*?)"', t, re.S)
+        if cm:
+            en = html.unescape(cm.group(1).strip())
+        cz = re.search(r'<meta name="card-title-zh" content="(.*?)"', t, re.S)
+        if cz:
+            zh = html.unescape(cz.group(1).strip())
+        km = re.search(r'<meta name="content-kind" content="([^"]*)"', t)
+        kind = km.group(1) if km else "digest"
+        arts.append({"filename": fn, "date": date, "en": en, "zh": zh, "kind": kind})
     arts.sort(key=lambda a: (a["date"], a["filename"]), reverse=True)
     return arts
 
 
 def card_html(art):
+    briefing = art.get("kind") == "briefing"
     headline = html.escape(art["en"], quote=False)
     headline_zh = html.escape(art["zh"], quote=True)
+    label_en = "Sourcing briefing" if briefing else "Auto digest"
+    label_zh = "采购情报简报" if briefing else "自动摘要"
+    blurb_en = ("10 evidence-backed checks with cited external sources and a glossary of key terms."
+                if briefing else EN_BLURB)
+    blurb_zh = ("10 条可核对要点，附官方外链来源网址标注与专有名词释义。"
+                if briefing else ZH_BLURB)
     return (
         '    <div class="card">\n'
-        '      <div style="font-size:12px;color:var(--brass);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px" data-zh="自动摘要 · '
-        + art["date"] + '">Auto digest · ' + art["date"] + '</div>\n'
+        '      <div style="font-size:12px;color:var(--brass);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px" data-zh="'
+        + label_zh + ' · ' + art["date"] + '">' + label_en + ' · ' + art["date"] + '</div>\n'
         '      <h3 data-zh="' + headline_zh + '">' + headline + '</h3>\n'
-        '      <p data-zh="' + ZH_BLURB + '">' + EN_BLURB + '</p>\n'
+        '      <p data-zh="' + blurb_zh + '">' + blurb_en + '</p>\n'
         '      <a href="' + art["filename"] + '" data-zh="阅读全文 →">Read more →</a>\n'
         '    </div>\n'
     )
