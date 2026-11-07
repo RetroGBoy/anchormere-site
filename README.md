@@ -42,3 +42,22 @@ python3 -m http.server 8102
 - **中英双语规范**：框架页（首页/关于/能力/供应基地/FAQ/联系/产品/新闻）标题均为「英文主标 + 中文副标」；资讯文章与法律页保持纯英文。
 - **新增认证说明页** `/certifications`：管理体系（ISO 9001/14001/IATF 16949）、市场准入（CE/UKCA/FCC/RoHS/REACH/IPC-A-610/UL）、第三方验货、随货单证清单，已入导航/页脚/sitemap/llms.txt。
 - 修复多页 footer 内嵌 CTA 区块的结构问题；补齐版权行。
+
+## 模块化增量工作制度（2026-11-07 起）
+
+**接手本项目请先读 [`WORKFLOW.md`](WORKFLOW.md)**，并运行 `python3 scripts/workarea.py handoff`。
+分区、依赖、内容哈希基线分别记录在 `scripts/modules.json` 与 `scripts/module_state.json`，
+全部纳入 git —— 换模型 / 换机器不需要重读聊天记录。
+
+```bash
+python3 scripts/workarea.py status                 # 看模块状态（默认零内容读取）
+python3 scripts/workarea.py plan --module longtail # 看影响范围，不执行
+python3 scripts/workarea.py apply --module longtail# 只重建该板块 + 只校验脏模块
+python3 scripts/workarea.py verify --gate          # 推送前最小闸门
+python3 scripts/workarea.py verify --all           # 仅显式复审时全量
+python3 scripts/workarea.py audit                  # 注册表自洽检查
+```
+
+要点：改一个关键词种子只重建 28 个长尾页与 sitemap；`manual` / `frozen` 板块只读不写；
+`scheduled` 新闻历史页无需求不扫描；生成器输出即最终态，内容不变不写盘、不触发重新部署。
+核心目标（引流 / 询盘 / 关键词覆盖 / 转化路径）与受保护文件清单见 `WORKFLOW.md` 第 5 节。

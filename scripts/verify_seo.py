@@ -23,6 +23,8 @@ SEO 验证闭环 (Verification Loop)
 退出码：0 = 全部 PASS；1 = 存在 FAIL；2 = 仅 WARN。
 """
 import os, re, json, sys, html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import io_util
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -53,11 +55,32 @@ def fail(msg): fails.append(msg)
 htmls = sorted(f for f in os.listdir('.') if f.endswith('.html'))
 pages = [f for f in htmls if f != '404.html']
 
+# ---- workarea 增量制度：页面单次读取缓存 + 可选局部范围 ----
+# 旧实现把同一批 HTML 反复 open() 十余次；这里全站只读一遍。
+PAGE = {f: io_util.read_text(f) for f in htmls}
+_argv = sys.argv[1:]
+GLOBAL_ONLY = '--global-only' in _argv
+_raw = next((a.split('=', 1)[1] for a in _argv if a.startswith('--files=')), '')
+_raw = _raw or os.environ.get('WORKAREA_FILES', '')
+if GLOBAL_ONLY:
+    SCOPE = set()
+elif _raw.strip():
+    SCOPE = {x.strip() if x.strip().endswith('.html') else x.strip() + '.html'
+             for x in _raw.replace(';', ',').split(',') if x.strip()}
+    SCOPE &= set(htmls)
+else:
+    SCOPE = None
+MODE = '全量' if SCOPE is None else ('仅全局不变量' if GLOBAL_ONLY else f'增量 {len(SCOPE)} 页')
+
+def S(seq):
+    """逐页检查的范围闸门；全局不变量始终使用完整 htmls/pages。"""
+    return seq if SCOPE is None else [f for f in seq if f in SCOPE]
+
 # ---- 1. hreflang 合法性 ----
 zh_count = 0
 hl_conflicts = 0
-for f in htmls:
-    t = open(f, encoding='utf-8').read()
+for f in S(htmls):
+    t = PAGE[f]
     pairs = HL_RE.findall(t)
     if any(l == 'zh-CN' for l, _ in pairs):
         zh_count += 1
@@ -79,8 +102,8 @@ else:
 # 因此 OG 的 og:locale:alternate=zh_CN 与 lang.js 运行时注入的 zh-CN hreflang
 # 都属于「不存在的中文版本」信号，必须一并禁止，避免与静态口径冲突。
 zh_decl = []
-for f in htmls:
-    t = open(f, encoding='utf-8').read()
+for f in S(htmls):
+    t = PAGE[f]
     if re.search(r'og:locale:alternate"\s+content="zh', t):
         zh_decl.append(f)
 LANG_JS = os.path.join('assets', 'lang.js')
@@ -101,7 +124,7 @@ A_HREF_RE = re.compile(r'<a\s[^>]*href="([^"]+)"', re.I)
 slugs = {f[:-5] for f in htmls}
 inlinks = set()
 for f in htmls:
-    t = open(f, encoding='utf-8').read()
+    t = PAGE[f]
     self_slug = norm(f)
     for h in A_HREF_RE.findall(t):
         n = norm(h)
@@ -120,7 +143,7 @@ news_pages = [f for f in pages if f.startswith('news-')]
 all_types = set()
 per_page_missing = 0
 for f in core_pages:
-    t = open(f, encoding='utf-8').read()
+    t = PAGE[f]
     blocks = LD_RE.findall(t)
     if not blocks:
         per_page_missing += 1
@@ -157,8 +180,8 @@ if not os.path.exists(ORG_FILE):
 else:
     canonical = json.load(open(ORG_FILE, encoding="utf-8"))
     drift = []
-    for f in pages:
-        t = open(f, encoding="utf-8").read()
+    for f in S(pages):
+        t = PAGE[f]
         orgs = []
         for b in LD_RE.findall(t):
             try:
@@ -185,8 +208,8 @@ else:
             fail(f"Organization 缺 E-E-A-T 字段 {need}")
 
 # E-E-A-T: 可见审核署名必须与 WebPage.lastReviewed 成对出现
-signed = [f for f in pages if "Reviewed by the Anchormere sourcing desk" in open(f, encoding="utf-8").read()]
-unsigned = [f for f in signed if "lastReviewed" not in open(f, encoding="utf-8").read()]
+signed = [f for f in S(pages) if "Reviewed by the Anchormere sourcing desk" in PAGE[f]]
+unsigned = [f for f in signed if "lastReviewed" not in PAGE[f]]
 if unsigned:
     warn(f"{len(unsigned)} 页有可见审核署名但缺 WebPage.lastReviewed")
 else:
@@ -197,8 +220,8 @@ else:
 # 属于不实结构化数据。允许 15% 的排版差异（小标题/CTA 是否计入）。
 brief_pages = [f for f in pages if f.startswith('news-2026-11-07-')]
 wc_bad = []
-for f in brief_pages:
-    t = open(f, encoding='utf-8').read()
+for f in S(brief_pages):
+    t = PAGE[f]
     sec = re.search(r'<section class="l1">.*?</section>', t, re.S)
     if not sec:
         continue
@@ -229,8 +252,8 @@ for need in ('Organization', 'WebSite', 'Product', 'BreadcrumbList'):
 
 # ---- 4. canonical 一致性 ----
 canon_missing = 0
-for f in pages:
-    t = open(f, encoding='utf-8').read()
+for f in S(pages):
+    t = PAGE[f]
     m = CANON_RE.search(t)
     if not m:
         canon_missing += 1
@@ -278,7 +301,7 @@ else:
     warn("未找到 .indexnow_key（IndexNow 提交将无效）")
 
 # ---- 7. GSC / Bing 验证占位 ----
-idx = open('index.html', encoding='utf-8').read()
+idx = PAGE['index.html']
 gsc = re.search(r'name="google-site-verification" content="([^"]*)"', idx)
 bing = re.search(r'name="msvalidate\.01" content="([^"]*)"', idx)
 if not gsc:
@@ -300,8 +323,8 @@ else:
 # 无扩展名形式；继续链到 .html 既多一次跳转，也与 canonical 自相矛盾。
 LEGACY_LINK = re.compile(r'''<a\s[^>]*href=["']([^"':#]+\.html)(?:[#?][^"']*)?["']''', re.I)
 legacy = []
-for f in htmls:
-    n = len(LEGACY_LINK.findall(open(f, encoding='utf-8').read()))
+for f in S(htmls):
+    n = len(LEGACY_LINK.findall(PAGE[f]))
     if n:
         legacy.append((f, n))
 if legacy:
@@ -315,8 +338,8 @@ else:
 # 因此静态 lang="zh-CN" 在两种状态下都成立。
 CN_RE = re.compile(r'<[A-Za-z][A-Za-z0-9]*\b[^>]*\bclass="[^"]*\bcn\b[^"]*"[^>]*>', re.S)
 cn_total = cn_bad = 0
-for f in htmls:
-    for tag in CN_RE.findall(open(f, encoding='utf-8').read()):
+for f in S(htmls):
+    for tag in CN_RE.findall(PAGE[f]):
         cn_total += 1
         if not re.search(r'\blang\s*=', tag):
             cn_bad += 1
@@ -327,8 +350,8 @@ else:
 
 # ---- 10. Article 实体 @id 串联（不内联重复 Organization）----
 inline = []
-for f in htmls:
-    for b in LD_RE.findall(open(f, encoding='utf-8').read()):
+for f in S(htmls):
+    for b in LD_RE.findall(PAGE[f]):
         try:
             o = json.loads(b)
         except (ValueError, TypeError):
@@ -346,6 +369,10 @@ else:
 
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")
+print(f"  校验模式：{MODE}  |  全站 {len(htmls)} 个 HTML，单次读取缓存")
+if SCOPE is not None and not SCOPE:
+    print("  注意：逐页检查范围为空，下列逐页 PASS 表示『无待检页面』，不代表全站复验；")
+    print("        全站复验请运行 python3 scripts/workarea.py verify --all")
 for m in passes: print(f"  [PASS] {m}")
 for m in warns:  print(f"  [WARN] {m}")
 for m in fails:  print(f"  [FAIL] {m}")

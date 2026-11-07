@@ -11,6 +11,9 @@ consistently bound to its topical keywords (GEO + entity-disambiguation signal).
 (The 23 long-tail pages get the same via scripts/longtail.py.)
 """
 import os, re, json, html
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SEEDS = json.load(open(os.path.join(ROOT, "scripts", "longtail_seeds.json"), encoding="utf-8"))
@@ -100,7 +103,7 @@ def insert_before_footer(path, section, section_id):
     if idx == -1:
         idx = txt.rfind("</body>")
     txt = txt[:idx] + section + "\n" + txt[idx:]
-    open(path, "w", encoding="utf-8").write(txt)
+    io_util.write_final(path, txt)
     print(f"  inserted {section_id}: {os.path.basename(path)}")
     return True
 
@@ -128,7 +131,7 @@ def inject_entity(path):
 
     new = LD_PAT.sub(repl, txt)
     if new != txt:
-        open(path, "w", encoding="utf-8").write(new)
+        io_util.write_final(path, new)
         return True
     return False
 

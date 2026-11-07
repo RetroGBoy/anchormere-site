@@ -28,24 +28,32 @@ jobs:
           TRANSLATE_KEY: ${{ secrets.TRANSLATE_KEY }}
         run: python3 scripts/news_digest.py
 
-      - name: Normalize internal links, language hints and entity refs
+      # Generators now emit the final normalized state themselves, so this step
+      # is an idempotent fallback: it writes 0 files when nothing drifted.
+      - name: Normalize (idempotent fallback)
         run: python3 scripts/site_normalize.py
 
-      - name: Rebuild sitemap (index cap + archive pages)
+      - name: Rebuild sitemap (lastmod from real page content dates)
         run: python3 scripts/build_sitemap.py
 
-      # Quality gate: a FAIL stops the job before the auto-commit, so a bad
-      # template regression can never be pushed by the nightly run.
-      - name: SEO verification gate
-        run: python3 scripts/verify_seo.py
+      # Incremental gate: only modules dirtied by today's digest are verified,
+      # plus the cheap site-wide invariants. A FAIL blocks the auto-commit.
+      - name: Incremental verification gate
+        run: python3 scripts/workarea.py verify --gate
 
-      - name: Commit and push (only if changed)
+      - name: Refresh module hash baseline (no-op when nothing changed)
+        run: python3 scripts/workarea.py init
+
+      - name: Audit module registry coverage
+        run: python3 scripts/workarea.py audit
+
+      - name: Commit and push (only if bytes actually changed)
         run: |
           git config user.name "Anchormere Bot"
           git config user.email "ops@anchormere.com"
           git add -A
           if git diff --cached --quiet; then
-            echo "No new digest items today."
+            echo "No new digest items today — no writes, no commit, no redeploy."
           else
             git commit -m "auto: daily news digest $(date -u +%F)"
             git push

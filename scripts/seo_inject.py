@@ -2,6 +2,9 @@
 """SEO injection across the site (idempotent): static hreflang (en/x-default),
 BreadcrumbList JSON-LD, Product JSON-LD on product pages, and new-category nav anchors."""
 import os, re, json, html
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
 
@@ -107,8 +110,7 @@ def main():
                 c = f.read()
             nc = inject_head(c, fn)
             if nc != c:
-                with open(p, "w", encoding="utf-8") as f:
-                    f.write(nc)
+                io_util.write_final(p, nc)
                 changed += 1
                 print("  ✓", fn)
         print(f"injected SEO into {changed} files")

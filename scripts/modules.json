@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "updated": "2026-11-07",
+  "site": "https://anchormere.com",
+  "description": "Anchormere 站点模块化工作区注册表。这是分区、增量与交接制度的唯一事实来源，任何模型/会话/机器接手工作前先读本文件，无需依赖聊天记录。匹配规则：modules 数组自上而下，第一个命中的模块即该文件归属；同一文件只归属一个模块。",
+  "unassigned_is_error": true,
+  "state_file": "scripts/module_state.json",
+  "handoff_doc": "WORKFLOW.md",
+  "principles": [
+    "先声明模块，再动手：任何改动必须能对应到一个 module id",
+    "无变更不落盘：生成器统一走 io_util.write_if_changed，字节相同即跳过写盘与提交",
+    "无需求不扫描：workarea.py 只对脏模块及其依赖闭包做读取、重建与校验",
+    "没问题的不做变动：policy=manual / frozen 的模块在自动流程中只读不写",
+    "核心目标不变：protected 列表内的文件禁止自动重建，改动须显式声明",
+    "认知落在仓库：状态、制度、依赖全部写入 modules.json / module_state.json / WORKFLOW.md，换模型不丢"
+  ],
+  "protected": {
+    "rule": "自动重建与批量脚本禁止写入；如需改动必须显式指定目标文件并在提交信息说明。核心目标=引流、询盘、关键词覆盖、转化路径。",
+    "paths": [
+      "contact.html",
+      "assets/consent.js",
+      "assets/consent.css",
+      "assets/lang.js",
+      "index.html",
+      "_headers",
+      "robots.txt"
+    ]
+  },
+  "policies": {
+    "auto": "由生成器产出，允许在依赖变更时自动重建",
+    "scheduled": "仅由每日定时 CI 处理；增量流程默认跳过，不扫描、不校验（没有需求不重新扫描）",
+    "manual": "人工维护页，自动流程只读不写，仅做校验",
+    "frozen": "归档/大文件，默认连哈希都不计算，除非显式 --include-frozen",
+    "config": "由专用生成器重建的站点级配置",
+    "governance": "制度文件本身，变更只触发状态重算，不触发页面重建"
+  },
+  "verify": {
+    "local": "逐页检查：hreflang / 中文版本声明 / canonical / JSON-LD / Organization 一致性 / E-E-A-T / wordCount / clean URL / lang / Article @id。增量模式仅对脏模块的页面执行。",
+    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖。始终执行一次（基于单次读取缓存，开销极小）。",
+    "full_flag": "--all",
+    "gate": "verify_seo.py 退出码 1 = FAIL 阻断推送；2 = WARN 提示；0 = PASS"
+  },
+  "modules": [
+    {
+      "id": "governance",
+      "title": "制度与工作区驱动器",
+      "policy": "governance",
+      "paths": ["WORKFLOW.md", "scripts/modules.json", "scripts/module_state.json", "scripts/workarea.py", "scripts/io_util.py"],
+      "globs": [],
+      "build": null,
+      "verify_default": false,
+      "invalidates": [],
+      "invalidate_state": true,
+      "note": "改制度只重算状态快照，不重建任何页面。"
+    },
+    {
+      "id": "data-org",
+      "title": "全站 Organization 单一数据源",
+      "policy": "manual",
+      "paths": ["scripts/org_entity.json"],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["longtail", "briefings", "news-digest", "news-index", "config"],
+      "review": ["framework"],
+      "force_global": true,
+      "note": "实体变更会影响全站结构化数据；framework 为人工页，只提示复核不自动改写。"
+    },
+    {
+      "id": "data-longtail",
+      "title": "长尾品类页数据源",
+      "policy": "manual",
+      "paths": ["scripts/longtail_seeds.json"],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["longtail", "config"],
+      "note": "只影响 28 个长尾页与 sitemap，不触碰新闻与框架页。"
+    },
+    {
+      "id": "data-briefings",
+      "title": "采购情报简报数据源",
+      "policy": "manual",
+      "paths": ["scripts/briefings.json"],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["briefings", "config"],
+      "note": "10 篇简报的内容、外链与术语全部来自此文件。"
+    },
+    {
+      "id": "data-news",
+      "title": "新闻去重状态",
+      "policy": "auto",
+      "paths": ["news_state.json"],
+      "globs": [],
+      "build": null,
+      "verify_default": false,
+      "invalidates": ["news-digest", "news-index", "config"],
+      "note": "每日 digest 追加，只影响新闻板块。"
+    },
+    {
+      "id": "engine",
+      "title": "生成器与校验器代码",
+      "policy": "manual",
+      "paths": [],
+      "globs": ["scripts/*.py", "scripts/*.json"],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["longtail", "briefings", "news-digest", "news-index", "config"],
+      "review": ["framework"],
+      "force_global": true,
+      "note": "生成器逻辑变更会让既有输出可能过期，需重建受影响板块；已由前面模块认领的文件按先到先得排除。"
+    },
+    {
+      "id": "briefings",
+      "title": "采购情报简报（10 篇）",
+      "policy": "auto",
+      "paths": [],
+      "globs": ["news-2026-11-07-*.html"],
+      "build": "python3 scripts/build_briefings.py",
+      "verify_default": true,
+      "invalidates": ["config"],
+      "note": "带权威外链来源标注、术语表与 Article.citation 的深度内容页。"
+    },
+    {
+      "id": "news-digest",
+      "title": "每日新闻摘要（历史 42 篇）",
+      "policy": "scheduled",
+      "paths": [],
+      "globs": ["news-20*.html"],
+      "build": "python3 scripts/news_digest.py && python3 scripts/enhance_news_citations.py",
+      "verify_default": false,
+      "invalidates": ["news-index", "config"],
+      "note": "默认不扫描：无新需求时历史新闻原样保留，只有 digest CI 或显式 --module 才处理。"
+    },
+    {
+      "id": "news-index",
+      "title": "新闻列表与归档页",
+      "policy": "auto",
+      "paths": ["news.html", "news-archive.html"],
+      "globs": ["news-archive-*.html"],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["config"],
+      "note": "由 news_digest.py 顺带生成（含归档分页），随新闻板块联动。"
+    },
+    {
+      "id": "longtail",
+      "title": "长尾关键词品类页（28 页）",
+      "policy": "auto",
+      "paths": [
+        "amazon-private-label-manufacturer.html", "china-sourcing-agent.html",
+        "custom-product-development.html", "drone-parts-manufacturer-gba.html",
+        "earbuds-oem-shenzhen.html", "educational-robot-manufacturer.html",
+        "ev-charger-components-sourcing.html", "hardware-startup-manufacturer.html",
+        "how-to-find-manufacturer-china.html", "import-from-china-guide.html",
+        "iot-sensor-module-sourcing.html", "low-moq-oem-factory.html",
+        "metal-sheet-fabrication-dongguan.html", "odm-factory-guangdong.html",
+        "oem-manufacturer-china.html", "oem-vs-odm.html",
+        "oled-display-module-sourcing.html", "pcb-assembly-shenzhen.html",
+        "pcba-contract-manufacturer.html", "plastic-injection-molding-shenzhen.html",
+        "private-label-manufacturer.html", "small-batch-manufacturing.html",
+        "smart-home-module-sourcing.html", "smart-toy-manufacturer-gba.html",
+        "tablet-pcba-sourcing.html", "usb-c-charger-oem.html",
+        "verify-chinese-manufacturer.html", "wearable-oem-shenzhen.html"
+      ],
+      "globs": [],
+      "build": "python3 scripts/longtail.py",
+      "verify_default": true,
+      "invalidates": ["config"],
+      "note": "Pillar-Cluster 的长尾层，含增强页导向区。"
+    },
+    {
+      "id": "framework",
+      "title": "框架页 / 核心转化路径（28 页）",
+      "policy": "manual",
+      "paths": [
+        "404.html", "about.html", "ai-data-center-sourcing.html", "apec-2026-shenzhen.html",
+        "cable-management.html", "canton-fair-2026.html", "capabilities.html",
+        "certifications.html", "consumer-smart-electronics.html", "contact.html",
+        "cross-border-ecommerce-sourcing.html", "faq.html", "greater-bay-area-by-numbers.html",
+        "green-manufacturing-esg.html", "guangdong-ev-supply-chain.html",
+        "guangdong-manufacturing-clusters.html", "huaqiangbei-hardware-engine.html",
+        "index.html", "marketplaces.html", "privacy.html", "process.html",
+        "quality.html", "rack-accessories.html", "shipping.html",
+        "smart-manufacturing-gba.html", "smart-toys-devices.html", "supply-base.html",
+        "terms.html"
+      ],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": ["config"],
+      "note": "人工维护，自动流程只读不写。多个文件在 protected 列表内，禁止自动重建。"
+    },
+    {
+      "id": "assets",
+      "title": "静态资源",
+      "policy": "manual",
+      "paths": [],
+      "globs": ["assets/**/*"],
+      "build": null,
+      "verify_default": false,
+      "invalidates": [],
+      "force_global": true,
+      "note": "lang.js / consent.js / 样式图库。变更触发全站 global 不变量复核，但不重建页面。"
+    },
+    {
+      "id": "config",
+      "title": "站点级配置与索引",
+      "policy": "config",
+      "paths": ["sitemap.xml", "robots.txt", "_headers", "_redirects", "llms.txt",
+                ".indexnow_key", "b1700fd697c7492b958b22d8d2adf646.txt", "baidu_urls.txt"],
+      "globs": [],
+      "build": "python3 scripts/build_sitemap.py",
+      "verify_default": true,
+      "invalidates": [],
+      "note": "sitemap 由 build_sitemap.py 依据页面真实内容日期重建；其余为人工维护。全局不变量每次校验都会跑一次，这里不需强制全量复验。"
+    },
+    {
+      "id": "ci",
+      "title": "CI 工作流",
+      "policy": "manual",
+      "paths": [],
+      "globs": [".github/**/*"],
+      "build": null,
+      "verify_default": false,
+      "invalidates": [],
+      "note": "增量闸门、每日 digest、健康监控、IndexNow 提交。"
+    },
+    {
+      "id": "docs",
+      "title": "报告与说明文档",
+      "policy": "manual",
+      "paths": [],
+      "globs": ["*.md", "*.txt"],
+      "build": null,
+      "verify_default": false,
+      "invalidates": [],
+      "note": "不参与线上构建，默认不做技术扫描。"
+    },
+    {
+      "id": "archive",
+      "title": "部署包归档",
+      "policy": "frozen",
+      "paths": [],
+      "globs": ["*.zip"],
+      "build": null,
+      "verify_default": false,
+      "invalidates": [],
+      "note": "约 3 MB 历史压缩包，默认连哈希都不计算，避免无谓 IO。"
+    }
+  ]
+}

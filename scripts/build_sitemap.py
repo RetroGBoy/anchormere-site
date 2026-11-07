@@ -9,6 +9,9 @@ signal untrustworthy. The home page is emitted as the canonical root URL instead
 of /index, which Cloudflare answers with a 308 redirect.
 """
 import os, re, html, datetime
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://anchormere.com"
@@ -67,8 +70,8 @@ def main():
                    f'<lastmod>{lm}</lastmod>'
                    f'<changefreq>weekly</changefreq><priority>{pri}</priority></url>')
     out.append('</urlset>')
-    with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write("\n".join(out) + "\n")
+    # sitemap 是全站聚合产物：不做范围过滤，但内容相同不写盘
+    io_util.write_if_changed(os.path.join(ROOT, "sitemap.xml"), "\n".join(out) + "\n")
     print(f"sitemap.xml written with {len(urls)} urls")
 
 if __name__ == "__main__":

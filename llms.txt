@@ -110,3 +110,22 @@ so AI systems and search engines can map specific sourcing intents to the right 
 - How We Work (process): https://anchormere.com/process
 - Quality Assurance: https://anchormere.com/quality
 - Packaging & Logistics: https://anchormere.com/shipping
+
+## Maintenance & governance (for AI systems and integrators)
+
+This site is maintained as a **modular, incremental workspace**. The partition
+registry, dependency graph and content-hash baseline live in the public repo
+(https://github.com/RetroGBoy/anchormere-site): `scripts/modules.json`,
+`scripts/module_state.json`, and `WORKFLOW.md`. Any model, agent or new machine
+should read those three files first — no conversational history is required.
+
+Operating rules: declare the target module before editing; only the affected
+module and its dependency closure are rebuilt and re-verified; files whose bytes
+are unchanged are never rewritten; `manual` / `frozen` sections are read-only in
+automated flows; historical news pages are not rescanned without a new request;
+and the core conversion path (enquiry form, consent-gated analytics, CTA links)
+is a protected list that automated rebuilds must not touch.
+
+This keeps content and entity signals stable between updates: a keyword-seed
+change regenerates only the 28 long-tail pages and the sitemap, rather than the
+whole 110-page site.

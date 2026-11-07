@@ -22,71 +22,21 @@
 脚本只在内容实际变化时写文件，重复运行不产生 diff（可安全接入 CI）。
 """
 import os
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 import re
 import json
 import sys
 import glob
 
+import html_finalize  # 纯函数归一化：与生成器共用同一套最终态规则
+import glob
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-# Organization 的 @id 由全站唯一数据源提供，不硬编码。
-ORG_FILE = os.path.join("scripts", "org_entity.json")
-with open(ORG_FILE, encoding="utf-8") as fh:
-    ORG_ID = json.load(fh)["@id"]
-
-# href="xxx.html" / href='xxx.html#' —— 只处理站内相对文件名，外链、锚点、
-# mailto/tel/协议相对 URL 一律跳过。
-HREF_ATTR = re.compile(r'(href\s*=\s*)(["\'])([^"\']*)(\2)')
-REL_HTML = re.compile(r'^([A-Za-z0-9_][A-Za-z0-9_.-]*)\.html((?:[#?].*)?)$')
-
-# 带 class="cn" 的开标签（p / span / div / li / …）。
-CN_TAG = re.compile(r'(<[A-Za-z][A-Za-z0-9]*\b[^>]*\bclass="[^"]*\bcn\b[^"]*"[^>]*?)(>)', re.S)
-
-LD_BLOCK = re.compile(r'(<script type="application/ld\+json">)(.*?)(</script>)', re.S)
-
-
-def _href_repl(m):
-    val = m.group(3)
-    hit = REL_HTML.match(val)
-    if not hit:
-        return m.group(0)
-    slug, suffix = hit.group(1), hit.group(2)
-    # 首页用根 URL，其余用 /<slug>；保留 #锚点 与 ?query。
-    clean = "/" if slug == "index" else "/" + slug
-    return m.group(1) + m.group(2) + clean + suffix + m.group(4)
-
-
-def _cn_repl(m):
-    tag = m.group(1)
-    if re.search(r'\blang\s*=', tag):
-        return m.group(0)
-    return tag.rstrip() + ' lang="zh-CN"' + m.group(2)
-
-
-def _ld_repl(m):
-    try:
-        obj = json.loads(m.group(2))
-    except (ValueError, TypeError):
-        return m.group(0)
-    if not isinstance(obj, dict) or obj.get("@type") not in ("Article", "NewsArticle"):
-        return m.group(0)
-    changed = False
-    for key in ("author", "publisher"):
-        v = obj.get(key)
-        if isinstance(v, dict) and v.get("@type") == "Organization":
-            obj[key] = {"@id": ORG_ID}
-            changed = True
-    if not changed:
-        return m.group(0)
-    return m.group(1) + json.dumps(obj, ensure_ascii=False) + m.group(3)
-
-
-def normalize(text):
-    text = HREF_ATTR.sub(_href_repl, text)
-    text = CN_TAG.sub(_cn_repl, text)
-    text = LD_BLOCK.sub(_ld_repl, text)
-    return text
+normalize = html_finalize.normalize
 
 
 def main():
@@ -94,13 +44,15 @@ def main():
     files = sorted(glob.glob("*.html"))
     changed, total = [], 0
     for fn in files:
+        if not io_util.selected(fn):
+            continue
         old = open(fn, encoding="utf-8").read()
         new = normalize(old)
         total += 1
         if new != old:
             changed.append(fn)
             if not check_only:
-                open(fn, "w", encoding="utf-8").write(new)
+                io_util.write_if_changed(fn, new)
     print(f"[site_normalize] 扫描 {total} 个页面，"
           f"{'需要规范化' if check_only else '已规范化'} {len(changed)} 个")
     if changed and len(changed) <= 15:

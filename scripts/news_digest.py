@@ -13,6 +13,9 @@ Pure standard library (no pip installs) so it runs on GitHub Actions' ubuntu run
 """
 
 import os
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
 import re
@@ -318,8 +321,7 @@ def load_state():
 
 
 def save_state(state):
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(state, f, ensure_ascii=False, indent=2)
+    io_util.write_if_changed(STATE_FILE, json.dumps(state, ensure_ascii=False, indent=2))
 
 
 def parse_date(s):
@@ -813,8 +815,7 @@ def rebuild_indexes(today):
            .replace("{CARDS}", "".join(card_html(a) for a in index_arts))
            .replace("{ARCHIVE_NOTE}", note)
            .replace("{LAST}", last))
-    with open(NEWS_INDEX, "w", encoding="utf-8") as f:
-        f.write(idx)
+    io_util.write_final(NEWS_INDEX, idx)
 
     existing = [f for f in os.listdir(ROOT)
                if f.startswith("news-archive") and f.endswith(".html")]
@@ -842,8 +843,7 @@ def rebuild_indexes(today):
                 .replace("{PAGE_TITLE}", "" if p == 1 else f" · Page {p}")
                 .replace("{PAGE_TITLE_ZH}", "" if p == 1 else f" · 第 {p} 页")
                 .replace("{PAGE_H1}", "" if p == 1 else f" · Page {p}"))
-        with open(os.path.join(ROOT, fname), "w", encoding="utf-8") as f:
-            f.write(page)
+        io_util.write_final(os.path.join(ROOT, fname), page)
         needed.add(fname)
         print(f"  archive page {p}/{n_pages}: {fname} ({len(chunk)} posts)")
 
@@ -892,8 +892,7 @@ def main():
     for it in chosen:
         title_en, title_zh = make_titles(it)
         filename, doc = build_post(it, it["cats"], today, title_en, title_zh)
-        with open(os.path.join(ROOT, filename), "w", encoding="utf-8") as f:
-            f.write(doc)
+        io_util.write_final(os.path.join(ROOT, filename), doc)
         posted.add(it["link"])
         generated.append((filename, it["title"], it["cats"]))
         print(f"  + {filename}  [{','.join(it['cats'])}]  {it['title'][:60]}")

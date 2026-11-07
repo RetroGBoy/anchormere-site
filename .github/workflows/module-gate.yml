@@ -1,0 +1,42 @@
+name: Modular workspace gate
+
+# 增量制度的 CI 闸门：注册表自洽 + 分级校验。
+# PR 走全量复审；push 只跑轻量全局不变量；每日 digest 自带增量闸门，
+# 因此跳过 bot 自己的提交，避免重复运行。
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    if: github.actor != 'Anchormere Bot'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Audit module registry
+        run: python3 scripts/workarea.py audit
+
+      - name: Full verification (pull requests)
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/workarea.py verify --all
+
+      - name: Lightweight invariant gate (push / manual)
+        if: github.event_name != 'pull_request'
+        run: python3 scripts/workarea.py verify --gate
+
+      - name: Print handoff state
+        run: python3 scripts/workarea.py handoff

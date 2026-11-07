@@ -4,6 +4,9 @@ Each page is a substantive, bilingual (EN/中文) landing page targeting a high-
 procurement keyword, with internal links, a one-click quote CTA and full SEO/JSON-LD.
 Pure standard library; run manually or wire into the nightly workflow."""
 import os, json, html
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
 
@@ -352,9 +355,10 @@ def main():
     seeds = json.load(open(os.path.join(ROOT, "scripts", "longtail_seeds.json"), encoding="utf-8"))
     n = 0
     for s in seeds:
+        if not io_util.selected(s["slug"] + ".html"):
+            continue
         p = os.path.join(ROOT, s["slug"] + ".html")
-        with open(p, "w", encoding="utf-8") as f:
-            f.write(build_page(s, seeds))
+        io_util.write_final(p, build_page(s, seeds))
         n += 1
         print("  ✓", s["slug"])
     print(f"generated {n} long-tail pages")

@@ -21,6 +21,9 @@ Design notes
 Pure standard library. Run: python3 scripts/build_briefings.py
 """
 import os
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 import re
 import json
 import html
@@ -351,9 +354,10 @@ def render(b):
 def main():
     written = []
     for b in DATA["briefings"]:
+        if not io_util.selected(f"news-{PUBLISHED}-{b['slug']}.html"):
+            continue
         filename, doc = render(b)
-        with open(os.path.join(ROOT, filename), "w", encoding="utf-8") as f:
-            f.write(doc)
+        io_util.write_final(os.path.join(ROOT, filename), doc)
         written.append(filename)
         print(f"  + {filename} ({len(doc)} bytes)")
     print(f"Done. {len(written)} briefing pages written.")

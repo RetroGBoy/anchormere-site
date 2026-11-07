@@ -15,6 +15,9 @@ daily generator and the historical archive never drift apart.
 Run: python3 scripts/enhance_news_citations.py
 """
 import os
+import os as _wa_os, sys as _wa_sys
+_wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
+import io_util  # workarea: write_if_changed / selected
 import re
 import sys
 import json
@@ -148,7 +151,7 @@ def strip_zh_alt(fn):
     t = open(path, encoding="utf-8").read()
     n = len(ZH_ALT_RE.findall(t))
     if n:
-        open(path, "w", encoding="utf-8").write(ZH_ALT_RE.sub("", t))
+        io_util.write_final(path, ZH_ALT_RE.sub("", t))
     return n
 
 
@@ -188,7 +191,7 @@ def process(fn):
     text = add_meta(text, en_title, zh_title)
     text = text.replace('<section class="l1">', MARKER + '\n<section class="l1">', 1)
 
-    open(path, "w", encoding="utf-8").write(text)
+    io_util.write_final(path, text)
     return cat
 
 
@@ -198,6 +201,8 @@ def main():
     stats = {}
     removed = 0
     for fn in files:
+        if not io_util.selected(fn):
+            continue
         removed += strip_zh_alt(fn)
         if 'name="content-kind" content="briefing"' in open(
                 os.path.join(ROOT, fn), encoding="utf-8").read(4000):
