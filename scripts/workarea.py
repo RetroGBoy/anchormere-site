@@ -170,10 +170,15 @@ def module_hash(files):
 def compute_status(reg, st, deep=False, include_frozen=False):
     amap, _ = assign(reg)
     changed = None if deep else git_changed()
-    # HEAD 与基线不同只作信息提示，不强制深扫：state 随代码一起提交，
-    # 提交后 head 天然落后一个 commit，若因此每天全量重算反而浪费。
-    # 新环境/换模型的正确性由 handoff 里的 `status --deep` 显式动作保证。
-    drift = st.get("head") not in (None, git_head())
+    # state 随代码一起提交，所以提交后基线必然落后正好 1 个 commit，属正常。
+    # 只有落后多个（期间有别人/别的模型连续提交）或无法判定时才提示深扫。
+    base = st.get("head")
+    out = git("rev-list", "--count", f"{base}..HEAD") if base and base != "unknown" else None
+    try:
+        dist = int(out) if out is not None else None
+    except (TypeError, ValueError):
+        dist = None
+    drift = dist is None or dist > 1
     rows = []
     for m in reg["modules"]:
         files = amap[m["id"]]
@@ -213,7 +218,7 @@ def cmd_status(a):
     print(f"  HEAD={git_head()}  基线={st.get('head') or '未建立'}"
           f"  模式={'深扫(内容哈希)' if a.deep else '快判(git diff, 零内容读取)'}")
     if drift and not a.deep:
-        print("  [提示] HEAD 与基线不同（新提交/换模型）；首次接手建议先跑 status --deep 复核。")
+        print("  [提示] 基线落后多个提交或无法判定（换机器/换模型/他人连续提交），建议先跑 status --deep 复核。")
     print(f"  {'模块':<17}{'策略':<12}{'文件':>5}  {'状态':<7} 上次验证")
     print("  " + "-" * 74)
     for r in rows:
