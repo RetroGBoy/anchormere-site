@@ -163,12 +163,12 @@ for f in core_pages:
                 for x in tys:
                     if x:
                         all_types.add(x)
-                        if x in ('Organization', 'WebSite', 'Product'):
+                        if x in ('Organization', 'WebSite', 'Service'):
                             page_has_entity = True
     if not page_has_entity:
         per_page_missing += 1
 if per_page_missing:
-    fail(f"{per_page_missing} 个核心页缺少核心实体结构化数据 (Organization/WebSite/Product)")
+    fail(f"{per_page_missing} 个核心页缺少核心实体结构化数据 (Organization/WebSite/Service)")
 else:
     ok("全部核心页均含核心实体结构化数据")
 # ---- 3b. Organization 单一数据源一致性（防 CI 每夜重生漂移） ----
@@ -260,7 +260,29 @@ if wc_bad:
 elif brief_pages:
     ok(f"Article.wordCount 与实际可见正文一致（{len(brief_pages)} 篇简报 / 本次校验 {len(S(wc_checked))} 页）")
 
-for need in ('Organization', 'WebSite', 'Product', 'BreadcrumbList'):
+# ---- 3d. GSC 产品摘要合规（全局不变量，始终全量扫描）----
+# Google 对 @type=Product 强制要求 offers / review / aggregateRating；B2B 询价制
+# 站点无法真实提供，虚构又违反 Search Essentials。方案 A 的最终形态是彻底不声明
+# Product/Offer，改用 Service 承载主题实体。此闸门防止 CI 重生带回旧实体。
+ecom_bad = []
+for f in htmls:                       # 不受 --files / --gate 增量范围影响
+    for b in LD_RE.findall(PAGE[f]):
+        try:
+            o = json.loads(b)
+        except Exception:
+            continue
+        for z in (o if isinstance(o, list) else [o]):
+            if not isinstance(z, dict):
+                continue
+            if z.get('@type') in ('Product', 'Offer') or 'offers' in z or 'aggregateRating' in z:
+                ecom_bad.append(f)
+if ecom_bad:
+    fail(f"存在零售商品结构化数据（GSC 产品摘要问题）: {len(set(ecom_bad))} 页 "
+         + ", ".join(sorted(set(ecom_bad))[:3]))
+else:
+    ok("全站无 Product/Offer/offers 商品结构化数据（GSC 产品摘要合规）")
+
+for need in ('Organization', 'WebSite', 'Service', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")
     else:

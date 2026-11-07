@@ -9,6 +9,7 @@ _wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
 import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
+ORG_ID = json.loads(ORG_LD)["@id"]   # 全站唯一 Organization @id，供 service.provider 串联
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://anchormere.com"
@@ -75,7 +76,7 @@ REVIEW_DATE = "2026-11-07"
 
 # --- SERP display-layer constraints (Google: title ~60 / description ~155 display chars) ---
 # Only <title>/meta/og/twitter are clipped. The on-page <h1>, lead paragraph,
-# BreadcrumbList and Product.name keep the FULL keyword-rich text, so topical
+# BreadcrumbList and Service.name keep the FULL keyword-rich text, so topical
 # coverage and conversion content are never weakened by this display optimization.
 def clip_title(t, limit=60):
     t = html.unescape(t)
@@ -110,7 +111,7 @@ def build_page(seed, all_seeds):
     zh_lede = seed["zh_lede"]
     kw = seed["kw"]
     # SERP display layer: prefer hand-tuned seed overrides, else auto-clip.
-    # en_t / en_lede (full text) still drive h1, lead, BreadcrumbList, Product.name.
+    # en_t / en_lede (full text) still drive h1, lead, BreadcrumbList, Service.name.
     serp_t = seed.get("serp_title") or clip_title(en_t)
     serp_d = seed.get("serp_desc") or clip_desc(en_lede)
     # Fold platform-sourced association terms into the meta keywords (LSI coverage).
@@ -157,14 +158,18 @@ def build_page(seed, all_seeds):
                       "mainEntity": [{"@type": "Question", "name": q,
                                       "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _, _ in all_qa]},
                      ensure_ascii=False)
-    # 仅保留 Product 实体信号（name/brand/description/category/isPartOf），
-    # 主动移除 offers/Offer 电商字段，避免 GSC 将 B2B 采购站误归类为"购物/电商"，
-    # 从而消除"产品摘要/商家信息"27 个错误。实体链 Product→WebSite→Organization 仍保留，不影响 GEO。
+    # B2B 采购服务不是可标价零售商品：改用 Service 实体承载主题信号。
+    # Google 产品摘要对 @type=Product 强制要求 offers / review / aggregateRating；
+    # 本站为询价制、无固定价格与评价体系，虚构这些字段既违反 Search Essentials，
+    # 又会把站点重新误归类为"电商/购物"（方案 A 要消除的正是这一点）。
+    # 关键词仍保留在 name/description/serviceType；实体链经 provider @id 串联
+    # 全站唯一 Organization，BreadcrumbList / FAQPage / WebPage 不受影响。
     prod = json.dumps({
-        "@context": "https://schema.org", "@type": "Product", "name": en_t,
-        "brand": {"@type": "Brand", "name": "Anchormere"},
+        "@context": "https://schema.org", "@type": "Service", "name": en_t,
+        "serviceType": "Greater Bay Area OEM sourcing",
+        "provider": {"@id": ORG_ID},
         "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
-        "description": seed["en_intro"], "category": "Greater Bay Area OEM sourcing"}, ensure_ascii=False)
+        "description": seed["en_intro"]}, ensure_ascii=False)
     org = ORG_LD
     bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},

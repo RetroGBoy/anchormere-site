@@ -104,6 +104,8 @@ assets / config 变更 → 强制跑一次全站全局不变量
 
 红线业务含义：引流、询盘、关键词覆盖、转化路径、GA4 / Consent Mode v2、CTA 跟踪不得因"顺带优化"被改动。需要改时必须显式声明目标文件与理由。
 
+**结构化数据红线**：全站禁止声明 `@type: Product` / `Offer`，也禁止 `offers` / `aggregateRating` 字段。本站是 B2B 询价制、无固定价格与评价体系，Google 产品摘要会强制要求 `Product` 补齐 `offers` / `review` / `aggregateRating`；虚构这些字段既违反 Search Essentials，又会让站点被重新误归类为"电商/购物"。主题实体统一使用 `@type: Service`（关键词保留在 `name` / `description` / `serviceType`，实体链经 `provider.@id` 串联唯一 Organization），由 `verify_seo.py` 的 3d 全局闸门强制，不受增量范围影响。
+
 ---
 
 ## 6. 标准作业流程（SOP）

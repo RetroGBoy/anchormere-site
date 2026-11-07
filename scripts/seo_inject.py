@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """SEO injection across the site (idempotent): static hreflang (en/x-default),
-BreadcrumbList JSON-LD, Product JSON-LD on product pages, and new-category nav anchors."""
+BreadcrumbList JSON-LD, Service JSON-LD on sourcing pages, and new-category nav anchors."""
 import os, re, json, html
 import os as _wa_os, sys as _wa_sys
 _wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
 import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
+ORG_ID = json.loads(ORG_LD)["@id"]   # 全站唯一 Organization @id，供 service.provider 串联
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 PRODUCT_PAGES = {"rack-accessories", "cable-management",
@@ -37,7 +38,7 @@ def inject_head(c, fn):
     NB = r'(?:(?!</script>).)*?'  # non-greedy, stays inside one script block
     c = re.sub(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n?', '', c)
     c = re.sub(r'<script type="application/ld\+json">' + NB + r'BreadcrumbList' + NB + r'</script>\n?', '', c, flags=re.S)
-    c = re.sub(r'<script type="application/ld\+json">' + NB + r'"@type": "Product"' + NB + r'</script>\n?', '', c, flags=re.S)
+    c = re.sub(r'<script type="application/ld\+json">' + NB + r'"@type": "(?:Product|Service)"' + NB + r'</script>\n?', '', c, flags=re.S)
     c = re.sub(r'<script type="application/ld\+json">' + NB + r'"@type": "FAQPage"' + NB + r'</script>\n?', '', c, flags=re.S)
     # Resolve canonical URL
     m = re.search(r'(?:<meta name="canonical"|<link rel="canonical") href="([^"]+)"', c)
@@ -74,19 +75,17 @@ def inject_head(c, fn):
     bc = json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList",
                      "itemListElement": items}, ensure_ascii=False)
     c = c.replace("</head>", f'<script type="application/ld+json">{bc}</script>\n</head>', 1)
-    # 3) Product JSON-LD on product pages
+    # 3) Service JSON-LD on sourcing pages (NOT Product: GSC 商品摘要合规)
     if fn[:-5] in PRODUCT_PAGES:
         dm = re.search(r'<meta name="description" content="([^"]+)"', c)
         desc = html.unescape(dm.group(1)) if dm else title_full
-        prod = json.dumps({
-            "@context": "https://schema.org", "@type": "Product",
-            "name": title_full,
-            "brand": {"@type": "Brand", "name": "Anchormere"},
-            "description": desc,
-            "category": "Greater Bay Area OEM sourcing",
-            "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": "https://anchormere.com"},
-        }, ensure_ascii=False)
-        c = c.replace("</head>", f'<script type="application/ld+json">{prod}</script>\n</head>', 1)
+        srv = json.dumps({
+            "@context": "https://schema.org", "@type": "Service", "name": title_full,
+            "serviceType": "Greater Bay Area OEM sourcing",
+            "provider": {"@id": ORG_ID},
+            "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
+            "description": desc}, ensure_ascii=False)
+        c = c.replace("</head>", f'<script type="application/ld+json">{srv}</script>\n</head>', 1)
     # 3b) FAQPage JSON-LD on homepage + product pages (GEO: machine-readable answers)
     if fn in FAQ_PAGES:
         qa = [{"@type": "Question", "name": q,
@@ -104,6 +103,8 @@ def main():
         changed = 0
         for fn in sorted(os.listdir(ROOT)):
             if not fn.endswith(".html") or fn == "404.html":
+                continue
+            if not io_util.selected(fn):   # workarea: 仅处理显式声明的范围
                 continue
             p = os.path.join(ROOT, fn)
             with open(p, encoding="utf-8") as f:
