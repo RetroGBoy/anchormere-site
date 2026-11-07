@@ -215,12 +215,34 @@ if unsigned:
 else:
     ok(f"E-E-A-T 审核署名与 WebPage.lastReviewed 成对一致（{len(signed)} 页）")
 
-# ---- 3c. 简报 Article.wordCount 必须与实际可见正文相符 ----
-# 早期生成器只统计「英文要点 + 术语释义」，声明值不足页面正文一半，
+# ---- 3c. 文章 Article.wordCount 必须与实际可见正文相符 ----
+# 早期简报生成器只统计「英文要点 + 术语释义」，声明值不足页面正文一半，
 # 属于不实结构化数据。允许 15% 的排版差异（小标题/CTA 是否计入）。
-brief_pages = [f for f in pages if f.startswith('news-2026-11-07-')]
+#
+# 简报按 Article.articleSection == "Sourcing briefing" 语义识别，与文件名日期解耦。
+# 旧实现用 news-2026-11-07- 前缀判定：当日新生成的 digest 页恰好同名前缀，
+# 而 digest 本就不声明 wordCount，于是被误判为不实结构化数据，
+# 2026-11-07 每日任务在闸门处被拦截（未上线、未提交，属正确阻断）。
+def article_lds(f):
+    out = []
+    for b in LD_RE.findall(PAGE[f]):
+        try:
+            o = json.loads(b)
+        except Exception:
+            continue
+        if isinstance(o, dict) and o.get('@type') in ('Article', 'NewsArticle'):
+            out.append(o)
+    return out
+
+
+brief_pages = [f for f in pages
+               if any(o.get('articleSection') == 'Sourcing briefing'
+                      for o in article_lds(f))]
+# 任何主动声明了 wordCount 的文章页同样受校验，防止将来新增文章类型漏检。
+declares_wc = [f for f in pages if any(o.get('wordCount') for o in article_lds(f))]
+wc_checked = list(dict.fromkeys(brief_pages + declares_wc))
 wc_bad = []
-for f in S(brief_pages):
+for f in S(wc_checked):
     t = PAGE[f]
     sec = re.search(r'<section class="l1">.*?</section>', t, re.S)
     if not sec:
@@ -229,20 +251,14 @@ for f in S(brief_pages):
     frag = re.sub(r'<[^>]+>', ' ', frag)
     frag = html.unescape(re.sub(r'\s+', ' ', frag))
     actual = len(re.findall(r"[A-Za-z][A-Za-z'-]+", frag))
-    declared = None
-    for b in LD_RE.findall(t):
-        try:
-            o = json.loads(b)
-        except Exception:
-            continue
-        if isinstance(o, dict) and o.get('@type') == 'Article':
-            declared = o.get('wordCount')
+    declared = next((o['wordCount'] for o in reversed(article_lds(f))
+                     if o.get('wordCount')), None)
     if not declared or not actual or abs(declared - actual) / actual > 0.15:
         wc_bad.append(f"{f}: 声明 {declared} / 实际 {actual}")
 if wc_bad:
     fail(f"Article.wordCount 与实际正文偏差过大: " + "; ".join(wc_bad[:3]))
 elif brief_pages:
-    ok(f"Article.wordCount 与实际可见正文一致（{len(brief_pages)} 篇简报）")
+    ok(f"Article.wordCount 与实际可见正文一致（{len(brief_pages)} 篇简报 / 本次校验 {len(S(wc_checked))} 页）")
 
 for need in ('Organization', 'WebSite', 'Product', 'BreadcrumbList'):
     if need in all_types:
