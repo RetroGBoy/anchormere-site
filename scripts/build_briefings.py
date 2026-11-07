@@ -255,6 +255,7 @@ def render(b):
     terms_html, terms_ld = build_terms(b, page_url)
     sources_html = build_sources(keys)
     internal_html = build_internal(b)
+    # Placeholder only — replaced below with the actual visible-body word count.
     word_count = len(" ".join(p[2] for p in b["points"]).split()) + \
                  len(" ".join(GLOSSARY[k]["en"] for k in b["terms"]).split())
     desc_zh = f"{b['title_zh']}——10 项可核对要点，附官方来源网址标注与专有名词释义。"
@@ -281,7 +282,6 @@ def render(b):
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:title" content="{serp_t} | Anchormere">
 <meta property="og:description" content="{serp_d}">
 <meta property="og:url" content="{page_url}">
@@ -334,6 +334,17 @@ def render(b):
 </div></section>
 {FOOTER.replace('DATE', PUBLISHED)}
 '''
+    # Article.wordCount must describe the whole visible article, not a partial
+    # estimate. Count English words in the rendered <section class="l1"> only:
+    # navigation, footer, JSON-LD and the Chinese data-zh attributes are excluded.
+    # This mirrors the check in scripts/verify_seo.py so the two stay in sync.
+    sec = re.search(r'<section class="l1">.*?</section>', doc, re.S)
+    if sec:
+        frag = re.sub(r'<script.*?</script>', ' ', sec.group(0), flags=re.S)
+        frag = re.sub(r'<[^>]+>', ' ', frag)
+        frag = html.unescape(re.sub(r'\s+', ' ', frag))
+        real_wc = len(re.findall(r"[A-Za-z][A-Za-z'-]+", frag))
+        doc = doc.replace(f'"wordCount": {word_count}', f'"wordCount": {real_wc}', 1)
     return filename, doc
 
 

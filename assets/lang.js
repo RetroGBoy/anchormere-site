@@ -2,7 +2,8 @@
  * Anchormere language switcher — full bilingual engine (EN / 中文).
  * Detection order: saved choice -> Cloudflare Geo (cdn-cgi/trace) -> browser language -> English.
  * Every translatable element carries data-zh (Chinese innerHTML). English is captured once as data-en.
- * Also localizes <title>, meta description/OG/Twitter, element attributes (data-zh-attrs), and emits hreflang.
+ * Also localizes <title>, meta description/OG/Twitter, element attributes (data-zh-attrs),
+ * and emits en / x-default hreflang on pages that have no static declaration.
  */
 (function () {
   "use strict";
@@ -144,7 +145,10 @@
     if (document.querySelector('link[hreflang]')) return;
     var url = location.href.split("#")[0];
     var head = document.head;
-    [["x-default", url], ["en", url], ["zh-CN", url]].forEach(function (p) {
+    // Only en / x-default: the Chinese UI is a client-side rendering of the SAME
+    // document, not a separate zh-CN URL. Declaring zh-CN here would contradict
+    // the static hreflang and advertise a non-existent alternate page.
+    [["x-default", url], ["en", url]].forEach(function (p) {
       var l = document.createElement("link");
       l.rel = "alternate"; l.hreflang = p[0]; l.href = p[1];
       head.appendChild(l);

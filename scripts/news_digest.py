@@ -520,7 +520,6 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:title" content="{serp_t} | Anchormere">
 <meta property="og:description" content="{serp_d}">
 <meta property="og:url" content="{SITE}/{filename}">

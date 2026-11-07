@@ -117,7 +117,17 @@
 | `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页（含权威外链 + 明文 URL 来源标注 + 专有名词 + `citation`）→ `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
 | `scripts/build_briefings.py` | 由 `scripts/briefings.json` 渲染 10 篇采购情报简报（每篇 10 条要点 + 术语表 + 完整 URL 来源标注） | 新增/修订简报内容时 |
 | `scripts/enhance_news_citations.py` | 幂等升级历史 digest 页：补明文 URL 来源标注、类目权威外链、专有名词、`Article.citation` | 生成器模板升级后 |
-| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=18 / WARN=0 / FAIL=0） | 每次改动后 / CI |
+| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=21 / WARN=0 / FAIL=0） | 每次改动后 / CI |
+
+---
+
+## 9. 内容质量与实体权威度（2026-11-07 优化）
+
+- **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。
+- **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
+- **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
+- **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实外部链接，待提供），避免虚构实体信号。
+- **回归清理**：`seo_inject.py` 残留的 `Offer`/`offers` 电商字段已移除，防止重注入时带回 GSC 购物误归类。
 
 ---
 
@@ -130,13 +140,13 @@
 - **根治**：`news_digest.py` 每日生成的新页自动带上述三要素，且引用池与简报共用同一份 `briefings.json`；归档页模板补上 Organization 实体（单一数据源）。CI 每夜重建不会覆盖或漂移。
 - **口径边界**：外链均为编辑性引用，明确声明与来源无隶属、不主张背书；未编造认证或第三方背书。全站 `title>60=0`、`desc>155=0`、377 个 JSON-LD 块全部合法、10 篇简报两两相似度最高 0.469（无 >0.70 组合）。
 
-
 ---
 
-## 9. 内容质量与实体权威度（2026-11-07 优化）
+## 11. 独立复审与验证闭环加固（2026-11-07）
 
-- **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。
-- **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
-- **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
-- **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实外部链接，待提供），避免虚构实体信号。
-- **回归清理**：`seo_inject.py` 残留的 `Offer`/`offers` 电商字段已移除，防止重注入时带回 GSC 购物误归类。
+- **验证脚本自身缺陷**：① 孤儿页检测原先把 `canonical` / `hreflang` 的 `<link href>` 也算作入链，而每页 canonical 都指向自身，导致"无孤儿页"永远 PASS —— 改为只统计 `<a>` 导航链接并排除自引用；② 核心实体检查的 `if` 缩进错误，只检查 `@type` 列表最后一项，已移入循环。
+- **中文替代版本声明统一**：`assets/lang.js` 的 `addHreflang()` 原先注入 `hreflang=zh-CN`（指向同一 URL），与静态 `en` / `x-default` 冲突；49 个新闻页还带 `og:locale:alternate=zh_CN`（其余 60 页没有）。站点无独立中文 URL 且 GEO 不打中文市场，故统一删除，生成器与 `enhance_news_citations.py` 幂等清理均已根治；运行时 `document.documentElement.lang="zh-CN"`（无障碍）保留。
+- **sitemap lastmod 真实性**：原用文件 mtime，CI checkout 会把全站 mtime 重置为当天，109 条 lastmod 全为同一天（虚假全站更新信号）；改为从各页 `Last updated` / `datePublished` / `lastReviewed` 提取，现分布 **9 个不同日期**。同时把首页从 `/index`（线上 308 重定向、与 canonical 不符、且落在健康检查采样区间）改为根 URL `https://anchormere.com/`（200）。
+- **Article.wordCount 准确性**：简报原只统计英文要点 + 术语释义，声明 343–437 词，实际可见正文 774–1005 词；改为按渲染后 `<section class="l1">` 统计可见英文词，10 篇声明值与实际**完全一致**。
+- **验证闭环**：`verify_seo.py` 由 18 项扩到 **21 项**（新增中文版本声明、wordCount、sitemap lastmod 三项），当前 **PASS=21 / WARN=0 / FAIL=0**。已模拟 CI 生成新 digest 页，确认无 `zh_CN` 声明、引用/术语/citation/日期/canonical 齐全，重建不漂移。
+- **核心目标不变**：引流、询盘、关键词覆盖、转化路径与全部外链/正文内容未削弱；以上均为技术性、标准合规类硬修复。

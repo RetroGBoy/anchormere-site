@@ -5,18 +5,21 @@ SEO 验证闭环 (Verification Loop)
 ===============================
 对站内技术 SEO 关键不变量做一致性自检，可在本地或 CI 中重复运行：
   - hreflang 合法性（无 zh-CN、无“不同语言指向同一 URL”的冲突声明）
-  - 孤儿页检测（sitemap 内但无任何站内入链的页面）
+  - 中文替代版本声明口径一致（hreflang / og:locale:alternate / lang.js）
+  - 孤儿页检测（仅计 <a> 导航链接，排除 canonical/hreflang 自引用）
   - JSON-LD 解析与核心实体类型覆盖
   - Organization 单一数据源一致性（全站含 news-* 与 scripts/org_entity.json 完全一致）
   - E-E-A-T 审核署名与 WebPage.lastReviewed 成对一致
+  - 简报 Article.wordCount 与实际可见正文一致
   - canonical 存在且与扩展名省略式 URL 一致
+  - sitemap lastmod 为合法且按内容分布的真实日期（防 CI mtime 漂移）
   - robots.txt 放行主流 AI 爬虫（GEO 前提）
   - IndexNow key 落地
   - GSC / Bing 验证 meta：仅当仍为 REPLACE 占位符时 WARN；已删除(meta 非必须)或已填真实码则视为闭环通过
 
 退出码：0 = 全部 PASS；1 = 存在 FAIL；2 = 仅 WARN。
 """
-import os, re, json, sys
+import os, re, json, sys, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -68,29 +71,44 @@ if zh_count:
 else:
     ok("无 hreflang=zh-CN 虚假声明")
 
+# ---- 1b. 中文替代版本声明口径一致性 ----
+# 站点为同一 URL 的双语 UI，没有独立中文页面；hreflang 只声明 en / x-default。
+# 因此 OG 的 og:locale:alternate=zh_CN 与 lang.js 运行时注入的 zh-CN hreflang
+# 都属于「不存在的中文版本」信号，必须一并禁止，避免与静态口径冲突。
+zh_decl = []
+for f in htmls:
+    t = open(f, encoding='utf-8').read()
+    if re.search(r'og:locale:alternate"\s+content="zh', t):
+        zh_decl.append(f)
+LANG_JS = os.path.join('assets', 'lang.js')
+if os.path.exists(LANG_JS):
+    lj = open(LANG_JS, encoding='utf-8').read()
+    if re.search(r'\[\s*"zh-CN"\s*,\s*url\s*\]', lj):
+        zh_decl.append('assets/lang.js (addHreflang)')
+if zh_decl:
+    fail(f"仍声明不存在的中文替代版本（{len(zh_decl)} 处）: " + ", ".join(zh_decl[:4]))
+else:
+    ok("无 zh_CN 替代版本声明（hreflang / OG / lang.js 口径一致）")
+
 # ---- 2. 孤儿页检测 ----
-refs = set()
+# 只统计真实可点击的 <a href> 站内链接。canonical / hreflang 等 <link href>
+# 是资源声明而非导航入链，且每个页面的 canonical 都指向自身；若把它们计入，
+# 任何页面都会「自链成功」，孤儿页检测将永远通过（历史缺陷）。页面自引用也不算入链。
+A_HREF_RE = re.compile(r'<a\s[^>]*href="([^"]+)"', re.I)
+slugs = {f[:-5] for f in htmls}
+inlinks = set()
 for f in htmls:
     t = open(f, encoding='utf-8').read()
-    for h in HREF_RE.findall(t):
+    self_slug = norm(f)
+    for h in A_HREF_RE.findall(t):
         n = norm(h)
-        if n and n.endswith('.html') is False:
-            pass
-        if n:
-            refs.add(n)
-# 仅统计站内 .html（去掉扩展名后的 slug）
-ref_slugs = set()
-for f in htmls:
-    t = open(f, encoding='utf-8').read()
-    for h in HREF_RE.findall(t):
-        n = norm(h)
-        if n in {x[:-5] for x in htmls}:
-            ref_slugs.add(n)
-orphans = [f for f in pages if norm(f) not in ref_slugs]
+        if n in slugs and n != self_slug:
+            inlinks.add(n)
+orphans = [f for f in pages if norm(f) not in inlinks]
 if orphans:
     fail(f"孤儿页（无站内入链）: {', '.join(orphans)}")
 else:
-    ok("无孤儿页：所有索引页均有站内入链")
+    ok("无孤儿页：所有索引页均有站内入链（仅计 <a> 导航链接）")
 
 # ---- 3. JSON-LD 解析 + 核心实体 ----
 # 核心页（news-* 为非核心资讯页，按既定策略保持原样，不强制实体数据）
@@ -117,9 +135,10 @@ for f in core_pages:
                 ty = oj.get('@type')
                 tys = ty if isinstance(ty, list) else [ty]
                 for x in tys:
-                    if x: all_types.add(x)
-                if x in ('Organization', 'WebSite', 'Product'):
-                    page_has_entity = True
+                    if x:
+                        all_types.add(x)
+                        if x in ('Organization', 'WebSite', 'Product'):
+                            page_has_entity = True
     if not page_has_entity:
         per_page_missing += 1
 if per_page_missing:
@@ -170,6 +189,35 @@ if unsigned:
 else:
     ok(f"E-E-A-T 审核署名与 WebPage.lastReviewed 成对一致（{len(signed)} 页）")
 
+# ---- 3c. 简报 Article.wordCount 必须与实际可见正文相符 ----
+# 早期生成器只统计「英文要点 + 术语释义」，声明值不足页面正文一半，
+# 属于不实结构化数据。允许 15% 的排版差异（小标题/CTA 是否计入）。
+brief_pages = [f for f in pages if f.startswith('news-2026-11-07-')]
+wc_bad = []
+for f in brief_pages:
+    t = open(f, encoding='utf-8').read()
+    sec = re.search(r'<section class="l1">.*?</section>', t, re.S)
+    if not sec:
+        continue
+    frag = re.sub(r'<script.*?</script>', ' ', sec.group(0), flags=re.S)
+    frag = re.sub(r'<[^>]+>', ' ', frag)
+    frag = html.unescape(re.sub(r'\s+', ' ', frag))
+    actual = len(re.findall(r"[A-Za-z][A-Za-z'-]+", frag))
+    declared = None
+    for b in LD_RE.findall(t):
+        try:
+            o = json.loads(b)
+        except Exception:
+            continue
+        if isinstance(o, dict) and o.get('@type') == 'Article':
+            declared = o.get('wordCount')
+    if not declared or not actual or abs(declared - actual) / actual > 0.15:
+        wc_bad.append(f"{f}: 声明 {declared} / 实际 {actual}")
+if wc_bad:
+    fail(f"Article.wordCount 与实际正文偏差过大: " + "; ".join(wc_bad[:3]))
+elif brief_pages:
+    ok(f"Article.wordCount 与实际可见正文一致（{len(brief_pages)} 篇简报）")
+
 for need in ('Organization', 'WebSite', 'Product', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")
@@ -192,6 +240,22 @@ if canon_missing:
     fail(f"{canon_missing} 个页面缺少 canonical")
 else:
     ok("canonical 全部存在且与 URL 一致")
+
+# ---- 4b. sitemap lastmod 必须是真实的、按内容分布的日期 ----
+# 若用文件 mtime，CI checkout 会把全站 mtime 重置为当天，产生「全站每天
+# 全量更新」的虚假信号，Google 会忽略不可信的 lastmod。
+if not os.path.exists('sitemap.xml'):
+    fail("缺少 sitemap.xml")
+else:
+    sm = open('sitemap.xml', encoding='utf-8').read()
+    locs = re.findall(r'<loc>(.*?)</loc>', sm)
+    lms = re.findall(r'<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>', sm)
+    if len(lms) != len(locs) or not lms:
+        fail(f"sitemap lastmod 缺失或格式非法（loc={len(locs)}, lastmod={len(lms)}）")
+    elif len(set(lms)) < 2:
+        fail(f"sitemap 全部 {len(lms)} 条 lastmod 相同（疑似 mtime 漂移，信号不可信）")
+    else:
+        ok(f"sitemap {len(lms)} 条 lastmod 合法且按内容分布（{len(set(lms))} 个不同日期）")
 
 # ---- 5. robots.txt 放行 AI 爬虫 ----
 if os.path.exists('robots.txt'):

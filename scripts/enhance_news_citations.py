@@ -133,6 +133,24 @@ def add_meta(text, en_title, zh_title):
     return text[:m.end()] + extra + text[m.end():]
 
 
+ZH_ALT_RE = re.compile(r'<meta property="og:locale:alternate"[^>]*>\s*\n?')
+
+
+def strip_zh_alt(fn):
+    """Keep the no-separate-Chinese-URL invariant idempotent.
+
+    The Chinese UI is a client-side rendering of the same document, so any
+    og:locale:alternate=zh_CN on a historical digest is a false alternate-page
+    signal. Generators no longer emit it; this cleans already-generated pages.
+    """
+    path = os.path.join(ROOT, fn)
+    t = open(path, encoding="utf-8").read()
+    n = len(ZH_ALT_RE.findall(t))
+    if n:
+        open(path, "w", encoding="utf-8").write(ZH_ALT_RE.sub("", t))
+    return n
+
+
 def process(fn):
     path = os.path.join(ROOT, fn)
     text = open(path, encoding="utf-8").read()
@@ -177,7 +195,9 @@ def main():
     files = sorted(f for f in os.listdir(ROOT)
                    if f.startswith("news-20") and f.endswith(".html"))
     stats = {}
+    removed = 0
     for fn in files:
+        removed += strip_zh_alt(fn)
         if 'name="content-kind" content="briefing"' in open(
                 os.path.join(ROOT, fn), encoding="utf-8").read(4000):
             continue  # 10 篇简报已有完整引用，跳过
@@ -187,7 +207,8 @@ def main():
             print(f"  [FAIL] {fn}: {e}")
             return 1
         stats[r] = stats.get(r, 0) + 1
-    print("增强完成：", ", ".join(f"{k}={v}" for k, v in sorted(stats.items())))
+    print("增强完成：", ", ".join(f"{k}={v}" for k, v in sorted(stats.items())),
+          f"| 清理 zh_CN 替代版本声明 {removed} 处")
     return 0
 
 
