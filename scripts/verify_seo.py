@@ -13,6 +13,9 @@ SEO 验证闭环 (Verification Loop)
   - 简报 Article.wordCount 与实际可见正文一致
   - canonical 存在且与扩展名省略式 URL 一致
   - sitemap lastmod 为合法且按内容分布的真实日期（防 CI mtime 漂移）
+  - 站内链接统一为 clean URL（无 .html 308 跳转，与 canonical 一致）
+  - 中文片段带 lang="zh-CN"（WCAG 2.1 AA 3.1.2）
+  - Article author/publisher 以 @id 串联唯一 Organization 实体
   - robots.txt 放行主流 AI 爬虫（GEO 前提）
   - IndexNow key 落地
   - GSC / Bing 验证 meta：仅当仍为 REPLACE 占位符时 WARN；已删除(meta 非必须)或已填真实码则视为闭环通过
@@ -291,6 +294,55 @@ elif 'REPLACE' in bing.group(1):
     warn("Bing 验证码仍为占位符，待在 Bing Webmaster 添加站点后填入")
 else:
     ok("Bing 验证 meta 已填入")
+
+# ---- 8. 站内链接统一为 clean URL（避免 .html 308 跳转）----
+# Cloudflare Pages 把 /about.html 308 到 /about，而 canonical / sitemap 均为
+# 无扩展名形式；继续链到 .html 既多一次跳转，也与 canonical 自相矛盾。
+LEGACY_LINK = re.compile(r'''<a\s[^>]*href=["']([^"':#]+\.html)(?:[#?][^"']*)?["']''', re.I)
+legacy = []
+for f in htmls:
+    n = len(LEGACY_LINK.findall(open(f, encoding='utf-8').read()))
+    if n:
+        legacy.append((f, n))
+if legacy:
+    fail(f"{len(legacy)} 页仍有 .html 站内链接（共 {sum(n for _, n in legacy)} 处，"
+         f"线上 308 且与 canonical 不一致）: " + ", ".join(x for x, _ in legacy[:4]))
+else:
+    ok("站内链接全部为 clean URL，与 canonical / sitemap 一致（无 .html 308 跳转）")
+
+# ---- 9. 中文片段语言声明（WCAG 2.1 AA 3.1.2 Language of Parts）----
+# 中文 UI 是同一文档的客户端渲染，lang.js 切换根 lang 时中文片段仍是中文，
+# 因此静态 lang="zh-CN" 在两种状态下都成立。
+CN_RE = re.compile(r'<[A-Za-z][A-Za-z0-9]*\b[^>]*\bclass="[^"]*\bcn\b[^"]*"[^>]*>', re.S)
+cn_total = cn_bad = 0
+for f in htmls:
+    for tag in CN_RE.findall(open(f, encoding='utf-8').read()):
+        cn_total += 1
+        if not re.search(r'\blang\s*=', tag):
+            cn_bad += 1
+if cn_bad:
+    fail(f"{cn_bad}/{cn_total} 个中文片段缺 lang=\"zh-CN\"（WCAG 2.1 AA 3.1.2）")
+else:
+    ok(f"中文片段语言声明完整（{cn_total} 处均带 lang=\"zh-CN\"，WCAG 3.1.2）")
+
+# ---- 10. Article 实体 @id 串联（不内联重复 Organization）----
+inline = []
+for f in htmls:
+    for b in LD_RE.findall(open(f, encoding='utf-8').read()):
+        try:
+            o = json.loads(b)
+        except (ValueError, TypeError):
+            continue
+        if isinstance(o, dict) and o.get('@type') in ('Article', 'NewsArticle'):
+            for k in ('author', 'publisher'):
+                v = o.get(k)
+                if isinstance(v, dict) and '@id' not in v:
+                    inline.append((f, k))
+if inline:
+    fail(f"{len(inline)} 处 Article author/publisher 仍内联 Organization（应以 @id 引用单一实体）: "
+         + ", ".join(x for x, _ in inline[:4]))
+else:
+    ok("Article author/publisher 均以 @id 串联全站唯一 Organization 实体")
 
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")

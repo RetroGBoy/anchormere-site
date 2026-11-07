@@ -29,14 +29,16 @@ SITE = "https://anchormere.com"
 
 # Pages whose <head> MUST carry hreflang alternates.
 HREFLANG_REQUIRED = {
-    "/", "/news", "/news-archive.html",
+    "/", "/news", "/news-archive",
 }
 # Other key pages to status-check (subset of the full sitemap).
+# Clean URLs only: /about.html is 308-redirected by Cloudflare Pages and would
+# mask the real status. Keep this list in sync with sitemap.xml / canonical.
 CORE_PAGES = [
-    "/", "/about.html", "/contact.html", "/capabilities.html",
-    "/supply-base.html", "/news.html", "/privacy.html", "/terms.html",
-    "/rack-accessories.html", "/consumer-smart-electronics.html",
-    "/smart-toys-devices.html", "/cable-management.html",
+    "/", "/about", "/contact", "/capabilities",
+    "/supply-base", "/news", "/privacy", "/terms",
+    "/rack-accessories", "/consumer-smart-electronics",
+    "/smart-toys-devices", "/cable-management",
 ]
 
 # Contact / tracking invariants that must not silently regress.
@@ -169,7 +171,7 @@ def main():
     _, consent, _ = fetch(SITE + "/assets/consent.js")
     check("GA4 id present in consent.js", EXPECT["GA4_ID"] in consent,
           "GA4 id missing")
-    _, contact, _ = fetch(SITE + "/contact.html")
+    _, contact, _ = fetch(SITE + "/contact")
     check("Web3Forms access_key present", EXPECT["WEB3FORMS_KEY"] in contact,
           "access_key missing")
     check("WhatsApp number present", EXPECT["WHATSAPP"] in contact,
@@ -184,8 +186,7 @@ def main():
     # ---- 5. internal dead-link sweep (sampled) -----------------------------
     print("\n[5] internal link sweep (sampled)")
     seen = set()
-    to_check = ["/", "/news.html", "/contact.html", "/supply-base.html",
-                "/index.html"]
+    to_check = ["/", "/news", "/contact", "/supply-base", "/news-archive"]
     dead = 0
     checked = 0
     for p in to_check:

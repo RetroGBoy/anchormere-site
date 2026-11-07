@@ -117,7 +117,8 @@
 | `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页（含权威外链 + 明文 URL 来源标注 + 专有名词 + `citation`）→ `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
 | `scripts/build_briefings.py` | 由 `scripts/briefings.json` 渲染 10 篇采购情报简报（每篇 10 条要点 + 术语表 + 完整 URL 来源标注） | 新增/修订简报内容时 |
 | `scripts/enhance_news_citations.py` | 幂等升级历史 digest 页：补明文 URL 来源标注、类目权威外链、专有名词、`Article.citation` | 生成器模板升级后 |
-| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=21 / WARN=0 / FAIL=0） | 每次改动后 / CI |
+| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=24 / WARN=0 / FAIL=0，含 clean URL 内链 / WCAG lang / 实体 @id 串联等 24 项） | 每次改动后 / CI 提交前闸门 |
+| `scripts/site_normalize.py` | 幂等规范化全站 HTML：clean URL 内链、中文片段 `lang="zh-CN"`、Article author/publisher 以 `@id` 串联 Organization；只在内容变化时写文件 | CI 每日 digest 后、sitemap 前；本地生成页后也一样 |
 
 ---
 
@@ -135,7 +136,7 @@
 
 - **10 篇全新简报**（非改动既有内容）：跨境电商合规、Incoterms 与到岸成本、OEM/ODM/贴牌、PCBA/SMT 能力表、验厂审核、HS 编码与原产地、出口认证、低 MOQ 试产、充电桩标准、AI 数据中心硬件。每篇 10 条可核对要点，共 **100 条**中英双语内容。
 - **外链与来源标注**：`scripts/briefings.json` 是唯一引用池，含 **45 个已 HTTP 校验（43×200 + 2×202，零死链）** 的公开标准机构 / 政府来源 URL。正文以编辑性引用嵌入外链，页尾 "Sources & references" 逐条打印**完整链接网址**（`Source URL:`），可复制、可点击、可独立核验；`Article.citation` 同步声明引用关系。
-- **专有名词**：76 个行业术语定义（英文释义 + 中文简注），10 篇简报各带 10 条 "Key terms" 词汇表并输出 `DefinedTermSet` 结构化数据；正文术语可点击跳转对应词条。
+- **专有名词**：76 个行业术语定义（英文释义 + 中文简注），10 篇简报各带 10–11 条 "Key terms" 词汇表并输出 `DefinedTermSet` 结构化数据；正文术语可点击跳转对应词条。
 - **既有 42 篇 digest 页**：按类目补 2 个权威外链、1 个轮转专有名词、明文 URL 来源标注与 `Article.citation`；`content-kind` / `card-title` meta 让索引卡片区分「采购情报简报」与「自动摘要」。
 - **根治**：`news_digest.py` 每日生成的新页自动带上述三要素，且引用池与简报共用同一份 `briefings.json`；归档页模板补上 Organization 实体（单一数据源）。CI 每夜重建不会覆盖或漂移。
 - **口径边界**：外链均为编辑性引用，明确声明与来源无隶属、不主张背书；未编造认证或第三方背书。全站 `title>60=0`、`desc>155=0`、377 个 JSON-LD 块全部合法、10 篇简报两两相似度最高 0.469（无 >0.70 组合）。
@@ -150,3 +151,16 @@
 - **Article.wordCount 准确性**：简报原只统计英文要点 + 术语释义，声明 343–437 词，实际可见正文 774–1005 词；改为按渲染后 `<section class="l1">` 统计可见英文词，10 篇声明值与实际**完全一致**。
 - **验证闭环**：`verify_seo.py` 由 18 项扩到 **21 项**（新增中文版本声明、wordCount、sitemap lastmod 三项），当前 **PASS=21 / WARN=0 / FAIL=0**。已模拟 CI 生成新 digest 页，确认无 `zh_CN` 声明、引用/术语/citation/日期/canonical 齐全，重建不漂移。
 - **核心目标不变**：引流、询盘、关键词覆盖、转化路径与全部外链/正文内容未削弱；以上均为技术性、标准合规类硬修复。
+
+---
+
+## 12. 第三轮独立复审：内链口径、无障碍与 CI 闸门（2026-11-07）
+
+- **内链 308 重定向**：全站 110 页共 **3785 个 `.html` 站内链接**，线上统一被 Cloudflare Pages 308 到无扩展名 URL，而 canonical / sitemap 早已是无扩展名 —— 内部链接与权威 URL 自相矛盾、每次点击多一跳。新增 `scripts/site_normalize.py`（幂等，只在内容变化时写文件）统一改为 clean URL（`index.html` → `/`，其余 → `/<slug>`），并在 CI 每日 digest 后自动调用；`health_check.py` 的检查目标同步改为 clean URL，避免脚本自身仍依赖 308 路径。
+- **WCAG 2.1 AA 3.1.2**：全站 **1133 个中文片段**（852 个 `<p class="cn">` + 281 个 `<span>`）在英文默认状态下无 `lang`，属于 Language of Parts 不达标。统一补 `lang="zh-CN"`；因中文 UI 是同一文档的客户端渲染，`lang.js` 把根 `lang` 切到 `zh-CN` 时这些片段仍是中文，两种状态均成立，无冲突。
+- **实体串联**：52 篇新闻/简报的 `Article.author` / `publisher` 原先内联重复 Organization 对象，页面另有 `@id=https://anchormere.com/#organization` 的完整实体块。改为 `{"@id": ...}` 引用，让实体图串联（对应最初「实体结构化数据串联」方向）；`@id` 读取 `org_entity.json`，不硬编码。
+- **页内死锚**：低 MOQ 简报正文两处引用 `[[nnn|NNN agreement]]`，但 `nnn` 不在该页术语列表，渲染出 2 个 `#term-nnn` 死锚。数据源 `briefings.json` 把 `nnn` 补入该页 `terms`（NNN 定义本就在 glossary），重生成后 `DefinedTermSet` 与页内 id 对齐；全站页内死锚 0。
+- **CI 质量闸门**：`news-auto.yml` 每日自动 `git push`，此前**从不运行验证脚本**（历史上 CI 曾把 `zh-CN` / `Offer` 残留带回）。现于 commit 前插入 `python3 scripts/verify_seo.py`，任一 FAIL 即终止任务、不提交；并新增 normalize 步骤，防止新生成页把旧口径带回来。
+- **验证闭环**：`verify_seo.py` 由 21 项扩到 **24 项**（新增 clean URL 内链、中文片段 lang、Article 实体 @id 串联），当前 **PASS=24 / WARN=0 / FAIL=0**。整条生成链路重跑前后文件哈希完全一致（幂等）；CI 模拟新 digest 页经规范化后 10 项不变量全通过。
+- **终检数据**：110 HTML / 109 页面；`title>60=0`、`desc>155=0`、377 个 JSON-LD 块全部合法、页内死锚 0、外链缺 `noopener` 0、站内 `.html` 链接残留 0、中文块缺 lang 0、口径残留（`certified factories` / `no MOQ` / `Offer` / `Formspree` / `zh-CN hreflang`）全 0；简报两两相似度最高 0.469（无 >0.70 组合）。
+- **核心目标不变**：引流、询盘、关键词覆盖、转化路径与全部外链/正文内容未削弱；以上均为技术性、标准合规类硬修复，按长期授权直接执行。

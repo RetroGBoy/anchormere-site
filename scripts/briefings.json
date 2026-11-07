@@ -1,2152 +1,2153 @@
 {
- "version": "1.0",
- "published": "2026-11-07",
- "note": "All outbound URLs were HTTP-verified on 2026-11-07. Full URLs are rendered as visible source attributions on every briefing page.",
- "sources": {
-  "wto": {
-   "name": "World Trade Organization",
-   "url": "https://www.wto.org/",
-   "title": "WTO — trade rules and market access",
-   "zh": "世界贸易组织"
-  },
-  "wto_tariffs": {
-   "name": "World Trade Organization",
-   "url": "https://www.wto.org/english/tratop_e/tariffs_e/tariffs_e.htm",
-   "title": "WTO — tariffs and trade data",
-   "zh": "WTO 关税与贸易数据"
-  },
-  "wto_roo": {
-   "name": "World Trade Organization",
-   "url": "https://www.wto.org/english/tratop_e/roo_e/roo_e.htm",
-   "title": "WTO — rules of origin",
-   "zh": "WTO 原产地规则"
-  },
-  "wto_tradfa": {
-   "name": "World Trade Organization",
-   "url": "https://www.wto.org/english/tratop_e/tradfa_e/tradfa_e.htm",
-   "title": "WTO — Trade Facilitation Agreement",
-   "zh": "WTO 贸易便利化协定"
-  },
-  "icc": {
-   "name": "International Chamber of Commerce (ICC)",
-   "url": "https://iccwbo.org/business-solutions/incoterms-rules/",
-   "title": "ICC — Incoterms 2020 rules",
-   "zh": "国际商会 Incoterms 2020"
-  },
-  "wco_hs": {
-   "name": "World Customs Organization (WCO)",
-   "url": "https://www.wcoomd.org/en/topics/nomenclature/overview/what-is-the-harmonized-system.aspx",
-   "title": "WCO — what is the Harmonized System (HS)",
-   "zh": "世界海关组织 HS 体系"
-  },
-  "hts": {
-   "name": "U.S. International Trade Commission",
-   "url": "https://hts.usitc.gov/",
-   "title": "Harmonized Tariff Schedule of the United States (HTS)",
-   "zh": "美国协调关税表"
-  },
-  "eu_taxation": {
-   "name": "European Commission — Taxation & Customs Union",
-   "url": "https://taxation-customs.ec.europa.eu/",
-   "title": "EU customs procedures and EORI",
-   "zh": "欧盟税务与海关总司"
-  },
-  "single_market": {
-   "name": "European Commission — Single Market Economy",
-   "url": "https://single-market-economy.ec.europa.eu/",
-   "title": "EU goods and conformity assessment",
-   "zh": "欧盟单一市场与合格评定"
-  },
-  "eu_rohs": {
-   "name": "European Commission — Environment",
-   "url": "https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en",
-   "title": "EU RoHS Directive — restricted substances",
-   "zh": "欧盟 RoHS 指令"
-  },
-  "eurlex_rohs": {
-   "name": "EUR-Lex",
-   "url": "https://eur-lex.europa.eu/eli/dir/2011/65/",
-   "title": "Directive 2011/65/EU (RoHS) — full legal text",
-   "zh": "RoHS 指令法律全文"
-  },
-  "ukca": {
-   "name": "UK Government (GOV.UK)",
-   "url": "https://www.gov.uk/guidance/using-the-ukca-marking",
-   "title": "Using the UKCA marking",
-   "zh": "英国 UKCA 标志使用指南"
-  },
-  "trade_gov": {
-   "name": "International Trade Administration (ITA)",
-   "url": "https://www.trade.gov/",
-   "title": "ITA — U.S. import and export guidance",
-   "zh": "美国国际贸易管理局"
-  },
-  "ccg": {
-   "name": "International Trade Administration",
-   "url": "https://www.trade.gov/country-commercial-guides",
-   "title": "Country Commercial Guides",
-   "zh": "国别商业指南"
-  },
-  "trade_export": {
-   "name": "International Trade Administration",
-   "url": "https://www.trade.gov/export-solutions",
-   "title": "Export solutions and documentation",
-   "zh": "出口方案与单证"
-  },
-  "comtrade": {
-   "name": "United Nations Comtrade",
-   "url": "https://comtradeplus.un.org/",
-   "title": "UN Comtrade Plus — bilateral trade data",
-   "zh": "联合国商品贸易数据库"
-  },
-  "unstats": {
-   "name": "UN Statistics Division",
-   "url": "https://unstats.un.org/",
-   "title": "UN statistical databases",
-   "zh": "联合国统计司"
-  },
-  "worldbank_trade": {
-   "name": "World Bank",
-   "url": "https://www.worldbank.org/en/topic/trade",
-   "title": "World Bank — trade indicators",
-   "zh": "世界银行贸易专题"
-  },
-  "exim": {
-   "name": "Export-Import Bank of the United States",
-   "url": "https://www.exim.gov/",
-   "title": "EXIM — trade finance",
-   "zh": "美国进出口银行"
-  },
-  "ipc": {
-   "name": "IPC — Association Connecting Electronics Industries",
-   "url": "https://www.ipc.org/",
-   "title": "IPC standards for electronics assembly",
-   "zh": "IPC 电子组装标准"
-  },
-  "usb_docs": {
-   "name": "USB Implementers Forum (USB-IF)",
-   "url": "https://www.usb.org/documents",
-   "title": "USB-IF specifications and compliance documents",
-   "zh": "USB-IF 规范与合规文件"
-  },
-  "nist": {
-   "name": "National Institute of Standards and Technology",
-   "url": "https://www.nist.gov/",
-   "title": "NIST — standards and measurement",
-   "zh": "美国国家标准与技术研究院"
-  },
-  "nist_standards": {
-   "name": "NIST",
-   "url": "https://www.nist.gov/standards",
-   "title": "NIST standards and conformity assessment",
-   "zh": "NIST 标准与合格评定"
-  },
-  "nist_pml": {
-   "name": "NIST Physical Measurement Laboratory",
-   "url": "https://www.nist.gov/pml",
-   "title": "NIST PML — measurement science",
-   "zh": "NIST 物理测量实验室"
-  },
-  "iec": {
-   "name": "International Electrotechnical Commission (IEC)",
-   "url": "https://www.iec.ch/",
-   "title": "IEC — international electrotechnical standards",
-   "zh": "国际电工委员会"
-  },
-  "iec_webstore": {
-   "name": "IEC Webstore",
-   "url": "https://webstore.iec.ch/",
-   "title": "IEC standards catalogue",
-   "zh": "IEC 标准目录"
-  },
-  "iecee": {
-   "name": "IECEE — IEC Conformity Assessment Schemes",
-   "url": "https://www.iecee.org/",
-   "title": "IECEE CB Scheme",
-   "zh": "IECEE CB 体系"
-  },
-  "ul_cert": {
-   "name": "UL Solutions",
-   "url": "https://www.ul.com/services/certification",
-   "title": "UL certification services",
-   "zh": "UL 认证服务"
-  },
-  "gs1": {
-   "name": "GS1",
-   "url": "https://www.gs1.org/",
-   "title": "GS1 — GTIN and supply-chain identifiers",
-   "zh": "GS1 全球统一标识"
-  },
-  "wipo": {
-   "name": "World Intellectual Property Organization (WIPO)",
-   "url": "https://www.wipo.int/en/web/wipo",
-   "title": "WIPO — intellectual property protection",
-   "zh": "世界知识产权组织"
-  },
-  "uspto": {
-   "name": "U.S. Patent and Trademark Office",
-   "url": "https://www.uspto.gov/trademarks",
-   "title": "USPTO — trademarks",
-   "zh": "美国专利商标局"
-  },
-  "amfori": {
-   "name": "amfori",
-   "url": "https://www.amfori.org/",
-   "title": "amfori BSCI — supply-chain social compliance",
-   "zh": "amfori BSCI 社会责任"
-  },
-  "energystar": {
-   "name": "ENERGY STAR (U.S. EPA)",
-   "url": "https://www.energystar.gov/",
-   "title": "ENERGY STAR — energy efficiency",
-   "zh": "能源之星能效"
-  },
-  "epa": {
-   "name": "U.S. Environmental Protection Agency",
-   "url": "https://www.epa.gov/",
-   "title": "EPA — chemical and product regulation",
-   "zh": "美国环保署"
-  },
-  "energygov": {
-   "name": "U.S. Department of Energy",
-   "url": "https://www.energy.gov/",
-   "title": "DOE — vehicle and energy technologies",
-   "zh": "美国能源部"
-  },
-  "bicsi": {
-   "name": "BICSI",
-   "url": "https://www.bicsi.org/",
-   "title": "BICSI — ICT cabling and data-center standards",
-   "zh": "BICSI 布线与数据中心标准"
-  },
-  "etsi": {
-   "name": "ETSI",
-   "url": "https://www.etsi.org/",
-   "title": "ETSI — European ICT standards",
-   "zh": "欧洲电信标准协会"
-  },
-  "bluetooth": {
-   "name": "Bluetooth SIG",
-   "url": "https://www.bluetooth.com/",
-   "title": "Bluetooth SIG — qualification and specifications",
-   "zh": "蓝牙技术联盟"
-  },
-  "wifi": {
-   "name": "Wi-Fi Alliance",
-   "url": "https://www.wi-fi.org/",
-   "title": "Wi-Fi Alliance — certification",
-   "zh": "Wi-Fi 联盟"
-  },
-  "sae": {
-   "name": "SAE International",
-   "url": "https://www.sae.org/",
-   "title": "SAE — mobility engineering standards",
-   "zh": "国际自动机工程师学会"
-  },
-  "charin": {
-   "name": "CharIN e.V.",
-   "url": "https://www.charin.global/technology/",
-   "title": "CharIN — Combined Charging System (CCS)",
-   "zh": "CharIN 联合充电系统"
-  },
-  "chademo": {
-   "name": "CHAdeMO Association",
-   "url": "https://www.chademo.com/",
-   "title": "CHAdeMO — DC fast-charging standard",
-   "zh": "CHAdeMO 直流快充标准"
-  },
-  "ocp": {
-   "name": "Open Compute Project (OCP)",
-   "url": "https://github.com/OpenComputeProject",
-   "title": "OCP — open data-center hardware specifications (official repository)",
-   "zh": "开放计算项目"
-  },
-  "uptime": {
-   "name": "Uptime Institute",
-   "url": "https://uptimeinstitute.com/resources",
-   "title": "Uptime Institute — Tier Standard and resources",
-   "zh": "Uptime Institute 数据中心资源"
-  },
-  "sia": {
-   "name": "Semiconductor Industry Association (SIA)",
-   "url": "https://www.semiconductors.org/",
-   "title": "SIA — industry data and policy",
-   "zh": "美国半导体行业协会"
-  }
- },
- "glossary": {
-  "hs_code": {
-   "term": "HS code",
-   "en": "A six-digit Harmonized System classification assigned by the World Customs Organization; countries append their own digits for tariff and statistical lines.",
-   "zh": "世界海关组织制定的 6 位商品编码，各国再延长本国税则子目。"
-  },
-  "hts": {
-   "term": "HTS",
-   "en": "The Harmonized Tariff Schedule: the destination-country tariff schedule built on the HS, used to look up duty rates and statistical suffixes.",
-   "zh": "基于 HS 的目的国关税表，用于查询税率与统计后缀。"
-  },
-  "eori": {
-   "term": "EORI number",
-   "en": "Economic Operators Registration and Identification number: the identifier an importer or exporter needs for customs declarations in the EU.",
-   "zh": "欧盟进出口商办理海关申报所需的经营者注册识别号。"
-  },
-  "gtin": {
-   "term": "GTIN",
-   "en": "Global Trade Item Number: the GS1 identifier behind retail barcodes and marketplace listing keys.",
-   "zh": "GS1 全球贸易项目代码，是零售条码与平台商品标识的基础。"
-  },
-  "incoterms": {
-   "term": "Incoterms",
-   "en": "The ICC's published trade terms (current edition: Incoterms 2020) that allocate delivery, risk, cost and customs responsibility between seller and buyer.",
-   "zh": "国际商会发布的贸易术语（现行为 2020 版），划分买卖双方交货、风险、费用与清关责任。"
-  },
-  "fob": {
-   "term": "FOB (Free On Board)",
-   "en": "Seller clears the goods for export and loads them on the vessel at the named port; risk transfers once on board.",
-   "zh": "卖方完成出口清关并将货物装上指定港口船舶，风险在装船后转移。"
-  },
-  "exw": {
-   "term": "EXW (Ex Works)",
-   "en": "Seller only makes goods available at its premises; the buyer carries all transport, export and import formalities.",
-   "zh": "卖方仅在己方场所交货，运输及进出口手续全部由买方承担。"
-  },
-  "dap": {
-   "term": "DAP (Delivered at Place)",
-   "en": "Seller delivers to a named place, ready for unloading; the buyer handles import clearance and duties.",
-   "zh": "卖方运至指定地点（不含卸货），进口清关与税费由买方承担。"
-  },
-  "ddp": {
-   "term": "DDP (Delivered Duty Paid)",
-   "en": "Seller delivers to the named place with import clearance and duties paid — maximum seller obligation.",
-   "zh": "卖方承担进口清关与税费并送达指定地点，卖方义务最大。"
-  },
-  "landed_cost": {
-   "term": "Landed cost",
-   "en": "The full unit cost at the buyer's door: ex-works price, freight, insurance, duties, taxes, handling and compliance spend.",
-   "zh": "货物到达买方仓库的全部单位成本：出厂价、运保费、关税、税费、杂费与合规支出。"
-  },
-  "bill_of_lading": {
-   "term": "Bill of lading",
-   "en": "The carrier-issued document that evidences the contract of carriage, receipt of goods and (for an order B/L) title to the cargo.",
-   "zh": "承运人签发的运输单证，证明运输合同与收货，指示提单还代表货权。"
-  },
-  "rules_of_origin": {
-   "term": "Rules of origin",
-   "en": "The criteria that decide the economic nationality of a good and therefore its tariff treatment and eligibility for preferential rates.",
-   "zh": "判定货物经济国籍的标准，决定适用税率与优惠资格。"
-  },
-  "certificate_of_origin": {
-   "term": "Certificate of origin",
-   "en": "A document attesting where goods were produced, required for preferential tariffs and by some customs authorities.",
-   "zh": "证明货物原产地的文件，优惠税率与部分海关要求提供。"
-  },
-  "customs_valuation": {
-   "term": "Customs valuation",
-   "en": "The method customs uses to assign a dutiable value to imported goods, normally based on the transaction value.",
-   "zh": "海关确定完税价格的方法，通常以成交价格为基础。"
-  },
-  "ad_valorem": {
-   "term": "Ad valorem duty",
-   "en": "A duty calculated as a percentage of the customs value rather than a fixed amount per unit.",
-   "zh": "按完税价格百分比计征的关税，而非按件固定金额。"
-  },
-  "de_minimis": {
-   "term": "De minimis threshold",
-   "en": "The shipment value below which a destination market may waive duties or simplified entry — rules vary by market and change often.",
-   "zh": "目的市场免征关税或简化申报的货值门槛，各市场不同且常调整。"
-  },
-  "ioss": {
-   "term": "IOSS",
-   "en": "Import One-Stop Shop: an EU VAT scheme that lets sellers declare and pay VAT on low-value imported consignments through a single registration.",
-   "zh": "欧盟进口一站式增值税申报机制，用于低价值包裹的集中申报缴税。"
-  },
-  "sku": {
-   "term": "SKU",
-   "en": "Stock-keeping unit: the buyer's own identifier for a distinct sellable item, separate from the manufacturer's part number.",
-   "zh": "买方自定义的可售品项编码，与工厂料号相互独立。"
-  },
-  "fba": {
-   "term": "FBA",
-   "en": "Fulfilment by Amazon: the marketplace's storage, picking and delivery service, which imposes its own labelling and packaging rules.",
-   "zh": "亚马逊仓储配送服务，对标签与包装有独立要求。"
-  },
-  "oem": {
-   "term": "OEM",
-   "en": "Original Equipment Manufacturer: production to the buyer's own specification and drawing, with the buyer holding the design.",
-   "zh": "按买方规格与图纸生产，设计归买方所有。"
-  },
-  "odm": {
-   "term": "ODM",
-   "en": "Original Design Manufacturer: the factory owns a base design that the buyer rebrands or modifies.",
-   "zh": "工厂拥有基础设计，买方贴牌或做局部修改。"
-  },
-  "private_label": {
-   "term": "Private label",
-   "en": "A factory-made standard product sold under the buyer's brand, usually with custom packaging and artwork.",
-   "zh": "工厂标准品贴买方品牌销售，通常仅定制包装与外观。"
-  },
-  "build_to_print": {
-   "term": "Build-to-print",
-   "en": "Manufacture strictly to the buyer's released drawing and BOM, with no factory-side design authority.",
-   "zh": "严格按买方发布的图纸与 BOM 生产，工厂无设计变更权。"
-  },
-  "tooling": {
-   "term": "Tooling",
-   "en": "The moulds, jigs, fixtures and test rigs built for a specific product; ownership and payment terms should be written into the PO.",
-   "zh": "为特定产品制作的模具、夹具与测试治具，所有权与付款条件应写入订单。"
-  },
-  "ip_assignment": {
-   "term": "IP assignment",
-   "en": "A written clause transferring ownership of drawings, moulds and firmware deliverables from the factory to the buyer.",
-   "zh": "将图纸、模具与固件成果所有权从工厂转移给买方的书面条款。"
-  },
-  "nnn": {
-   "term": "NNN agreement",
-   "en": "A China-focused non-disclosure, non-use and non-circumvention contract, distinct from a standard Western NDA.",
-   "zh": "面向中国供应链的保密、不使用、不绕开协议，区别于普通西式 NDA。"
-  },
-  "golden_sample": {
-   "term": "Golden sample",
-   "en": "The sealed, signed reference unit that both parties use as the acceptance baseline for mass production.",
-   "zh": "双方封样签认的基准样机，作为量产验收依据。"
-  },
-  "bom": {
-   "term": "BOM",
-   "en": "Bill of materials: the complete part list with manufacturer names, part numbers and approved alternates.",
-   "zh": "完整物料清单，含厂商、料号与认可替代料。"
-  },
-  "moq": {
-   "term": "MOQ",
-   "en": "Minimum order quantity: the smallest volume a factory will run, driven by material lot sizes and line changeover cost.",
-   "zh": "工厂可承接的最小订单量，由物料批量与换线成本决定。"
-  },
-  "pcba": {
-   "term": "PCBA",
-   "en": "Printed Circuit Board Assembly: a bare PCB populated with components, as distinct from the bare board itself.",
-   "zh": "已贴装元器件的印制电路板组件，区别于裸板 PCB。"
-  },
-  "smt": {
-   "term": "SMT",
-   "en": "Surface-mount technology: components are placed directly onto pads and reflow-soldered, enabling high-density automated assembly.",
-   "zh": "表面贴装技术，元件直接贴于焊盘并回流焊接，适合高密度自动化组装。"
-  },
-  "dfm": {
-   "term": "DFM",
-   "en": "Design for Manufacture: a factory review that flags pad, clearance and panelisation issues before the board is released to production.",
-   "zh": "可制造性设计评审，在投产前指出焊盘、间距与拼板问题。"
-  },
-  "aoi": {
-   "term": "AOI",
-   "en": "Automated Optical Inspection: camera-based checking of solder joints and component placement after reflow.",
-   "zh": "自动光学检测，回流焊后以相机检查焊点与贴装位置。"
-  },
-  "ict": {
-   "term": "ICT",
-   "en": "In-Circuit Test: a bed-of-nails fixture that verifies component values, opens and shorts on a loaded board.",
-   "zh": "在线测试，通过针床夹具检查已贴装板的元件值、开路和短路。"
-  },
-  "reflow": {
-   "term": "Reflow profile",
-   "en": "The controlled time-temperature curve in a reflow oven that determines solder joint quality and component stress.",
-   "zh": "回流炉内受控的时间-温度曲线，决定焊点质量与元件热应力。"
-  },
-  "panelization": {
-   "term": "Panelization",
-   "en": "Arranging several boards into one production panel with rails and fiducials to improve SMT throughput.",
-   "zh": "将多块板拼成带工艺边与基准点的生产拼板，提升贴装效率。"
-  },
-  "gerber": {
-   "term": "Gerber / ODB++",
-   "en": "The standard fabrication data set (copper layers, solder mask, drill files) released to a PCB house.",
-   "zh": "交付给板厂的制造数据（铜层、阻焊、钻孔等）标准格式。"
-  },
-  "yield": {
-   "term": "First-pass yield",
-   "en": "The share of units that pass all tests without rework on the first run; a direct indicator of process maturity.",
-   "zh": "一次通过全部测试、无需返修的比例，直接反映工艺成熟度。"
-  },
-  "dfma": {
-   "term": "DFMA",
-   "en": "Design for Manufacture and Assembly: simplifying part count and fasteners so a product can be built and servied reliably.",
-   "zh": "面向制造与装配的设计，减少零件与紧固件数量以提升可制造性。"
-  },
-  "evt": {
-   "term": "EVT / DVT / PVT",
-   "en": "Engineering, Design and Production Verification Test stages — the three hardware build gates before mass production.",
-   "zh": "工程、设计、生产验证三个硬件试制关口，量产前依次通过。"
-  },
-  "rapid_tooling": {
-   "term": "Rapid tooling",
-   "en": "Short-run aluminium or soft-steel moulds used for prototype and pilot batches before committing to hardened production tooling.",
-   "zh": "试模用铝模或软钢模，用于样机与试产，避免过早投入硬模。"
-  },
-  "nre": {
-   "term": "NRE",
-   "en": "Non-recurring engineering: one-off setup, fixture and programming charges billed separately from unit price.",
-   "zh": "一次性工程费：夹具、编程与调试等单独计费，不计入单价。"
-  },
-  "pilot_run": {
-   "term": "Pilot run",
-   "en": "A small pre-production batch on the actual line used to validate takt time, yield and work instructions.",
-   "zh": "在正式产线进行的小批试产，用于验证节拍、良率与作业指导书。"
-  },
-  "qms": {
-   "term": "QMS",
-   "en": "Quality Management System: the documented process set (commonly audited against ISO 9001) controlling how a factory builds and releases product.",
-   "zh": "质量管理体系，即控制工厂生产与放行流程的成套文件化流程。"
-  },
-  "factory_audit": {
-   "term": "Factory audit",
-   "en": "An on-site or remote assessment of a supplier's capability, capacity, quality system and social compliance before awarding a PO.",
-   "zh": "下单前对供应商能力、产能、质量体系与社会责任做的现场或远程评估。"
-  },
-  "smeta": {
-   "term": "SMETA",
-   "en": "Sedex Members Ethical Trade Audit: a widely used shared audit format covering labour, health and safety, environment and business ethics.",
-   "zh": "常用的共享社会责任审核框架，覆盖劳工、健康安全、环境与商业道德。"
-  },
-  "bsci": {
-   "term": "amfori BSCI",
-   "en": "A supply-chain social compliance system that sets a code of conduct and audit methodology for buyer-appointed factories.",
-   "zh": "供应链社会责任体系，为买方指定工厂提供行为准则与审核方法。"
-  },
-  "capa": {
-   "term": "CAPA",
-   "en": "Corrective and Preventive Action: the documented root-cause and closure process a factory must run after a defect is found.",
-   "zh": "纠正与预防措施：发现缺陷后的根因分析与闭环整改流程。"
-  },
-  "fai": {
-   "term": "First article inspection",
-   "en": "A documented measurement of the first unit off a production run against every drawing dimension before the batch continues.",
-   "zh": "对首件按图纸全尺寸测量并记录，合格后才继续生产。"
-  },
-  "traceability": {
-   "term": "Batch traceability",
-   "en": "The ability to link a finished unit back to its material lots, machine, operator and test record via a lot or serial code.",
-   "zh": "通过批次或序列号追溯到物料批、机台、操作员与测试记录的能力。"
-  },
-  "ce": {
-   "term": "CE marking",
-   "en": "The manufacturer's declaration that a product meets applicable EU harmonised legislation; it is not a third-party certificate.",
-   "zh": "制造商声明产品符合欧盟适用法规，并非第三方证书。"
-  },
-  "ukca": {
-   "term": "UKCA marking",
-   "en": "The UK conformity marking used for goods placed on the Great Britain market, with its own guidance and route.",
-   "zh": "投放英国（大不列颠）市场使用的合格评定标志，规则与 CE 不同。"
-  },
-  "fcc": {
-   "term": "FCC equipment authorization",
-   "en": "The U.S. regime requiring radio-frequency devices and digital equipment to meet emission and labelling rules before marketing.",
-   "zh": "美国对射频与数字设备的电磁发射及标签合规要求。"
-  },
-  "rohs": {
-   "term": "RoHS",
-   "en": "The EU Directive 2011/65/EU restricting specific hazardous substances in electrical and electronic equipment.",
-   "zh": "欧盟 2011/65/EU 指令，限制电子电气设备中的特定有害物质。"
-  },
-  "reach": {
-   "term": "REACH",
-   "en": "The EU regulation on registration, evaluation and authorisation of chemicals, relevant to materials declarations on hardware.",
-   "zh": "欧盟化学品注册评估与授权法规，影响硬件材料声明。"
-  },
-  "cb_scheme": {
-   "term": "CB Scheme",
-   "en": "The IECEE system allowing a single test report and certificate to support national approvals across participating countries.",
-   "zh": "IECEE 体系，用一份测试报告与证书支持多国转证。"
-  },
-  "doc": {
-   "term": "Declaration of Conformity",
-   "en": "A signed document in which the manufacturer lists the directives and standards a product complies with and takes responsibility.",
-   "zh": "制造商签署、列明产品所符合指令与标准并承担责任的文件。"
-  },
-  "notified_body": {
-   "term": "Notified body",
-   "en": "An EU-designated conformity assessment organisation required for certain high-risk product categories.",
-   "zh": "欧盟指定的合格评定机构，部分高风险品类必须介入。"
-  },
-  "harmonised_standard": {
-   "term": "Harmonised standard",
-   "en": "An EN standard cited in the EU Official Journal that gives a presumption of conformity with a directive.",
-   "zh": "被欧盟官方公报引用、可推定符合指令要求的 EN 标准。"
-  },
-  "ccs": {
-   "term": "CCS",
-   "en": "Combined Charging System: the AC/DC connector family promoted by CharIN for European and North American EVs.",
-   "zh": "CharIN 推动的欧美电动车交直流一体充电接口体系。"
-  },
-  "chademo": {
-   "term": "CHAdeMO",
-   "en": "A DC fast-charging connector and protocol standard originating in Japan, still present in installed fleets.",
-   "zh": "源自日本的直流快充接口与协议标准，存量车队仍在用。"
-  },
-  "iec_62196": {
-   "term": "IEC 62196",
-   "en": "The IEC series covering EV plugs, socket-outlets, vehicle connectors and vehicle inlets for conductive charging.",
-   "zh": "IEC 关于电动汽车传导充电插头、插座与车辆接口的标准系列。"
-  },
-  "iec_61851": {
-   "term": "IEC 61851",
-   "en": "The IEC series defining EV conductive charging systems, control pilot functions and safety requirements.",
-   "zh": "IEC 关于电动汽车传导充电系统、控制导引与安全要求的标准系列。"
-  },
-  "mode_3": {
-   "term": "Mode 3",
-   "en": "The IEC 61851 charging mode using a dedicated EVSE with a control pilot function for AC charging.",
-   "zh": "IEC 61851 定义的交流充电模式，使用带控制导引的专用供电设备。"
-  },
-  "ocpp": {
-   "term": "OCPP",
-   "en": "Open Charge Point Protocol: an open communication protocol between charge points and a central management system.",
-   "zh": "充电桩与后台管理系统之间的开放通信协议。"
-  },
-  "ip_rating": {
-   "term": "IP rating",
-   "en": "An IEC 60529 ingress-protection code (e.g. IP54, IP67) describing dust and water resistance of an enclosure.",
-   "zh": "IEC 60529 外壳防护等级代码，描述防尘与防水能力。"
-  },
-  "rack_unit": {
-   "term": "Rack unit (U)",
-   "en": "A 44.45 mm (1.75 in) vertical increment used to specify equipment height in a 19-inch rack.",
-   "zh": "19 英寸机柜中 44.45 毫米的高度计量单位。"
-  },
-  "rack_19": {
-   "term": "19-inch rack",
-   "en": "The standardised equipment frame (EIA-310 / IEC 60297) with 482.6 mm front panel width.",
-   "zh": "标准化设备机架（EIA-310 / IEC 60297），前面板宽 482.6 毫米。"
-  },
-  "pdu": {
-   "term": "PDU",
-   "en": "Power Distribution Unit: the rack-mounted unit that delivers and, in metered variants, monitors power to installed equipment.",
-   "zh": "机柜内配电单元，计量型还可监测各回路用电。"
-  },
-  "pue": {
-   "term": "PUE",
-   "en": "Power Usage Effectiveness: total facility power divided by IT equipment power; a standard data-center efficiency ratio.",
-   "zh": "电能使用效率，数据中心总能耗与 IT 设备能耗之比。"
-  },
-  "structured_cabling": {
-   "term": "Structured cabling",
-   "en": "A standards-based, organised cabling system of horizontal and backbone links, patching and administration.",
-   "zh": "按标准组织水平与主干链路、配线及管理的布线体系。"
-  },
-  "blanking_panel": {
-   "term": "Blanking panel",
-   "en": "A filler plate closing unused rack U-space to stop hot-air recirculation and protect cooling efficiency.",
-   "zh": "封堵机柜空余 U 位的挡板，防止热风回流、保障散热效率。"
-  },
-  "busbar": {
-   "term": "Busbar",
-   "en": "A rigid conductive bar used to distribute high current within a rack or power distribution assembly.",
-   "zh": "机柜或配电组件内用于分配大电流的刚性导电排。"
-  },
-  "bend_radius": {
-   "term": "Bend radius",
-   "en": "The minimum curvature allowed for a cable; exceeding it damages fibre or copper performance.",
-   "zh": "线缆允许的最小弯曲半径，过小会损伤光纤或铜缆性能。"
-  },
-  "tia_942": {
-   "term": "TIA-942",
-   "en": "The Telecommunications Infrastructure Standard for Data Centers covering cabling, spaces and topology.",
-   "zh": "面向数据中心电信基础设施（布线、空间、拓扑）的标准。"
-  },
-  "ocp": {
-   "term": "OCP",
-   "en": "Open Compute Project: an open specification set for racks, power and server hardware published by the OCP community.",
-   "zh": "开放计算项目发布的机柜、供电与服务器硬件开放规范。"
-  }
- },
- "briefings": [
-  {
-   "slug": "cross-border-ecommerce-compliance-checklist",
-   "title_en": "Cross-border ecommerce sourcing: the 10-point compliance checklist",
-   "title_zh": "跨境电商供应链采购：10 项合规清单",
-   "desc_en": "A buyer's 10-point compliance checklist for cross-border ecommerce sourcing from the Greater Bay Area, with cited standards and official sources.",
-   "keywords": "cross-border ecommerce sourcing, 跨境电商供应链, import compliance checklist, HS code, EORI, GTIN, IOSS, Amazon FBA sourcing, Greater Bay Area, Anchormere",
-   "intro_en": "Most cross-border sourcing problems are not manufacturing problems — they are classification, marking and paperwork problems that surface at the border or on the marketplace. This briefing walks through ten checks we run before a Greater Bay Area order ships, with the official sources behind each one so your team can verify them independently.",
-   "intro_zh": "跨境电商采购的多数问题并非出在制造，而是出在归类、标识与单证——往往到清关或平台入仓时才暴露。本简报按我们发货前的十项检查逐条拆解，并附上每项对应的官方来源，便于你的团队自行核验。",
-   "points": [
-    [
-     "Classify every SKU before you request a quote",
-     "报价前先为每个 SKU 归类",
-     "Assign a six-digit [[wco_hs|HS code]] to each item and record the destination-country extension; the same finished good can fall under different lines depending on material and function.",
-     "为每个品项确定 6 位 [[wco_hs|HS 编码]]并记录目的国延伸子目；同一成品会因材质与功能落入不同税则行。",
-     [
-      "wco_hs"
-     ]
-    ],
-    [
-     "Look up the real duty line, not an estimate",
-     "查真实税则行，不用估算值",
-     "Check the destination schedule — for the U.S. the [[hts|HTS]] gives the statistical suffix and rate — and cross-check general tariff data at the [[wto_tariffs|WTO]].",
-     "查目的国税则：美国用 [[hts|HTS]] 查统计后缀与税率，并以 [[wto_tariffs|WTO]] 的关税数据交叉核对。",
-     [
-      "hts",
-      "wto_tariffs"
-     ]
-    ],
-    [
-     "Fix the trade term in the purchase order",
-     "把贸易术语写进采购订单",
-     "State the [[incoterms|Incoterms 2020]] rule explicitly (for example FOB Shenzhen or DAP Rotterdam); a missing rule is the most common cause of freight and clearance disputes.",
-     "在订单中明确 [[incoterms|Incoterms 2020]] 术语（如 FOB 深圳、DAP 鹿特丹）；术语缺失是运费与清关争议最常见的起因。",
-     [
-      "incoterms",
-      "icc"
-     ]
-    ],
-    [
-     "Register the importer identifiers early",
-     "尽早完成进口方资质登记",
-     "EU-bound shipments need a valid [[eu_taxation|EORI number]], and low-value consignments may fall under the IOSS VAT route — confirm the scheme before the first parcel ships.",
-     "发往欧盟的货物需有效 [[eu_taxation|EORI 号]]，低值包裹可能适用 IOSS 增值税路径——首票发出前先确认适用方案。",
-     [
-      "eu_taxation"
-     ]
-    ],
-    [
-     "Give every listing a stable product identity",
-     "为每个商品建立稳定标识",
-     "Allocate [[gs1|GTINs]] and keep a clean mapping between your SKU, the factory part number and the marketplace listing ID; mismatched IDs cause suppression at inbound.",
-     "分配 [[gs1|GTIN]] 并维护 SKU、工厂料号与平台商品标识的映射；标识不一致常导致入仓被拒。",
-     [
-      "gs1"
-     ]
-    ],
-    [
-     "Confirm destination-market markings",
-     "确认目的市场标识要求",
-     "Great Britain requires its own [[ukca|UKCA marking]] route, while EU goods follow conformity assessment under the [[single_market|single market rules]] — the two are not interchangeable.",
-     "英国（大不列颠）有独立的 [[ukca|UKCA 标志]]路径，欧盟货物走 [[single_market|单一市场合格评定]]，二者不可互用。",
-     [
-      "ukca",
-      "single_market"
-     ]
-    ],
-    [
-     "Clear substance restrictions on materials",
-     "核查材料限用物质",
-     "Electronics and hardware must satisfy the [[eu_rohs|EU RoHS Directive]], whose binding legal text is published on [[eurlex_rohs|EUR-Lex]]; ask for material declarations per component, not a single blanket certificate.",
-     "电子与硬件须符合 [[eu_rohs|欧盟 RoHS 指令]]，其法律全文见 [[eurlex_rohs|EUR-Lex]]；按元器件索取材料声明，而非一张笼统证书。",
-     [
-      "eu_rohs",
-      "eurlex_rohs"
-     ]
-    ],
-    [
-     "Secure the brand before tooling starts",
-     "开模前先保护品牌",
-     "File trade marks in the destination markets through the [[uspto|USPTO]] or the [[wipo|WIPO]] route before you pay for moulds and packaging artwork.",
-     "在支付模具与包装设计费之前，先通过 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径在目的市场注册商标。",
-     [
-      "uspto",
-      "wipo"
-     ]
-    ],
-    [
-     "Ship a complete document pack",
-     "随货配齐单证包",
-     "The [[trade_export|ITA export guidance]] lists the core set — commercial invoice, packing list, origin evidence and transport document; we attach it to every consolidated shipment.",
-     "[[trade_export|ITA 出口指引]]列出核心单证：商业发票、装箱单、原产地证明与运输单据；我们随每票整合货附齐。",
-     [
-      "trade_export"
-     ]
-    ],
-    [
-     "Build traceability into the PO",
-     "把可追溯性写进订单",
-     "Require lot codes and test records aligned with recognised [[nist_standards|conformity assessment practice]] so a marketplace or customs query can be answered with evidence, not assurances.",
-     "要求按 [[nist_standards|合格评定通行做法]]提供批次码与测试记录，使平台或海关问询能用证据回应，而非口头保证。",
-     [
-      "nist_standards"
-     ]
-    ]
-   ],
-   "angle_en": "Ten checks sound bureaucratic, but they are exactly what separates a repeatable cross-border programme from one-off shipments. Anchormere consolidates multi-SKU orders from vetted Greater Bay Area factories into one quote, one QC pass and one document pack — so the compliance work is done once, not ten times.",
-   "angle_zh": "十项检查看似繁琐，却正是可复制的跨境业务与一次性发货的分水岭。Anchormere 把认证工厂的多 SKU 订单整合为一次报价、一次质检、一套单证——合规工作只做一遍，而不是重复十遍。",
-   "internal": [
-    [
-     "cross-border-ecommerce-sourcing.html",
-     "Cross-border ecommerce sourcing guide"
-    ],
-    [
-     "amazon-private-label-manufacturer.html",
-     "Amazon private label manufacturer"
-    ],
-    [
-     "certifications.html",
-     "Certifications & compliance"
-    ],
-    [
-     "shipping.html",
-     "Packaging & logistics"
-    ]
-   ],
-   "terms": [
-    "hs_code",
-    "hts",
-    "eori",
-    "gtin",
-    "incoterms",
-    "ioss",
-    "sku",
-    "fba",
-    "ce",
-    "rohs"
-   ],
-   "sources": [
-    "wco_hs",
-    "hts",
-    "wto_tariffs",
-    "icc",
-    "eu_taxation",
-    "gs1",
-    "ukca",
-    "single_market",
-    "eu_rohs",
-    "eurlex_rohs",
-    "uspto",
-    "wipo",
-    "trade_export",
-    "nist_standards"
-   ],
-   "serp_title": "Cross-border ecommerce sourcing: 10 checks"
-  },
-  {
-   "slug": "incoterms-2020-landed-cost-procurement",
-   "title_en": "International trade procurement: Incoterms 2020 and landed cost, point by point",
-   "title_zh": "国际贸易采购：逐条拆解 Incoterms 2020 与到岸成本",
-   "desc_en": "Ten practical points on Incoterms 2020, risk transfer and landed-cost build-up for buyers sourcing from China, with official ICC and customs references.",
-   "keywords": "international trade procurement, 国际贸易采购, Incoterms 2020, landed cost, FOB China, DAP, customs duty, bill of lading, China sourcing agent, Anchormere",
-   "intro_en": "Two buyers can receive the same ex-works price and end up with very different real costs. The difference sits in the trade term, the duty line and the document chain. Here are ten points we use to turn a factory quote into a defensible landed cost, with the official references attached.",
-   "intro_zh": "两个买家拿到同样的出厂价，最终真实成本可能相差很大，差异就在贸易术语、税则行与单证链。以下十点用于把工厂报价还原成可核对的到岸成本，并附官方出处。",
-   "points": [
-    [
-     "Name the rule and the named place",
-     "写明术语与指定地点",
-     "The [[icc|ICC Incoterms 2020]] rules only work when the term is followed by a named place — FOB Shenzhen, not just FOB. Eleven rules exist; four are for sea and inland waterway only.",
-     "[[icc|ICC Incoterms 2020]] 术语必须带指定地点才有效——应写 FOB 深圳，而非只写 FOB。共 11 个术语，其中 4 个仅适用海运与内河运输。",
-     [
-      "icc"
-     ]
-    ],
-    [
-     "Know where risk transfers",
-     "明确风险转移点",
-     "Under [[fob|FOB]] risk passes once goods are on board; under [[exw|EXW]] it passes at the factory gate; under [[dap|DAP]] only on arrival ready for unloading. Insurance should follow that boundary.",
-     "[[fob|FOB]] 风险在装船后转移，[[exw|EXW]] 在工厂门口转移，[[dap|DAP]] 到指定地点待卸货时转移；保险安排应对齐该分界。",
-     [
-      "fob",
-      "exw",
-      "dap"
-     ]
-    ],
-    [
-     "Separate who clears export and import",
-     "分清出口与进口清关责任",
-     "EXW leaves export formalities to the buyer, while [[ddp|DDP]] puts import clearance and duties on the seller. Most GBA factories are not set up to deliver DDP into your market.",
-     "EXW 由买方办理出口手续，[[ddp|DDP]] 则由卖方承担进口清关与税费；多数大湾区工厂并不具备向你的市场做 DDP 的能力。",
-     [
-      "ddp"
-     ]
-    ],
-    [
-     "Build the duty line from the HS code",
-     "从 HS 编码推导税则行",
-     "Start with the [[wco_hs|WCO Harmonized System]], then read the national schedule — the [[hts|U.S. HTS]] or the EU tariff — and cross-check bound rates via the [[wto_tariffs|WTO]].",
-     "先依 [[wco_hs|WCO 协调制度]]确定 6 位编码，再查国别税则（[[hts|美国 HTS]] 或欧盟税则），并用 [[wto_tariffs|WTO]] 数据核对约束税率。",
-     [
-      "wco_hs",
-      "hts",
-      "wto_tariffs"
-     ]
-    ],
-    [
-     "Add every non-tariff cost",
-     "补齐非关税成本",
-     "A landed-cost model should include freight, insurance, terminal handling, customs brokerage, VAT or GST, and compliance testing — not only the duty percentage.",
-     "到岸成本模型应含运保费、码头操作费、报关代理费、增值税/GST 与合规检测费，而不只是关税税率。",
-     [
-      "trade_export"
-     ]
-    ],
-    [
-     "Verify origin, not just the shipping route",
-     "核验原产地而非只看运输路线",
-     "The [[wto_roo|WTO rules of origin]] material and the destination authority decide eligibility for preferential rates; transhipment does not by itself confer origin.",
-     "[[wto_roo|WTO 原产地规则]]及目的国主管机构决定优惠税率资格；单纯转运并不产生原产地资格。",
-     [
-      "wto_roo"
-     ]
-    ],
-    [
-     "Use trade data to sanity-check volume",
-     "用贸易数据校验规模合理性",
-     "[[comtrade|UN Comtrade]] and [[unstats|UN statistics]] let you compare a supplier's claimed export volume with reported bilateral flows before committing to a large PO.",
-     "[[comtrade|UN Comtrade]] 与 [[unstats|联合国统计数据库]]可用于在大额下单前，比对供应商声称的出口规模与公开双边流量。",
-     [
-      "comtrade",
-      "unstats"
-     ]
-    ],
-    [
-     "Match documents to the payment term",
-     "让单证与付款条件匹配",
-     "A [[bill_of_lading|bill of lading]] controls title under many payment structures; the [[trade_export|ITA documentation guidance]] sets out which documents a bank or broker will expect.",
-     "在多种付款结构下 [[bill_of_lading|提单]]代表货权；[[trade_export|ITA 单证指引]]列明银行或报关行会要求哪些文件。",
-     [
-      "bill_of_lading",
-      "trade_export"
-     ]
-    ],
-    [
-     "Check market-specific import rules",
-     "核查目的市场进口规则",
-     "The [[ccg|ITA Country Commercial Guides]] summaries cover local labelling, standards and customs practice that a generic Incoterms clause never addresses.",
-     "[[ccg|ITA 国别商业指南]]涵盖本地标签、标准与通关惯例，这些是通用贸易术语条款无法覆盖的。",
-     [
-      "ccg"
-     ]
-    ],
-    [
-     "Model the cash cycle, not only the unit price",
-     "测算现金周期而非仅看单价",
-     "Deposit, balance-before-shipment and in-transit days all carry a financing cost; [[exim|export credit agencies]] and the [[worldbank_trade|World Bank trade indicators]] are useful benchmarks for that exposure.",
-     "定金、发货前尾款与在途天数都产生资金成本；[[exim|出口信贷机构]]与 [[worldbank_trade|世界银行贸易指标]]可作为该敞口的参照。",
-     [
-      "exim",
-      "worldbank_trade"
-     ]
-    ]
-   ],
-   "angle_en": "A quoted unit price is a starting point, not a cost. Anchormere's role in international trade procurement is to make the whole chain visible — one consolidated quote, one QC pass and a full export document package — so the landed cost you approve is the cost you actually pay.",
-   "angle_zh": "报价单价只是起点，不是成本。Anchormere 在国际贸易采购中的职责是让全链条透明——一次整合报价、一次质检、一套完整出口单证，让你审批的到岸成本就是最终实付成本。",
-   "internal": [
-    [
-     "import-from-china-guide.html",
-     "How to import from China"
-    ],
-    [
-     "china-sourcing-agent.html",
-     "China sourcing agent"
-    ],
-    [
-     "shipping.html",
-     "Packaging & logistics"
-    ],
-    [
-     "faq.html",
-     "FAQ"
-    ]
-   ],
-   "terms": [
-    "incoterms",
-    "fob",
-    "exw",
-    "dap",
-    "ddp",
-    "landed_cost",
-    "hs_code",
-    "bill_of_lading",
-    "rules_of_origin",
-    "ad_valorem",
-    "customs_valuation"
-   ],
-   "sources": [
-    "icc",
-    "wco_hs",
-    "hts",
-    "wto_tariffs",
-    "wto_roo",
-    "comtrade",
-    "unstats",
-    "ccg",
-    "trade_export",
-    "exim",
-    "worldbank_trade"
-   ],
-   "serp_title": "Incoterms 2020 & landed cost: 10 checks"
-  },
-  {
-   "slug": "oem-odm-private-label-what-you-are-buying",
-   "title_en": "OEM, ODM or private label: ten things buyers are actually signing",
-   "title_zh": "OEM、ODM 还是贴牌：买家实际签下的十件事",
-   "desc_en": "Ten contractual and engineering points that separate OEM, ODM and private label deals in China, with IP, tooling and standards references.",
-   "keywords": "OEM ODM private label difference, 代工模式, build-to-print, tooling ownership, IP assignment, NNN agreement, golden sample, China sourcing, Greater Bay Area, Anchormere",
-   "intro_en": "Buyers often use OEM, ODM and private label interchangeably. The factory does not — the three models allocate design authority, tooling ownership and liability very differently. These ten points describe what you are actually committing to before the first purchase order.",
-   "intro_zh": "买家常把 OEM、ODM 与贴牌混为一谈，工厂却不会：三种模式对设计权、模具所有权与责任归属的划分完全不同。以下十点说明首张订单之前，你实际承诺了什么。",
-   "points": [
-    [
-     "Write down which model the quote covers",
-     "在报价中写明所属模式",
-     "[[oem|OEM]] means production to your released drawing; [[odm|ODM]] starts from the factory's base design; [[private_label|private label]] is a standard product with your brand and packaging.",
-     "[[oem|OEM]] 按你发布的图纸生产；[[odm|ODM]] 以工厂基础设计为起点；[[private_label|贴牌]]则是标准品换品牌与包装。",
-     [
-      "oem",
-      "odm",
-      "private_label"
-     ]
-    ],
-    [
-     "State who owns the design",
-     "明确设计归属",
-     "In a true [[build_to_print|build-to-print]] engagement the factory has no design-change authority; any engineering change needs a written revision and a new sign-off.",
-     "真正的 [[build_to_print|按图制造]]合作中，工厂无设计变更权；任何工程变更都需书面改版并重新签认。",
-     [
-      "build_to_print"
-     ]
-    ],
-    [
-     "Settle tooling ownership before payment",
-     "付款前先谈定模具归属",
-     "[[tooling|Tooling]] is usually buyer-funded but factory-held; the PO should say who owns it, where it is stored, and under what conditions it can be released or moved.",
-     "[[tooling|模具]]通常由买方出资、工厂保管；订单应写明所有权、存放地点以及可移交或转厂的条件。",
-     [
-      "tooling"
-     ]
-    ],
-    [
-     "Transfer IP in writing",
-     "以书面条款转移知识产权",
-     "An [[ip_assignment|IP assignment]] covering drawings, moulds, firmware and artwork is stronger than a purchase order alone, and should survive termination of the relationship.",
-     "覆盖图纸、模具、固件与美术作品的 [[ip_assignment|知识产权转让条款]]比单独一张订单更有效，且应在合作终止后继续有效。",
-     [
-      "ip_assignment"
-     ]
-    ],
-    [
-     "Use the right confidentiality instrument",
-     "使用适配的保密文件",
-     "A standard Western NDA is often weak in a China supply chain; an [[nnn|NNN agreement]] adds non-use and non-circumvention, which are the clauses that actually matter.",
-     "普通西式 NDA 在中国供应链中常显不足；[[nnn|NNN 协议]]补充不使用与不绕开条款，才是真正起作用的部分。",
-     [
-      "nnn"
-     ]
-    ],
-    [
-     "Protect the brand before artwork is printed",
-     "印刷美术稿前先护住品牌",
-     "Trade mark filing through the [[uspto|USPTO]] or the [[wipo|WIPO]] route should precede packaging production, not follow the first shipment.",
-     "通过 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径的商标注册应早于包装生产，而不是首批发货之后。",
-     [
-      "uspto",
-      "wipo"
-     ]
-    ],
-    [
-     "Freeze the BOM and approved alternates",
-     "冻结 BOM 与认可替代料",
-     "A released [[bom|BOM]] should name manufacturer and part number for every line and list approved alternates; silent substitution is a common source of field failures.",
-     "发布的 [[bom|BOM]] 应逐行写明厂商与料号并列出认可替代料；悄悄换料是现场失效的常见原因。",
-     [
-      "bom"
-     ]
-    ],
-    [
-     "Seal a golden sample before mass production",
-     "量产前封存签认样机",
-     "A [[golden_sample|golden sample]] plus a signed inspection sheet gives both sides one objective acceptance baseline for colour, finish, fit and function.",
-     "[[golden_sample|签样]]加双方签署的检验表，为颜色、表面、配合与功能提供唯一客观的验收基准。",
-     [
-      "golden_sample"
-     ]
-    ],
-    [
-     "Allocate conformity and marking duties",
-     "划分合格评定与标识责任",
-     "Decide who produces the Declaration of Conformity and holds test reports; the [[single_market|EU conformity assessment framework]] and [[iecee|IECEE CB Scheme]] change what evidence is needed per market.",
-     "明确由谁出具符合性声明并持有测试报告；[[single_market|欧盟合格评定框架]]与 [[iecee|IECEE CB 体系]]决定各市场所需证据不同。",
-     [
-      "single_market",
-      "iecee"
-     ]
-    ],
-    [
-     "Agree the MOQ and changeover logic",
-     "约定 MOQ 与换线逻辑",
-     "[[moq|MOQ]] is driven by material lot sizes and line changeover, not by goodwill; ask which components set the floor and whether mixed-SKU consolidation is allowed.",
-     "[[moq|MOQ]] 由物料批量与换线成本决定，而非人情；问清由哪些物料决定下限、是否允许混 SKU 拼单。",
-     [
-      "moq"
-     ]
-    ]
-   ],
-   "angle_en": "Model clarity is the cheapest risk control in sourcing. Anchormere works across all three arrangements — OEM build-to-print, ODM adaptation and private label — with single-point accountability, so the drawing, the mould and the shipment stay aligned to one specification.",
-   "angle_zh": "模式清晰是采购中最便宜的风控。Anchormere 覆盖 OEM 按图制造、ODM 适配与贴牌三种安排，并以单点责任制确保图纸、模具与出货始终对齐同一份规格。",
-   "internal": [
-    [
-     "amazon-private-label-manufacturer.html",
-     "Amazon private label manufacturer"
-    ],
-    [
-     "custom-product-development.html",
-     "Custom product development"
-    ],
-    [
-     "capabilities.html",
-     "Capabilities"
-    ],
-    [
-     "quality.html",
-     "Quality assurance"
-    ]
-   ],
-   "terms": [
-    "oem",
-    "odm",
-    "private_label",
-    "build_to_print",
-    "tooling",
-    "ip_assignment",
-    "nnn",
-    "golden_sample",
-    "bom",
-    "moq"
-   ],
-   "sources": [
-    "uspto",
-    "wipo",
-    "single_market",
-    "iecee",
-    "nist_standards",
-    "ipc",
-    "wto_tradfa"
-   ],
-   "serp_title": "OEM vs ODM vs private label: 10 checks"
-  },
-  {
-   "slug": "pcba-smt-capability-sheet-buyer-guide",
-   "title_en": "Reading a PCBA and SMT capability sheet: ten checks before you award the build",
-   "title_zh": "读懂 PCBA 与 SMT 能力表：下单前十项核查",
-   "desc_en": "Ten engineering checks for evaluating a PCBA and SMT supplier in the Greater Bay Area, with IPC, IEC, USB-IF and UL references.",
-   "keywords": "PCBA supplier China, SMT assembly capability, DFM review, AOI ICT testing, Gerber BOM, Greater Bay Area electronics manufacturing, OEM, Anchormere",
-   "intro_en": "A capability sheet is a marketing document until you test it against your own board. These are the ten questions that separate a factory able to build your PCBA reliably from one that can only quote it, with the standards bodies behind each check.",
-   "intro_zh": "在拿你自己的板子验证之前，能力表只是营销材料。以下十个问题可区分「能稳定做出你的 PCBA」与「只会报价」的工厂，并附每项对应的标准机构出处。",
-   "points": [
-    [
-     "Confirm layer count and board class",
-     "确认层数与板材等级",
-     "Ask which layer counts, materials and copper weights the line runs in volume — not as a one-off — and whether the [[ipc|IPC]] class (1/2/3) is stated on the quote.",
-     "确认量产（而非偶尔打样）可做的层数、材料与铜厚，并看报价是否注明 [[ipc|IPC]] 等级（1/2/3 级）。",
-     [
-      "ipc"
-     ]
-    ],
-    [
-     "Read trace width, spacing and via rules",
-     "核对线宽线距与过孔规则",
-     "Minimum trace/space, via diameter and annular ring define what your layout can safely use; these should be published limits, not verbal assurances.",
-     "最小线宽/线距、过孔孔径与环宽决定版图可用的安全边界；这些应是书面公布的限值，而非口头承诺。",
-     [
-      "ipc"
-     ]
-    ],
-    [
-     "Check the smallest package they place",
-     "核对其可贴装的最小封装",
-     "Fine-pitch components, BGAs and 0201 or smaller passives require specific placement accuracy and X-ray capability — ask which lines have it.",
-     "细间距元件、BGA 与 0201 及更小被动件需要相应贴装精度与 X-Ray 能力——问清哪条线具备。",
-     [
-      "ipc"
-     ]
-    ],
-    [
-     "Ask for the reflow profile and control",
-     "索取回流曲线与管控方式",
-     "A documented [[reflow|reflow profile]] with zone temperatures, conveyor speed and regular oven profiling is a baseline process-control signal.",
-     "带各温区温度、链速与定期炉温测试的书面 [[reflow|回流曲线]]，是最基本的工艺管控信号。",
-     [
-      "reflow"
-     ]
-    ],
-    [
-     "Require a DFM report before release",
-     "投产前要求 DFM 报告",
-     "A [[dfm|DFM]] review should come back as written findings on pad geometry, clearance, fiducials and [[panelization|panelisation]], not a simple OK.",
-     "[[dfm|DFM]] 评审应返回关于焊盘几何、间距、基准点与 [[panelization|拼板]]的书面问题清单，而非一句「可做」。",
-     [
-      "dfm",
-      "panelization"
-     ]
-    ],
-    [
-     "Specify inspection and test coverage",
-     "明确检测与测试覆盖率",
-     "[[aoi|AOI]] catches placement and solder defects; [[ict|ICT]] or functional test catches electrical faults. Ask what percentage of each build is tested and how failures are logged.",
-     "[[aoi|AOI]] 查贴装与焊接缺陷，[[ict|ICT]] 或功能测试查电气故障；问清每批抽检比例与失效记录方式。",
-     [
-      "aoi",
-      "ict"
-     ]
-    ],
-    [
-     "Control the fabrication data revision",
-     "管控制造数据版本",
-     "Release [[gerber|Gerber or ODB++]] plus drill and stack-up files with a revision number and checksum, and require written acknowledgement of the exact build revision.",
-     "[[gerber|Gerber/ODB++]]、钻孔与叠层文件需带版本号与校验值发布，并要求工厂书面确认具体生产版本。",
-     [
-      "gerber"
-     ]
-    ],
-    [
-     "Verify compliance for wired interfaces",
-     "核验有线接口的合规",
-     "If the board exposes USB, the [[usb_docs|USB-IF specifications and compliance documents]] define connector, power and logo-use requirements you should design to.",
-     "若板卡引出 USB，[[usb_docs|USB-IF 规范与合规文件]]定义了连接器、供电及标识使用的设计要求。",
-     [
-      "usb_docs"
-     ]
-    ],
-    [
-     "Check measurement and calibration practice",
-     "核查测量与校准体系",
-     "Test equipment should be traceable to national measurement standards; [[nist_pml|NIST's measurement science]] and [[iec|IEC]] standards are the usual reference points.",
-     "测试设备应可溯源至国家计量标准；[[nist_pml|NIST 计量科学]]与 [[iec|IEC]] 标准是通常的参照依据。",
-     [
-      "nist_pml",
-      "iec"
-     ]
-    ],
-    [
-     "Tie the certificate to the specific product",
-     "让证书对应具体产品",
-     "A [[ul_cert|UL certification]] or [[iecee|CB Scheme]] report is valid for the exact model and construction listed; confirm the file number and scope match your build.",
-     "[[ul_cert|UL 认证]]或 [[iecee|CB 体系]]报告只对所列型号与结构有效；核对档案号与覆盖范围是否与你的产品一致。",
-     [
-      "ul_cert",
-      "iecee"
-     ]
-    ]
-   ],
-   "angle_en": "Electronics is where a sourcing partner earns its keep. Anchormere coordinates PCBA, box-build, enclosures and display modules across vetted Greater Bay Area workshops, then consolidates them into one QC pass — so the capability sheet and the shipped board agree.",
-   "angle_zh": "电子产品最能检验采购伙伴的价值。Anchormere 在认证的大湾区车间之间协调 PCBA、整机组装、外壳与显示模组，并统一一次质检收口——让能力表与实际出货的板子一致。",
-   "internal": [
-    [
-     "consumer-smart-electronics.html",
-     "Consumer & smart electronics"
-    ],
-    [
-     "quality.html",
-     "Quality assurance"
-    ],
-    [
-     "capabilities.html",
-     "Capabilities"
-    ]
-   ],
-   "terms": [
-    "pcba",
-    "smt",
-    "bom",
-    "dfm",
-    "aoi",
-    "ict",
-    "reflow",
-    "panelization",
-    "gerber",
-    "yield"
-   ],
-   "sources": [
-    "ipc",
-    "usb_docs",
-    "nist_pml",
-    "iec",
-    "iecee",
-    "ul_cert",
-    "iec_webstore"
-   ],
-   "serp_title": "PCBA & SMT capability: 10 checks"
-  },
-  {
-   "slug": "supplier-verification-factory-audit-checklist",
-   "title_en": "Supplier verification in China: a ten-point factory audit checklist",
-   "title_zh": "中国供应商验厂：十项工厂审核清单",
-   "desc_en": "A 10-point factory audit checklist for overseas buyers: capability, QMS, social compliance and traceability, with cited public standards.",
-   "keywords": "verify Chinese manufacturer, supplier verification, factory audit checklist, QMS, ISO 9001, SMETA, BSCI, CAPA, traceability, Greater Bay Area, Anchormere",
-   "intro_en": "A trading company can produce a convincing website, a borrowed certificate and a photo of somebody else's line. Verification is a document-and-evidence exercise, not a video call. Here are ten checks we run before a Greater Bay Area supplier enters a programme.",
-   "intro_zh": "贸易公司可以做出漂亮网站、借来的证书和别人产线的照片。验厂是「文件加证据」的核查，不是一次视频通话。以下是大湾区供应商进入项目前我们执行的十项检查。",
-   "points": [
-    [
-     "Verify the legal entity, not the brand",
-     "核验法律主体而非品牌名",
-     "Check the business licence, registered address and legal representative against the entity that will sign the contract and receive payment.",
-     "核对营业执照、注册地址与法定代表人，确认与签约主体、收款主体一致。",
-     [
-      "wto_tradfa"
-     ]
-    ],
-    [
-     "Separate factory from trading intermediary",
-     "区分工厂与贸易中介",
-     "Ask for the production address, utility records and equipment list; a [[factory_audit|factory audit]] should take place where the goods are actually made.",
-     "索取生产地址、水电记录与设备清单；[[factory_audit|验厂]]应在实际生产地而非办公室进行。",
-     [
-      "factory_audit"
-     ]
-    ],
-    [
-     "Assess real capacity against your forecast",
-     "用你的预测校验真实产能",
-     "Compare stated monthly output with line count, shift pattern and current order book; a supplier running at full capacity cannot absorb a rush order.",
-     "把声称月产能与产线数、班次、在手订单比对；满产供应商接不了急单。",
-     [
-      "worldbank_trade"
-     ]
-    ],
-    [
-     "Audit the quality management system",
-     "审核质量管理体系",
-     "A working [[qms|QMS]] shows up in document control, incoming inspection, non-conformance handling and calibration records — not just a framed certificate.",
-     "有效的 [[qms|QMS]] 体现在文件管控、来料检验、不合格品处理与校准记录上，而不只是一张挂墙证书。",
-     [
-      "qms"
-     ]
-    ],
-    [
-     "Check social compliance separately",
-     "单独核查社会责任合规",
-     "For retail-bound programmes, [[bsci|amfori BSCI]] or a [[smeta|SMETA]] report covers labour, health and safety, environment and ethics on a shared audit format.",
-     "面向零售渠道的项目，[[bsci|amfori BSCI]] 或 [[smeta|SMETA]] 报告以共享审核格式覆盖劳工、健康安全、环境与道德。",
-     [
-      "bsci",
-      "smeta",
-      "amfori"
-     ]
-    ],
-    [
-     "Validate every certificate by file number",
-     "按档案号逐一验证证书",
-     "Confirm scope, model list and validity directly with the issuing scheme — [[iecee|IECEE]] and [[ul_cert|UL Solutions]] both maintain verifiable certification records.",
-     "直接向发证体系核对覆盖范围、型号清单与有效期；[[iecee|IECEE]] 与 [[ul_cert|UL Solutions]] 均提供可验证的认证记录。",
-     [
-      "iecee",
-      "ul_cert"
-     ]
-    ],
-    [
-     "Require a first article inspection",
-     "要求首件检验",
-     "A [[fai|first article inspection]] measures the first unit against every drawing dimension before the batch proceeds, catching setup errors early.",
-     "[[fai|首件检验]]在批次继续前按图纸全尺寸测量首件，及早发现调机错误。",
-     [
-      "fai"
-     ]
-    ],
-    [
-     "Test the corrective-action loop",
-     "测试纠正措施闭环",
-     "Ask for a recent non-conformance and the [[capa|CAPA]] record behind it; a factory with no recorded defects usually has no recording system.",
-     "索取最近一次不合格记录及其 [[capa|CAPA]] 档案；「零缺陷记录」往往意味着根本没有记录体系。",
-     [
-      "capa"
-     ]
-    ],
-    [
-     "Demand batch traceability",
-     "要求批次可追溯",
-     "[[traceability|Batch traceability]] must link a finished unit back to material lots, machine, operator and test result within a workable time window.",
-     "[[traceability|批次可追溯]]须能在合理时间内把成品回溯到物料批、机台、操作员与测试结果。",
-     [
-      "traceability",
-      "nist_standards"
-     ]
-    ],
-    [
-     "Use remote verification as a supplement",
-     "把远程验厂作为补充手段",
-     "Recorded shop-floor video, by-process photo galleries, a document wall and live inspection by appointment narrow the gap between visits — but do not replace an on-site audit for high-risk programmes.",
-     "按工序录像、车间影像集、单证墙与预约实时验视可缩小两次到厂之间的空档，但高风险项目仍不能替代现场审核。",
-     [
-      "nist_standards"
-     ]
-    ]
-   ],
-   "angle_en": "Verification is not a one-off gate; it is a rhythm. Anchormere keeps a vetted Greater Bay Area supplier base, runs by-process photo and video evidence, and holds single-point accountability for the result — so you are not auditing ten factories to buy ten SKUs.",
-   "angle_zh": "验厂不是一次性关卡，而是节奏。Anchormere 维护认证的大湾区供应商池，提供按工序影像与视频证据，并对结果承担单点责任——你无需为十个 SKU 去审核十家工厂。",
-   "internal": [
-    [
-     "verify-chinese-manufacturer.html",
-     "Verify a Chinese manufacturer"
-    ],
-    [
-     "quality.html",
-     "Quality assurance"
-    ],
-    [
-     "about.html",
-     "About Anchormere"
-    ],
-    [
-     "process.html",
-     "How we work"
-    ]
-   ],
-   "terms": [
-    "factory_audit",
-    "qms",
-    "smeta",
-    "bsci",
-    "capa",
-    "fai",
-    "traceability",
-    "golden_sample",
-    "yield",
-    "moq"
-   ],
-   "sources": [
-    "amfori",
-    "iecee",
-    "ul_cert",
-    "nist_standards",
-    "wto_tradfa",
-    "worldbank_trade"
-   ],
-   "serp_title": "Supplier verification: 10-point audit"
-  },
-  {
-   "slug": "hs-codes-rules-of-origin-duty-exposure",
-   "title_en": "HS codes, rules of origin and duty exposure: ten checks for importers",
-   "title_zh": "HS 编码、原产地规则与税负：进口方十项核查",
-   "desc_en": "Ten checks on HS classification, rules of origin and duty exposure when importing hardware from China, with WCO and WTO references.",
-   "keywords": "HS code classification, rules of origin, customs duty, HTS, tariff, certificate of origin, customs valuation, import from China, international trade procurement, Anchormere",
-   "intro_en": "Classification errors are the most expensive typo in importing: they compound across every shipment and can trigger retroactive assessments. These ten checks turn a guessed HS code into a defensible one, using the primary sources customs authorities themselves cite.",
-   "intro_zh": "归类错误是进口中最昂贵的笔误：它会在每一票货上累积，并可能引发追征。以下十项核查把「猜出来的 HS 编码」变成可举证的归类，依据正是海关自身引用的原始来源。",
-   "points": [
-    [
-     "Start with the six-digit HS, not a supplier code",
-     "从 6 位 HS 出发，不采信供应商编码",
-     "The [[wco_hs|WCO Harmonized System]] defines the global six digits; anything beyond that is a national extension and must be checked in the destination schedule.",
-     "[[wco_hs|WCO 协调制度]]定义全球通用 6 位；其后的位数是国别延伸，必须在目的国税则中核对。",
-     [
-      "wco_hs"
-     ]
-    ],
-    [
-     "Read the full national tariff line",
-     "读完整的国别税则行",
-     "The [[hts|U.S. HTS]] adds statistical suffixes and Chapter 99 measures; EU importers use the integrated tariff via the [[eu_taxation|Taxation & Customs Union]].",
-     "[[hts|美国 HTS]] 附加统计后缀与第 99 章措施；欧盟进口方通过 [[eu_taxation|税务与海关总司]]使用综合税则。",
-     [
-      "hts",
-      "eu_taxation"
-     ]
-    ],
-    [
-     "Cross-check bound and applied rates",
-     "交叉核对约束税率与实施税率",
-     "The [[wto_tariffs|WTO tariff data]] distinguishes bound commitments from applied rates — the number that actually lands on your entry.",
-     "[[wto_tariffs|WTO 关税数据]]区分约束承诺与实施税率，后者才是真正落在报关单上的数字。",
-     [
-      "wto_tariffs"
-     ]
-    ],
-    [
-     "Document the classification rationale",
-     "留存归类依据",
-     "Record why a heading was chosen (material, function, assembly state) and keep the General Rules of Interpretation reasoning in the file for audit.",
-     "记录选择某税目的理由（材质、功能、装配状态），并把归类总规则的推理留档备查。",
-     [
-      "wco_hs"
-     ]
-    ],
-    [
-     "Apply rules of origin correctly",
-     "正确适用原产地规则",
-     "The [[wto_roo|WTO rules of origin]] material explains how substantial transformation and tariff-shift tests determine economic nationality.",
-     "[[wto_roo|WTO 原产地规则]]资料说明实质性改变与税则归类改变测试如何判定经济国籍。",
-     [
-      "wto_roo"
-     ]
-    ],
-    [
-     "Substantiate preferential claims",
-     "为优惠税率提供证据",
-     "A [[certificate_of_origin|certificate of origin]] or approved origin declaration is what makes a preferential rate usable; a supplier's assertion is not.",
-     "[[certificate_of_origin|原产地证书]]或合规的原产地声明才是优惠税率可用的依据，供应商口头说明不算。",
-     [
-      "certificate_of_origin"
-     ]
-    ],
-    [
-     "Check customs valuation inputs",
-     "核查完税价格构成",
-     "[[customs_valuation|Customs valuation]] normally starts from transaction value but adds assists, tooling, royalties and certain freight elements — all of which affect the duty base.",
-     "[[customs_valuation|完税价格]]通常以成交价为基础，但需加入协助、模具、特许权费与部分运费，都会影响计税基数。",
-     [
-      "customs_valuation"
-     ]
-    ],
-    [
-     "Distinguish ad valorem from specific duties",
-     "区分从价税与从量税",
-     "An [[ad_valorem|ad valorem duty]] scales with value; specific and compound duties behave differently and change the sensitivity of your landed-cost model.",
-     "[[ad_valorem|从价税]]随货值变动，从量税与复合税逻辑不同，会改变到岸成本模型的敏感度。",
-     [
-      "ad_valorem"
-     ]
-    ],
-    [
-     "Screen for trade-remedy measures",
-     "排查贸易救济措施",
-     "Anti-dumping, countervailing and safeguard measures apply by product and origin; the [[ccg|Country Commercial Guides]] and [[trade_gov|ITA]] resources flag where to check.",
-     "反倾销、反补贴与保障措施按产品与原产地适用；[[ccg|国别商业指南]]与 [[trade_gov|ITA]] 资料提示查询路径。",
-     [
-      "ccg",
-      "trade_gov"
-     ]
-    ],
-    [
-     "Reconcile with reported trade flows",
-     "与公开贸易流量对账",
-     "[[comtrade|UN Comtrade]] and [[worldbank_trade|World Bank trade indicators]] help confirm that a claimed product-origin mix is plausible before scaling volume.",
-     "[[comtrade|UN Comtrade]] 与 [[worldbank_trade|世界银行贸易指标]]可在放量前核验所声称的产品-原产地组合是否合理。",
-     [
-      "comtrade",
-      "worldbank_trade"
-     ]
-    ]
-   ],
-   "angle_en": "Duty exposure is decided long before the container loads. Anchormere ships with a full export document package — commercial invoice, packing list, origin evidence and consolidation details — so your broker works from a consistent classification instead of reconstructing it at the border.",
-   "angle_zh": "税负早在装柜之前就已决定。Anchormere 随货提供完整出口单证包——商业发票、装箱单、原产地证明与拼柜明细——让你的报关行依据一致归类作业，而不是到口岸再重新拼凑。",
-   "internal": [
-    [
-     "import-from-china-guide.html",
-     "How to import from China"
-    ],
-    [
-     "shipping.html",
-     "Packaging & logistics"
-    ],
-    [
-     "faq.html",
-     "FAQ"
-    ]
-   ],
-   "terms": [
-    "hs_code",
-    "hts",
-    "rules_of_origin",
-    "certificate_of_origin",
-    "customs_valuation",
-    "ad_valorem",
-    "landed_cost",
-    "bill_of_lading",
-    "de_minimis",
-    "incoterms"
-   ],
-   "sources": [
-    "wco_hs",
-    "hts",
-    "eu_taxation",
-    "wto_tariffs",
-    "wto_roo",
-    "ccg",
-    "trade_gov",
-    "comtrade",
-    "worldbank_trade"
-   ],
-   "serp_title": "HS codes, origin & duty: 10 checks"
-  },
-  {
-   "slug": "export-certifications-ce-ukca-fcc-rohs-cb",
-   "title_en": "Export certifications decoded: ten points on CE, UKCA, FCC, RoHS and CB",
-   "title_zh": "出口认证拆解：CE、UKCA、FCC、RoHS 与 CB 的十项要点",
-   "desc_en": "Ten product-conformity points for hardware exports: CE, UKCA, FCC, RoHS, REACH and the CB Scheme, with EU, UK and IEC sources.",
-   "keywords": "CE marking, UKCA, FCC, RoHS, REACH, CB Scheme, Declaration of Conformity, notified body, export certification China, Greater Bay Area sourcing, Anchormere",
-   "intro_en": "Certification is where good hardware gets stuck at the border. Buyers frequently ask a factory for the CE certificate — a document that, strictly, does not exist for most products. These ten points describe what each regime actually requires and which evidence you should hold.",
-   "intro_zh": "认证是优质硬件最常卡在口岸的环节。买家常向工厂索要「CE 证书」，而对多数产品而言这份文件严格来说并不存在。以下十项说明各体系究竟要求什么、你该持有哪类证据。",
-   "points": [
-    [
-     "Understand that CE is a declaration",
-     "理解 CE 是自我声明",
-     "[[ce|CE marking]] is the manufacturer's declaration of conformity with applicable EU legislation, not a third-party award; the [[single_market|European Commission]] explains the route.",
-     "[[ce|CE 标志]]是制造商对适用欧盟法规的符合性声明，并非第三方颁发；[[single_market|欧盟委员会]]说明了具体路径。",
-     [
-      "ce",
-      "single_market"
-     ]
-    ],
-    [
-     "Hold a signed Declaration of Conformity",
-     "持有签署的符合性声明",
-     "A [[doc|Declaration of Conformity]] lists the directives, [[harmonised_standard|harmonised standards]] and signatory, and must be available to market surveillance authorities.",
-     "[[doc|符合性声明]]列明指令、[[harmonised_standard|协调标准]]与签署人，须可随时提交市场监管机构。",
-     [
-      "doc",
-      "harmonised_standard"
-     ]
-    ],
-    [
-     "Know when a notified body is required",
-     "判断何时需要公告机构",
-     "Most low-voltage electronics are self-declared, but certain categories require a [[notified_body|notified body]] assessment — check the directive before assuming.",
-     "多数低压电子产品可自我声明，但部分品类须经 [[notified_body|公告机构]]评定——先查指令再下结论。",
-     [
-      "notified_body"
-     ]
-    ],
-    [
-     "Treat UKCA as a separate route",
-     "把 UKCA 作为独立路径",
-     "The [[ukca|UKCA marking]] guidance sets out its own rules for Great Britain; it is not automatically interchangeable with CE.",
-     "[[ukca|UKCA 标志]]指南规定了大不列颠市场的独立规则，不能与 CE 自动互换。",
-     [
-      "ukca"
-     ]
-    ],
-    [
-     "Cover substance restrictions explicitly",
-     "明确覆盖限用物质",
-     "[[rohs|RoHS]] restricts specific substances in EEE and its binding text is [[eurlex_rohs|Directive 2011/65/EU]]; [[epa|EPA]] and [[reach|REACH]]-style material declarations add further obligations.",
-     "[[rohs|RoHS]] 限制电子电气设备中的特定物质，法律文本为 [[eurlex_rohs|2011/65/EU 指令]]；[[epa|EPA]] 与 [[reach|REACH]] 类材料声明带来进一步义务。",
-     [
-      "rohs",
-      "eurlex_rohs",
-      "eu_rohs"
-     ]
-    ],
-    [
-     "Document radio and EMC compliance",
-     "记录射频与电磁兼容合规",
-     "Wireless products using [[wifi|Wi-Fi]] or [[bluetooth|Bluetooth]] carry radio and EMC obligations; the [[etsi|ETSI]] standards set the European test basis.",
-     "采用 [[wifi|Wi-Fi]] 或 [[bluetooth|蓝牙]]的无线产品负有射频与 EMC 义务；[[etsi|ETSI]] 标准给出欧洲测试依据。",
-     [
-      "wifi",
-      "bluetooth",
-      "etsi"
-     ]
-    ],
-    [
-     "Use the CB Scheme to avoid repeat testing",
-     "用 CB 体系避免重复测试",
-     "The [[iecee|IECEE CB Scheme]] lets one test report and certificate support national approvals across participating countries, shortening multi-market launches.",
-     "[[iecee|IECEE CB 体系]]可用一份测试报告与证书支持多成员国转证，缩短多市场上市周期。",
-     [
-      "iecee"
-     ]
-    ],
-    [
-     "Work from the IEC standards catalogue",
-     "以 IEC 标准目录为基准",
-     "[[iec|IEC]] and the [[iec_webstore|IEC Webstore]] are the primary sources for the test standards a report should cite; check the edition year in the certificate.",
-     "[[iec|IEC]] 与 [[iec_webstore|IEC 标准目录]]是测试报告应引用标准的主要来源；核对证书中的标准版本年份。",
-     [
-      "iec",
-      "iec_webstore"
-     ]
-    ],
-    [
-     "Match the certificate to the exact model",
-     "让证书对应具体型号",
-     "A [[ul_cert|UL certification]] or CB report covers only the models and constructions listed; a renamed SKU still needs to appear in the scope.",
-     "[[ul_cert|UL 认证]]或 CB 报告只覆盖所列型号与结构；换个 SKU 名称仍需列入覆盖范围。",
-     [
-      "ul_cert"
-     ]
-    ],
-    [
-     "Keep the evidence pack current",
-     "保持证据包持续有效",
-     "Component changes, firmware changes and standard revisions can invalidate old reports; [[nist_standards|conformity assessment practice]] favours version-controlled evidence, not a one-time PDF.",
-     "元器件、固件变更或标准改版可能使旧报告失效；[[nist_standards|合格评定通行做法]]强调版本受控的证据，而非一次性 PDF。",
-     [
-      "nist_standards"
-     ]
-    ]
-   ],
-   "angle_en": "Compliance evidence is a deliverable, not a favour. Anchormere requests material declarations, test reports and conformity documents as part of the build, and ships them inside the export document package — so certification questions are answered before the goods leave the Greater Bay Area.",
-   "angle_zh": "合规证据是交付物，不是人情。Anchormere 在生产环节就索取材料声明、测试报告与符合性文件，并纳入出口单证包——让认证问题在货物离开大湾区之前就有答案。",
-   "internal": [
-    [
-     "certifications.html",
-     "Certifications & compliance"
-    ],
-    [
-     "green-manufacturing-esg.html",
-     "Green manufacturing & ESG"
-    ],
-    [
-     "quality.html",
-     "Quality assurance"
-    ]
-   ],
-   "terms": [
-    "ce",
-    "ukca",
-    "fcc",
-    "rohs",
-    "reach",
-    "cb_scheme",
-    "doc",
-    "notified_body",
-    "harmonised_standard",
-    "gtin"
-   ],
-   "sources": [
-    "single_market",
-    "ukca",
-    "eu_rohs",
-    "eurlex_rohs",
-    "iec",
-    "iec_webstore",
-    "iecee",
-    "ul_cert",
-    "etsi",
-    "wifi",
-    "bluetooth",
-    "nist_standards",
-    "epa",
-    "energystar"
-   ],
-   "serp_title": "CE, UKCA, FCC, RoHS & CB: 10 checks"
-  },
-  {
-   "slug": "low-moq-prototyping-hardware-startup-guide",
-   "title_en": "Low-MOQ manufacturing: ten points from prototype to first production run",
-   "title_zh": "低 MOQ 制造：从样机到首批量产的十项要点",
-   "desc_en": "Ten points for hardware startups moving from prototype to low-MOQ production in the Greater Bay Area, with tooling and DFMA references.",
-   "keywords": "low MOQ manufacturer China, hardware startup manufacturing, prototype to production, EVT DVT PVT, rapid tooling, NRE, DFMA, pilot run, Greater Bay Area, Anchormere",
-   "intro_en": "Startups rarely fail because a factory cannot build the product — they fail because the jump from five prototypes to five hundred units changes the process, the cost structure and the compliance burden. These ten points describe that transition and how to keep it under control.",
-   "intro_zh": "硬件初创失败往往不是因为工厂做不出产品，而是因为从 5 台样机跳到 500 台时，工艺、成本结构与合规负担全都变了。以下十项描述这一跃迁及如何把它管住。",
-   "points": [
-    [
-     "Understand what actually sets the MOQ",
-     "弄清 MOQ 由什么决定",
-     "[[moq|MOQ]] follows material lot sizes, minimum board panel counts and line changeover time; asking which item sets the floor often reveals a negotiable constraint.",
-     "[[moq|MOQ]] 由物料起批量、拼板最小数与换线时间决定；问清是哪项卡住下限，常能发现可谈的空间。",
-     [
-      "moq"
-     ]
-    ],
-    [
-     "Separate prototype, pilot and production builds",
-     "把样机、试产与量产分开",
-     "[[evt|EVT / DVT / PVT]] are distinct gates: engineering feasibility, design validation, then production readiness on the real line. Skipping one moves defects downstream.",
-     "[[evt|EVT / DVT / PVT]] 是三道独立关口：工程可行性、设计验证、正式产线的量产准备；跳过任何一道都会把缺陷推到下游。",
-     [
-      "evt"
-     ]
-    ],
-    [
-     "Use rapid tooling before hard tooling",
-     "先软模后硬模",
-     "[[rapid_tooling|Rapid tooling]] lets you validate fit, finish and assembly with aluminium or soft-steel moulds before committing to hardened production tools.",
-     "[[rapid_tooling|快速模具]]用铝模或软钢模先验证配合、外观与装配，再投入硬化量产模具。",
-     [
-      "rapid_tooling"
-     ]
-    ],
-    [
-     "Budget NRE as a separate line",
-     "把 NRE 单列预算",
-     "[[nre|Non-recurring engineering]] covers fixtures, programming and test development; folding it into unit price hides the real cost of a small run.",
-     "[[nre|一次性工程费]]覆盖夹具、编程与测试开发；并入单价会掩盖小批量的真实成本。",
-     [
-      "nre"
-     ]
-    ],
-    [
-     "Apply DFMA before the drawing is released",
-     "图纸发布前先做 DFMA",
-     "[[dfma|DFMA]] reduces part count and fastener variety, which matters more to low-volume cost than shaving a few cents off any single component.",
-     "[[dfma|DFMA]] 减少零件与紧固件种类，对低量成本的影响远大于在单个料上省几分钱。",
-     [
-      "dfma"
-     ]
-    ],
-    [
-     "Run a pilot on the actual line",
-     "在正式产线上试产",
-     "A [[pilot_run|pilot run]] validates takt time, work instructions and [[yield|first-pass yield]] in conditions that a hand-built prototype cannot reproduce.",
-     "[[pilot_run|试产]]在手工样机无法复现的条件下验证节拍、作业指导书与 [[yield|一次通过良率]]。",
-     [
-      "pilot_run",
-      "yield"
-     ]
-    ],
-    [
-     "Lock the BOM before scaling",
-     "放量前锁定 BOM",
-     "A released [[bom|BOM]] with named manufacturers and approved alternates prevents the silent substitutions that small batches often attract.",
-     "发布带厂商名与认可替代料的 [[bom|BOM]]，可避免小批量最易出现的悄悄换料。",
-     [
-      "bom"
-     ]
-    ],
-    [
-     "Plan wireless qualification early",
-     "尽早规划无线认证",
-     "Products using [[wifi|Wi-Fi]], [[bluetooth|Bluetooth]] or [[usb_docs|USB]] interfaces carry qualification and logo-use requirements that should shape the design, not follow it.",
-     "采用 [[wifi|Wi-Fi]]、[[bluetooth|蓝牙]]或 [[usb_docs|USB]] 接口的产品有认证与标识使用要求，应影响设计而非事后补救。",
-     [
-      "wifi",
-      "bluetooth",
-      "usb_docs"
-     ]
-    ],
-    [
-     "Protect the design before you share it",
-     "分享设计前先做保护",
-     "File through the [[uspto|USPTO]] or [[wipo|WIPO]] route and use an [[nnn|NNN agreement]] before sending Gerbers and artwork to any prospective workshop.",
-     "在把 Gerber 与美术稿发给任何候选车间之前，先经 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径申请，并签署 [[nnn|NNN 协议]]。",
-     [
-      "uspto",
-      "wipo",
-      "nnn"
-     ]
-    ],
-    [
-     "Consolidate mixed SKUs to reach the floor",
-     "用混 SKU 拼单跨过起订门槛",
-     "Where a single item cannot meet a factory floor, mixed-SKU consolidation across related parts can reach it without forcing you to overstock one variant.",
-     "单品达不到起订量时，用相关品类的混 SKU 拼单可以跨过门槛，而不必为单一型号压库存。",
-     [
-      "moq"
-     ]
-    ]
-   ],
-   "angle_en": "Low-MOQ work is an integration problem more than a price problem. Anchormere coordinates prototyping, rapid tooling and small-batch builds across vetted Greater Bay Area workshops, then consolidates mixed SKUs into one QC pass and one shipment — so a 500-piece programme is runnable, not theoretical.",
-   "angle_zh": "低 MOQ 更像是整合问题而非价格问题。Anchormere 在认证的大湾区车间之间协调打样、快速模具与小批试产，并把混 SKU 整合为一次质检、一票发货——让 500 件级的项目真正跑得通，而不只是纸上可行。",
-   "internal": [
-    [
-     "hardware-startup-manufacturer.html",
-     "Hardware startup manufacturer"
-    ],
-    [
-     "low-moq-oem-factory.html",
-     "Low-MOQ OEM factory"
-    ],
-    [
-     "custom-product-development.html",
-     "Custom product development"
-    ]
-   ],
-   "terms": [
-    "moq",
-    "evt",
-    "rapid_tooling",
-    "nre",
-    "dfma",
-    "pilot_run",
-    "yield",
-    "bom",
-    "golden_sample",
-    "pcba"
-   ],
-   "sources": [
-    "nist_standards",
-    "ipc",
-    "wifi",
-    "bluetooth",
-    "usb_docs",
-    "uspto",
-    "wipo"
-   ],
-   "serp_title": "Low-MOQ manufacturing: 10 checks"
-  },
-  {
-   "slug": "ev-charger-sourcing-standards-map",
-   "title_en": "EV charger sourcing: ten standards points buyers should specify",
-   "title_zh": "充电桩采购：买家应写进规格书的十项标准要点",
-   "desc_en": "Ten standards points for sourcing EV charger components and power electronics from the Greater Bay Area, with IEC and CharIN references.",
-   "keywords": "EV charger components sourcing, EVSE standards, IEC 62196, IEC 61851, CCS, CHAdeMO, OCPP, IP rating, Guangdong EV supply chain, Greater Bay Area, Anchormere",
-   "intro_en": "Charging hardware is a standards-defined product: connector geometry, control pilot behaviour and enclosure protection are all written down before a single tool is cut. These ten points map the standards to the decisions a buyer must make when sourcing from the Greater Bay Area.",
-   "intro_zh": "充电硬件是标准定义出来的产品：接口几何、控制导引行为与外壳防护在开模之前都已写死。以下十项把标准对应到买家在大湾区采购时必须做出的决策。",
-   "points": [
-    [
-     "Fix the connector family per market",
-     "按市场锁定接口体系",
-     "[[ccs|CCS]] dominates European and North American deployments via [[charin|CharIN]], while [[chademo|CHAdeMO]] persists in installed fleets; China uses its own GB/T family.",
-     "欧美以 [[charin|CharIN]] 推动的 [[ccs|CCS]] 为主，[[chademo|CHAdeMO]] 在存量车队中仍在用，中国采用 GB/T 体系。",
-     [
-      "ccs",
-      "charin",
-      "chademo"
-     ]
-    ],
-    [
-     "Cite IEC 62196 for the interface",
-     "接口引用 IEC 62196",
-     "[[iec_62196|IEC 62196]] covers plugs, socket-outlets, vehicle connectors and inlets for conductive charging — the starting point for any connector drawing.",
-     "[[iec_62196|IEC 62196]] 覆盖传导充电的插头、插座、车辆连接器与车辆接口，是任何接口图纸的起点。",
-     [
-      "iec_62196",
-      "iec"
-     ]
-    ],
-    [
-     "Cite IEC 61851 for the system",
-     "系统引用 IEC 61851",
-     "[[iec_61851|IEC 61851]] defines the charging system, control pilot and safety requirements; [[mode_3|Mode 3]] is the usual AC reference for dedicated EVSE.",
-     "[[iec_61851|IEC 61851]] 定义充电系统、控制导引与安全要求；专用交流供电设备通常参照 [[mode_3|模式 3]]。",
-     [
-      "iec_61851",
-      "mode_3"
-     ]
-    ],
-    [
-     "Specify the enclosure protection class",
-     "明确外壳防护等级",
-     "An [[ip_rating|IP rating]] under IEC 60529 (for example IP54 for indoor units, IP67 for outdoor) should be written into the drawing and verified by test report.",
-     "按 IEC 60529 的 [[ip_rating|IP 等级]]（室内如 IP54、户外如 IP67）应写入图纸并以测试报告验证。",
-     [
-      "ip_rating",
-      "iec_webstore"
-     ]
-    ],
-    [
-     "Confirm the backend protocol",
-     "确认后台通信协议",
-     "[[ocpp|OCPP]] compatibility determines whether a charge point can join an operator's management system — a firmware decision with a hardware cost.",
-     "[[ocpp|OCPP]] 兼容性决定充电桩能否接入运营商管理平台——这是固件决策，却带来硬件成本。",
-     [
-      "ocpp",
-      "etsi"
-     ]
-    ],
-    [
-     "Check cable and thermal design",
-     "核查线缆与热设计",
-     "Cable cross-section, temperature rise and continuous-current rating should be validated at the maximum rated output, not at nominal conditions.",
-     "线缆截面积、温升与持续载流能力应按最大额定输出验证，而非标称工况。",
-     [
-      "sae",
-      "energygov"
-     ]
-    ],
-    [
-     "Plan certification by destination",
-     "按目的市场规划认证",
-     "[[ul_cert|UL certification]] and the [[iecee|IECEE CB Scheme]] are common routes for power-electronics evidence; the [[iec_webstore|IEC standards catalogue]] names the test editions.",
-     "[[ul_cert|UL 认证]]与 [[iecee|IECEE CB 体系]]是电力电子证据的常见路径；[[iec_webstore|IEC 标准目录]]给出测试标准版本。",
-     [
-      "ul_cert",
-      "iecee",
-      "iec_webstore"
-     ]
-    ],
-    [
-     "Document efficiency and standby behaviour",
-     "记录能效与待机表现",
-     "[[energystar|ENERGY STAR]] and [[energygov|DOE]] resources are useful benchmarks for efficiency expectations on charging and power-conversion equipment.",
-     "[[energystar|能源之星]]与 [[energygov|美国能源部]]资料可作为充电与功率转换设备能效预期的参照。",
-     [
-      "energystar",
-      "energygov"
-     ]
-    ],
-    [
-     "Audit component traceability",
-     "审核元器件可追溯性",
-     "[[traceability|Batch traceability]] on connectors, contactors and cable assemblies is what makes a field recall manageable rather than existential.",
-     "连接器、接触器与线缆组件的 [[traceability|批次可追溯]]，决定现场召回是可控事件还是致命事件。",
-     [
-      "traceability",
-      "nist_standards"
-     ]
-    ],
-    [
-     "Consolidate the BOM across workshops",
-     "跨车间整合 BOM",
-     "Charging assemblies span moulding, sheet metal, PCBA and cable harness; consolidating them into one inspection and one export pack is where integration earns its keep.",
-     "充电总成横跨注塑、钣金、PCBA 与线束；把它们整合为一次检验、一套出口单证，正是整合方的价值所在。",
-     [
-      "bom"
-     ]
-    ]
-   ],
-   "angle_en": "EV charging hardware is exactly the multi-workshop order that fragments easily. Anchormere consolidates moulded parts, sheet metal, cable assemblies and electronics from vetted Greater Bay Area factories into one quote, one QC pass and one shipment — with the standards evidence attached.",
-   "angle_zh": "充电硬件恰恰是最容易碎片化的多车间订单。Anchormere 把认证大湾区工厂的注塑件、钣金、线束与电子件整合为一次报价、一次质检、一票发货，并随附标准符合性证据。",
-   "internal": [
-    [
-     "ev-charger-components-sourcing.html",
-     "EV charger components sourcing"
-    ],
-    [
-     "guangdong-ev-supply-chain.html",
-     "Guangdong EV supply chain"
-    ],
-    [
-     "supply-base.html",
-     "Greater Bay Area supply base"
-    ]
-   ],
-   "terms": [
-    "ccs",
-    "chademo",
-    "iec_62196",
-    "iec_61851",
-    "mode_3",
-    "ocpp",
-    "ip_rating",
-    "pdu",
-    "busbar",
-    "traceability"
-   ],
-   "sources": [
-    "charin",
-    "chademo",
-    "iec",
-    "iec_webstore",
-    "iecee",
-    "ul_cert",
-    "etsi",
-    "energystar",
-    "energygov",
-    "sae",
-    "nist_standards"
-   ],
-   "serp_title": "EV charger standards: 10 checks"
-  },
-  {
-   "slug": "ai-data-center-hardware-sourcing-standards",
-   "title_en": "AI data-center hardware sourcing: ten specification points that get missed",
-   "title_zh": "AI 数据中心硬件采购：最常被漏掉的十项规格要点",
-   "desc_en": "Ten spec points for sourcing racks, cabling and power hardware for AI data centers, with OCP, Uptime Institute and BICSI references.",
-   "keywords": "AI data center hardware sourcing, 19-inch rack, rack accessories, cable management, PDU, PUE, structured cabling, blanking panel, OCP, Greater Bay Area, Anchormere",
-   "intro_en": "GPU-dense builds change the physical layer: heavier racks, higher cable counts, tighter airflow discipline. The ten points below are the specification items most often left off an RFQ for rack accessories, cabling and installation consumables — and the sources that define them.",
-   "intro_zh": "GPU 密集型建设改变了物理层：更重的机柜、更高的线缆密度、更严的气流管理。以下十项是机柜配件、布线与安装耗材 RFQ 中最常漏写的规格，以及定义它们的来源。",
-   "points": [
-    [
-     "Specify the rack standard and U count",
-     "写明机柜标准与 U 位数",
-     "A [[rack_19|19-inch rack]] (EIA-310 / IEC 60297) is specified in [[rack_unit|U]] increments of 44.45 mm; state total U, usable depth and static load rating.",
-     "[[rack_19|19 英寸机柜]]（EIA-310 / IEC 60297）以 [[rack_unit|U]]（44.45 毫米）计量；须写明总 U 数、可用深度与静载等级。",
-     [
-      "rack_19",
-      "rack_unit"
-     ]
-    ],
-    [
-     "Set rail and mounting requirements",
-     "明确导轨与安装要求",
-     "Rail type, cage-nut sizing, square-hole vs round-hole uprights and grounding points should be in the drawing, not assumed compatible.",
-     "导轨类型、笼式螺母规格、方孔/圆孔立柱与接地点应写入图纸，不能默认兼容。",
-     [
-      "ipc"
-     ]
-    ],
-    [
-     "Design cable management around bend radius",
-     "按弯曲半径设计线缆管理",
-     "High-count copper and fibre runs need tray, ladder, J-hook and D-ring sizing that respects [[bend_radius|minimum bend radius]]; [[bicsi|BICSI]] publishes the cabling practice.",
-     "高芯数铜缆与光纤需托盘、梯架、J 型钩与 D 型环按 [[bend_radius|最小弯曲半径]]选型；[[bicsi|BICSI]] 发布布线实践标准。",
-     [
-      "bend_radius",
-      "bicsi"
-     ]
-    ],
-    [
-     "Apply structured cabling administration",
-     "落实结构化布线管理",
-     "[[structured_cabling|Structured cabling]] needs labelled horizontal and backbone links, patching and records; [[tia_942|TIA-942]] covers the data-center infrastructure layer.",
-     "[[structured_cabling|结构化布线]]要求水平与主干链路有标签、配线与记录；[[tia_942|TIA-942]] 覆盖数据中心基础设施层。",
-     [
-      "structured_cabling",
-      "tia_942"
-     ]
-    ],
-    [
-     "Close unused U-space",
-     "封堵空余 U 位",
-     "[[blanking_panel|Blanking panels]] stop hot-air recirculation; leaving gaps undermines cooling efficiency regardless of how capable the CRAC units are.",
-     "[[blanking_panel|盲板]]阻止热风回流；无论空调多强，空置 U 位不封堵都会削弱散热效率。",
-     [
-      "blanking_panel"
-     ]
-    ],
-    [
-     "Specify power distribution explicitly",
-     "明确配电规格",
-     "[[pdu|PDUs]] should be specified by input, outlet count, metering, socket type and [[busbar|busbar]] or feed arrangement — not just total kW.",
-     "[[pdu|PDU]] 须按输入、插座数、计量、插座类型及 [[busbar|母排]]/馈电方式约定，而不只写总功率。",
-     [
-      "pdu",
-      "busbar"
-     ]
-    ],
-    [
-     "Tie efficiency claims to a metric",
-     "让能效主张对应指标",
-     "[[pue|PUE]] is the standard ratio for facility efficiency; [[energystar|ENERGY STAR]] resources give a common reference for equipment-level expectations.",
-     "[[pue|PUE]] 是设施能效的标准比值；[[energystar|能源之星]]资料提供设备级预期的通用参照。",
-     [
-      "pue",
-      "energystar"
-     ]
-    ],
-    [
-     "Check open hardware specifications",
-     "核对开放硬件规范",
-     "The [[ocp|Open Compute Project]] publishes open rack, power and server specifications that increasingly shape buyer RFQs.",
-     "[[ocp|开放计算项目]]发布开放的机柜、供电与服务器规范，正越来越多地进入买家 RFQ。",
-     [
-      "ocp"
-     ]
-    ],
-    [
-     "Use a recognised facility baseline",
-     "采用公认的设施基准",
-     "[[uptime|Uptime Institute]] Tier resources are the common language for redundancy and availability discussions with integrators.",
-     "[[uptime|Uptime Institute]] 的 Tier 资料是与集成商讨论冗余与可用性时的通用语言。",
-     [
-      "uptime"
-     ]
-    ],
-    [
-     "Plan supply against real demand signals",
-     "按真实需求信号规划供应",
-     "[[sia|SIA]] industry data and [[nist_pml|NIST measurement resources]] help frame capacity planning; then consolidate multi-SKU hardware into one QC pass and one shipment.",
-     "[[sia|SIA]] 行业数据与 [[nist_pml|NIST 计量资料]]可支撑产能规划；随后把多 SKU 硬件整合为一次质检、一票发货。",
-     [
-      "sia",
-      "nist_pml"
-     ]
-    ]
-   ],
-   "angle_en": "Racks, cabling and consumables are unglamorous until they are the reason a commissioning date slips. Anchormere's entry category is exactly this physical layer — consolidating rack accessories, cable management and installation consumables from vetted Greater Bay Area factories into one 48-hour quote, one QC pass and one shipment.",
-   "angle_zh": "机柜、布线与耗材在导致交付延期之前总是不起眼。Anchormere 的切入门类正是这一物理层——把认证大湾区工厂的机柜配件、线缆管理与安装耗材整合为 48 小时一次报价、一次质检、一票发货。",
-   "internal": [
-    [
-     "ai-data-center-sourcing.html",
-     "AI data-center sourcing"
-    ],
-    [
-     "rack-accessories.html",
-     "Rack accessories"
-    ],
-    [
-     "cable-management.html",
-     "Cable management"
-    ],
-    [
-     "supply-base.html",
-     "Greater Bay Area supply base"
-    ]
-   ],
-   "terms": [
-    "rack_unit",
-    "rack_19",
-    "pdu",
-    "pue",
-    "structured_cabling",
-    "blanking_panel",
-    "busbar",
-    "bend_radius",
-    "tia_942",
-    "ocp"
-   ],
-   "sources": [
-    "ocp",
-    "uptime",
-    "bicsi",
-    "energystar",
-    "sia",
-    "nist_pml",
-    "iec_webstore",
-    "ipc"
-   ],
-   "serp_title": "AI data-center hardware: 10 checks"
-  }
- ]
+  "version": "1.1",
+  "published": "2026-11-07",
+  "note": "All outbound URLs were HTTP-verified on 2026-11-07. Full URLs are rendered as visible source attributions on every briefing page.",
+  "sources": {
+    "wto": {
+      "name": "World Trade Organization",
+      "url": "https://www.wto.org/",
+      "title": "WTO — trade rules and market access",
+      "zh": "世界贸易组织"
+    },
+    "wto_tariffs": {
+      "name": "World Trade Organization",
+      "url": "https://www.wto.org/english/tratop_e/tariffs_e/tariffs_e.htm",
+      "title": "WTO — tariffs and trade data",
+      "zh": "WTO 关税与贸易数据"
+    },
+    "wto_roo": {
+      "name": "World Trade Organization",
+      "url": "https://www.wto.org/english/tratop_e/roo_e/roo_e.htm",
+      "title": "WTO — rules of origin",
+      "zh": "WTO 原产地规则"
+    },
+    "wto_tradfa": {
+      "name": "World Trade Organization",
+      "url": "https://www.wto.org/english/tratop_e/tradfa_e/tradfa_e.htm",
+      "title": "WTO — Trade Facilitation Agreement",
+      "zh": "WTO 贸易便利化协定"
+    },
+    "icc": {
+      "name": "International Chamber of Commerce (ICC)",
+      "url": "https://iccwbo.org/business-solutions/incoterms-rules/",
+      "title": "ICC — Incoterms 2020 rules",
+      "zh": "国际商会 Incoterms 2020"
+    },
+    "wco_hs": {
+      "name": "World Customs Organization (WCO)",
+      "url": "https://www.wcoomd.org/en/topics/nomenclature/overview/what-is-the-harmonized-system.aspx",
+      "title": "WCO — what is the Harmonized System (HS)",
+      "zh": "世界海关组织 HS 体系"
+    },
+    "hts": {
+      "name": "U.S. International Trade Commission",
+      "url": "https://hts.usitc.gov/",
+      "title": "Harmonized Tariff Schedule of the United States (HTS)",
+      "zh": "美国协调关税表"
+    },
+    "eu_taxation": {
+      "name": "European Commission — Taxation & Customs Union",
+      "url": "https://taxation-customs.ec.europa.eu/",
+      "title": "EU customs procedures and EORI",
+      "zh": "欧盟税务与海关总司"
+    },
+    "single_market": {
+      "name": "European Commission — Single Market Economy",
+      "url": "https://single-market-economy.ec.europa.eu/",
+      "title": "EU goods and conformity assessment",
+      "zh": "欧盟单一市场与合格评定"
+    },
+    "eu_rohs": {
+      "name": "European Commission — Environment",
+      "url": "https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en",
+      "title": "EU RoHS Directive — restricted substances",
+      "zh": "欧盟 RoHS 指令"
+    },
+    "eurlex_rohs": {
+      "name": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/dir/2011/65/",
+      "title": "Directive 2011/65/EU (RoHS) — full legal text",
+      "zh": "RoHS 指令法律全文"
+    },
+    "ukca": {
+      "name": "UK Government (GOV.UK)",
+      "url": "https://www.gov.uk/guidance/using-the-ukca-marking",
+      "title": "Using the UKCA marking",
+      "zh": "英国 UKCA 标志使用指南"
+    },
+    "trade_gov": {
+      "name": "International Trade Administration (ITA)",
+      "url": "https://www.trade.gov/",
+      "title": "ITA — U.S. import and export guidance",
+      "zh": "美国国际贸易管理局"
+    },
+    "ccg": {
+      "name": "International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides",
+      "title": "Country Commercial Guides",
+      "zh": "国别商业指南"
+    },
+    "trade_export": {
+      "name": "International Trade Administration",
+      "url": "https://www.trade.gov/export-solutions",
+      "title": "Export solutions and documentation",
+      "zh": "出口方案与单证"
+    },
+    "comtrade": {
+      "name": "United Nations Comtrade",
+      "url": "https://comtradeplus.un.org/",
+      "title": "UN Comtrade Plus — bilateral trade data",
+      "zh": "联合国商品贸易数据库"
+    },
+    "unstats": {
+      "name": "UN Statistics Division",
+      "url": "https://unstats.un.org/",
+      "title": "UN statistical databases",
+      "zh": "联合国统计司"
+    },
+    "worldbank_trade": {
+      "name": "World Bank",
+      "url": "https://www.worldbank.org/en/topic/trade",
+      "title": "World Bank — trade indicators",
+      "zh": "世界银行贸易专题"
+    },
+    "exim": {
+      "name": "Export-Import Bank of the United States",
+      "url": "https://www.exim.gov/",
+      "title": "EXIM — trade finance",
+      "zh": "美国进出口银行"
+    },
+    "ipc": {
+      "name": "IPC — Association Connecting Electronics Industries",
+      "url": "https://www.ipc.org/",
+      "title": "IPC standards for electronics assembly",
+      "zh": "IPC 电子组装标准"
+    },
+    "usb_docs": {
+      "name": "USB Implementers Forum (USB-IF)",
+      "url": "https://www.usb.org/documents",
+      "title": "USB-IF specifications and compliance documents",
+      "zh": "USB-IF 规范与合规文件"
+    },
+    "nist": {
+      "name": "National Institute of Standards and Technology",
+      "url": "https://www.nist.gov/",
+      "title": "NIST — standards and measurement",
+      "zh": "美国国家标准与技术研究院"
+    },
+    "nist_standards": {
+      "name": "NIST",
+      "url": "https://www.nist.gov/standards",
+      "title": "NIST standards and conformity assessment",
+      "zh": "NIST 标准与合格评定"
+    },
+    "nist_pml": {
+      "name": "NIST Physical Measurement Laboratory",
+      "url": "https://www.nist.gov/pml",
+      "title": "NIST PML — measurement science",
+      "zh": "NIST 物理测量实验室"
+    },
+    "iec": {
+      "name": "International Electrotechnical Commission (IEC)",
+      "url": "https://www.iec.ch/",
+      "title": "IEC — international electrotechnical standards",
+      "zh": "国际电工委员会"
+    },
+    "iec_webstore": {
+      "name": "IEC Webstore",
+      "url": "https://webstore.iec.ch/",
+      "title": "IEC standards catalogue",
+      "zh": "IEC 标准目录"
+    },
+    "iecee": {
+      "name": "IECEE — IEC Conformity Assessment Schemes",
+      "url": "https://www.iecee.org/",
+      "title": "IECEE CB Scheme",
+      "zh": "IECEE CB 体系"
+    },
+    "ul_cert": {
+      "name": "UL Solutions",
+      "url": "https://www.ul.com/services/certification",
+      "title": "UL certification services",
+      "zh": "UL 认证服务"
+    },
+    "gs1": {
+      "name": "GS1",
+      "url": "https://www.gs1.org/",
+      "title": "GS1 — GTIN and supply-chain identifiers",
+      "zh": "GS1 全球统一标识"
+    },
+    "wipo": {
+      "name": "World Intellectual Property Organization (WIPO)",
+      "url": "https://www.wipo.int/en/web/wipo",
+      "title": "WIPO — intellectual property protection",
+      "zh": "世界知识产权组织"
+    },
+    "uspto": {
+      "name": "U.S. Patent and Trademark Office",
+      "url": "https://www.uspto.gov/trademarks",
+      "title": "USPTO — trademarks",
+      "zh": "美国专利商标局"
+    },
+    "amfori": {
+      "name": "amfori",
+      "url": "https://www.amfori.org/",
+      "title": "amfori BSCI — supply-chain social compliance",
+      "zh": "amfori BSCI 社会责任"
+    },
+    "energystar": {
+      "name": "ENERGY STAR (U.S. EPA)",
+      "url": "https://www.energystar.gov/",
+      "title": "ENERGY STAR — energy efficiency",
+      "zh": "能源之星能效"
+    },
+    "epa": {
+      "name": "U.S. Environmental Protection Agency",
+      "url": "https://www.epa.gov/",
+      "title": "EPA — chemical and product regulation",
+      "zh": "美国环保署"
+    },
+    "energygov": {
+      "name": "U.S. Department of Energy",
+      "url": "https://www.energy.gov/",
+      "title": "DOE — vehicle and energy technologies",
+      "zh": "美国能源部"
+    },
+    "bicsi": {
+      "name": "BICSI",
+      "url": "https://www.bicsi.org/",
+      "title": "BICSI — ICT cabling and data-center standards",
+      "zh": "BICSI 布线与数据中心标准"
+    },
+    "etsi": {
+      "name": "ETSI",
+      "url": "https://www.etsi.org/",
+      "title": "ETSI — European ICT standards",
+      "zh": "欧洲电信标准协会"
+    },
+    "bluetooth": {
+      "name": "Bluetooth SIG",
+      "url": "https://www.bluetooth.com/",
+      "title": "Bluetooth SIG — qualification and specifications",
+      "zh": "蓝牙技术联盟"
+    },
+    "wifi": {
+      "name": "Wi-Fi Alliance",
+      "url": "https://www.wi-fi.org/",
+      "title": "Wi-Fi Alliance — certification",
+      "zh": "Wi-Fi 联盟"
+    },
+    "sae": {
+      "name": "SAE International",
+      "url": "https://www.sae.org/",
+      "title": "SAE — mobility engineering standards",
+      "zh": "国际自动机工程师学会"
+    },
+    "charin": {
+      "name": "CharIN e.V.",
+      "url": "https://www.charin.global/technology/",
+      "title": "CharIN — Combined Charging System (CCS)",
+      "zh": "CharIN 联合充电系统"
+    },
+    "chademo": {
+      "name": "CHAdeMO Association",
+      "url": "https://www.chademo.com/",
+      "title": "CHAdeMO — DC fast-charging standard",
+      "zh": "CHAdeMO 直流快充标准"
+    },
+    "ocp": {
+      "name": "Open Compute Project (OCP)",
+      "url": "https://github.com/OpenComputeProject",
+      "title": "OCP — open data-center hardware specifications (official repository)",
+      "zh": "开放计算项目"
+    },
+    "uptime": {
+      "name": "Uptime Institute",
+      "url": "https://uptimeinstitute.com/resources",
+      "title": "Uptime Institute — Tier Standard and resources",
+      "zh": "Uptime Institute 数据中心资源"
+    },
+    "sia": {
+      "name": "Semiconductor Industry Association (SIA)",
+      "url": "https://www.semiconductors.org/",
+      "title": "SIA — industry data and policy",
+      "zh": "美国半导体行业协会"
+    }
+  },
+  "glossary": {
+    "hs_code": {
+      "term": "HS code",
+      "en": "A six-digit Harmonized System classification assigned by the World Customs Organization; countries append their own digits for tariff and statistical lines.",
+      "zh": "世界海关组织制定的 6 位商品编码，各国再延长本国税则子目。"
+    },
+    "hts": {
+      "term": "HTS",
+      "en": "The Harmonized Tariff Schedule: the destination-country tariff schedule built on the HS, used to look up duty rates and statistical suffixes.",
+      "zh": "基于 HS 的目的国关税表，用于查询税率与统计后缀。"
+    },
+    "eori": {
+      "term": "EORI number",
+      "en": "Economic Operators Registration and Identification number: the identifier an importer or exporter needs for customs declarations in the EU.",
+      "zh": "欧盟进出口商办理海关申报所需的经营者注册识别号。"
+    },
+    "gtin": {
+      "term": "GTIN",
+      "en": "Global Trade Item Number: the GS1 identifier behind retail barcodes and marketplace listing keys.",
+      "zh": "GS1 全球贸易项目代码，是零售条码与平台商品标识的基础。"
+    },
+    "incoterms": {
+      "term": "Incoterms",
+      "en": "The ICC's published trade terms (current edition: Incoterms 2020) that allocate delivery, risk, cost and customs responsibility between seller and buyer.",
+      "zh": "国际商会发布的贸易术语（现行为 2020 版），划分买卖双方交货、风险、费用与清关责任。"
+    },
+    "fob": {
+      "term": "FOB (Free On Board)",
+      "en": "Seller clears the goods for export and loads them on the vessel at the named port; risk transfers once on board.",
+      "zh": "卖方完成出口清关并将货物装上指定港口船舶，风险在装船后转移。"
+    },
+    "exw": {
+      "term": "EXW (Ex Works)",
+      "en": "Seller only makes goods available at its premises; the buyer carries all transport, export and import formalities.",
+      "zh": "卖方仅在己方场所交货，运输及进出口手续全部由买方承担。"
+    },
+    "dap": {
+      "term": "DAP (Delivered at Place)",
+      "en": "Seller delivers to a named place, ready for unloading; the buyer handles import clearance and duties.",
+      "zh": "卖方运至指定地点（不含卸货），进口清关与税费由买方承担。"
+    },
+    "ddp": {
+      "term": "DDP (Delivered Duty Paid)",
+      "en": "Seller delivers to the named place with import clearance and duties paid — maximum seller obligation.",
+      "zh": "卖方承担进口清关与税费并送达指定地点，卖方义务最大。"
+    },
+    "landed_cost": {
+      "term": "Landed cost",
+      "en": "The full unit cost at the buyer's door: ex-works price, freight, insurance, duties, taxes, handling and compliance spend.",
+      "zh": "货物到达买方仓库的全部单位成本：出厂价、运保费、关税、税费、杂费与合规支出。"
+    },
+    "bill_of_lading": {
+      "term": "Bill of lading",
+      "en": "The carrier-issued document that evidences the contract of carriage, receipt of goods and (for an order B/L) title to the cargo.",
+      "zh": "承运人签发的运输单证，证明运输合同与收货，指示提单还代表货权。"
+    },
+    "rules_of_origin": {
+      "term": "Rules of origin",
+      "en": "The criteria that decide the economic nationality of a good and therefore its tariff treatment and eligibility for preferential rates.",
+      "zh": "判定货物经济国籍的标准，决定适用税率与优惠资格。"
+    },
+    "certificate_of_origin": {
+      "term": "Certificate of origin",
+      "en": "A document attesting where goods were produced, required for preferential tariffs and by some customs authorities.",
+      "zh": "证明货物原产地的文件，优惠税率与部分海关要求提供。"
+    },
+    "customs_valuation": {
+      "term": "Customs valuation",
+      "en": "The method customs uses to assign a dutiable value to imported goods, normally based on the transaction value.",
+      "zh": "海关确定完税价格的方法，通常以成交价格为基础。"
+    },
+    "ad_valorem": {
+      "term": "Ad valorem duty",
+      "en": "A duty calculated as a percentage of the customs value rather than a fixed amount per unit.",
+      "zh": "按完税价格百分比计征的关税，而非按件固定金额。"
+    },
+    "de_minimis": {
+      "term": "De minimis threshold",
+      "en": "The shipment value below which a destination market may waive duties or simplified entry — rules vary by market and change often.",
+      "zh": "目的市场免征关税或简化申报的货值门槛，各市场不同且常调整。"
+    },
+    "ioss": {
+      "term": "IOSS",
+      "en": "Import One-Stop Shop: an EU VAT scheme that lets sellers declare and pay VAT on low-value imported consignments through a single registration.",
+      "zh": "欧盟进口一站式增值税申报机制，用于低价值包裹的集中申报缴税。"
+    },
+    "sku": {
+      "term": "SKU",
+      "en": "Stock-keeping unit: the buyer's own identifier for a distinct sellable item, separate from the manufacturer's part number.",
+      "zh": "买方自定义的可售品项编码，与工厂料号相互独立。"
+    },
+    "fba": {
+      "term": "FBA",
+      "en": "Fulfilment by Amazon: the marketplace's storage, picking and delivery service, which imposes its own labelling and packaging rules.",
+      "zh": "亚马逊仓储配送服务，对标签与包装有独立要求。"
+    },
+    "oem": {
+      "term": "OEM",
+      "en": "Original Equipment Manufacturer: production to the buyer's own specification and drawing, with the buyer holding the design.",
+      "zh": "按买方规格与图纸生产，设计归买方所有。"
+    },
+    "odm": {
+      "term": "ODM",
+      "en": "Original Design Manufacturer: the factory owns a base design that the buyer rebrands or modifies.",
+      "zh": "工厂拥有基础设计，买方贴牌或做局部修改。"
+    },
+    "private_label": {
+      "term": "Private label",
+      "en": "A factory-made standard product sold under the buyer's brand, usually with custom packaging and artwork.",
+      "zh": "工厂标准品贴买方品牌销售，通常仅定制包装与外观。"
+    },
+    "build_to_print": {
+      "term": "Build-to-print",
+      "en": "Manufacture strictly to the buyer's released drawing and BOM, with no factory-side design authority.",
+      "zh": "严格按买方发布的图纸与 BOM 生产，工厂无设计变更权。"
+    },
+    "tooling": {
+      "term": "Tooling",
+      "en": "The moulds, jigs, fixtures and test rigs built for a specific product; ownership and payment terms should be written into the PO.",
+      "zh": "为特定产品制作的模具、夹具与测试治具，所有权与付款条件应写入订单。"
+    },
+    "ip_assignment": {
+      "term": "IP assignment",
+      "en": "A written clause transferring ownership of drawings, moulds and firmware deliverables from the factory to the buyer.",
+      "zh": "将图纸、模具与固件成果所有权从工厂转移给买方的书面条款。"
+    },
+    "nnn": {
+      "term": "NNN agreement",
+      "en": "A China-focused non-disclosure, non-use and non-circumvention contract, distinct from a standard Western NDA.",
+      "zh": "面向中国供应链的保密、不使用、不绕开协议，区别于普通西式 NDA。"
+    },
+    "golden_sample": {
+      "term": "Golden sample",
+      "en": "The sealed, signed reference unit that both parties use as the acceptance baseline for mass production.",
+      "zh": "双方封样签认的基准样机，作为量产验收依据。"
+    },
+    "bom": {
+      "term": "BOM",
+      "en": "Bill of materials: the complete part list with manufacturer names, part numbers and approved alternates.",
+      "zh": "完整物料清单，含厂商、料号与认可替代料。"
+    },
+    "moq": {
+      "term": "MOQ",
+      "en": "Minimum order quantity: the smallest volume a factory will run, driven by material lot sizes and line changeover cost.",
+      "zh": "工厂可承接的最小订单量，由物料批量与换线成本决定。"
+    },
+    "pcba": {
+      "term": "PCBA",
+      "en": "Printed Circuit Board Assembly: a bare PCB populated with components, as distinct from the bare board itself.",
+      "zh": "已贴装元器件的印制电路板组件，区别于裸板 PCB。"
+    },
+    "smt": {
+      "term": "SMT",
+      "en": "Surface-mount technology: components are placed directly onto pads and reflow-soldered, enabling high-density automated assembly.",
+      "zh": "表面贴装技术，元件直接贴于焊盘并回流焊接，适合高密度自动化组装。"
+    },
+    "dfm": {
+      "term": "DFM",
+      "en": "Design for Manufacture: a factory review that flags pad, clearance and panelisation issues before the board is released to production.",
+      "zh": "可制造性设计评审，在投产前指出焊盘、间距与拼板问题。"
+    },
+    "aoi": {
+      "term": "AOI",
+      "en": "Automated Optical Inspection: camera-based checking of solder joints and component placement after reflow.",
+      "zh": "自动光学检测，回流焊后以相机检查焊点与贴装位置。"
+    },
+    "ict": {
+      "term": "ICT",
+      "en": "In-Circuit Test: a bed-of-nails fixture that verifies component values, opens and shorts on a loaded board.",
+      "zh": "在线测试，通过针床夹具检查已贴装板的元件值、开路和短路。"
+    },
+    "reflow": {
+      "term": "Reflow profile",
+      "en": "The controlled time-temperature curve in a reflow oven that determines solder joint quality and component stress.",
+      "zh": "回流炉内受控的时间-温度曲线，决定焊点质量与元件热应力。"
+    },
+    "panelization": {
+      "term": "Panelization",
+      "en": "Arranging several boards into one production panel with rails and fiducials to improve SMT throughput.",
+      "zh": "将多块板拼成带工艺边与基准点的生产拼板，提升贴装效率。"
+    },
+    "gerber": {
+      "term": "Gerber / ODB++",
+      "en": "The standard fabrication data set (copper layers, solder mask, drill files) released to a PCB house.",
+      "zh": "交付给板厂的制造数据（铜层、阻焊、钻孔等）标准格式。"
+    },
+    "yield": {
+      "term": "First-pass yield",
+      "en": "The share of units that pass all tests without rework on the first run; a direct indicator of process maturity.",
+      "zh": "一次通过全部测试、无需返修的比例，直接反映工艺成熟度。"
+    },
+    "dfma": {
+      "term": "DFMA",
+      "en": "Design for Manufacture and Assembly: simplifying part count and fasteners so a product can be built and servied reliably.",
+      "zh": "面向制造与装配的设计，减少零件与紧固件数量以提升可制造性。"
+    },
+    "evt": {
+      "term": "EVT / DVT / PVT",
+      "en": "Engineering, Design and Production Verification Test stages — the three hardware build gates before mass production.",
+      "zh": "工程、设计、生产验证三个硬件试制关口，量产前依次通过。"
+    },
+    "rapid_tooling": {
+      "term": "Rapid tooling",
+      "en": "Short-run aluminium or soft-steel moulds used for prototype and pilot batches before committing to hardened production tooling.",
+      "zh": "试模用铝模或软钢模，用于样机与试产，避免过早投入硬模。"
+    },
+    "nre": {
+      "term": "NRE",
+      "en": "Non-recurring engineering: one-off setup, fixture and programming charges billed separately from unit price.",
+      "zh": "一次性工程费：夹具、编程与调试等单独计费，不计入单价。"
+    },
+    "pilot_run": {
+      "term": "Pilot run",
+      "en": "A small pre-production batch on the actual line used to validate takt time, yield and work instructions.",
+      "zh": "在正式产线进行的小批试产，用于验证节拍、良率与作业指导书。"
+    },
+    "qms": {
+      "term": "QMS",
+      "en": "Quality Management System: the documented process set (commonly audited against ISO 9001) controlling how a factory builds and releases product.",
+      "zh": "质量管理体系，即控制工厂生产与放行流程的成套文件化流程。"
+    },
+    "factory_audit": {
+      "term": "Factory audit",
+      "en": "An on-site or remote assessment of a supplier's capability, capacity, quality system and social compliance before awarding a PO.",
+      "zh": "下单前对供应商能力、产能、质量体系与社会责任做的现场或远程评估。"
+    },
+    "smeta": {
+      "term": "SMETA",
+      "en": "Sedex Members Ethical Trade Audit: a widely used shared audit format covering labour, health and safety, environment and business ethics.",
+      "zh": "常用的共享社会责任审核框架，覆盖劳工、健康安全、环境与商业道德。"
+    },
+    "bsci": {
+      "term": "amfori BSCI",
+      "en": "A supply-chain social compliance system that sets a code of conduct and audit methodology for buyer-appointed factories.",
+      "zh": "供应链社会责任体系，为买方指定工厂提供行为准则与审核方法。"
+    },
+    "capa": {
+      "term": "CAPA",
+      "en": "Corrective and Preventive Action: the documented root-cause and closure process a factory must run after a defect is found.",
+      "zh": "纠正与预防措施：发现缺陷后的根因分析与闭环整改流程。"
+    },
+    "fai": {
+      "term": "First article inspection",
+      "en": "A documented measurement of the first unit off a production run against every drawing dimension before the batch continues.",
+      "zh": "对首件按图纸全尺寸测量并记录，合格后才继续生产。"
+    },
+    "traceability": {
+      "term": "Batch traceability",
+      "en": "The ability to link a finished unit back to its material lots, machine, operator and test record via a lot or serial code.",
+      "zh": "通过批次或序列号追溯到物料批、机台、操作员与测试记录的能力。"
+    },
+    "ce": {
+      "term": "CE marking",
+      "en": "The manufacturer's declaration that a product meets applicable EU harmonised legislation; it is not a third-party certificate.",
+      "zh": "制造商声明产品符合欧盟适用法规，并非第三方证书。"
+    },
+    "ukca": {
+      "term": "UKCA marking",
+      "en": "The UK conformity marking used for goods placed on the Great Britain market, with its own guidance and route.",
+      "zh": "投放英国（大不列颠）市场使用的合格评定标志，规则与 CE 不同。"
+    },
+    "fcc": {
+      "term": "FCC equipment authorization",
+      "en": "The U.S. regime requiring radio-frequency devices and digital equipment to meet emission and labelling rules before marketing.",
+      "zh": "美国对射频与数字设备的电磁发射及标签合规要求。"
+    },
+    "rohs": {
+      "term": "RoHS",
+      "en": "The EU Directive 2011/65/EU restricting specific hazardous substances in electrical and electronic equipment.",
+      "zh": "欧盟 2011/65/EU 指令，限制电子电气设备中的特定有害物质。"
+    },
+    "reach": {
+      "term": "REACH",
+      "en": "The EU regulation on registration, evaluation and authorisation of chemicals, relevant to materials declarations on hardware.",
+      "zh": "欧盟化学品注册评估与授权法规，影响硬件材料声明。"
+    },
+    "cb_scheme": {
+      "term": "CB Scheme",
+      "en": "The IECEE system allowing a single test report and certificate to support national approvals across participating countries.",
+      "zh": "IECEE 体系，用一份测试报告与证书支持多国转证。"
+    },
+    "doc": {
+      "term": "Declaration of Conformity",
+      "en": "A signed document in which the manufacturer lists the directives and standards a product complies with and takes responsibility.",
+      "zh": "制造商签署、列明产品所符合指令与标准并承担责任的文件。"
+    },
+    "notified_body": {
+      "term": "Notified body",
+      "en": "An EU-designated conformity assessment organisation required for certain high-risk product categories.",
+      "zh": "欧盟指定的合格评定机构，部分高风险品类必须介入。"
+    },
+    "harmonised_standard": {
+      "term": "Harmonised standard",
+      "en": "An EN standard cited in the EU Official Journal that gives a presumption of conformity with a directive.",
+      "zh": "被欧盟官方公报引用、可推定符合指令要求的 EN 标准。"
+    },
+    "ccs": {
+      "term": "CCS",
+      "en": "Combined Charging System: the AC/DC connector family promoted by CharIN for European and North American EVs.",
+      "zh": "CharIN 推动的欧美电动车交直流一体充电接口体系。"
+    },
+    "chademo": {
+      "term": "CHAdeMO",
+      "en": "A DC fast-charging connector and protocol standard originating in Japan, still present in installed fleets.",
+      "zh": "源自日本的直流快充接口与协议标准，存量车队仍在用。"
+    },
+    "iec_62196": {
+      "term": "IEC 62196",
+      "en": "The IEC series covering EV plugs, socket-outlets, vehicle connectors and vehicle inlets for conductive charging.",
+      "zh": "IEC 关于电动汽车传导充电插头、插座与车辆接口的标准系列。"
+    },
+    "iec_61851": {
+      "term": "IEC 61851",
+      "en": "The IEC series defining EV conductive charging systems, control pilot functions and safety requirements.",
+      "zh": "IEC 关于电动汽车传导充电系统、控制导引与安全要求的标准系列。"
+    },
+    "mode_3": {
+      "term": "Mode 3",
+      "en": "The IEC 61851 charging mode using a dedicated EVSE with a control pilot function for AC charging.",
+      "zh": "IEC 61851 定义的交流充电模式，使用带控制导引的专用供电设备。"
+    },
+    "ocpp": {
+      "term": "OCPP",
+      "en": "Open Charge Point Protocol: an open communication protocol between charge points and a central management system.",
+      "zh": "充电桩与后台管理系统之间的开放通信协议。"
+    },
+    "ip_rating": {
+      "term": "IP rating",
+      "en": "An IEC 60529 ingress-protection code (e.g. IP54, IP67) describing dust and water resistance of an enclosure.",
+      "zh": "IEC 60529 外壳防护等级代码，描述防尘与防水能力。"
+    },
+    "rack_unit": {
+      "term": "Rack unit (U)",
+      "en": "A 44.45 mm (1.75 in) vertical increment used to specify equipment height in a 19-inch rack.",
+      "zh": "19 英寸机柜中 44.45 毫米的高度计量单位。"
+    },
+    "rack_19": {
+      "term": "19-inch rack",
+      "en": "The standardised equipment frame (EIA-310 / IEC 60297) with 482.6 mm front panel width.",
+      "zh": "标准化设备机架（EIA-310 / IEC 60297），前面板宽 482.6 毫米。"
+    },
+    "pdu": {
+      "term": "PDU",
+      "en": "Power Distribution Unit: the rack-mounted unit that delivers and, in metered variants, monitors power to installed equipment.",
+      "zh": "机柜内配电单元，计量型还可监测各回路用电。"
+    },
+    "pue": {
+      "term": "PUE",
+      "en": "Power Usage Effectiveness: total facility power divided by IT equipment power; a standard data-center efficiency ratio.",
+      "zh": "电能使用效率，数据中心总能耗与 IT 设备能耗之比。"
+    },
+    "structured_cabling": {
+      "term": "Structured cabling",
+      "en": "A standards-based, organised cabling system of horizontal and backbone links, patching and administration.",
+      "zh": "按标准组织水平与主干链路、配线及管理的布线体系。"
+    },
+    "blanking_panel": {
+      "term": "Blanking panel",
+      "en": "A filler plate closing unused rack U-space to stop hot-air recirculation and protect cooling efficiency.",
+      "zh": "封堵机柜空余 U 位的挡板，防止热风回流、保障散热效率。"
+    },
+    "busbar": {
+      "term": "Busbar",
+      "en": "A rigid conductive bar used to distribute high current within a rack or power distribution assembly.",
+      "zh": "机柜或配电组件内用于分配大电流的刚性导电排。"
+    },
+    "bend_radius": {
+      "term": "Bend radius",
+      "en": "The minimum curvature allowed for a cable; exceeding it damages fibre or copper performance.",
+      "zh": "线缆允许的最小弯曲半径，过小会损伤光纤或铜缆性能。"
+    },
+    "tia_942": {
+      "term": "TIA-942",
+      "en": "The Telecommunications Infrastructure Standard for Data Centers covering cabling, spaces and topology.",
+      "zh": "面向数据中心电信基础设施（布线、空间、拓扑）的标准。"
+    },
+    "ocp": {
+      "term": "OCP",
+      "en": "Open Compute Project: an open specification set for racks, power and server hardware published by the OCP community.",
+      "zh": "开放计算项目发布的机柜、供电与服务器硬件开放规范。"
+    }
+  },
+  "briefings": [
+    {
+      "slug": "cross-border-ecommerce-compliance-checklist",
+      "title_en": "Cross-border ecommerce sourcing: the 10-point compliance checklist",
+      "title_zh": "跨境电商供应链采购：10 项合规清单",
+      "desc_en": "A buyer's 10-point compliance checklist for cross-border ecommerce sourcing from the Greater Bay Area, with cited standards and official sources.",
+      "keywords": "cross-border ecommerce sourcing, 跨境电商供应链, import compliance checklist, HS code, EORI, GTIN, IOSS, Amazon FBA sourcing, Greater Bay Area, Anchormere",
+      "intro_en": "Most cross-border sourcing problems are not manufacturing problems — they are classification, marking and paperwork problems that surface at the border or on the marketplace. This briefing walks through ten checks we run before a Greater Bay Area order ships, with the official sources behind each one so your team can verify them independently.",
+      "intro_zh": "跨境电商采购的多数问题并非出在制造，而是出在归类、标识与单证——往往到清关或平台入仓时才暴露。本简报按我们发货前的十项检查逐条拆解，并附上每项对应的官方来源，便于你的团队自行核验。",
+      "points": [
+        [
+          "Classify every SKU before you request a quote",
+          "报价前先为每个 SKU 归类",
+          "Assign a six-digit [[wco_hs|HS code]] to each item and record the destination-country extension; the same finished good can fall under different lines depending on material and function.",
+          "为每个品项确定 6 位 [[wco_hs|HS 编码]]并记录目的国延伸子目；同一成品会因材质与功能落入不同税则行。",
+          [
+            "wco_hs"
+          ]
+        ],
+        [
+          "Look up the real duty line, not an estimate",
+          "查真实税则行，不用估算值",
+          "Check the destination schedule — for the U.S. the [[hts|HTS]] gives the statistical suffix and rate — and cross-check general tariff data at the [[wto_tariffs|WTO]].",
+          "查目的国税则：美国用 [[hts|HTS]] 查统计后缀与税率，并以 [[wto_tariffs|WTO]] 的关税数据交叉核对。",
+          [
+            "hts",
+            "wto_tariffs"
+          ]
+        ],
+        [
+          "Fix the trade term in the purchase order",
+          "把贸易术语写进采购订单",
+          "State the [[incoterms|Incoterms 2020]] rule explicitly (for example FOB Shenzhen or DAP Rotterdam); a missing rule is the most common cause of freight and clearance disputes.",
+          "在订单中明确 [[incoterms|Incoterms 2020]] 术语（如 FOB 深圳、DAP 鹿特丹）；术语缺失是运费与清关争议最常见的起因。",
+          [
+            "incoterms",
+            "icc"
+          ]
+        ],
+        [
+          "Register the importer identifiers early",
+          "尽早完成进口方资质登记",
+          "EU-bound shipments need a valid [[eu_taxation|EORI number]], and low-value consignments may fall under the IOSS VAT route — confirm the scheme before the first parcel ships.",
+          "发往欧盟的货物需有效 [[eu_taxation|EORI 号]]，低值包裹可能适用 IOSS 增值税路径——首票发出前先确认适用方案。",
+          [
+            "eu_taxation"
+          ]
+        ],
+        [
+          "Give every listing a stable product identity",
+          "为每个商品建立稳定标识",
+          "Allocate [[gs1|GTINs]] and keep a clean mapping between your SKU, the factory part number and the marketplace listing ID; mismatched IDs cause suppression at inbound.",
+          "分配 [[gs1|GTIN]] 并维护 SKU、工厂料号与平台商品标识的映射；标识不一致常导致入仓被拒。",
+          [
+            "gs1"
+          ]
+        ],
+        [
+          "Confirm destination-market markings",
+          "确认目的市场标识要求",
+          "Great Britain requires its own [[ukca|UKCA marking]] route, while EU goods follow conformity assessment under the [[single_market|single market rules]] — the two are not interchangeable.",
+          "英国（大不列颠）有独立的 [[ukca|UKCA 标志]]路径，欧盟货物走 [[single_market|单一市场合格评定]]，二者不可互用。",
+          [
+            "ukca",
+            "single_market"
+          ]
+        ],
+        [
+          "Clear substance restrictions on materials",
+          "核查材料限用物质",
+          "Electronics and hardware must satisfy the [[eu_rohs|EU RoHS Directive]], whose binding legal text is published on [[eurlex_rohs|EUR-Lex]]; ask for material declarations per component, not a single blanket certificate.",
+          "电子与硬件须符合 [[eu_rohs|欧盟 RoHS 指令]]，其法律全文见 [[eurlex_rohs|EUR-Lex]]；按元器件索取材料声明，而非一张笼统证书。",
+          [
+            "eu_rohs",
+            "eurlex_rohs"
+          ]
+        ],
+        [
+          "Secure the brand before tooling starts",
+          "开模前先保护品牌",
+          "File trade marks in the destination markets through the [[uspto|USPTO]] or the [[wipo|WIPO]] route before you pay for moulds and packaging artwork.",
+          "在支付模具与包装设计费之前，先通过 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径在目的市场注册商标。",
+          [
+            "uspto",
+            "wipo"
+          ]
+        ],
+        [
+          "Ship a complete document pack",
+          "随货配齐单证包",
+          "The [[trade_export|ITA export guidance]] lists the core set — commercial invoice, packing list, origin evidence and transport document; we attach it to every consolidated shipment.",
+          "[[trade_export|ITA 出口指引]]列出核心单证：商业发票、装箱单、原产地证明与运输单据；我们随每票整合货附齐。",
+          [
+            "trade_export"
+          ]
+        ],
+        [
+          "Build traceability into the PO",
+          "把可追溯性写进订单",
+          "Require lot codes and test records aligned with recognised [[nist_standards|conformity assessment practice]] so a marketplace or customs query can be answered with evidence, not assurances.",
+          "要求按 [[nist_standards|合格评定通行做法]]提供批次码与测试记录，使平台或海关问询能用证据回应，而非口头保证。",
+          [
+            "nist_standards"
+          ]
+        ]
+      ],
+      "angle_en": "Ten checks sound bureaucratic, but they are exactly what separates a repeatable cross-border programme from one-off shipments. Anchormere consolidates multi-SKU orders from vetted Greater Bay Area factories into one quote, one QC pass and one document pack — so the compliance work is done once, not ten times.",
+      "angle_zh": "十项检查看似繁琐，却正是可复制的跨境业务与一次性发货的分水岭。Anchormere 把认证工厂的多 SKU 订单整合为一次报价、一次质检、一套单证——合规工作只做一遍，而不是重复十遍。",
+      "internal": [
+        [
+          "cross-border-ecommerce-sourcing.html",
+          "Cross-border ecommerce sourcing guide"
+        ],
+        [
+          "amazon-private-label-manufacturer.html",
+          "Amazon private label manufacturer"
+        ],
+        [
+          "certifications.html",
+          "Certifications & compliance"
+        ],
+        [
+          "shipping.html",
+          "Packaging & logistics"
+        ]
+      ],
+      "terms": [
+        "hs_code",
+        "hts",
+        "eori",
+        "gtin",
+        "incoterms",
+        "ioss",
+        "sku",
+        "fba",
+        "ce",
+        "rohs"
+      ],
+      "sources": [
+        "wco_hs",
+        "hts",
+        "wto_tariffs",
+        "icc",
+        "eu_taxation",
+        "gs1",
+        "ukca",
+        "single_market",
+        "eu_rohs",
+        "eurlex_rohs",
+        "uspto",
+        "wipo",
+        "trade_export",
+        "nist_standards"
+      ],
+      "serp_title": "Cross-border ecommerce sourcing: 10 checks"
+    },
+    {
+      "slug": "incoterms-2020-landed-cost-procurement",
+      "title_en": "International trade procurement: Incoterms 2020 and landed cost, point by point",
+      "title_zh": "国际贸易采购：逐条拆解 Incoterms 2020 与到岸成本",
+      "desc_en": "Ten practical points on Incoterms 2020, risk transfer and landed-cost build-up for buyers sourcing from China, with official ICC and customs references.",
+      "keywords": "international trade procurement, 国际贸易采购, Incoterms 2020, landed cost, FOB China, DAP, customs duty, bill of lading, China sourcing agent, Anchormere",
+      "intro_en": "Two buyers can receive the same ex-works price and end up with very different real costs. The difference sits in the trade term, the duty line and the document chain. Here are ten points we use to turn a factory quote into a defensible landed cost, with the official references attached.",
+      "intro_zh": "两个买家拿到同样的出厂价，最终真实成本可能相差很大，差异就在贸易术语、税则行与单证链。以下十点用于把工厂报价还原成可核对的到岸成本，并附官方出处。",
+      "points": [
+        [
+          "Name the rule and the named place",
+          "写明术语与指定地点",
+          "The [[icc|ICC Incoterms 2020]] rules only work when the term is followed by a named place — FOB Shenzhen, not just FOB. Eleven rules exist; four are for sea and inland waterway only.",
+          "[[icc|ICC Incoterms 2020]] 术语必须带指定地点才有效——应写 FOB 深圳，而非只写 FOB。共 11 个术语，其中 4 个仅适用海运与内河运输。",
+          [
+            "icc"
+          ]
+        ],
+        [
+          "Know where risk transfers",
+          "明确风险转移点",
+          "Under [[fob|FOB]] risk passes once goods are on board; under [[exw|EXW]] it passes at the factory gate; under [[dap|DAP]] only on arrival ready for unloading. Insurance should follow that boundary.",
+          "[[fob|FOB]] 风险在装船后转移，[[exw|EXW]] 在工厂门口转移，[[dap|DAP]] 到指定地点待卸货时转移；保险安排应对齐该分界。",
+          [
+            "fob",
+            "exw",
+            "dap"
+          ]
+        ],
+        [
+          "Separate who clears export and import",
+          "分清出口与进口清关责任",
+          "EXW leaves export formalities to the buyer, while [[ddp|DDP]] puts import clearance and duties on the seller. Most GBA factories are not set up to deliver DDP into your market.",
+          "EXW 由买方办理出口手续，[[ddp|DDP]] 则由卖方承担进口清关与税费；多数大湾区工厂并不具备向你的市场做 DDP 的能力。",
+          [
+            "ddp"
+          ]
+        ],
+        [
+          "Build the duty line from the HS code",
+          "从 HS 编码推导税则行",
+          "Start with the [[wco_hs|WCO Harmonized System]], then read the national schedule — the [[hts|U.S. HTS]] or the EU tariff — and cross-check bound rates via the [[wto_tariffs|WTO]].",
+          "先依 [[wco_hs|WCO 协调制度]]确定 6 位编码，再查国别税则（[[hts|美国 HTS]] 或欧盟税则），并用 [[wto_tariffs|WTO]] 数据核对约束税率。",
+          [
+            "wco_hs",
+            "hts",
+            "wto_tariffs"
+          ]
+        ],
+        [
+          "Add every non-tariff cost",
+          "补齐非关税成本",
+          "A landed-cost model should include freight, insurance, terminal handling, customs brokerage, VAT or GST, and compliance testing — not only the duty percentage.",
+          "到岸成本模型应含运保费、码头操作费、报关代理费、增值税/GST 与合规检测费，而不只是关税税率。",
+          [
+            "trade_export"
+          ]
+        ],
+        [
+          "Verify origin, not just the shipping route",
+          "核验原产地而非只看运输路线",
+          "The [[wto_roo|WTO rules of origin]] material and the destination authority decide eligibility for preferential rates; transhipment does not by itself confer origin.",
+          "[[wto_roo|WTO 原产地规则]]及目的国主管机构决定优惠税率资格；单纯转运并不产生原产地资格。",
+          [
+            "wto_roo"
+          ]
+        ],
+        [
+          "Use trade data to sanity-check volume",
+          "用贸易数据校验规模合理性",
+          "[[comtrade|UN Comtrade]] and [[unstats|UN statistics]] let you compare a supplier's claimed export volume with reported bilateral flows before committing to a large PO.",
+          "[[comtrade|UN Comtrade]] 与 [[unstats|联合国统计数据库]]可用于在大额下单前，比对供应商声称的出口规模与公开双边流量。",
+          [
+            "comtrade",
+            "unstats"
+          ]
+        ],
+        [
+          "Match documents to the payment term",
+          "让单证与付款条件匹配",
+          "A [[bill_of_lading|bill of lading]] controls title under many payment structures; the [[trade_export|ITA documentation guidance]] sets out which documents a bank or broker will expect.",
+          "在多种付款结构下 [[bill_of_lading|提单]]代表货权；[[trade_export|ITA 单证指引]]列明银行或报关行会要求哪些文件。",
+          [
+            "bill_of_lading",
+            "trade_export"
+          ]
+        ],
+        [
+          "Check market-specific import rules",
+          "核查目的市场进口规则",
+          "The [[ccg|ITA Country Commercial Guides]] summaries cover local labelling, standards and customs practice that a generic Incoterms clause never addresses.",
+          "[[ccg|ITA 国别商业指南]]涵盖本地标签、标准与通关惯例，这些是通用贸易术语条款无法覆盖的。",
+          [
+            "ccg"
+          ]
+        ],
+        [
+          "Model the cash cycle, not only the unit price",
+          "测算现金周期而非仅看单价",
+          "Deposit, balance-before-shipment and in-transit days all carry a financing cost; [[exim|export credit agencies]] and the [[worldbank_trade|World Bank trade indicators]] are useful benchmarks for that exposure.",
+          "定金、发货前尾款与在途天数都产生资金成本；[[exim|出口信贷机构]]与 [[worldbank_trade|世界银行贸易指标]]可作为该敞口的参照。",
+          [
+            "exim",
+            "worldbank_trade"
+          ]
+        ]
+      ],
+      "angle_en": "A quoted unit price is a starting point, not a cost. Anchormere's role in international trade procurement is to make the whole chain visible — one consolidated quote, one QC pass and a full export document package — so the landed cost you approve is the cost you actually pay.",
+      "angle_zh": "报价单价只是起点，不是成本。Anchormere 在国际贸易采购中的职责是让全链条透明——一次整合报价、一次质检、一套完整出口单证，让你审批的到岸成本就是最终实付成本。",
+      "internal": [
+        [
+          "import-from-china-guide.html",
+          "How to import from China"
+        ],
+        [
+          "china-sourcing-agent.html",
+          "China sourcing agent"
+        ],
+        [
+          "shipping.html",
+          "Packaging & logistics"
+        ],
+        [
+          "faq.html",
+          "FAQ"
+        ]
+      ],
+      "terms": [
+        "incoterms",
+        "fob",
+        "exw",
+        "dap",
+        "ddp",
+        "landed_cost",
+        "hs_code",
+        "bill_of_lading",
+        "rules_of_origin",
+        "ad_valorem",
+        "customs_valuation"
+      ],
+      "sources": [
+        "icc",
+        "wco_hs",
+        "hts",
+        "wto_tariffs",
+        "wto_roo",
+        "comtrade",
+        "unstats",
+        "ccg",
+        "trade_export",
+        "exim",
+        "worldbank_trade"
+      ],
+      "serp_title": "Incoterms 2020 & landed cost: 10 checks"
+    },
+    {
+      "slug": "oem-odm-private-label-what-you-are-buying",
+      "title_en": "OEM, ODM or private label: ten things buyers are actually signing",
+      "title_zh": "OEM、ODM 还是贴牌：买家实际签下的十件事",
+      "desc_en": "Ten contractual and engineering points that separate OEM, ODM and private label deals in China, with IP, tooling and standards references.",
+      "keywords": "OEM ODM private label difference, 代工模式, build-to-print, tooling ownership, IP assignment, NNN agreement, golden sample, China sourcing, Greater Bay Area, Anchormere",
+      "intro_en": "Buyers often use OEM, ODM and private label interchangeably. The factory does not — the three models allocate design authority, tooling ownership and liability very differently. These ten points describe what you are actually committing to before the first purchase order.",
+      "intro_zh": "买家常把 OEM、ODM 与贴牌混为一谈，工厂却不会：三种模式对设计权、模具所有权与责任归属的划分完全不同。以下十点说明首张订单之前，你实际承诺了什么。",
+      "points": [
+        [
+          "Write down which model the quote covers",
+          "在报价中写明所属模式",
+          "[[oem|OEM]] means production to your released drawing; [[odm|ODM]] starts from the factory's base design; [[private_label|private label]] is a standard product with your brand and packaging.",
+          "[[oem|OEM]] 按你发布的图纸生产；[[odm|ODM]] 以工厂基础设计为起点；[[private_label|贴牌]]则是标准品换品牌与包装。",
+          [
+            "oem",
+            "odm",
+            "private_label"
+          ]
+        ],
+        [
+          "State who owns the design",
+          "明确设计归属",
+          "In a true [[build_to_print|build-to-print]] engagement the factory has no design-change authority; any engineering change needs a written revision and a new sign-off.",
+          "真正的 [[build_to_print|按图制造]]合作中，工厂无设计变更权；任何工程变更都需书面改版并重新签认。",
+          [
+            "build_to_print"
+          ]
+        ],
+        [
+          "Settle tooling ownership before payment",
+          "付款前先谈定模具归属",
+          "[[tooling|Tooling]] is usually buyer-funded but factory-held; the PO should say who owns it, where it is stored, and under what conditions it can be released or moved.",
+          "[[tooling|模具]]通常由买方出资、工厂保管；订单应写明所有权、存放地点以及可移交或转厂的条件。",
+          [
+            "tooling"
+          ]
+        ],
+        [
+          "Transfer IP in writing",
+          "以书面条款转移知识产权",
+          "An [[ip_assignment|IP assignment]] covering drawings, moulds, firmware and artwork is stronger than a purchase order alone, and should survive termination of the relationship.",
+          "覆盖图纸、模具、固件与美术作品的 [[ip_assignment|知识产权转让条款]]比单独一张订单更有效，且应在合作终止后继续有效。",
+          [
+            "ip_assignment"
+          ]
+        ],
+        [
+          "Use the right confidentiality instrument",
+          "使用适配的保密文件",
+          "A standard Western NDA is often weak in a China supply chain; an [[nnn|NNN agreement]] adds non-use and non-circumvention, which are the clauses that actually matter.",
+          "普通西式 NDA 在中国供应链中常显不足；[[nnn|NNN 协议]]补充不使用与不绕开条款，才是真正起作用的部分。",
+          [
+            "nnn"
+          ]
+        ],
+        [
+          "Protect the brand before artwork is printed",
+          "印刷美术稿前先护住品牌",
+          "Trade mark filing through the [[uspto|USPTO]] or the [[wipo|WIPO]] route should precede packaging production, not follow the first shipment.",
+          "通过 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径的商标注册应早于包装生产，而不是首批发货之后。",
+          [
+            "uspto",
+            "wipo"
+          ]
+        ],
+        [
+          "Freeze the BOM and approved alternates",
+          "冻结 BOM 与认可替代料",
+          "A released [[bom|BOM]] should name manufacturer and part number for every line and list approved alternates; silent substitution is a common source of field failures.",
+          "发布的 [[bom|BOM]] 应逐行写明厂商与料号并列出认可替代料；悄悄换料是现场失效的常见原因。",
+          [
+            "bom"
+          ]
+        ],
+        [
+          "Seal a golden sample before mass production",
+          "量产前封存签认样机",
+          "A [[golden_sample|golden sample]] plus a signed inspection sheet gives both sides one objective acceptance baseline for colour, finish, fit and function.",
+          "[[golden_sample|签样]]加双方签署的检验表，为颜色、表面、配合与功能提供唯一客观的验收基准。",
+          [
+            "golden_sample"
+          ]
+        ],
+        [
+          "Allocate conformity and marking duties",
+          "划分合格评定与标识责任",
+          "Decide who produces the Declaration of Conformity and holds test reports; the [[single_market|EU conformity assessment framework]] and [[iecee|IECEE CB Scheme]] change what evidence is needed per market.",
+          "明确由谁出具符合性声明并持有测试报告；[[single_market|欧盟合格评定框架]]与 [[iecee|IECEE CB 体系]]决定各市场所需证据不同。",
+          [
+            "single_market",
+            "iecee"
+          ]
+        ],
+        [
+          "Agree the MOQ and changeover logic",
+          "约定 MOQ 与换线逻辑",
+          "[[moq|MOQ]] is driven by material lot sizes and line changeover, not by goodwill; ask which components set the floor and whether mixed-SKU consolidation is allowed.",
+          "[[moq|MOQ]] 由物料批量与换线成本决定，而非人情；问清由哪些物料决定下限、是否允许混 SKU 拼单。",
+          [
+            "moq"
+          ]
+        ]
+      ],
+      "angle_en": "Model clarity is the cheapest risk control in sourcing. Anchormere works across all three arrangements — OEM build-to-print, ODM adaptation and private label — with single-point accountability, so the drawing, the mould and the shipment stay aligned to one specification.",
+      "angle_zh": "模式清晰是采购中最便宜的风控。Anchormere 覆盖 OEM 按图制造、ODM 适配与贴牌三种安排，并以单点责任制确保图纸、模具与出货始终对齐同一份规格。",
+      "internal": [
+        [
+          "amazon-private-label-manufacturer.html",
+          "Amazon private label manufacturer"
+        ],
+        [
+          "custom-product-development.html",
+          "Custom product development"
+        ],
+        [
+          "capabilities.html",
+          "Capabilities"
+        ],
+        [
+          "quality.html",
+          "Quality assurance"
+        ]
+      ],
+      "terms": [
+        "oem",
+        "odm",
+        "private_label",
+        "build_to_print",
+        "tooling",
+        "ip_assignment",
+        "nnn",
+        "golden_sample",
+        "bom",
+        "moq"
+      ],
+      "sources": [
+        "uspto",
+        "wipo",
+        "single_market",
+        "iecee",
+        "nist_standards",
+        "ipc",
+        "wto_tradfa"
+      ],
+      "serp_title": "OEM vs ODM vs private label: 10 checks"
+    },
+    {
+      "slug": "pcba-smt-capability-sheet-buyer-guide",
+      "title_en": "Reading a PCBA and SMT capability sheet: ten checks before you award the build",
+      "title_zh": "读懂 PCBA 与 SMT 能力表：下单前十项核查",
+      "desc_en": "Ten engineering checks for evaluating a PCBA and SMT supplier in the Greater Bay Area, with IPC, IEC, USB-IF and UL references.",
+      "keywords": "PCBA supplier China, SMT assembly capability, DFM review, AOI ICT testing, Gerber BOM, Greater Bay Area electronics manufacturing, OEM, Anchormere",
+      "intro_en": "A capability sheet is a marketing document until you test it against your own board. These are the ten questions that separate a factory able to build your PCBA reliably from one that can only quote it, with the standards bodies behind each check.",
+      "intro_zh": "在拿你自己的板子验证之前，能力表只是营销材料。以下十个问题可区分「能稳定做出你的 PCBA」与「只会报价」的工厂，并附每项对应的标准机构出处。",
+      "points": [
+        [
+          "Confirm layer count and board class",
+          "确认层数与板材等级",
+          "Ask which layer counts, materials and copper weights the line runs in volume — not as a one-off — and whether the [[ipc|IPC]] class (1/2/3) is stated on the quote.",
+          "确认量产（而非偶尔打样）可做的层数、材料与铜厚，并看报价是否注明 [[ipc|IPC]] 等级（1/2/3 级）。",
+          [
+            "ipc"
+          ]
+        ],
+        [
+          "Read trace width, spacing and via rules",
+          "核对线宽线距与过孔规则",
+          "Minimum trace/space, via diameter and annular ring define what your layout can safely use; these should be published limits, not verbal assurances.",
+          "最小线宽/线距、过孔孔径与环宽决定版图可用的安全边界；这些应是书面公布的限值，而非口头承诺。",
+          [
+            "ipc"
+          ]
+        ],
+        [
+          "Check the smallest package they place",
+          "核对其可贴装的最小封装",
+          "Fine-pitch components, BGAs and 0201 or smaller passives require specific placement accuracy and X-ray capability — ask which lines have it.",
+          "细间距元件、BGA 与 0201 及更小被动件需要相应贴装精度与 X-Ray 能力——问清哪条线具备。",
+          [
+            "ipc"
+          ]
+        ],
+        [
+          "Ask for the reflow profile and control",
+          "索取回流曲线与管控方式",
+          "A documented [[reflow|reflow profile]] with zone temperatures, conveyor speed and regular oven profiling is a baseline process-control signal.",
+          "带各温区温度、链速与定期炉温测试的书面 [[reflow|回流曲线]]，是最基本的工艺管控信号。",
+          [
+            "reflow"
+          ]
+        ],
+        [
+          "Require a DFM report before release",
+          "投产前要求 DFM 报告",
+          "A [[dfm|DFM]] review should come back as written findings on pad geometry, clearance, fiducials and [[panelization|panelisation]], not a simple OK.",
+          "[[dfm|DFM]] 评审应返回关于焊盘几何、间距、基准点与 [[panelization|拼板]]的书面问题清单，而非一句「可做」。",
+          [
+            "dfm",
+            "panelization"
+          ]
+        ],
+        [
+          "Specify inspection and test coverage",
+          "明确检测与测试覆盖率",
+          "[[aoi|AOI]] catches placement and solder defects; [[ict|ICT]] or functional test catches electrical faults. Ask what percentage of each build is tested and how failures are logged.",
+          "[[aoi|AOI]] 查贴装与焊接缺陷，[[ict|ICT]] 或功能测试查电气故障；问清每批抽检比例与失效记录方式。",
+          [
+            "aoi",
+            "ict"
+          ]
+        ],
+        [
+          "Control the fabrication data revision",
+          "管控制造数据版本",
+          "Release [[gerber|Gerber or ODB++]] plus drill and stack-up files with a revision number and checksum, and require written acknowledgement of the exact build revision.",
+          "[[gerber|Gerber/ODB++]]、钻孔与叠层文件需带版本号与校验值发布，并要求工厂书面确认具体生产版本。",
+          [
+            "gerber"
+          ]
+        ],
+        [
+          "Verify compliance for wired interfaces",
+          "核验有线接口的合规",
+          "If the board exposes USB, the [[usb_docs|USB-IF specifications and compliance documents]] define connector, power and logo-use requirements you should design to.",
+          "若板卡引出 USB，[[usb_docs|USB-IF 规范与合规文件]]定义了连接器、供电及标识使用的设计要求。",
+          [
+            "usb_docs"
+          ]
+        ],
+        [
+          "Check measurement and calibration practice",
+          "核查测量与校准体系",
+          "Test equipment should be traceable to national measurement standards; [[nist_pml|NIST's measurement science]] and [[iec|IEC]] standards are the usual reference points.",
+          "测试设备应可溯源至国家计量标准；[[nist_pml|NIST 计量科学]]与 [[iec|IEC]] 标准是通常的参照依据。",
+          [
+            "nist_pml",
+            "iec"
+          ]
+        ],
+        [
+          "Tie the certificate to the specific product",
+          "让证书对应具体产品",
+          "A [[ul_cert|UL certification]] or [[iecee|CB Scheme]] report is valid for the exact model and construction listed; confirm the file number and scope match your build.",
+          "[[ul_cert|UL 认证]]或 [[iecee|CB 体系]]报告只对所列型号与结构有效；核对档案号与覆盖范围是否与你的产品一致。",
+          [
+            "ul_cert",
+            "iecee"
+          ]
+        ]
+      ],
+      "angle_en": "Electronics is where a sourcing partner earns its keep. Anchormere coordinates PCBA, box-build, enclosures and display modules across vetted Greater Bay Area workshops, then consolidates them into one QC pass — so the capability sheet and the shipped board agree.",
+      "angle_zh": "电子产品最能检验采购伙伴的价值。Anchormere 在认证的大湾区车间之间协调 PCBA、整机组装、外壳与显示模组，并统一一次质检收口——让能力表与实际出货的板子一致。",
+      "internal": [
+        [
+          "consumer-smart-electronics.html",
+          "Consumer & smart electronics"
+        ],
+        [
+          "quality.html",
+          "Quality assurance"
+        ],
+        [
+          "capabilities.html",
+          "Capabilities"
+        ]
+      ],
+      "terms": [
+        "pcba",
+        "smt",
+        "bom",
+        "dfm",
+        "aoi",
+        "ict",
+        "reflow",
+        "panelization",
+        "gerber",
+        "yield"
+      ],
+      "sources": [
+        "ipc",
+        "usb_docs",
+        "nist_pml",
+        "iec",
+        "iecee",
+        "ul_cert",
+        "iec_webstore"
+      ],
+      "serp_title": "PCBA & SMT capability: 10 checks"
+    },
+    {
+      "slug": "supplier-verification-factory-audit-checklist",
+      "title_en": "Supplier verification in China: a ten-point factory audit checklist",
+      "title_zh": "中国供应商验厂：十项工厂审核清单",
+      "desc_en": "A 10-point factory audit checklist for overseas buyers: capability, QMS, social compliance and traceability, with cited public standards.",
+      "keywords": "verify Chinese manufacturer, supplier verification, factory audit checklist, QMS, ISO 9001, SMETA, BSCI, CAPA, traceability, Greater Bay Area, Anchormere",
+      "intro_en": "A trading company can produce a convincing website, a borrowed certificate and a photo of somebody else's line. Verification is a document-and-evidence exercise, not a video call. Here are ten checks we run before a Greater Bay Area supplier enters a programme.",
+      "intro_zh": "贸易公司可以做出漂亮网站、借来的证书和别人产线的照片。验厂是「文件加证据」的核查，不是一次视频通话。以下是大湾区供应商进入项目前我们执行的十项检查。",
+      "points": [
+        [
+          "Verify the legal entity, not the brand",
+          "核验法律主体而非品牌名",
+          "Check the business licence, registered address and legal representative against the entity that will sign the contract and receive payment.",
+          "核对营业执照、注册地址与法定代表人，确认与签约主体、收款主体一致。",
+          [
+            "wto_tradfa"
+          ]
+        ],
+        [
+          "Separate factory from trading intermediary",
+          "区分工厂与贸易中介",
+          "Ask for the production address, utility records and equipment list; a [[factory_audit|factory audit]] should take place where the goods are actually made.",
+          "索取生产地址、水电记录与设备清单；[[factory_audit|验厂]]应在实际生产地而非办公室进行。",
+          [
+            "factory_audit"
+          ]
+        ],
+        [
+          "Assess real capacity against your forecast",
+          "用你的预测校验真实产能",
+          "Compare stated monthly output with line count, shift pattern and current order book; a supplier running at full capacity cannot absorb a rush order.",
+          "把声称月产能与产线数、班次、在手订单比对；满产供应商接不了急单。",
+          [
+            "worldbank_trade"
+          ]
+        ],
+        [
+          "Audit the quality management system",
+          "审核质量管理体系",
+          "A working [[qms|QMS]] shows up in document control, incoming inspection, non-conformance handling and calibration records — not just a framed certificate.",
+          "有效的 [[qms|QMS]] 体现在文件管控、来料检验、不合格品处理与校准记录上，而不只是一张挂墙证书。",
+          [
+            "qms"
+          ]
+        ],
+        [
+          "Check social compliance separately",
+          "单独核查社会责任合规",
+          "For retail-bound programmes, [[bsci|amfori BSCI]] or a [[smeta|SMETA]] report covers labour, health and safety, environment and ethics on a shared audit format.",
+          "面向零售渠道的项目，[[bsci|amfori BSCI]] 或 [[smeta|SMETA]] 报告以共享审核格式覆盖劳工、健康安全、环境与道德。",
+          [
+            "bsci",
+            "smeta",
+            "amfori"
+          ]
+        ],
+        [
+          "Validate every certificate by file number",
+          "按档案号逐一验证证书",
+          "Confirm scope, model list and validity directly with the issuing scheme — [[iecee|IECEE]] and [[ul_cert|UL Solutions]] both maintain verifiable certification records.",
+          "直接向发证体系核对覆盖范围、型号清单与有效期；[[iecee|IECEE]] 与 [[ul_cert|UL Solutions]] 均提供可验证的认证记录。",
+          [
+            "iecee",
+            "ul_cert"
+          ]
+        ],
+        [
+          "Require a first article inspection",
+          "要求首件检验",
+          "A [[fai|first article inspection]] measures the first unit against every drawing dimension before the batch proceeds, catching setup errors early.",
+          "[[fai|首件检验]]在批次继续前按图纸全尺寸测量首件，及早发现调机错误。",
+          [
+            "fai"
+          ]
+        ],
+        [
+          "Test the corrective-action loop",
+          "测试纠正措施闭环",
+          "Ask for a recent non-conformance and the [[capa|CAPA]] record behind it; a factory with no recorded defects usually has no recording system.",
+          "索取最近一次不合格记录及其 [[capa|CAPA]] 档案；「零缺陷记录」往往意味着根本没有记录体系。",
+          [
+            "capa"
+          ]
+        ],
+        [
+          "Demand batch traceability",
+          "要求批次可追溯",
+          "[[traceability|Batch traceability]] must link a finished unit back to material lots, machine, operator and test result within a workable time window.",
+          "[[traceability|批次可追溯]]须能在合理时间内把成品回溯到物料批、机台、操作员与测试结果。",
+          [
+            "traceability",
+            "nist_standards"
+          ]
+        ],
+        [
+          "Use remote verification as a supplement",
+          "把远程验厂作为补充手段",
+          "Recorded shop-floor video, by-process photo galleries, a document wall and live inspection by appointment narrow the gap between visits — but do not replace an on-site audit for high-risk programmes.",
+          "按工序录像、车间影像集、单证墙与预约实时验视可缩小两次到厂之间的空档，但高风险项目仍不能替代现场审核。",
+          [
+            "nist_standards"
+          ]
+        ]
+      ],
+      "angle_en": "Verification is not a one-off gate; it is a rhythm. Anchormere keeps a vetted Greater Bay Area supplier base, runs by-process photo and video evidence, and holds single-point accountability for the result — so you are not auditing ten factories to buy ten SKUs.",
+      "angle_zh": "验厂不是一次性关卡，而是节奏。Anchormere 维护认证的大湾区供应商池，提供按工序影像与视频证据，并对结果承担单点责任——你无需为十个 SKU 去审核十家工厂。",
+      "internal": [
+        [
+          "verify-chinese-manufacturer.html",
+          "Verify a Chinese manufacturer"
+        ],
+        [
+          "quality.html",
+          "Quality assurance"
+        ],
+        [
+          "about.html",
+          "About Anchormere"
+        ],
+        [
+          "process.html",
+          "How we work"
+        ]
+      ],
+      "terms": [
+        "factory_audit",
+        "qms",
+        "smeta",
+        "bsci",
+        "capa",
+        "fai",
+        "traceability",
+        "golden_sample",
+        "yield",
+        "moq"
+      ],
+      "sources": [
+        "amfori",
+        "iecee",
+        "ul_cert",
+        "nist_standards",
+        "wto_tradfa",
+        "worldbank_trade"
+      ],
+      "serp_title": "Supplier verification: 10-point audit"
+    },
+    {
+      "slug": "hs-codes-rules-of-origin-duty-exposure",
+      "title_en": "HS codes, rules of origin and duty exposure: ten checks for importers",
+      "title_zh": "HS 编码、原产地规则与税负：进口方十项核查",
+      "desc_en": "Ten checks on HS classification, rules of origin and duty exposure when importing hardware from China, with WCO and WTO references.",
+      "keywords": "HS code classification, rules of origin, customs duty, HTS, tariff, certificate of origin, customs valuation, import from China, international trade procurement, Anchormere",
+      "intro_en": "Classification errors are the most expensive typo in importing: they compound across every shipment and can trigger retroactive assessments. These ten checks turn a guessed HS code into a defensible one, using the primary sources customs authorities themselves cite.",
+      "intro_zh": "归类错误是进口中最昂贵的笔误：它会在每一票货上累积，并可能引发追征。以下十项核查把「猜出来的 HS 编码」变成可举证的归类，依据正是海关自身引用的原始来源。",
+      "points": [
+        [
+          "Start with the six-digit HS, not a supplier code",
+          "从 6 位 HS 出发，不采信供应商编码",
+          "The [[wco_hs|WCO Harmonized System]] defines the global six digits; anything beyond that is a national extension and must be checked in the destination schedule.",
+          "[[wco_hs|WCO 协调制度]]定义全球通用 6 位；其后的位数是国别延伸，必须在目的国税则中核对。",
+          [
+            "wco_hs"
+          ]
+        ],
+        [
+          "Read the full national tariff line",
+          "读完整的国别税则行",
+          "The [[hts|U.S. HTS]] adds statistical suffixes and Chapter 99 measures; EU importers use the integrated tariff via the [[eu_taxation|Taxation & Customs Union]].",
+          "[[hts|美国 HTS]] 附加统计后缀与第 99 章措施；欧盟进口方通过 [[eu_taxation|税务与海关总司]]使用综合税则。",
+          [
+            "hts",
+            "eu_taxation"
+          ]
+        ],
+        [
+          "Cross-check bound and applied rates",
+          "交叉核对约束税率与实施税率",
+          "The [[wto_tariffs|WTO tariff data]] distinguishes bound commitments from applied rates — the number that actually lands on your entry.",
+          "[[wto_tariffs|WTO 关税数据]]区分约束承诺与实施税率，后者才是真正落在报关单上的数字。",
+          [
+            "wto_tariffs"
+          ]
+        ],
+        [
+          "Document the classification rationale",
+          "留存归类依据",
+          "Record why a heading was chosen (material, function, assembly state) and keep the General Rules of Interpretation reasoning in the file for audit.",
+          "记录选择某税目的理由（材质、功能、装配状态），并把归类总规则的推理留档备查。",
+          [
+            "wco_hs"
+          ]
+        ],
+        [
+          "Apply rules of origin correctly",
+          "正确适用原产地规则",
+          "The [[wto_roo|WTO rules of origin]] material explains how substantial transformation and tariff-shift tests determine economic nationality.",
+          "[[wto_roo|WTO 原产地规则]]资料说明实质性改变与税则归类改变测试如何判定经济国籍。",
+          [
+            "wto_roo"
+          ]
+        ],
+        [
+          "Substantiate preferential claims",
+          "为优惠税率提供证据",
+          "A [[certificate_of_origin|certificate of origin]] or approved origin declaration is what makes a preferential rate usable; a supplier's assertion is not.",
+          "[[certificate_of_origin|原产地证书]]或合规的原产地声明才是优惠税率可用的依据，供应商口头说明不算。",
+          [
+            "certificate_of_origin"
+          ]
+        ],
+        [
+          "Check customs valuation inputs",
+          "核查完税价格构成",
+          "[[customs_valuation|Customs valuation]] normally starts from transaction value but adds assists, tooling, royalties and certain freight elements — all of which affect the duty base.",
+          "[[customs_valuation|完税价格]]通常以成交价为基础，但需加入协助、模具、特许权费与部分运费，都会影响计税基数。",
+          [
+            "customs_valuation"
+          ]
+        ],
+        [
+          "Distinguish ad valorem from specific duties",
+          "区分从价税与从量税",
+          "An [[ad_valorem|ad valorem duty]] scales with value; specific and compound duties behave differently and change the sensitivity of your landed-cost model.",
+          "[[ad_valorem|从价税]]随货值变动，从量税与复合税逻辑不同，会改变到岸成本模型的敏感度。",
+          [
+            "ad_valorem"
+          ]
+        ],
+        [
+          "Screen for trade-remedy measures",
+          "排查贸易救济措施",
+          "Anti-dumping, countervailing and safeguard measures apply by product and origin; the [[ccg|Country Commercial Guides]] and [[trade_gov|ITA]] resources flag where to check.",
+          "反倾销、反补贴与保障措施按产品与原产地适用；[[ccg|国别商业指南]]与 [[trade_gov|ITA]] 资料提示查询路径。",
+          [
+            "ccg",
+            "trade_gov"
+          ]
+        ],
+        [
+          "Reconcile with reported trade flows",
+          "与公开贸易流量对账",
+          "[[comtrade|UN Comtrade]] and [[worldbank_trade|World Bank trade indicators]] help confirm that a claimed product-origin mix is plausible before scaling volume.",
+          "[[comtrade|UN Comtrade]] 与 [[worldbank_trade|世界银行贸易指标]]可在放量前核验所声称的产品-原产地组合是否合理。",
+          [
+            "comtrade",
+            "worldbank_trade"
+          ]
+        ]
+      ],
+      "angle_en": "Duty exposure is decided long before the container loads. Anchormere ships with a full export document package — commercial invoice, packing list, origin evidence and consolidation details — so your broker works from a consistent classification instead of reconstructing it at the border.",
+      "angle_zh": "税负早在装柜之前就已决定。Anchormere 随货提供完整出口单证包——商业发票、装箱单、原产地证明与拼柜明细——让你的报关行依据一致归类作业，而不是到口岸再重新拼凑。",
+      "internal": [
+        [
+          "import-from-china-guide.html",
+          "How to import from China"
+        ],
+        [
+          "shipping.html",
+          "Packaging & logistics"
+        ],
+        [
+          "faq.html",
+          "FAQ"
+        ]
+      ],
+      "terms": [
+        "hs_code",
+        "hts",
+        "rules_of_origin",
+        "certificate_of_origin",
+        "customs_valuation",
+        "ad_valorem",
+        "landed_cost",
+        "bill_of_lading",
+        "de_minimis",
+        "incoterms"
+      ],
+      "sources": [
+        "wco_hs",
+        "hts",
+        "eu_taxation",
+        "wto_tariffs",
+        "wto_roo",
+        "ccg",
+        "trade_gov",
+        "comtrade",
+        "worldbank_trade"
+      ],
+      "serp_title": "HS codes, origin & duty: 10 checks"
+    },
+    {
+      "slug": "export-certifications-ce-ukca-fcc-rohs-cb",
+      "title_en": "Export certifications decoded: ten points on CE, UKCA, FCC, RoHS and CB",
+      "title_zh": "出口认证拆解：CE、UKCA、FCC、RoHS 与 CB 的十项要点",
+      "desc_en": "Ten product-conformity points for hardware exports: CE, UKCA, FCC, RoHS, REACH and the CB Scheme, with EU, UK and IEC sources.",
+      "keywords": "CE marking, UKCA, FCC, RoHS, REACH, CB Scheme, Declaration of Conformity, notified body, export certification China, Greater Bay Area sourcing, Anchormere",
+      "intro_en": "Certification is where good hardware gets stuck at the border. Buyers frequently ask a factory for the CE certificate — a document that, strictly, does not exist for most products. These ten points describe what each regime actually requires and which evidence you should hold.",
+      "intro_zh": "认证是优质硬件最常卡在口岸的环节。买家常向工厂索要「CE 证书」，而对多数产品而言这份文件严格来说并不存在。以下十项说明各体系究竟要求什么、你该持有哪类证据。",
+      "points": [
+        [
+          "Understand that CE is a declaration",
+          "理解 CE 是自我声明",
+          "[[ce|CE marking]] is the manufacturer's declaration of conformity with applicable EU legislation, not a third-party award; the [[single_market|European Commission]] explains the route.",
+          "[[ce|CE 标志]]是制造商对适用欧盟法规的符合性声明，并非第三方颁发；[[single_market|欧盟委员会]]说明了具体路径。",
+          [
+            "ce",
+            "single_market"
+          ]
+        ],
+        [
+          "Hold a signed Declaration of Conformity",
+          "持有签署的符合性声明",
+          "A [[doc|Declaration of Conformity]] lists the directives, [[harmonised_standard|harmonised standards]] and signatory, and must be available to market surveillance authorities.",
+          "[[doc|符合性声明]]列明指令、[[harmonised_standard|协调标准]]与签署人，须可随时提交市场监管机构。",
+          [
+            "doc",
+            "harmonised_standard"
+          ]
+        ],
+        [
+          "Know when a notified body is required",
+          "判断何时需要公告机构",
+          "Most low-voltage electronics are self-declared, but certain categories require a [[notified_body|notified body]] assessment — check the directive before assuming.",
+          "多数低压电子产品可自我声明，但部分品类须经 [[notified_body|公告机构]]评定——先查指令再下结论。",
+          [
+            "notified_body"
+          ]
+        ],
+        [
+          "Treat UKCA as a separate route",
+          "把 UKCA 作为独立路径",
+          "The [[ukca|UKCA marking]] guidance sets out its own rules for Great Britain; it is not automatically interchangeable with CE.",
+          "[[ukca|UKCA 标志]]指南规定了大不列颠市场的独立规则，不能与 CE 自动互换。",
+          [
+            "ukca"
+          ]
+        ],
+        [
+          "Cover substance restrictions explicitly",
+          "明确覆盖限用物质",
+          "[[rohs|RoHS]] restricts specific substances in EEE and its binding text is [[eurlex_rohs|Directive 2011/65/EU]]; [[epa|EPA]] and [[reach|REACH]]-style material declarations add further obligations.",
+          "[[rohs|RoHS]] 限制电子电气设备中的特定物质，法律文本为 [[eurlex_rohs|2011/65/EU 指令]]；[[epa|EPA]] 与 [[reach|REACH]] 类材料声明带来进一步义务。",
+          [
+            "rohs",
+            "eurlex_rohs",
+            "eu_rohs"
+          ]
+        ],
+        [
+          "Document radio and EMC compliance",
+          "记录射频与电磁兼容合规",
+          "Wireless products using [[wifi|Wi-Fi]] or [[bluetooth|Bluetooth]] carry radio and EMC obligations; the [[etsi|ETSI]] standards set the European test basis.",
+          "采用 [[wifi|Wi-Fi]] 或 [[bluetooth|蓝牙]]的无线产品负有射频与 EMC 义务；[[etsi|ETSI]] 标准给出欧洲测试依据。",
+          [
+            "wifi",
+            "bluetooth",
+            "etsi"
+          ]
+        ],
+        [
+          "Use the CB Scheme to avoid repeat testing",
+          "用 CB 体系避免重复测试",
+          "The [[iecee|IECEE CB Scheme]] lets one test report and certificate support national approvals across participating countries, shortening multi-market launches.",
+          "[[iecee|IECEE CB 体系]]可用一份测试报告与证书支持多成员国转证，缩短多市场上市周期。",
+          [
+            "iecee"
+          ]
+        ],
+        [
+          "Work from the IEC standards catalogue",
+          "以 IEC 标准目录为基准",
+          "[[iec|IEC]] and the [[iec_webstore|IEC Webstore]] are the primary sources for the test standards a report should cite; check the edition year in the certificate.",
+          "[[iec|IEC]] 与 [[iec_webstore|IEC 标准目录]]是测试报告应引用标准的主要来源；核对证书中的标准版本年份。",
+          [
+            "iec",
+            "iec_webstore"
+          ]
+        ],
+        [
+          "Match the certificate to the exact model",
+          "让证书对应具体型号",
+          "A [[ul_cert|UL certification]] or CB report covers only the models and constructions listed; a renamed SKU still needs to appear in the scope.",
+          "[[ul_cert|UL 认证]]或 CB 报告只覆盖所列型号与结构；换个 SKU 名称仍需列入覆盖范围。",
+          [
+            "ul_cert"
+          ]
+        ],
+        [
+          "Keep the evidence pack current",
+          "保持证据包持续有效",
+          "Component changes, firmware changes and standard revisions can invalidate old reports; [[nist_standards|conformity assessment practice]] favours version-controlled evidence, not a one-time PDF.",
+          "元器件、固件变更或标准改版可能使旧报告失效；[[nist_standards|合格评定通行做法]]强调版本受控的证据，而非一次性 PDF。",
+          [
+            "nist_standards"
+          ]
+        ]
+      ],
+      "angle_en": "Compliance evidence is a deliverable, not a favour. Anchormere requests material declarations, test reports and conformity documents as part of the build, and ships them inside the export document package — so certification questions are answered before the goods leave the Greater Bay Area.",
+      "angle_zh": "合规证据是交付物，不是人情。Anchormere 在生产环节就索取材料声明、测试报告与符合性文件，并纳入出口单证包——让认证问题在货物离开大湾区之前就有答案。",
+      "internal": [
+        [
+          "certifications.html",
+          "Certifications & compliance"
+        ],
+        [
+          "green-manufacturing-esg.html",
+          "Green manufacturing & ESG"
+        ],
+        [
+          "quality.html",
+          "Quality assurance"
+        ]
+      ],
+      "terms": [
+        "ce",
+        "ukca",
+        "fcc",
+        "rohs",
+        "reach",
+        "cb_scheme",
+        "doc",
+        "notified_body",
+        "harmonised_standard",
+        "gtin"
+      ],
+      "sources": [
+        "single_market",
+        "ukca",
+        "eu_rohs",
+        "eurlex_rohs",
+        "iec",
+        "iec_webstore",
+        "iecee",
+        "ul_cert",
+        "etsi",
+        "wifi",
+        "bluetooth",
+        "nist_standards",
+        "epa",
+        "energystar"
+      ],
+      "serp_title": "CE, UKCA, FCC, RoHS & CB: 10 checks"
+    },
+    {
+      "slug": "low-moq-prototyping-hardware-startup-guide",
+      "title_en": "Low-MOQ manufacturing: ten points from prototype to first production run",
+      "title_zh": "低 MOQ 制造：从样机到首批量产的十项要点",
+      "desc_en": "Ten points for hardware startups moving from prototype to low-MOQ production in the Greater Bay Area, with tooling and DFMA references.",
+      "keywords": "low MOQ manufacturer China, hardware startup manufacturing, prototype to production, EVT DVT PVT, rapid tooling, NRE, DFMA, pilot run, Greater Bay Area, Anchormere",
+      "intro_en": "Startups rarely fail because a factory cannot build the product — they fail because the jump from five prototypes to five hundred units changes the process, the cost structure and the compliance burden. These ten points describe that transition and how to keep it under control.",
+      "intro_zh": "硬件初创失败往往不是因为工厂做不出产品，而是因为从 5 台样机跳到 500 台时，工艺、成本结构与合规负担全都变了。以下十项描述这一跃迁及如何把它管住。",
+      "points": [
+        [
+          "Understand what actually sets the MOQ",
+          "弄清 MOQ 由什么决定",
+          "[[moq|MOQ]] follows material lot sizes, minimum board panel counts and line changeover time; asking which item sets the floor often reveals a negotiable constraint.",
+          "[[moq|MOQ]] 由物料起批量、拼板最小数与换线时间决定；问清是哪项卡住下限，常能发现可谈的空间。",
+          [
+            "moq"
+          ]
+        ],
+        [
+          "Separate prototype, pilot and production builds",
+          "把样机、试产与量产分开",
+          "[[evt|EVT / DVT / PVT]] are distinct gates: engineering feasibility, design validation, then production readiness on the real line. Skipping one moves defects downstream.",
+          "[[evt|EVT / DVT / PVT]] 是三道独立关口：工程可行性、设计验证、正式产线的量产准备；跳过任何一道都会把缺陷推到下游。",
+          [
+            "evt"
+          ]
+        ],
+        [
+          "Use rapid tooling before hard tooling",
+          "先软模后硬模",
+          "[[rapid_tooling|Rapid tooling]] lets you validate fit, finish and assembly with aluminium or soft-steel moulds before committing to hardened production tools.",
+          "[[rapid_tooling|快速模具]]用铝模或软钢模先验证配合、外观与装配，再投入硬化量产模具。",
+          [
+            "rapid_tooling"
+          ]
+        ],
+        [
+          "Budget NRE as a separate line",
+          "把 NRE 单列预算",
+          "[[nre|Non-recurring engineering]] covers fixtures, programming and test development; folding it into unit price hides the real cost of a small run.",
+          "[[nre|一次性工程费]]覆盖夹具、编程与测试开发；并入单价会掩盖小批量的真实成本。",
+          [
+            "nre"
+          ]
+        ],
+        [
+          "Apply DFMA before the drawing is released",
+          "图纸发布前先做 DFMA",
+          "[[dfma|DFMA]] reduces part count and fastener variety, which matters more to low-volume cost than shaving a few cents off any single component.",
+          "[[dfma|DFMA]] 减少零件与紧固件种类，对低量成本的影响远大于在单个料上省几分钱。",
+          [
+            "dfma"
+          ]
+        ],
+        [
+          "Run a pilot on the actual line",
+          "在正式产线上试产",
+          "A [[pilot_run|pilot run]] validates takt time, work instructions and [[yield|first-pass yield]] in conditions that a hand-built prototype cannot reproduce.",
+          "[[pilot_run|试产]]在手工样机无法复现的条件下验证节拍、作业指导书与 [[yield|一次通过良率]]。",
+          [
+            "pilot_run",
+            "yield"
+          ]
+        ],
+        [
+          "Lock the BOM before scaling",
+          "放量前锁定 BOM",
+          "A released [[bom|BOM]] with named manufacturers and approved alternates prevents the silent substitutions that small batches often attract.",
+          "发布带厂商名与认可替代料的 [[bom|BOM]]，可避免小批量最易出现的悄悄换料。",
+          [
+            "bom"
+          ]
+        ],
+        [
+          "Plan wireless qualification early",
+          "尽早规划无线认证",
+          "Products using [[wifi|Wi-Fi]], [[bluetooth|Bluetooth]] or [[usb_docs|USB]] interfaces carry qualification and logo-use requirements that should shape the design, not follow it.",
+          "采用 [[wifi|Wi-Fi]]、[[bluetooth|蓝牙]]或 [[usb_docs|USB]] 接口的产品有认证与标识使用要求，应影响设计而非事后补救。",
+          [
+            "wifi",
+            "bluetooth",
+            "usb_docs"
+          ]
+        ],
+        [
+          "Protect the design before you share it",
+          "分享设计前先做保护",
+          "File through the [[uspto|USPTO]] or [[wipo|WIPO]] route and use an [[nnn|NNN agreement]] before sending Gerbers and artwork to any prospective workshop.",
+          "在把 Gerber 与美术稿发给任何候选车间之前，先经 [[uspto|USPTO]] 或 [[wipo|WIPO]] 途径申请，并签署 [[nnn|NNN 协议]]。",
+          [
+            "uspto",
+            "wipo",
+            "nnn"
+          ]
+        ],
+        [
+          "Consolidate mixed SKUs to reach the floor",
+          "用混 SKU 拼单跨过起订门槛",
+          "Where a single item cannot meet a factory floor, mixed-SKU consolidation across related parts can reach it without forcing you to overstock one variant.",
+          "单品达不到起订量时，用相关品类的混 SKU 拼单可以跨过门槛，而不必为单一型号压库存。",
+          [
+            "moq"
+          ]
+        ]
+      ],
+      "angle_en": "Low-MOQ work is an integration problem more than a price problem. Anchormere coordinates prototyping, rapid tooling and small-batch builds across vetted Greater Bay Area workshops, then consolidates mixed SKUs into one QC pass and one shipment — so a 500-piece programme is runnable, not theoretical.",
+      "angle_zh": "低 MOQ 更像是整合问题而非价格问题。Anchormere 在认证的大湾区车间之间协调打样、快速模具与小批试产，并把混 SKU 整合为一次质检、一票发货——让 500 件级的项目真正跑得通，而不只是纸上可行。",
+      "internal": [
+        [
+          "hardware-startup-manufacturer.html",
+          "Hardware startup manufacturer"
+        ],
+        [
+          "low-moq-oem-factory.html",
+          "Low-MOQ OEM factory"
+        ],
+        [
+          "custom-product-development.html",
+          "Custom product development"
+        ]
+      ],
+      "terms": [
+        "moq",
+        "evt",
+        "rapid_tooling",
+        "nre",
+        "dfma",
+        "pilot_run",
+        "yield",
+        "bom",
+        "golden_sample",
+        "pcba",
+        "nnn"
+      ],
+      "sources": [
+        "nist_standards",
+        "ipc",
+        "wifi",
+        "bluetooth",
+        "usb_docs",
+        "uspto",
+        "wipo"
+      ],
+      "serp_title": "Low-MOQ manufacturing: 10 checks"
+    },
+    {
+      "slug": "ev-charger-sourcing-standards-map",
+      "title_en": "EV charger sourcing: ten standards points buyers should specify",
+      "title_zh": "充电桩采购：买家应写进规格书的十项标准要点",
+      "desc_en": "Ten standards points for sourcing EV charger components and power electronics from the Greater Bay Area, with IEC and CharIN references.",
+      "keywords": "EV charger components sourcing, EVSE standards, IEC 62196, IEC 61851, CCS, CHAdeMO, OCPP, IP rating, Guangdong EV supply chain, Greater Bay Area, Anchormere",
+      "intro_en": "Charging hardware is a standards-defined product: connector geometry, control pilot behaviour and enclosure protection are all written down before a single tool is cut. These ten points map the standards to the decisions a buyer must make when sourcing from the Greater Bay Area.",
+      "intro_zh": "充电硬件是标准定义出来的产品：接口几何、控制导引行为与外壳防护在开模之前都已写死。以下十项把标准对应到买家在大湾区采购时必须做出的决策。",
+      "points": [
+        [
+          "Fix the connector family per market",
+          "按市场锁定接口体系",
+          "[[ccs|CCS]] dominates European and North American deployments via [[charin|CharIN]], while [[chademo|CHAdeMO]] persists in installed fleets; China uses its own GB/T family.",
+          "欧美以 [[charin|CharIN]] 推动的 [[ccs|CCS]] 为主，[[chademo|CHAdeMO]] 在存量车队中仍在用，中国采用 GB/T 体系。",
+          [
+            "ccs",
+            "charin",
+            "chademo"
+          ]
+        ],
+        [
+          "Cite IEC 62196 for the interface",
+          "接口引用 IEC 62196",
+          "[[iec_62196|IEC 62196]] covers plugs, socket-outlets, vehicle connectors and inlets for conductive charging — the starting point for any connector drawing.",
+          "[[iec_62196|IEC 62196]] 覆盖传导充电的插头、插座、车辆连接器与车辆接口，是任何接口图纸的起点。",
+          [
+            "iec_62196",
+            "iec"
+          ]
+        ],
+        [
+          "Cite IEC 61851 for the system",
+          "系统引用 IEC 61851",
+          "[[iec_61851|IEC 61851]] defines the charging system, control pilot and safety requirements; [[mode_3|Mode 3]] is the usual AC reference for dedicated EVSE.",
+          "[[iec_61851|IEC 61851]] 定义充电系统、控制导引与安全要求；专用交流供电设备通常参照 [[mode_3|模式 3]]。",
+          [
+            "iec_61851",
+            "mode_3"
+          ]
+        ],
+        [
+          "Specify the enclosure protection class",
+          "明确外壳防护等级",
+          "An [[ip_rating|IP rating]] under IEC 60529 (for example IP54 for indoor units, IP67 for outdoor) should be written into the drawing and verified by test report.",
+          "按 IEC 60529 的 [[ip_rating|IP 等级]]（室内如 IP54、户外如 IP67）应写入图纸并以测试报告验证。",
+          [
+            "ip_rating",
+            "iec_webstore"
+          ]
+        ],
+        [
+          "Confirm the backend protocol",
+          "确认后台通信协议",
+          "[[ocpp|OCPP]] compatibility determines whether a charge point can join an operator's management system — a firmware decision with a hardware cost.",
+          "[[ocpp|OCPP]] 兼容性决定充电桩能否接入运营商管理平台——这是固件决策，却带来硬件成本。",
+          [
+            "ocpp",
+            "etsi"
+          ]
+        ],
+        [
+          "Check cable and thermal design",
+          "核查线缆与热设计",
+          "Cable cross-section, temperature rise and continuous-current rating should be validated at the maximum rated output, not at nominal conditions.",
+          "线缆截面积、温升与持续载流能力应按最大额定输出验证，而非标称工况。",
+          [
+            "sae",
+            "energygov"
+          ]
+        ],
+        [
+          "Plan certification by destination",
+          "按目的市场规划认证",
+          "[[ul_cert|UL certification]] and the [[iecee|IECEE CB Scheme]] are common routes for power-electronics evidence; the [[iec_webstore|IEC standards catalogue]] names the test editions.",
+          "[[ul_cert|UL 认证]]与 [[iecee|IECEE CB 体系]]是电力电子证据的常见路径；[[iec_webstore|IEC 标准目录]]给出测试标准版本。",
+          [
+            "ul_cert",
+            "iecee",
+            "iec_webstore"
+          ]
+        ],
+        [
+          "Document efficiency and standby behaviour",
+          "记录能效与待机表现",
+          "[[energystar|ENERGY STAR]] and [[energygov|DOE]] resources are useful benchmarks for efficiency expectations on charging and power-conversion equipment.",
+          "[[energystar|能源之星]]与 [[energygov|美国能源部]]资料可作为充电与功率转换设备能效预期的参照。",
+          [
+            "energystar",
+            "energygov"
+          ]
+        ],
+        [
+          "Audit component traceability",
+          "审核元器件可追溯性",
+          "[[traceability|Batch traceability]] on connectors, contactors and cable assemblies is what makes a field recall manageable rather than existential.",
+          "连接器、接触器与线缆组件的 [[traceability|批次可追溯]]，决定现场召回是可控事件还是致命事件。",
+          [
+            "traceability",
+            "nist_standards"
+          ]
+        ],
+        [
+          "Consolidate the BOM across workshops",
+          "跨车间整合 BOM",
+          "Charging assemblies span moulding, sheet metal, PCBA and cable harness; consolidating them into one inspection and one export pack is where integration earns its keep.",
+          "充电总成横跨注塑、钣金、PCBA 与线束；把它们整合为一次检验、一套出口单证，正是整合方的价值所在。",
+          [
+            "bom"
+          ]
+        ]
+      ],
+      "angle_en": "EV charging hardware is exactly the multi-workshop order that fragments easily. Anchormere consolidates moulded parts, sheet metal, cable assemblies and electronics from vetted Greater Bay Area factories into one quote, one QC pass and one shipment — with the standards evidence attached.",
+      "angle_zh": "充电硬件恰恰是最容易碎片化的多车间订单。Anchormere 把认证大湾区工厂的注塑件、钣金、线束与电子件整合为一次报价、一次质检、一票发货，并随附标准符合性证据。",
+      "internal": [
+        [
+          "ev-charger-components-sourcing.html",
+          "EV charger components sourcing"
+        ],
+        [
+          "guangdong-ev-supply-chain.html",
+          "Guangdong EV supply chain"
+        ],
+        [
+          "supply-base.html",
+          "Greater Bay Area supply base"
+        ]
+      ],
+      "terms": [
+        "ccs",
+        "chademo",
+        "iec_62196",
+        "iec_61851",
+        "mode_3",
+        "ocpp",
+        "ip_rating",
+        "pdu",
+        "busbar",
+        "traceability"
+      ],
+      "sources": [
+        "charin",
+        "chademo",
+        "iec",
+        "iec_webstore",
+        "iecee",
+        "ul_cert",
+        "etsi",
+        "energystar",
+        "energygov",
+        "sae",
+        "nist_standards"
+      ],
+      "serp_title": "EV charger standards: 10 checks"
+    },
+    {
+      "slug": "ai-data-center-hardware-sourcing-standards",
+      "title_en": "AI data-center hardware sourcing: ten specification points that get missed",
+      "title_zh": "AI 数据中心硬件采购：最常被漏掉的十项规格要点",
+      "desc_en": "Ten spec points for sourcing racks, cabling and power hardware for AI data centers, with OCP, Uptime Institute and BICSI references.",
+      "keywords": "AI data center hardware sourcing, 19-inch rack, rack accessories, cable management, PDU, PUE, structured cabling, blanking panel, OCP, Greater Bay Area, Anchormere",
+      "intro_en": "GPU-dense builds change the physical layer: heavier racks, higher cable counts, tighter airflow discipline. The ten points below are the specification items most often left off an RFQ for rack accessories, cabling and installation consumables — and the sources that define them.",
+      "intro_zh": "GPU 密集型建设改变了物理层：更重的机柜、更高的线缆密度、更严的气流管理。以下十项是机柜配件、布线与安装耗材 RFQ 中最常漏写的规格，以及定义它们的来源。",
+      "points": [
+        [
+          "Specify the rack standard and U count",
+          "写明机柜标准与 U 位数",
+          "A [[rack_19|19-inch rack]] (EIA-310 / IEC 60297) is specified in [[rack_unit|U]] increments of 44.45 mm; state total U, usable depth and static load rating.",
+          "[[rack_19|19 英寸机柜]]（EIA-310 / IEC 60297）以 [[rack_unit|U]]（44.45 毫米）计量；须写明总 U 数、可用深度与静载等级。",
+          [
+            "rack_19",
+            "rack_unit"
+          ]
+        ],
+        [
+          "Set rail and mounting requirements",
+          "明确导轨与安装要求",
+          "Rail type, cage-nut sizing, square-hole vs round-hole uprights and grounding points should be in the drawing, not assumed compatible.",
+          "导轨类型、笼式螺母规格、方孔/圆孔立柱与接地点应写入图纸，不能默认兼容。",
+          [
+            "ipc"
+          ]
+        ],
+        [
+          "Design cable management around bend radius",
+          "按弯曲半径设计线缆管理",
+          "High-count copper and fibre runs need tray, ladder, J-hook and D-ring sizing that respects [[bend_radius|minimum bend radius]]; [[bicsi|BICSI]] publishes the cabling practice.",
+          "高芯数铜缆与光纤需托盘、梯架、J 型钩与 D 型环按 [[bend_radius|最小弯曲半径]]选型；[[bicsi|BICSI]] 发布布线实践标准。",
+          [
+            "bend_radius",
+            "bicsi"
+          ]
+        ],
+        [
+          "Apply structured cabling administration",
+          "落实结构化布线管理",
+          "[[structured_cabling|Structured cabling]] needs labelled horizontal and backbone links, patching and records; [[tia_942|TIA-942]] covers the data-center infrastructure layer.",
+          "[[structured_cabling|结构化布线]]要求水平与主干链路有标签、配线与记录；[[tia_942|TIA-942]] 覆盖数据中心基础设施层。",
+          [
+            "structured_cabling",
+            "tia_942"
+          ]
+        ],
+        [
+          "Close unused U-space",
+          "封堵空余 U 位",
+          "[[blanking_panel|Blanking panels]] stop hot-air recirculation; leaving gaps undermines cooling efficiency regardless of how capable the CRAC units are.",
+          "[[blanking_panel|盲板]]阻止热风回流；无论空调多强，空置 U 位不封堵都会削弱散热效率。",
+          [
+            "blanking_panel"
+          ]
+        ],
+        [
+          "Specify power distribution explicitly",
+          "明确配电规格",
+          "[[pdu|PDUs]] should be specified by input, outlet count, metering, socket type and [[busbar|busbar]] or feed arrangement — not just total kW.",
+          "[[pdu|PDU]] 须按输入、插座数、计量、插座类型及 [[busbar|母排]]/馈电方式约定，而不只写总功率。",
+          [
+            "pdu",
+            "busbar"
+          ]
+        ],
+        [
+          "Tie efficiency claims to a metric",
+          "让能效主张对应指标",
+          "[[pue|PUE]] is the standard ratio for facility efficiency; [[energystar|ENERGY STAR]] resources give a common reference for equipment-level expectations.",
+          "[[pue|PUE]] 是设施能效的标准比值；[[energystar|能源之星]]资料提供设备级预期的通用参照。",
+          [
+            "pue",
+            "energystar"
+          ]
+        ],
+        [
+          "Check open hardware specifications",
+          "核对开放硬件规范",
+          "The [[ocp|Open Compute Project]] publishes open rack, power and server specifications that increasingly shape buyer RFQs.",
+          "[[ocp|开放计算项目]]发布开放的机柜、供电与服务器规范，正越来越多地进入买家 RFQ。",
+          [
+            "ocp"
+          ]
+        ],
+        [
+          "Use a recognised facility baseline",
+          "采用公认的设施基准",
+          "[[uptime|Uptime Institute]] Tier resources are the common language for redundancy and availability discussions with integrators.",
+          "[[uptime|Uptime Institute]] 的 Tier 资料是与集成商讨论冗余与可用性时的通用语言。",
+          [
+            "uptime"
+          ]
+        ],
+        [
+          "Plan supply against real demand signals",
+          "按真实需求信号规划供应",
+          "[[sia|SIA]] industry data and [[nist_pml|NIST measurement resources]] help frame capacity planning; then consolidate multi-SKU hardware into one QC pass and one shipment.",
+          "[[sia|SIA]] 行业数据与 [[nist_pml|NIST 计量资料]]可支撑产能规划；随后把多 SKU 硬件整合为一次质检、一票发货。",
+          [
+            "sia",
+            "nist_pml"
+          ]
+        ]
+      ],
+      "angle_en": "Racks, cabling and consumables are unglamorous until they are the reason a commissioning date slips. Anchormere's entry category is exactly this physical layer — consolidating rack accessories, cable management and installation consumables from vetted Greater Bay Area factories into one 48-hour quote, one QC pass and one shipment.",
+      "angle_zh": "机柜、布线与耗材在导致交付延期之前总是不起眼。Anchormere 的切入门类正是这一物理层——把认证大湾区工厂的机柜配件、线缆管理与安装耗材整合为 48 小时一次报价、一次质检、一票发货。",
+      "internal": [
+        [
+          "ai-data-center-sourcing.html",
+          "AI data-center sourcing"
+        ],
+        [
+          "rack-accessories.html",
+          "Rack accessories"
+        ],
+        [
+          "cable-management.html",
+          "Cable management"
+        ],
+        [
+          "supply-base.html",
+          "Greater Bay Area supply base"
+        ]
+      ],
+      "terms": [
+        "rack_unit",
+        "rack_19",
+        "pdu",
+        "pue",
+        "structured_cabling",
+        "blanking_panel",
+        "busbar",
+        "bend_radius",
+        "tia_942",
+        "ocp"
+      ],
+      "sources": [
+        "ocp",
+        "uptime",
+        "bicsi",
+        "energystar",
+        "sia",
+        "nist_pml",
+        "iec_webstore",
+        "ipc"
+      ],
+      "serp_title": "AI data-center hardware: 10 checks"
+    }
+  ]
 }

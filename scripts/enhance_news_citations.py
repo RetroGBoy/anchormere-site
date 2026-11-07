@@ -58,7 +58,8 @@ def detect_category(text, en_title):
     seg_start = text.find("Why it matters for buyers")
     seg_end = text.find('data-zh="来源"')
     seg = text[seg_start:seg_end] if seg_start >= 0 and seg_end > seg_start else text
-    m = re.search(r"href='([a-z-]+)\.html'", seg)
+    # 站内链接已统一为 clean URL（/supply-base），同时兼容历史 .html 形式。
+    m = re.search(r"href=['\"](?:/)?([a-z-]+)(?:\.html)?['\"]", seg)
     cat = TARGET_TO_CAT.get(m.group(1), "procurement") if m else "procurement"
     low = en_title.lower()
     if cat == "procurement" and any(x in low for x in (

@@ -28,8 +28,16 @@ jobs:
           TRANSLATE_KEY: ${{ secrets.TRANSLATE_KEY }}
         run: python3 scripts/news_digest.py
 
+      - name: Normalize internal links, language hints and entity refs
+        run: python3 scripts/site_normalize.py
+
       - name: Rebuild sitemap (index cap + archive pages)
         run: python3 scripts/build_sitemap.py
+
+      # Quality gate: a FAIL stops the job before the auto-commit, so a bad
+      # template regression can never be pushed by the nightly run.
+      - name: SEO verification gate
+        run: python3 scripts/verify_seo.py
 
       - name: Commit and push (only if changed)
         run: |
