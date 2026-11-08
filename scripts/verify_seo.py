@@ -282,6 +282,34 @@ if ecom_bad:
 else:
     ok("全站无 Product/Offer/offers 商品结构化数据（GSC 产品摘要合规）")
 
+# ---- 3e. meta keywords 长度 + FAQPage speakable（全局不变量，始终全量）----
+# 二者由 html_finalize.normalize() 在收口层保证；此闸门防止生成器/模板升级
+# 时把「旧态」重新带回线上（历史上多次发生 CI 重生覆盖页面级修复）。
+KW_META_RE = re.compile(r'<meta\s+name="keywords"\s+content="([^"]*)"', re.I)
+kw_bad, faq_bad = [], []
+for f in htmls:
+    t = PAGE[f]
+    m = KW_META_RE.search(t)
+    if m and len(m.group(1)) > 200:
+        kw_bad.append(f"{f}({len(m.group(1))})")
+    for b in LD_RE.findall(t):
+        try:
+            o = json.loads(b)
+        except Exception:
+            continue
+        for z in (o if isinstance(o, list) else [o]):
+            if isinstance(z, dict) and z.get("@type") == "FAQPage" and "speakable" not in z:
+                faq_bad.append(f)
+if kw_bad:
+    fail(f"meta keywords 超 200 字符: {len(kw_bad)} 页 " + ", ".join(kw_bad[:3]))
+else:
+    ok("meta keywords 全站 ≤200 字符（无关键词堆砌观感）")
+if faq_bad:
+    fail(f"FAQPage 缺 speakable: {len(set(faq_bad))} 页 "
+         + ", ".join(sorted(set(faq_bad))[:3]))
+else:
+    ok("FAQPage 全部带 speakable（AEO 语音/答案摘录就绪）")
+
 for need in ('Organization', 'WebSite', 'Service', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")

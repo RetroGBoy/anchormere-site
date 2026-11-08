@@ -1,0 +1,65 @@
+name: News digest watchdog
+
+# GitHub Actions 的 schedule 在共享 runner 上可能排队甚至漏跑（运行中已观察到
+# 多次延迟）。本工作流是「超 24h 未成功生成则自动补跑」的兜底：它不复制任何
+# 生成逻辑，只查询 news-auto 最近一次成功 run 的时间，超阈值时通过
+# workflow_dispatch 重新触发 news-auto.yml，完整复用原有的
+# 生成 → 规范化 → sitemap → 增量闸门 → 提交链路。
+#
+# 注：GITHUB_TOKEN 触发的事件里，workflow_dispatch / repository_dispatch 是
+# 唯一不受「防止递归工作流」抑制的两类，因此可以安全补跑。
+
+on:
+  schedule:
+    # 05:00 UTC (~13:00 北京)，给 01:00 UTC 的 digest 留 4h 排队余量
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查 news-auto 最近成功运行时间
+        id: probe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          wf="news-auto.yml"
+          runs=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/runs?per_page=10" \
+                 --jq '.workflow_runs')
+          last_ok=$(printf '%s' "$runs" | jq -r '[.[] | select(.conclusion=="success") | .created_at] | max // empty')
+          now=$(date -u +%s)
+          threshold=$((26 * 3600))
+          need=0
+          if [ -z "$last_ok" ]; then
+            echo "从未有过成功的 digest 运行"
+            need=1
+          else
+            age=$(( now - $(date -u -d "$last_ok" +%s) ))
+            echo "最近成功运行: ${last_ok} (${age}s 前)"
+            if [ "$age" -gt "$threshold" ]; then need=1; fi
+          fi
+          # 最近一次运行失败且已过 2h（排除仍在排队/重试中）也补跑
+          last_conclusion=$(printf '%s' "$runs" | jq -r '.[0].conclusion // empty')
+          last_created=$(printf '%s' "$runs" | jq -r '.[0].created_at // empty')
+          if [ "$last_conclusion" != "success" ] && [ -n "$last_created" ]; then
+            age2=$(( now - $(date -u -d "$last_created" +%s) ))
+            if [ "$age2" -gt 7200 ]; then
+              echo "最近一次运行结论=${last_conclusion}，已过 ${age2}s，触发补跑"
+              need=1
+            fi
+          fi
+          echo "need_rerun=$need" >> "$GITHUB_OUTPUT"
+
+      - name: 补跑每日 digest
+        if: steps.probe.outputs.need_rerun == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run news-auto.yml --repo "${GITHUB_REPOSITORY}"
+          echo "已触发 news-auto.yml 补跑；完整生成与闸门由其自身负责。"

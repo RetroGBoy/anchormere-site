@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "site": "https://anchormere.com",
   "description": "Anchormere 站点模块化工作区注册表。这是分区、增量与交接制度的唯一事实来源，任何模型/会话/机器接手工作前先读本文件，无需依赖聊天记录。匹配规则：modules 数组自上而下，第一个命中的模块即该文件归属；同一文件只归属一个模块。",
   "unassigned_is_error": true,
@@ -36,7 +36,7 @@
   },
   "verify": {
     "local": "逐页检查：hreflang / 中文版本声明 / canonical / JSON-LD / Organization 一致性 / E-E-A-T / wordCount / clean URL / lang / Article @id。增量模式仅对脏模块的页面执行。",
-    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖。始终执行一次（基于单次读取缓存，开销极小）。",
+    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable。始终执行一次（基于单次读取缓存，开销极小）。",
     "full_flag": "--all",
     "gate": "verify_seo.py 退出码 1 = FAIL 阻断推送；2 = WARN 提示；0 = PASS"
   },
@@ -230,7 +230,7 @@
       "build": null,
       "verify_default": false,
       "invalidates": [],
-      "note": "增量闸门、每日 digest、健康监控、IndexNow 提交。"
+      "note": "增量闸门、每日 digest + 26h watchdog 兜底、健康监控、IndexNow 提交。"
     },
     {
       "id": "docs",
@@ -241,7 +241,7 @@
       "build": null,
       "verify_default": false,
       "invalidates": [],
-      "note": "不参与线上构建，默认不做技术扫描。"
+      "note": "不参与线上构建，默认不做技术扫描。含 CHANGELOG.md / ROLLBACK.md 变更台账与回滚预案。"
     },
     {
       "id": "archive",

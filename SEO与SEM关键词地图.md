@@ -80,8 +80,9 @@
 
 ## 5. GEO / AEO（生成式引擎优化）
 
-- 已部署 `llms.txt`（根目录），列出 13 条典型买家长尾意图 + 10 篇带外链来源标注的采购情报简报入口，供 ChatGPT/Perplexity 等引用。
+- 已部署 `llms.txt`（根目录），列出能力边界、典型买家长尾意图（含 2026 热词）、10 篇带外链来源标注的采购情报简报入口，供 ChatGPT/Perplexity 等引用。条目以 `llms.txt` 实时内容为准，不在本文写死数量。
 - 每个长尾页的 FAQ 段落（含 FAQPage JSON-LD）直接回答"MOQ 多少 / 多久报价 / 怎么远程验厂 / 付款方式 / 是否做成品"——这些是 AI 摘要最爱抓取的结构化问答。
+- 全站 FAQPage JSON-LD 已补 `speakable`，把语音助手与答案引擎指向页面真实存在的问答 DOM：长尾页 `.qa h3` / `.qa p`，早期框架页 `h3`。由 `html_finalize.py` 收口层保证，生成器与 CI 重生都不会带回旧态。
 - 建议在长尾页持续补充"how to / where to / cost of"类段落，提升被 AI 答案引用的概率。
 
 ---
@@ -111,14 +112,20 @@
 | 脚本 | 作用 | 何时跑 |
 |---|---|---|
 | `scripts/longtail.py` | 由 36 条种子生成长尾落地页（含品类专属工程要点 + E-E-A-T 审核署名） | 新增品类时 |
-| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前 109 条 URL，含业务页 + 资讯 + 简报 + 归档，CI 自动重建） | 增删页面后 / 每次资讯生成后 |
+| `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前 121 条 URL，含业务页 + 资讯 + 简报 + 归档，CI 自动重建；数字以脚本实时输出为准） | 增删页面后 / 每次资讯生成后 |
 | `scripts/seo_inject.py` | 给既有页注入 Organization/Breadcrumb/FAQ/Service JSON-LD + hreflang | 改模板后 |
 | `scripts/inject_ga4.py` | 给缺 `consent.js` 的页面补齐（已全站覆盖） | 新增页面时 |
 | `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页（含权威外链 + 明文 URL 来源标注 + 专有名词 + `citation`）→ `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
 | `scripts/build_briefings.py` | 由 `scripts/briefings.json` 渲染 10 篇采购情报简报（每篇 10 条要点 + 术语表 + 完整 URL 来源标注） | 新增/修订简报内容时 |
 | `scripts/enhance_news_citations.py` | 幂等升级历史 digest 页：补明文 URL 来源标注、类目权威外链、专有名词、`Article.citation` | 生成器模板升级后 |
-| `scripts/verify_seo.py` | 全站 SEO 验证闭环（当前 PASS=24 / WARN=0 / FAIL=0，含 clean URL 内链 / WCAG lang / 实体 @id 串联等 24 项） | 每次改动后 / CI 提交前闸门 |
-| `scripts/site_normalize.py` | 幂等规范化全站 HTML：clean URL 内链、中文片段 `lang="zh-CN"`、Article author/publisher 以 `@id` 串联 Organization；只在内容变化时写文件 | CI 每日 digest 后、sitemap 前；本地生成页后也一样 |
+| `scripts/verify_seo.py` | 全站 SEO 验证闭环 + 全局不变量闸门（clean URL 内链 / WCAG lang / 实体 @id 串联 / 无 Product-Offer / `meta keywords` ≤200 字符 / FAQPage `speakable` 等）。项数以 `workarea.py verify --all` 实时输出为准，不在本文写死 | 每次改动后 / CI 提交前闸门 |
+| `scripts/site_normalize.py` | 调用收口层对全站 HTML 做幂等规范化（五条不变量，只在内容变化时写文件） | CI 每日 digest 后、sitemap 前；本地生成页后也一样 |
+| `scripts/html_finalize.py` | **收口层**：五条全站不变量（clean URL / `lang="zh-CN"` / Article @id / `meta keywords` ≤200 / FAQPage `speakable`）。生成器经 `write_final()` 写盘即最终态，杜绝「CI 重生带回旧模板」 | 新增不变量时；改动须同步 `verify_seo.py` 闸门 |
+| `scripts/workarea.py` | 模块化增量制度：`status / plan / apply / verify / init / audit / handoff / freeze`，按内容哈希与依赖闭包只处理脏模块 | 每次改动前后；换模型交接时先看 `handoff` |
+| `scripts/health_check.py` | 线上真实响应巡检（核心页状态 / canonical / hreflang / sitemap / 追踪埋点 / 收口层不变量软校验）；CRITICAL 会让 CI 失败并邮件通知 | 每日 `site-health.yml` 自动跑 |
+| `scripts/submit_indexnow.py` | 通知 Bing 系引擎重新抓取 | 增删页面 / 回滚后 |
+
+`news-watchdog.yml` 每日 05:00 UTC 检查 `news-auto` 最近成功运行，超 26h 或最近一次失败且已过 2h 时通过 `workflow_dispatch` 自动补跑，不复制生成逻辑。变更台账见 `CHANGELOG.md`，回滚步骤见 `ROLLBACK.md`。
 
 ---
 

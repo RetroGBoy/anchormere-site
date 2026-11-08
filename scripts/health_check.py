@@ -183,6 +183,30 @@ def main():
     _, home, _ = fetch(SITE + "/")
     check("Home JSON-LD present", 'application/ld+json' in home, "no structured data")
 
+    # ---- 4b. 收口层不变量（线上软校验，避免部署时序误报）------------------
+    # 站点由 Cloudflare Pages 部署，代码推送到线上生效有分钟级延迟；这些检查
+    # 只告警不判 CRITICAL，避免一次正常的发布被误报为故障。
+    print("\n[4b] finalizer invariants (sampled, soft)")
+    kw_re = re.compile(r'<meta\s+name="keywords"\s+content="([^"]*)"', re.I)
+    sample_final = ["/", "/about", "/supply-base", "/china-landed-cost-2026",
+                    "/ai-hardware-smart-glasses-oem", "/e-bike-manufacturer-china"]
+    kw_over, speak_missing = [], []
+    for p in sample_final:
+        st, body, _ = fetch(SITE + p)
+        if st != 200 or not body:
+            continue
+        m = kw_re.search(body)
+        if m and len(m.group(1)) > 200:
+            kw_over.append(f"{p}({len(m.group(1))})")
+        if '"FAQPage"' in body and '"speakable"' not in body:
+            speak_missing.append(p)
+    if kw_over:
+        warn("线上 meta keywords 超 200 字符", ", ".join(kw_over))
+    if speak_missing:
+        warn("线上 FAQPage 缺 speakable（可能仍在部署中）", ", ".join(speak_missing))
+    print(f"      sampled {len(sample_final)} pages: keywords_over={len(kw_over)}, "
+          f"faq_missing_speakable={len(speak_missing)}")
+
     # ---- 5. internal dead-link sweep (sampled) -----------------------------
     print("\n[5] internal link sweep (sampled)")
     seen = set()
