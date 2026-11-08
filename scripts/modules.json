@@ -36,7 +36,7 @@
   },
   "verify": {
     "local": "逐页检查：hreflang / 中文版本声明 / canonical / JSON-LD / Organization 一致性 / E-E-A-T / wordCount / clean URL / lang / Article @id。增量模式仅对脏模块的页面执行。",
-    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable。始终执行一次（基于单次读取缓存，开销极小）。",
+    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable / 公开案例来源 URL 明文与免责声明。始终执行一次（基于单次读取缓存，开销极小）。",
     "full_flag": "--all",
     "gate": "verify_seo.py 退出码 1 = FAIL 阻断推送；2 = WARN 提示；0 = PASS"
   },
@@ -45,7 +45,13 @@
       "id": "governance",
       "title": "制度与工作区驱动器",
       "policy": "governance",
-      "paths": ["WORKFLOW.md", "scripts/modules.json", "scripts/module_state.json", "scripts/workarea.py", "scripts/io_util.py"],
+      "paths": [
+        "WORKFLOW.md",
+        "scripts/modules.json",
+        "scripts/module_state.json",
+        "scripts/workarea.py",
+        "scripts/io_util.py"
+      ],
       "globs": [],
       "build": null,
       "verify_default": false,
@@ -57,12 +63,22 @@
       "id": "data-org",
       "title": "全站 Organization 单一数据源",
       "policy": "manual",
-      "paths": ["scripts/org_entity.json"],
+      "paths": [
+        "scripts/org_entity.json"
+      ],
       "globs": [],
       "build": null,
       "verify_default": true,
-      "invalidates": ["longtail", "briefings", "news-digest", "news-index", "config"],
-      "review": ["framework"],
+      "invalidates": [
+        "longtail",
+        "briefings",
+        "news-digest",
+        "news-index",
+        "config"
+      ],
+      "review": [
+        "framework"
+      ],
       "force_global": true,
       "note": "实体变更会影响全站结构化数据；framework 为人工页，只提示复核不自动改写。"
     },
@@ -70,33 +86,66 @@
       "id": "data-longtail",
       "title": "长尾品类页数据源",
       "policy": "manual",
-      "paths": ["scripts/longtail_seeds.json"],
+      "paths": [
+        "scripts/longtail_seeds.json"
+      ],
       "globs": [],
       "build": null,
       "verify_default": true,
-      "invalidates": ["longtail", "config"],
-      "note": "只影响 36 个长尾页与 sitemap，不触碰新闻与框架页。"
+      "invalidates": [
+        "longtail",
+        "config"
+      ],
+      "note": "只影响 36 个长尾页与 sitemap，不触碰新闻与框架页。案例内容另由 data-cases 驱动。"
+    },
+    {
+      "id": "data-cases",
+      "title": "公开案例数据源（联网核验，含来源 URL）",
+      "policy": "manual",
+      "paths": [
+        "scripts/case_references.json"
+      ],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": [
+        "cases-hub",
+        "longtail",
+        "config"
+      ],
+      "note": "11 条真实公开案例（Reuters / QIMA / U.S. CBP / 上市公司披露），逐条附完整 Source URL 明文；仅作行业参考，非客户背书。变更会重建案例枢纽页与引用它的长尾页。"
     },
     {
       "id": "data-briefings",
       "title": "采购情报简报数据源",
       "policy": "manual",
-      "paths": ["scripts/briefings.json"],
+      "paths": [
+        "scripts/briefings.json"
+      ],
       "globs": [],
       "build": null,
       "verify_default": true,
-      "invalidates": ["briefings", "config"],
+      "invalidates": [
+        "briefings",
+        "config"
+      ],
       "note": "10 篇简报的内容、外链与术语全部来自此文件。"
     },
     {
       "id": "data-news",
       "title": "新闻去重状态",
       "policy": "auto",
-      "paths": ["news_state.json"],
+      "paths": [
+        "news_state.json"
+      ],
       "globs": [],
       "build": null,
       "verify_default": false,
-      "invalidates": ["news-digest", "news-index", "config"],
+      "invalidates": [
+        "news-digest",
+        "news-index",
+        "config"
+      ],
       "note": "每日 digest 追加，只影响新闻板块。"
     },
     {
@@ -104,11 +153,22 @@
       "title": "生成器与校验器代码",
       "policy": "manual",
       "paths": [],
-      "globs": ["scripts/*.py", "scripts/*.json"],
+      "globs": [
+        "scripts/*.py",
+        "scripts/*.json"
+      ],
       "build": null,
       "verify_default": true,
-      "invalidates": ["longtail", "briefings", "news-digest", "news-index", "config"],
-      "review": ["framework"],
+      "invalidates": [
+        "longtail",
+        "briefings",
+        "news-digest",
+        "news-index",
+        "config"
+      ],
+      "review": [
+        "framework"
+      ],
       "force_global": true,
       "note": "生成器逻辑变更会让既有输出可能过期，需重建受影响板块；已由前面模块认领的文件按先到先得排除。"
     },
@@ -117,10 +177,14 @@
       "title": "采购情报简报（10 篇）",
       "policy": "auto",
       "paths": [],
-      "globs": ["news-2026-11-07-*.html"],
+      "globs": [
+        "news-2026-11-07-*.html"
+      ],
       "build": "python3 scripts/build_briefings.py",
       "verify_default": true,
-      "invalidates": ["config"],
+      "invalidates": [
+        "config"
+      ],
       "note": "带权威外链来源标注、术语表与 Article.citation 的深度内容页。"
     },
     {
@@ -128,73 +192,140 @@
       "title": "每日新闻摘要（历史 42 篇）",
       "policy": "scheduled",
       "paths": [],
-      "globs": ["news-20*.html"],
+      "globs": [
+        "news-20*.html"
+      ],
       "build": "python3 scripts/news_digest.py && python3 scripts/enhance_news_citations.py",
       "verify_default": false,
-      "invalidates": ["news-index", "config"],
+      "invalidates": [
+        "news-index",
+        "config"
+      ],
       "note": "默认不扫描：无新需求时历史新闻原样保留，只有 digest CI 或显式 --module 才处理。"
     },
     {
       "id": "news-index",
       "title": "新闻列表与归档页",
       "policy": "auto",
-      "paths": ["news.html", "news-archive.html"],
-      "globs": ["news-archive-*.html"],
+      "paths": [
+        "news.html",
+        "news-archive.html"
+      ],
+      "globs": [
+        "news-archive-*.html"
+      ],
       "build": null,
       "verify_default": true,
-      "invalidates": ["config"],
+      "invalidates": [
+        "config"
+      ],
       "note": "由 news_digest.py 顺带生成（含归档分页），随新闻板块联动。"
+    },
+    {
+      "id": "cases-hub",
+      "title": "公开案例枢纽页",
+      "policy": "auto",
+      "paths": [
+        "sourcing-case-studies.html"
+      ],
+      "globs": [],
+      "build": "python3 scripts/build_cases.py",
+      "verify_default": true,
+      "invalidates": [
+        "config"
+      ],
+      "note": "由 case_references.json 生成，含 CollectionPage/FAQPage 结构化数据、逐条来源 URL 与免责声明；36 个长尾页的案例区块内链指向此页。"
     },
     {
       "id": "longtail",
       "title": "长尾关键词品类页（36 页）",
       "policy": "auto",
       "paths": [
-        "ai-hardware-smart-glasses-oem.html", "amazon-private-label-manufacturer.html",
-        "china-landed-cost-2026.html", "china-plus-one-sourcing.html",
-        "china-sourcing-agent.html", "custom-product-development.html",
-        "drone-parts-manufacturer-gba.html", "e-bike-manufacturer-china.html",
-        "earbuds-oem-shenzhen.html", "educational-robot-manufacturer.html",
-        "ev-charger-components-sourcing.html", "hardware-startup-manufacturer.html",
-        "how-to-find-manufacturer-china.html", "hts-code-tariff-classification.html",
-        "import-from-china-guide.html", "iot-sensor-module-sourcing.html",
-        "low-moq-oem-factory.html", "metal-sheet-fabrication-dongguan.html",
-        "odm-factory-guangdong.html", "oem-manufacturer-china.html",
-        "oem-vs-odm.html", "oled-display-module-sourcing.html",
-        "outdoor-camping-gear-oem.html", "pcb-assembly-shenzhen.html",
-        "pcba-contract-manufacturer.html", "plastic-injection-molding-shenzhen.html",
-        "portable-power-station-oem.html", "private-label-manufacturer.html",
-        "service-robot-manufacturer-china.html", "small-batch-manufacturing.html",
-        "smart-home-module-sourcing.html", "smart-toy-manufacturer-gba.html",
-        "tablet-pcba-sourcing.html", "usb-c-charger-oem.html",
-        "verify-chinese-manufacturer.html", "wearable-oem-shenzhen.html"
+        "ai-hardware-smart-glasses-oem.html",
+        "amazon-private-label-manufacturer.html",
+        "china-landed-cost-2026.html",
+        "china-plus-one-sourcing.html",
+        "china-sourcing-agent.html",
+        "custom-product-development.html",
+        "drone-parts-manufacturer-gba.html",
+        "e-bike-manufacturer-china.html",
+        "earbuds-oem-shenzhen.html",
+        "educational-robot-manufacturer.html",
+        "ev-charger-components-sourcing.html",
+        "hardware-startup-manufacturer.html",
+        "how-to-find-manufacturer-china.html",
+        "hts-code-tariff-classification.html",
+        "import-from-china-guide.html",
+        "iot-sensor-module-sourcing.html",
+        "low-moq-oem-factory.html",
+        "metal-sheet-fabrication-dongguan.html",
+        "odm-factory-guangdong.html",
+        "oem-manufacturer-china.html",
+        "oem-vs-odm.html",
+        "oled-display-module-sourcing.html",
+        "outdoor-camping-gear-oem.html",
+        "pcb-assembly-shenzhen.html",
+        "pcba-contract-manufacturer.html",
+        "plastic-injection-molding-shenzhen.html",
+        "portable-power-station-oem.html",
+        "private-label-manufacturer.html",
+        "service-robot-manufacturer-china.html",
+        "small-batch-manufacturing.html",
+        "smart-home-module-sourcing.html",
+        "smart-toy-manufacturer-gba.html",
+        "tablet-pcba-sourcing.html",
+        "usb-c-charger-oem.html",
+        "verify-chinese-manufacturer.html",
+        "wearable-oem-shenzhen.html"
       ],
       "globs": [],
       "build": "python3 scripts/longtail.py",
       "verify_default": true,
-      "invalidates": ["config"],
-      "note": "Pillar-Cluster 的长尾层，含增强页导向区。"
+      "invalidates": [
+        "config"
+      ],
+      "note": "Pillar-Cluster 的长尾层，含增强页导向区与公开案例参考（附来源 URL）。"
     },
     {
       "id": "framework",
       "title": "框架页 / 核心转化路径（28 页）",
       "policy": "manual",
       "paths": [
-        "404.html", "about.html", "ai-data-center-sourcing.html", "apec-2026-shenzhen.html",
-        "cable-management.html", "canton-fair-2026.html", "capabilities.html",
-        "certifications.html", "consumer-smart-electronics.html", "contact.html",
-        "cross-border-ecommerce-sourcing.html", "faq.html", "greater-bay-area-by-numbers.html",
-        "green-manufacturing-esg.html", "guangdong-ev-supply-chain.html",
-        "guangdong-manufacturing-clusters.html", "huaqiangbei-hardware-engine.html",
-        "index.html", "marketplaces.html", "privacy.html", "process.html",
-        "quality.html", "rack-accessories.html", "shipping.html",
-        "smart-manufacturing-gba.html", "smart-toys-devices.html", "supply-base.html",
+        "404.html",
+        "about.html",
+        "ai-data-center-sourcing.html",
+        "apec-2026-shenzhen.html",
+        "cable-management.html",
+        "canton-fair-2026.html",
+        "capabilities.html",
+        "certifications.html",
+        "consumer-smart-electronics.html",
+        "contact.html",
+        "cross-border-ecommerce-sourcing.html",
+        "faq.html",
+        "greater-bay-area-by-numbers.html",
+        "green-manufacturing-esg.html",
+        "guangdong-ev-supply-chain.html",
+        "guangdong-manufacturing-clusters.html",
+        "huaqiangbei-hardware-engine.html",
+        "index.html",
+        "marketplaces.html",
+        "privacy.html",
+        "process.html",
+        "quality.html",
+        "rack-accessories.html",
+        "shipping.html",
+        "smart-manufacturing-gba.html",
+        "smart-toys-devices.html",
+        "supply-base.html",
         "terms.html"
       ],
       "globs": [],
       "build": null,
       "verify_default": true,
-      "invalidates": ["config"],
+      "invalidates": [
+        "config"
+      ],
       "note": "人工维护，自动流程只读不写。多个文件在 protected 列表内，禁止自动重建。"
     },
     {
@@ -202,7 +333,9 @@
       "title": "静态资源",
       "policy": "manual",
       "paths": [],
-      "globs": ["assets/**/*"],
+      "globs": [
+        "assets/**/*"
+      ],
       "build": null,
       "verify_default": false,
       "invalidates": [],
@@ -213,8 +346,16 @@
       "id": "config",
       "title": "站点级配置与索引",
       "policy": "config",
-      "paths": ["sitemap.xml", "robots.txt", "_headers", "_redirects", "llms.txt",
-                ".indexnow_key", "b1700fd697c7492b958b22d8d2adf646.txt", "baidu_urls.txt"],
+      "paths": [
+        "sitemap.xml",
+        "robots.txt",
+        "_headers",
+        "_redirects",
+        "llms.txt",
+        ".indexnow_key",
+        "b1700fd697c7492b958b22d8d2adf646.txt",
+        "baidu_urls.txt"
+      ],
       "globs": [],
       "build": "python3 scripts/build_sitemap.py",
       "verify_default": true,
@@ -226,7 +367,9 @@
       "title": "CI 工作流",
       "policy": "manual",
       "paths": [],
-      "globs": [".github/**/*"],
+      "globs": [
+        ".github/**/*"
+      ],
       "build": null,
       "verify_default": false,
       "invalidates": [],
@@ -237,7 +380,10 @@
       "title": "报告与说明文档",
       "policy": "manual",
       "paths": [],
-      "globs": ["*.md", "*.txt"],
+      "globs": [
+        "*.md",
+        "*.txt"
+      ],
       "build": null,
       "verify_default": false,
       "invalidates": [],
@@ -248,7 +394,9 @@
       "title": "部署包归档",
       "policy": "frozen",
       "paths": [],
-      "globs": ["*.zip"],
+      "globs": [
+        "*.zip"
+      ],
       "build": null,
       "verify_default": false,
       "invalidates": [],

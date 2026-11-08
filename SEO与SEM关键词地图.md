@@ -134,7 +134,7 @@
 - **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。（本节为当时 28 条种子时的快照）
 - **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
 - **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
-- **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实外部链接，待提供），避免虚构实体信号。
+- **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实注册信息与外部 URL，待用户提供后直接补入 `scripts/org_entity.json`）；公司资质不提供，站内不新增资质板块、不设占位字段，避免虚构实体信号。
 - **回归清理**：`seo_inject.py` 残留的 `Offer`/`offers` 电商字段已移除，防止重注入时带回 GSC 购物误归类。
 
 ---
@@ -235,3 +235,11 @@
 `scripts/longtail_seeds.json` 的 `kw` / `related` 与 `llms.txt` 的
 "Typical buyer searches we answer" 小节；缺口以新增种子方式补齐，
 按 `WORKFLOW.md` 的增量流程重建，不改既有页正文。
+
+## 14. 公开案例编排与来源标注（2026-11-08）
+
+- **案例来源**：`scripts/case_references.json` 是唯一数据源，收录 11 条联网核验的真实公开案例——Reuters（Shein 越南保税仓 15→6 公顷、供应商回流番禺）、QIMA《2026 Q3 Barometer》（中国占北美验货量 35%）与后续分析、Asia Tech Lens（China+1 三变量）、TRADLINX（Apple 印度产能）、U.S. CBP 裁定 N357652 / NY N428911 / EAPA 案 8247、Tandom 归类税差算例、安克创新 2025 年报与媒体中心。
+- **来源标注**：每条案例在枢纽页与长尾页均保留完整 `Source URL:` **明文**，并附可点击外链；`citation` 写入 `CollectionPage.hasPart` 结构化数据。用户要求的「保留外链链接网址作为来源标注」在本批落地。
+- **口径边界**：明确声明为行业公开案例，**不是** Anchormere 客户项目、合作或背书；「采购启示（Buyer takeaway）」为本站对公开事实的解读，不代表原来源结论。`verify_seo.py` 闸门 3f 阻断「无来源案例」与「our client / our customer」等背书措辞。
+- **覆盖**：`sourcing-case-studies.html` 枢纽页 + 36/36 个长尾页案例板块（每页按主题匹配最多 2 条），形成 41→76 条案例引用与 36 条枢纽页内链，兼顾关键词覆盖与可核验权威度。
+- **资质处理**：按用户决定，资质不提供、不预留板块或占位字段；`sameAs` 待外部 URL 到位后补入，当前不预置空值。

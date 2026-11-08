@@ -310,6 +310,53 @@ if faq_bad:
 else:
     ok("FAQPage 全部带 speakable（AEO 语音/答案摘录就绪）")
 
+# ---- 3f. 公开案例来源标注与免责声明（真实性不变量，始终全量）----
+# 案例来自联网核验的公开报道/官方裁定/上市公司披露，必须逐条保留完整
+# Source URL 明文，且不得被改写成 Anchormere 的客户项目或背书。此闸门防止
+# 生成器/模板升级时把「无来源案例」或「背书措辞」带回线上。
+CASE_JSON = os.path.join('scripts', 'case_references.json')
+CASE_HUB = 'sourcing-case-studies.html'
+if not os.path.exists(CASE_JSON):
+    fail('缺少 scripts/case_references.json（案例数据源）')
+else:
+    case_n = len(json.load(open(CASE_JSON, encoding='utf-8'))['cases'])
+    if not os.path.exists(CASE_HUB):
+        fail('缺少公开案例枢纽页 sourcing-case-studies.html')
+    else:
+        ht = PAGE.get(CASE_HUB, '')
+        src_n = ht.count('Source URL:')
+        if src_n < case_n:
+            fail(f'案例枢纽页来源标注不足：应有 {case_n} 条，实际 {src_n} 条')
+        else:
+            ok(f'案例枢纽页 {case_n} 条案例均附完整 Source URL 明文')
+        if 'NOT Anchormere client' not in ht:
+            fail('案例枢纽页缺少「非客户项目 / 非背书」免责声明')
+        else:
+            ok('案例枢纽页含「非客户项目 / 非背书」免责声明')
+    ref_pages = [f for f in htmls if 'class="case-refs"' in PAGE[f]]
+    bad_src, bad_link, bad_claim = [], [], []
+    for f in ref_pages:
+        t = PAGE[f]
+        lis = re.findall(r'<li class="case-ref">(.*?)</li>', t, re.S)
+        if not lis or any('Source URL:' not in x or 'href="https://' not in x for x in lis):
+            bad_src.append(f)
+        if 'sourcing-case-studies' not in t:
+            bad_link.append(f)
+        if re.search(r'\b(our client|our customer|our portfolio|we delivered|our case study)\b', t, re.I):
+            bad_claim.append(f)
+    if bad_src:
+        fail(f'{len(bad_src)} 页案例条目缺完整来源 URL: ' + ', '.join(bad_src[:3]))
+    else:
+        ok(f'{len(ref_pages)} 个长尾页案例条目均附完整 Source URL 明文')
+    if bad_link:
+        fail(f'{len(bad_link)} 页案例区块缺枢纽页内链: ' + ', '.join(bad_link[:3]))
+    else:
+        ok('案例区块均内链至枢纽页（枢纽页有站内入链）')
+    if bad_claim:
+        fail(f'{len(bad_claim)} 页把公开案例表述为自家客户: ' + ', '.join(bad_claim[:3]))
+    else:
+        ok('公开案例未被表述为 Anchormere 客户项目 / 背书')
+
 for need in ('Organization', 'WebSite', 'Service', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")

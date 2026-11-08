@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "updated": "2026-11-08",
+  "hub_slug": "sourcing-case-studies",
+  "editorial_rule": "本文件中的案例全部来自公开报道、监管机构裁定或上市公司披露，保留完整来源 URL 明文。它们是行业参考，不是 Anchormere 的客户项目、合作案例或背书；不得改写为「我们的客户」「我们做过」。采购启示（lesson）是本站对公开事实的解读，不属于原报道结论。",
+  "disclaimer": {
+    "en": "Every case below is drawn from public reporting, an official ruling or a public company filing, with the full source URL shown in plain text. These are industry references, NOT Anchormere client projects, partnerships or endorsements. The buyer takeaways are Anchormere's interpretation of public facts, not claims made by the original sources.",
+    "zh": "以下案例均引自公开报道、监管机构裁定或上市公司披露，并附完整来源网址明文。它们仅作行业参考，并非 Anchormere 的客户项目、合作关系或背书；「采购启示」是本站对公开事实的解读，不代表原来源的结论。"
+  },
+  "groups": [
+    {
+      "id": "reshoring",
+      "en": "China+1 and the order reversal",
+      "zh": "China+1 与订单回流"
+    },
+    {
+      "id": "verification",
+      "en": "Inspection data and sourcing flows",
+      "zh": "验厂数据与采购流向"
+    },
+    {
+      "id": "customs",
+      "en": "HTS classification and country of origin",
+      "zh": "关税归类与原产地"
+    },
+    {
+      "id": "category",
+      "en": "Category and brand supply chains",
+      "zh": "品类与品牌供应链"
+    }
+  ],
+  "cases": [
+    {
+      "id": "shein-vietnam-reversal",
+      "group": "reshoring",
+      "date": "2026-08-09",
+      "source": "Reuters",
+      "source_url": "https://goldsea.com/public/index.php/article_details/why-shein-beat-a-retreat-from-massive-vietnam-experiment",
+      "en_title": "Shein scales its Vietnam hub back from 15 to 6 hectares as suppliers return to Guangzhou",
+      "zh_title": "Shein 越南保税仓从 15 公顷缩减至 6 公顷，供应商回流广州番禺",
+      "en_summary": "Shein leased 15 hectares of bonded warehousing near Ho Chi Minh City in late 2024 and encouraged its largest Chinese suppliers to set up manufacturing in Vietnam. By mid-2026 the lease covered 6 hectares, mass layoffs had begun in April, and a Panyu factory manager told Reuters many suppliers that went to Vietnam had come back. Reuters attributes the reversal to the end of the U.S. de minimis exemption for all countries and a narrowed tariff gap, and notes a pledge of over RMB 10 billion for a smart supply-chain system in Guangdong.",
+      "zh_summary": "Shein 于 2024 年底在胡志明市附近租下 15 公顷保税物流设施，并鼓励主要中国供应商赴越建厂。到 2026 年中租地缩至 6 公顷，4 月起大幅裁员；广州番禺一位工厂负责人向路透表示，不少赴越供应商已经回流。路透将转向归因于美国对全部国家取消小额包裹免税、以及中越税负差收窄，并提到 Shein 承诺在广东投入超 100 亿元建设智能供应链体系。",
+      "en_lesson": "Model the whole landed cost and the supplier ecosystem, not the headline tariff rate. Small-batch, fast-reorder models depend on a dense local component network; a duty saving can be erased by waiting for parts.",
+      "zh_lesson": "要算完整落地成本与供应链生态，而不只看名义税率。小单快反模式依赖密集的本地配套，等料停工的时间足以吃掉关税省下的钱。",
+      "slugs": [
+        "china-plus-one-sourcing",
+        "china-landed-cost-2026",
+        "small-batch-manufacturing",
+        "low-moq-oem-factory",
+        "amazon-private-label-manufacturer",
+        "plastic-injection-molding-shenzhen",
+        "private-label-manufacturer"
+      ]
+    },
+    {
+      "id": "qima-q3-2026-barometer",
+      "group": "verification",
+      "date": "2026-07",
+      "source": "QIMA Q3 2026 Barometer",
+      "source_url": "https://www.qima.com/newsroom/news/news-q3-2026-barometer",
+      "en_title": "China reaches 35% of North American inspection volumes, a six-quarter high",
+      "zh_title": "中国占北美验货审核业务量 35%，为六个季度最高",
+      "en_summary": "QIMA's Q3 2026 Barometer, drawn from product inspection and supplier audit data, reports China at 35% of North American buyers' inspection and audit volumes in Q2 2026 — the highest in six quarters — while Southeast Asia fell back to pre-2025 levels. Nearshoring and reshoring accounted for just 11% of service volumes among QIMA's EU clients and 7% among North American clients, both below 2025 averages.",
+      "zh_summary": "QIMA《2026 年第三季度供应链趋势报告》基于产品检验与供应商审核数据：2026 年二季度，中国占北美客户验货与审核业务量的 35%，为六个季度以来最高，东南亚份额回落至 2025 年前水平。近岸／回岸外包在 QIMA 欧盟客户中仅占 11%、北美客户中占 7%，均低于 2025 年均值。",
+      "en_lesson": "Third-party inspection demand is a leading indicator of where orders actually go. Before committing to a 'China+1' move, confirm the alternative site has been audited at your real volume — not just quoted.",
+      "zh_lesson": "第三方验货需求是订单真实流向的高频先行指标。决定「中国+1」之前，先确认备选产地在您的实际订单量下通过过审核，而不只是报过价。",
+      "slugs": [
+        "china-plus-one-sourcing",
+        "verify-chinese-manufacturer",
+        "china-sourcing-agent",
+        "metal-sheet-fabrication-dongguan",
+        "pcba-contract-manufacturer"
+      ]
+    },
+    {
+      "id": "qima-followup-2026",
+      "group": "verification",
+      "date": "2026-09",
+      "source": "TextileFocus (by QIMA VP of Operations)",
+      "source_url": "https://textilefocus.com/fuel-shortages-in-southeast-asia-sent-some-orders-back-to-china-will-they-stay",
+      "en_title": "The return to China outlasted the fuel shock — and why backup suppliers fail",
+      "zh_title": "订单回流并未随燃油危机结束而停止，以及备用供应商为何失灵",
+      "en_summary": "A follow-up by QIMA's VP of Operations reports that China's share of North American inspections kept climbing through July, August and early September 2026 even after Southeast Asian capacity constraints eased, suggesting the shift was becoming more than a stop-gap. QIMA's 2026 Sourcing Survey found 43% of businesses with international sourcing networks had changed sourcing countries in the prior year — two in three among U.S. firms — and U.S. businesses were three times more likely to switch overseas suppliers than to bring production home. The author's advice: test a second supplier at real volume before you need them.",
+      "zh_summary": "QIMA 运营副总裁的后续分析指出，即便东南亚产能压力在 7 月缓解，中国占北美验货份额在 7、8 月及 9 月初仍持续上升，说明这次转移已不止是短期应急。QIMA《2026 采购调查》显示，43% 拥有国际采购网络的企业在上一年度更换过采购国，美国企业中为三分之二；美国企业更换海外供应商的可能性是把产能搬回本土的三倍。作者建议：在真正需要之前，先按实际订单量测试第二供应商。",
+      "en_lesson": "A supplier on a list is not a backup until it has handled your volume. Re-review any sourcing change made as a quick tariff fix, and keep the audit evidence.",
+      "zh_lesson": "名单上的供应商不等于备用产能，没跑过你的量就不算。为应对关税而临时做的采购调整要定期复盘，并留存审核证据。",
+      "slugs": [
+        "china-plus-one-sourcing",
+        "china-sourcing-agent",
+        "how-to-find-manufacturer-china",
+        "verify-chinese-manufacturer",
+        "odm-factory-guangdong"
+      ]
+    },
+    {
+      "id": "china-plus-one-framework",
+      "group": "reshoring",
+      "date": "2026",
+      "source": "Asia Tech Lens",
+      "source_url": "https://www.asiatechlens.com/p/china-plus-one-manufacturing-relocation-asia",
+      "en_title": "Three variables the China+1 decision framework leaves out",
+      "zh_title": "China+1 决策框架漏算的三个变量",
+      "en_summary": "An analysis of 2025–2026 relocation reversals argues that standard China+1 models underweight supplier-ecosystem depth, power/grid reliability and tariff-arithmetic stability. Citing reporting on a Texas flashlight maker (Alliance Consumer Group), it notes non-tariff production and logistics costs from Southeast Asia remained 12–15% above China while the effective tariff gap narrowed to about one percentage point, because semiconductors and aluminium still had to be shipped in. It also cites Target moving some orders back to Chinese suppliers, Shein scaling back Vietnam operations and Steve Madden restoring China sourcing to roughly 40% by February 2026.",
+      "zh_summary": "该分析梳理 2025–2026 年的回流案例，认为标准 China+1 模型低估了三件事：供应商生态深度、电力与电网可靠性、关税算术的稳定性。文章援引对美国得州手电筒企业 ACG 的报道：由于半导体、铝材仍需外运，从东南亚出货的非关税生产与物流成本仍比中国高 12–15%，而实际税负差已收窄到约 1 个百分点；并提到 Target 部分订单回迁中国供应商、Shein 收缩越南业务、Steve Madden 到 2026 年 2 月把中国采购占比恢复到约 40%。",
+      "en_lesson": "Start with a bill-of-materials analysis. High-complexity, component-intensive products (electronics, precision machining, EV components) tend to stay in or near China longer than low-complexity, labour-intensive assembly.",
+      "zh_lesson": "先做 BOM 分析再谈搬迁。电子、精密加工、电动车零部件等高复杂度、依赖密集配套的产品，通常比低复杂度劳动密集组装更晚离开中国。",
+      "slugs": [
+        "china-plus-one-sourcing",
+        "china-landed-cost-2026",
+        "outdoor-camping-gear-oem",
+        "hardware-startup-manufacturer",
+        "drone-parts-manufacturer-gba",
+        "ev-charger-components-sourcing",
+        "metal-sheet-fabrication-dongguan",
+        "plastic-injection-molding-shenzhen",
+        "service-robot-manufacturer-china"
+      ]
+    },
+    {
+      "id": "apple-china-plus-one-2025",
+      "group": "reshoring",
+      "date": "2025",
+      "source": "TRADLINX",
+      "source_url": "https://blogs.tradlinx.com/apples-2025-supply-chain-realignment-a-strategic-response-to-tariff-risk/",
+      "en_title": "Apple's China Plus One: 15% of iPhones in India, targeting 25% by 2027",
+      "zh_title": "苹果 China Plus One：约 15% iPhone 在印度生产，目标 2027 年达 25%",
+      "en_summary": "A 2025 supply-chain analysis describes Apple diversifying iPhone production to India and Vietnam to reduce tariff exposure, with roughly 15% of iPhones produced in India as of late 2024 and a stated aim of 25% by 2027. It also documents the constraints — alternative markets lack China's peak-season scale and speed — and measures such as pulling inventory forward and investing in U.S. facilities.",
+      "zh_summary": "一篇 2025 年供应链分析梳理苹果为降低关税风险将 iPhone 产能向印度、越南分散：截至 2024 年底约 15% 在印度生产，目标 2027 年提至 25%。文章同时指出替代市场在旺季规模与响应速度上仍不及中国，并记录了提前拉货、投资美国产能等对冲动作。",
+      "en_lesson": "Diversification is a multi-year programme, not a purchase order. For a new SKU, qualify a second source in parallel from the prototype stage instead of expecting an immediate switch.",
+      "zh_lesson": "多元化是多年期工程，不是一张采购单。新品应从打样阶段就并行验证第二产地，而不是指望量产后立刻切换。",
+      "slugs": [
+        "china-plus-one-sourcing",
+        "oem-manufacturer-china",
+        "wearable-oem-shenzhen",
+        "oem-vs-odm",
+        "earbuds-oem-shenzhen",
+        "tablet-pcba-sourcing",
+        "oled-display-module-sourcing",
+        "pcb-assembly-shenzhen",
+        "pcba-contract-manufacturer",
+        "odm-factory-guangdong",
+        "iot-sensor-module-sourcing"
+      ]
+    },
+    {
+      "id": "cbp-ruling-n357652",
+      "group": "customs",
+      "date": "2026-02-02",
+      "source": "U.S. CBP CROSS Ruling N357652",
+      "source_url": "https://rulings.cbp.gov/ruling/N357652",
+      "en_title": "CBP ruling N357652: e-bike origin is Thailand, not the China assembly site",
+      "zh_title": "CBP 裁定 N357652：电动自行车原产地为泰国，而非中国组装地",
+      "en_summary": "In ruling N357652 (2 February 2026), U.S. Customs and Border Protection determined the country of origin of three Aventon e-bike models — Aventure, Level and Pace — to be Thailand for trade-remedy and marking purposes. The frames were wholly produced in Thailand from Chinese and Thai raw materials, then shipped to China for final assembly with components made in China, Indonesia and Vietnam. CBP applied the substantial-transformation test.",
+      "zh_summary": "在 2026 年 2 月 2 日的 N357652 裁定中，美国海关与边境保护局（CBP）认定 Aventon 三款电动自行车（Aventure、Level、Pace）在贸易救济与标记意义上的原产地为泰国：车架由中泰原材料在泰国完整制造，再运至中国，与中国、印尼、越南产部件总装。CBP 适用的是「实质性改变」判定标准。",
+      "en_lesson": "Assembly location is not the same as country of origin. For tariff-exposed categories, obtain a written origin analysis — or a CBP binding ruling — before committing tooling.",
+      "zh_lesson": "组装地不等于原产地。涉及高关税品类时，应在开模投产前取得书面原产地分析，必要时申请 CBP 约束性裁定。",
+      "slugs": [
+        "hts-code-tariff-classification",
+        "e-bike-manufacturer-china",
+        "china-landed-cost-2026",
+        "import-from-china-guide",
+        "drone-parts-manufacturer-gba",
+        "ev-charger-components-sourcing"
+      ]
+    },
+    {
+      "id": "cbp-ruling-ny-n428911",
+      "group": "customs",
+      "date": "2026-07-13",
+      "source": "CBP Binding Ruling NY N428911 (industry report)",
+      "source_url": "https://www.smartsourcinglog.com/news/Smart_E_Scooters/Foldable_Commuters/CBP_Clarifies_HTS_Code_for_Foldable_Commuter_E_Bikes.html",
+      "en_title": "Foldable commuter e-bikes with integrated batteries classified under HTS 8711.90.00",
+      "zh_title": "内置电池折叠通勤电动自行车归入 HTS 8711.90.00",
+      "en_summary": "As reported on 13 July 2026, CBP binding ruling NY N428911 classified foldable commuter e-bikes with integrated internal batteries and pedal assist limited to 25 km/h or less under HTS 8711.90.00, with 0% MFN treatment. Full EPA and DOT documentation is still required, and models with removable batteries above 500Wh fall outside the clarified scope unless UL 2849 certified. Importers were told to update entry filings immediately.",
+      "zh_summary": "据 2026 年 7 月 13 日报道，CBP 约束性裁定 NY N428911 将「内置电池、助力速度不超过 25 km/h」的折叠通勤电动自行车归入 HTS 8711.90.00，MFN 税率为 0%；EPA 与 DOT 文件仍须齐备，可拆卸电池容量超过 500Wh 的型号除非取得 UL 2849 认证，否则不在澄清范围内，进口商须立即更新申报。",
+      "en_lesson": "Product configuration — integrated vs removable battery, assist speed — can change the HTS heading. Lock the specification before you lock the landed-cost model.",
+      "zh_lesson": "产品结构（内置／可拆电池、助力速度）会改变 HTS 归类。先锁定规格，再锁定落地成本模型。",
+      "slugs": [
+        "hts-code-tariff-classification",
+        "e-bike-manufacturer-china",
+        "portable-power-station-oem",
+        "ev-charger-components-sourcing"
+      ]
+    },
+    {
+      "id": "binding-ruling-duty-gap",
+      "group": "customs",
+      "date": "2026-05-01",
+      "source": "Tandom (worked HTS example)",
+      "source_url": "https://tandom.ai/resources/how-to-request-cbp-binding-ruling",
+      "en_title": "Two defensible HTS readings, about US$370 per unit apart",
+      "zh_title": "两个都说得通的 HTS 归类，单台税差约 370 美元",
+      "en_summary": "A 2026 worked example compares two defensible HTS subheadings for a stand-on electric scooter assembled in China and entered on 1 May 2026: 8703.80.00.20 (electric passenger vehicle, effective duty roughly 128%) versus 8711.60.00.90 (electric cycle, roughly 35%). On a US$400 declared value the difference is about US$370 per unit — around US$1.85M a year at 5,000 units — and the analysis recommends requesting a CBP binding ruling rather than self-classifying.",
+      "zh_summary": "一份 2026 年的算例比较了中国组装站立式电动滑板车在 2026 年 5 月 1 日申报时两个都可行的 HTS 子目：8703.80.00.20（电动乘用车，综合税负约 128%）与 8711.60.00.90（电动自行车／摩托车，约 35%）。按 400 美元申报价，单台相差约 370 美元，5,000 台／年对应约 185 万美元敞口；分析建议申请 CBP 约束性裁定，而非自行归类。",
+      "en_lesson": "When two HTS readings are both defensible, quantify the exposure and get a binding ruling before the first shipment — not after a CBP inquiry arrives.",
+      "zh_lesson": "当两个 HTS 归类都站得住脚时，先量化敞口、在首票出货前申请约束性裁定，别等 CBP 来问。",
+      "slugs": [
+        "hts-code-tariff-classification",
+        "china-landed-cost-2026",
+        "import-from-china-guide"
+      ]
+    },
+    {
+      "id": "eapa-case-8247",
+      "group": "customs",
+      "date": "2026-04-06",
+      "source": "U.S. Customs and Border Protection (EAPA Cons. Case 8247)",
+      "source_url": "https://cbp.gov/document/publications/eapa-cons-case-8247-various-importers-notice-initiation-investigation-and",
+      "source_url_alt": "https://www.cit.uscourts.gov/sites/cit/files/26-88.pdf",
+      "en_title": "CBP EAPA case 8247: transshipment and misclassification of low-speed vehicles",
+      "zh_title": "CBP EAPA 案 8247：低速车辆经越南转运与错误归类",
+      "en_summary": "On 6 April 2026, U.S. CBP announced initiation of investigation and interim measures in EAPA consolidated case 8247 concerning certain low-speed personal transportation vehicles (LSPTV) and parts from China, under AD/CVD orders A-570-176 and C-570-177. CBP stated there was reasonable suspicion that the importers entered covered merchandise from China through transshipment via Vietnam and misclassification; measures include 'live' entry, suspension or extension of liquidation, and review of continuous bonds. A subsequent Court of International Trade opinion (Slip Op. 26-88) documents the related litigation.",
+      "zh_summary": "2026 年 4 月 6 日，美国 CBP 就原产于中国的部分低速个人交通工具（LSPTV）及零件，依据反倾销／反补贴令 A-570-176、C-570-177 启动 EAPA 合并调查 8247 并实施临时措施。CBP 表示有合理理由怀疑相关进口商经越南转运、并错误归类以规避税令；措施包括「实时申报」、暂停或延长清算、审查连续保证金。美国国际贸易法院后续判决（Slip Op. 26-88）记录了相关诉讼。",
+      "en_lesson": "Transshipment and simple assembly in a third country do not by themselves change origin. Keep manufacturing records that substantiate substantial transformation, and treat 'origin paperwork' as evidence, not a formality.",
+      "zh_lesson": "第三国转运与简单组装本身不改变原产地。要留存能证明「实质性改变」的制造记录，把原产地文件当作证据而不是流程形式。",
+      "slugs": [
+        "hts-code-tariff-classification",
+        "e-bike-manufacturer-china",
+        "china-sourcing-agent",
+        "import-from-china-guide",
+        "ev-charger-components-sourcing"
+      ]
+    },
+    {
+      "id": "anker-2025-annual-report",
+      "group": "category",
+      "date": "2026-04-10",
+      "source": "Anker Innovations 2025 Annual Report (cninfo)",
+      "source_url": "https://www.cninfo.com.cn/new/disclosure/detail?announcementId=1225090973&announcementTime=2026-04-10&orgId=gfbj0839473&plate=szse&stockCode=300866",
+      "source_url_alt": "https://www.anker-in.com/media",
+      "en_title": "Anker's 2025 filing: top five suppliers account for 33.98% of purchases",
+      "zh_title": "安克创新 2025 年报：前五大供应商占采购总额 33.98%",
+      "en_summary": "Anker Innovations' 2025 annual report, published 10 April 2026, records revenue of RMB 30.514 billion (+23.49% YoY), with charging and energy storage at RMB 15.402 billion (50.47% of revenue). Its five largest suppliers accounted for RMB 5.92 billion, or 33.98% of total purchases. The filing lists its investor-relations address in Bao'an, Shenzhen.",
+      "zh_summary": "安克创新 2026 年 4 月 10 日披露的 2025 年年报显示：营业收入 305.14 亿元（同比 +23.49%），其中充电储能类 154.02 亿元、占营收 50.47%；前五大供应商采购额 59.2 亿元，占年度采购总额 33.98%。年报所载投资者联系地址在深圳宝安。",
+      "en_lesson": "Even global hardware brands concentrate roughly a third of purchasing in five suppliers. Ask any sourcing partner how it handles supplier concentration, and what happens if one of them fails an audit.",
+      "zh_lesson": "即便是全球化硬件品牌，约三分之一采购仍集中在五家供应商。应询问采购伙伴如何应对供应商集中度，以及其中一家审核不通过时的替代方案。",
+      "slugs": [
+        "usb-c-charger-oem",
+        "portable-power-station-oem",
+        "oem-manufacturer-china",
+        "smart-home-module-sourcing",
+        "earbuds-oem-shenzhen",
+        "tablet-pcba-sourcing",
+        "smart-toy-manufacturer-gba",
+        "oled-display-module-sourcing",
+        "pcb-assembly-shenzhen",
+        "iot-sensor-module-sourcing",
+        "educational-robot-manufacturer",
+        "private-label-manufacturer",
+        "odm-factory-guangdong",
+        "pcba-contract-manufacturer"
+      ]
+    },
+    {
+      "id": "eufymake-crowdfunding",
+      "group": "category",
+      "date": "2026",
+      "source": "Anker Innovations Media Center",
+      "source_url": "https://www.anker-in.com/media",
+      "en_title": "A GBA hardware brand validates demand before scaling production",
+      "zh_title": "大湾区硬件品牌在量产前先验证需求",
+      "en_summary": "Anker's media centre states that its eufyMake UV printer closed a crowdfunding campaign at US$46.76 million and describes it as the highest-funded campaign in the platform's history. The company also publishes annual results and product news through the same channel. The funding figure is the company's own claim, cited here as a disclosed example of demand validation before mass production.",
+      "zh_summary": "安克创新官网媒体中心称，旗下 eufyMake UV 打印机众筹以 4,676 万美元收官，并称其登顶该平台众筹历史第一；同一渠道也发布年报与产品动态。该金额为公司自述，此处仅作为「量产前先验证需求」的公开披露案例引用。",
+      "en_lesson": "For a hardware startup, a demand-validation run plus a defined DFM / prototype gate matters more than a low unit price. Sign the golden sample before scaling.",
+      "zh_lesson": "对硬件创业团队，需求验证与明确的 DFM／打样关卡，比压低单价更重要；量产前先签样。",
+      "slugs": [
+        "hardware-startup-manufacturer",
+        "custom-product-development",
+        "ai-hardware-smart-glasses-oem",
+        "smart-toy-manufacturer-gba",
+        "educational-robot-manufacturer",
+        "service-robot-manufacturer-china",
+        "drone-parts-manufacturer-gba"
+      ]
+    }
+  ]
+}

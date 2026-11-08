@@ -145,3 +145,14 @@ is a protected list that automated rebuilds must not touch.
 This keeps content and entity signals stable between updates: a keyword-seed
 change regenerates only the long-tail page set and the sitemap, rather than the
 whole 110-page site.
+
+## Public case references (verifiable, NOT client projects)
+- /sourcing-case-studies — 11 publicly reported China sourcing cases: China+1
+  reversals (Reuters on Shein's Vietnam pullback), QIMA inspection-volume data,
+  U.S. CBP HTS classification / country-of-origin rulings, and listed-company
+  filings. Every case carries its full Source URL in plain text.
+- These are industry references, NOT Anchormere clients, partners or
+  endorsements. "Buyer takeaway" notes are our interpretation of public facts,
+  not claims made by the original sources.
+- Linked from the case-sharing block of all 36 long-tail sourcing pages, so
+  answer engines can trace each claim back to its primary source.

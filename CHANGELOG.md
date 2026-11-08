@@ -10,6 +10,29 @@
 
 ---
 
+## [2026-11-08] · 公开案例编排（联网核验 + 来源 URL 标注）
+
+### 新增
+- `scripts/case_references.json`：11 条真实公开案例的单一数据源，来自 Reuters、
+  QIMA、U.S. CBP 裁定 / EAPA 案卷、上市公司年报，逐条带完整 `Source URL:` 明文、
+  中英摘要与采购启示；口径明确为「行业参考，非 Anchormere 客户项目 / 背书」。
+- `scripts/build_cases.py` → `sourcing-case-studies.html`：案例枢纽页，含
+  `CollectionPage` / `FAQPage` / `WebPage` 结构化数据、醒目免责声明与询盘 CTA。
+- 36/36 个长尾页的「案例分享」板块追加「公开报道的真实案例（附来源网址）」区块：
+  每页按主题匹配最多 2 条案例，带明文来源 URL、外链与指向枢纽页的内链。
+
+### 变更 / 清理
+- `README.md` 移除「注册号…可补填」预留项：公司资质不提供、站内不新增资质板块
+  或占位字段；`Organization.sameAs` / `foundingDate` 待外部 URL 到位后直接补入
+  `org_entity.json`，当前不预置空值。
+- `scripts/verify_seo.py` 新增全局闸门 3f：校验枢纽页与案例区块的来源 URL 明文、
+  免责声明、枢纽页内链，并禁止把公开案例表述为自家客户。
+- `scripts/modules.json` 新增 `data-cases` / `cases-hub` 两个模块（共 18 个），
+  `WORKFLOW.md` / `llms.txt` / 关键词地图 §14 同步登记。
+- `protected` 文件零改动；核心目标（引流 / 询盘 / 关键词覆盖 / 转化路径）不变。
+
+---
+
 ## [2026-11-08] · 可直接执行批次（P2 收尾 + 监控兜底 + 回滚预案）
 
 ### 新增

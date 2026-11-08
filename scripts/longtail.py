@@ -73,6 +73,19 @@ GA4 = ('<!-- GA4 is loaded consent-gated via assets/consent.js (set GA4_ID there
 # (structured data must match on-page content).
 REVIEW_DATE = "2026-11-07"
 
+# ---- Publicly reported case references (single source of truth) -------------
+# Real, verifiable cases from Reuters / QIMA / U.S. CBP / public filings, each
+# carrying its full source URL in plain text. Rendered into the case-sharing
+# block of the long-tail pages whose slug is listed in the data file.
+# Industry references only — never presented as Anchormere client projects.
+_CASE_DATA = json.load(open(os.path.join(os.path.dirname(__file__), "case_references.json"), encoding="utf-8"))
+CASE_BY_SLUG = {}
+for _c in _CASE_DATA["cases"]:
+    for _sl in _c["slugs"]:
+        CASE_BY_SLUG.setdefault(_sl, []).append(_c)
+CASE_HUB_SLUG = _CASE_DATA["hub_slug"]
+CASE_TOTAL = len(_CASE_DATA["cases"])
+
 
 # --- SERP display-layer constraints (Google: title ~60 / description ~155 display chars) ---
 # Only <title>/meta/og/twitter are clipped. The on-page <h1>, lead paragraph,
@@ -123,20 +136,52 @@ def build_page(seed, all_seeds):
     mother_href, mother_label = seed["mother"]
     caps = "".join(
         f'<li><span data-zh="{html.escape(zh)}">{html.escape(en)}</span></li>' for en, zh in seed["caps"])
-    # Case-sharing block: associate the page with leading brand names / hot model
-    # names / product names (proper nouns) as market context — no supply implication.
+    # Case-sharing block: (1) leading brand names as market context (no supply
+    # implication), (2) verifiable public cases with full source URLs.
     cases = seed.get("cases", [])
     if cases:
         cases_html = "".join(
             f'<div class="card"><div class="brand" data-zh="{html.escape(zh_b)}">{html.escape(en_b)}</div>'
             f'<p data-zh="{html.escape(zh_d)}">{html.escape(en_d)}</p></div>'
             for en_b, zh_b, en_d, zh_d in cases)
+        brand_block = (f'  <div class="cases">{cases_html}</div>\n'
+            '  <p class="rel-note" data-zh="以上品牌与型号仅作品类与市场需求参考，与本公司无关联、无合作或供应关系；商标归各自所有者所有。">The brands and models above are referenced only as category and market context. They are not affiliated with, endorsed by, or supplied by Anchormere; all trademarks belong to their respective owners.</p>\n')
+        h2 = ('  <h2 data-zh="案例分享 · 品类与头部品牌参考">Case sharing &middot; categories &amp; leading brands</h2>\n'
+              '  <p class="cn" lang="zh-CN">案例分享 · 品类与头部品牌参考（市场认知，非合作背书）</p>\n')
+    else:
+        brand_block = ""
+        h2 = ('  <h2 data-zh="公开案例参考 · 附来源网址">Publicly reported case references &middot; with sources</h2>\n'
+              '  <p class="cn" lang="zh-CN">公开案例参考 · 附来源网址</p>\n')
+
+    refs = CASE_BY_SLUG.get(slug, [])[:2]
+    if refs:
+        li = []
+        for c in refs:
+            u = html.escape(c["source_url"], quote=True)
+            li.append(
+                '<li class="case-ref">'
+                f'<b><a href="{u}" target="_blank" rel="noopener noreferrer">{html.escape(c["en_title"])}</a></b>'
+                f'<span class="cn" lang="zh-CN">{html.escape(c["zh_title"])}</span>'
+                f'<p>{html.escape(c["en_summary"])}</p>'
+                f'<p class="cn" lang="zh-CN">{html.escape(c["zh_summary"])}</p>'
+                f'<p class="takeaway"><b>Buyer takeaway &middot; 采购启示：</b>{html.escape(c["en_lesson"])}</p>'
+                f'<p class="src">Source URL: <a href="{u}" target="_blank" rel="noopener noreferrer">{u}</a>'
+                f' &middot; {html.escape(c["source"])} &middot; {html.escape(c["date"])}</p>'
+                '</li>')
+        ref_block = (
+            '  <div class="case-refs">\n'
+            '    <h3 data-zh="公开报道的真实案例（附来源网址）">Publicly reported cases (with source URLs)</h3>\n'
+            '    <p class="cn" lang="zh-CN">公开报道的真实案例（附来源网址）</p>\n'
+            f'    <ul>{"".join(li)}</ul>\n'
+            '    <p class="rel-note" data-zh="以下案例引自公开报道、官方裁定或上市公司披露，仅作行业参考，并非 Anchormere 的客户项目、合作关系或背书；「采购启示」为本站对公开事实的解读。">These cases are drawn from public reporting, official rulings or public filings. They are industry references, NOT Anchormere client projects, partnerships or endorsements; the buyer takeaways are our interpretation of public facts.</p>\n'
+            f'    <p class="all-cases"><a href="{CASE_HUB_SLUG}.html" data-zh="查看全部 {CASE_TOTAL} 条公开案例参考 →">View all {CASE_TOTAL} public case references →</a></p>\n'
+            '  </div>\n')
+    else:
+        ref_block = ""
+
+    if cases or refs:
         case_section = ('<section class="l2"><div class="container">\n'
-            '  <h2 data-zh="案例分享 · 品类与头部品牌参考">Case sharing &middot; categories &amp; leading brands</h2>\n'
-            '  <p class="cn">案例分享 · 品类与头部品牌参考（市场认知，非合作背书）</p>\n'
-            f'  <div class="cases">{cases_html}</div>\n'
-            '  <p class="rel-note" data-zh="以上品牌与型号仅作品类与市场需求参考，与本公司无关联、无合作或供应关系；商标归各自所有者所有。">The brands and models above are referenced only as category and market context. They are not affiliated with, endorsed by, or supplied by Anchormere; all trademarks belong to their respective owners.</p>\n'
-            '</div></section>')
+                        + h2 + brand_block + ref_block + '</div></section>')
     else:
         case_section = ""
     specs = "".join(

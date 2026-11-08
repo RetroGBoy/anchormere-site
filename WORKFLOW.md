@@ -29,13 +29,15 @@
 | `governance` | 制度与驱动器 | governance | 5 | — |
 | `data-org` | Organization 单一数据源 | manual | 1 | — |
 | `data-longtail` | 长尾页数据源 | manual | 1 | — |
+| `data-cases` | 公开案例数据源（含来源 URL） | manual | 1 | — |
 | `data-briefings` | 简报数据源 | manual | 1 | — |
 | `data-news` | 新闻去重状态 | auto | 1 | — |
 | `engine` | 生成器 / 校验器代码 | manual | 20+ | — |
 | `briefings` | 采购情报简报 | auto | 10 | `build_briefings.py` |
 | `news-digest` | 每日新闻摘要 | **scheduled** | 42 | `news_digest.py` |
 | `news-index` | 新闻列表 / 归档 | auto | 2 | 随 digest 生成 |
-| `longtail` | 长尾关键词品类页 | auto | 28 | `longtail.py` |
+| `cases-hub` | 公开案例枢纽页 | auto | 1 | `build_cases.py` |
+| `longtail` | 长尾关键词品类页 | auto | 36 | `longtail.py` |
 | `framework` | 框架页 / 核心转化路径 | **manual** | 28 | 人工维护 |
 | `assets` | 静态资源 | manual | 若干 | 人工维护 |
 | `config` | sitemap / robots / llms.txt 等 | config | 8 | `build_sitemap.py` |
@@ -71,6 +73,7 @@
 
 ```
 data-longtail  →  longtail  →  config(sitemap)
+data-cases     →  cases-hub + longtail → config(sitemap)
 data-briefings →  briefings →  config(sitemap)
 data-news      →  news-digest → news-index → config
 engine         →  longtail + briefings + news-* + config   （并提示 framework 人工复核）

@@ -32,10 +32,12 @@ python3 -m http.server 8102
 | 项 | 作用 | 位置 |
 |----|------|------|
 | GA4 测量 ID | 流量 / 来源 / 转化分析 | 已在 `assets/consent.js` 配置 `G-EZE1LV2MRH`（访客接受 Cookie 后加载） |
-| 注册号 | 完善法律主体披露 | 各页 footer / Legal 栏（原占位已移除，可补填） |
 | 实拍图（工厂/产品） | 提升转化信任 | 替换 `assets/img/` 内图库占图（当前为 Unsplash 免版权图） |
+| 公开案例参考 | 内容权威度 / 可核验来源 | `/sourcing-case-studies`（11 条联网核验案例，逐条附完整来源 URL） |
 
 > 注：上述均为“有则更好”的增强项。全站已无 `[待填]` 占位，代码整洁可直接对外；买家需求通过询盘表单发至 `Anchormere@gmail.com`。
+>
+> **公司资质与注册号：不提供、不预留。** 站内不新增资质板块、不设占位字段；`certifications.html` 是既有的通用合规说明页，明确声明证书由合作工厂及具备资质的第三方机构持有、并非 Anchormere 自身认证。`Organization.foundingDate` / `sameAs` 待真实外部 URL 到位后直接补入 `scripts/org_entity.json`，当前不预置空值。
 
 ## 2026-10-29 更新
 - **全站配图**：19 张 Unsplash 免版权主题图（`assets/img/`），首页 hero 背景 + 18 页横幅 + 3 张产品卡图。
