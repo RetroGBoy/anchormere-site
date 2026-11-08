@@ -34,7 +34,7 @@
 
 ## 3. 长尾产品词 → 落地页映射（已生成并持续扩充）
 
-每个长尾页都已内置：双语 H1/H2、能力清单、规格/时效表、FAQ、Product JSON-LD、面包屑、hreflang、内链回母品类 + `contact.html` CTA。
+每个长尾页都已内置：双语 H1/H2、能力清单、规格/时效表、FAQ、Service JSON-LD、面包屑、hreflang、内链回母品类 + `contact.html` CTA。
 
 | 落地页（slug.html） | 英文主词 | 中文主词 | 母品类 |
 |---|---|---|---|
@@ -53,7 +53,7 @@
 | `drone-parts-manufacturer-gba.html` | Drone Parts Manufacturer Greater Bay Area | 无人机零件制造商大湾区 | Greater Bay Area supply base |
 | `ev-charger-components-sourcing.html` | EV Charger Components Sourcing | 充电桩部件采购 | Greater Bay Area supply base |
 
-**买家身份 / 场景词（新增，2026-11-06）**——补足"找具体品类"之外的"我是谁、我要干什么"层。每个页均内置双语 H1/H2、FAQ（FAQPage JSON-LD）、Product 实体（方案A：无 offers）、面包屑、`en/x-default` hreflang、内链回 `supply-base.html` + `contact.html` CTA：
+**买家身份 / 场景词（新增，2026-11-06）**——补足"找具体品类"之外的"我是谁、我要干什么"层。每个页均内置双语 H1/H2、FAQ（FAQPage JSON-LD）、Service 实体（GSC 商品摘要合规，无 offers）、面包屑、`en/x-default` hreflang、内链回 `supply-base.html` + `contact.html` CTA：
 
 | 落地页（slug.html） | 英文主词 | 中文主词 | 买家角色 |
 |---|---|---|---|
@@ -110,9 +110,9 @@
 
 | 脚本 | 作用 | 何时跑 |
 |---|---|---|
-| `scripts/longtail.py` | 由 28 条种子生成长尾落地页（含品类专属工程要点 + E-E-A-T 审核署名） | 新增品类时 |
+| `scripts/longtail.py` | 由 36 条种子生成长尾落地页（含品类专属工程要点 + E-E-A-T 审核署名） | 新增品类时 |
 | `scripts/build_sitemap.py` | 扫描全站 `*.html` 生成 `sitemap.xml`（当前 109 条 URL，含业务页 + 资讯 + 简报 + 归档，CI 自动重建） | 增删页面后 / 每次资讯生成后 |
-| `scripts/seo_inject.py` | 给既有页注入 Organization/Breadcrumb/FAQ/Product JSON-LD + hreflang | 改模板后 |
+| `scripts/seo_inject.py` | 给既有页注入 Organization/Breadcrumb/FAQ/Service JSON-LD + hreflang | 改模板后 |
 | `scripts/inject_ga4.py` | 给缺 `consent.js` 的页面补齐（已全站覆盖） | 新增页面时 |
 | `scripts/news_digest.py` | 每日抓取科技/制造/采购源 → 中英双语摘要落地页（含权威外链 + 明文 URL 来源标注 + 专有名词 + `citation`）→ `/news` 索引封顶 48 篇 + 自动归档分页 → 重建 sitemap | GitHub Actions 每日 cron（北京时间 09:00，含 `workflow_dispatch` 兜底） |
 | `scripts/build_briefings.py` | 由 `scripts/briefings.json` 渲染 10 篇采购情报简报（每篇 10 条要点 + 术语表 + 完整 URL 来源标注） | 新增/修订简报内容时 |
@@ -124,7 +124,7 @@
 
 ## 9. 内容质量与实体权威度（2026-11-07 优化）
 
-- **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。
+- **品类独有内容**：28 条种子各含 `expertise` 字段（工艺/技术要点、买家核对清单、质检与验厂重点 + 2 条专属 FAQ，中英双语），由 `scripts/longtail.py` 渲染为独立区块。28 页两两相似度 **0.607 → 0.488**、相似度 >0.70 的组合 **56 → 0**、前 6 个 h2 完全相同的页 **26 → 14**，消除"批量模板页"特征；平均正文（≥4 字符词）**310 → 401**。（本节为当时 28 条种子时的快照）
 - **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
 - **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
 - **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实外部链接，待提供），避免虚构实体信号。
@@ -164,3 +164,67 @@
 - **验证闭环**：`verify_seo.py` 由 21 项扩到 **24 项**（新增 clean URL 内链、中文片段 lang、Article 实体 @id 串联），当前 **PASS=24 / WARN=0 / FAIL=0**。整条生成链路重跑前后文件哈希完全一致（幂等）；CI 模拟新 digest 页经规范化后 10 项不变量全通过。
 - **终检数据**：110 HTML / 109 页面；`title>60=0`、`desc>155=0`、377 个 JSON-LD 块全部合法、页内死锚 0、外链缺 `noopener` 0、站内 `.html` 链接残留 0、中文块缺 lang 0、口径残留（`certified factories` / `no MOQ` / `Offer` / `Formspree` / `zh-CN hreflang`）全 0；简报两两相似度最高 0.469（无 >0.70 组合）。
 - **核心目标不变**：引流、询盘、关键词覆盖、转化路径与全部外链/正文内容未削弱；以上均为技术性、标准合规类硬修复，按长期授权直接执行。
+
+---
+
+## 13. 热搜词诊断与扩词（2026-11-08）
+
+### 13.1 诊断结论
+
+对现有 28 条种子、`org_entity.json` 的 28 条 `knowsAbout` 与 §2 母品类词做了一次
+「是否属于目标群体当期热搜词」复核，依据为 2025–2026 年公开的采购趋势资料与
+买家实际检索问句：
+
+- 现有词条属于**稳定的交易意图长尾词**（品类 OEM、代工模式、找厂、验厂、进口流程），
+  采购意图强、转化价值高，但**不是 2026 年的趋势型热搜词**。
+- 命中趋势的仅约 6 条：`low MOQ` / `small batch`（2026 已成默认）、
+  `how to import from China`、`Amazon private label`、`EV charger components`、
+  `drone parts`。
+- **两类高热主题完全缺席**：
+  1. **政策 / 成本剧变**：美国 800 美元小额免税终止、欧盟 150 欧元低值免税取消，
+     使 `landed cost` 建模从可选表格变成采购决策中心；`China Plus One` 多元化被
+     多数供应链高管列为 2026 首要战略；HS/HTS 归类成为「利润中心」而非文书工作。
+  2. **2026 爆发品类**：AI 原生硬件与智能眼镜、服务/清洁/人形机器人、
+     便携与家庭储能、电动两轮车、轻量化户外露营装备。
+
+结论：**不是所有现有词条都属于目标群体热搜词**，故按长期授权直接扩词。
+
+### 13.2 新增热词落地页（8 条，非改动既有内容）
+
+| 落地页（slug） | 目标热搜词（英文主词） | 类型 | cluster |
+|---|---|---|---|
+| `china-landed-cost-2026` | landed cost from China 2026 / de minimis exemption ended / total landed cost calculator | 引流大词·买家指南 | knowledge |
+| `china-plus-one-sourcing` | China Plus One sourcing / dual sourcing strategy / Vietnam vs China manufacturing | 引流大词·买家指南 | knowledge |
+| `hts-code-tariff-classification` | HTS code classification / HS code for China imports / Section 301 duty / rules of origin | 引流大词·买家指南 | knowledge |
+| `ai-hardware-smart-glasses-oem` | AI hardware manufacturer China / smart glasses OEM Shenzhen / AI wearable ODM | 爆发品类 | electronics |
+| `service-robot-manufacturer-china` | service robot manufacturer China / commercial cleaning robot OEM / humanoid robot components | 爆发品类 | industrial |
+| `portable-power-station-oem` | portable power station OEM China / home energy storage manufacturer / LiFePO4 battery pack assembly | 爆发品类 | industrial |
+| `e-bike-manufacturer-china` | e-bike manufacturer China / electric two-wheeler OEM Guangdong / e-bike parts supplier GBA | 爆发品类 | industrial |
+| `outdoor-camping-gear-oem` | lightweight camping gear OEM China / folding camping furniture OEM / low MOQ outdoor products | 爆发品类 | industrial |
+
+每条均含 8 项能力清单、8 行规格表、12 个相关词、5 条买家问答、2 条品类参考、
+品类专属 `expertise`（工艺 / 买家核对清单 / QC / 专属 FAQ，中英双语），
+以及 ≤60 字符的 SERP 标题与 ≤155 字符的描述。
+
+### 13.3 口径与边界
+
+- **GEO 不打中文市场**：新增词以英文为主，中文仅作页面内客户端语言切换，
+  不新增独立中文 URL、不投放中文市场。
+- **不编造信息**：关税税率、认证与准入、电芯与算法能力均明确写出责任边界 ——
+  Anchormere 只负责出口侧单证、物理制造与整合，不充当进口商记录、不发布约束性
+  归类/税率裁定、不出具 UN38.3 / IEC / 型式认证报告、不做芯片设计与核心算法研发。
+  具体税率与合规以买家持牌报关行、指定实验室与入境当日官方税则为准。
+- **核心目标不变**：引流、询盘、关键词覆盖、转化路径与 GA4 / Consent Mode / CTA 跟踪
+  未削弱；新增页均内链回母品类与 `contact.html` CTA。
+- **增量落地**：仅 `data-longtail → longtail → config` 闭包重建；`org_entity.json`
+  的 `knowsAbout` 未扩（属 `data-org` 强依赖，扩它会触发全站复验），主题信号由
+  新页自身的 `Service` 实体、`llms.txt` 意图与 Pages 入口承载。
+- 枢纽页（`index.html` 属 protected）与新闻/简报/框架页零改动；新页入链来自
+  长尾页的 `related` 区与 buyer-guide 区，sitemap 自动收录。
+
+### 13.4 复核方法
+
+以后复核热搜词只需：对照当期买家检索问句与采购趋势资料，检查
+`scripts/longtail_seeds.json` 的 `kw` / `related` 与 `llms.txt` 的
+"Typical buyer searches we answer" 小节；缺口以新增种子方式补齐，
+按 `WORKFLOW.md` 的增量流程重建，不改既有页正文。

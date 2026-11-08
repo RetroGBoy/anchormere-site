@@ -58,6 +58,6 @@ python3 scripts/workarea.py verify --all           # 仅显式复审时全量
 python3 scripts/workarea.py audit                  # 注册表自洽检查
 ```
 
-要点：改一个关键词种子只重建 28 个长尾页与 sitemap；`manual` / `frozen` 板块只读不写；
+要点：改一个关键词种子只重建长尾页集合与 sitemap；`manual` / `frozen` 板块只读不写；
 `scheduled` 新闻历史页无需求不扫描；生成器输出即最终态，内容不变不写盘、不触发重新部署。
 核心目标（引流 / 询盘 / 关键词覆盖 / 转化路径）与受保护文件清单见 `WORKFLOW.md` 第 5 节。

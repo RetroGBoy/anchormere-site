@@ -5871,5 +5871,1893 @@
         ]
       ]
     }
+  },
+  {
+    "slug": "china-landed-cost-2026",
+    "en_title": "Landed Cost From China 2026 | Duty, Freight & De Minimis",
+    "zh_title": "中国采购到岸成本 2026 | 关税、运费与小额免税终止",
+    "en_lede": "Model total landed cost after the de minimis era ended: factory price, freight, duty, customs fees and brokerage — with a complete export document package from our Greater Bay Area desk.",
+    "zh_lede": "小额免税时代结束后重算到岸成本：出厂价、运费、关税、报关规费与清关代理费；我们提供完整出口单证包。",
+    "en_intro": "In 2026 a factory quote is only the first line of the bill. The United States suspended its USD 800 de minimis exemption for commercial shipments and the European Union removed its EUR 150 low-value duty exemption, so low-value parcels no longer clear duty-free and every order needs a formal or informal entry. Buyers who still price from the FOB number alone routinely discover that duty, freight, entry fees and brokerage add a substantial layer before the goods reach a shelf. Anchormere works on the export side of that equation: we state the Incoterm up front, break out packaging, QC, inland freight and consolidation as separate lines, and issue a clean commercial invoice, packing list and certificate of origin so your broker can classify and enter the shipment without chasing ten suppliers. We are not a customs broker, we do not act as importer of record, and we do not publish binding duty rates; those come from your licensed broker and the official tariff schedule in force on the day of entry. What we do is make every cost line visible before you wire a deposit, so the margin you modelled is the margin you keep. Confirm current official texts and rates at RFQ.",
+    "zh_intro": "2026 年，工厂报价只是账单的第一行。美国已暂停商业货运的 800 美元小额免税，欧盟也取消了 150 欧元低值免税，低值包裹不再免税通关，每票都需正式或简易报关。若仍只用 FOB 价定价，关税、运费、报关规费与代理费会在货到上架前叠加出可观成本。Anchormere 负责的是出口侧：报价 upfront 标明贸易术语，把包装、质检、内陆运输与拼柜拆成独立条目，并出具规范的商业发票、装箱单与产地证，让你的报关行无需向十家供应商追单证即可归类申报。我们不是报关行、不充当进口商记录，也不发布约束性税率；税率以你的持牌报关行与入境当日官方税则为准。我们做的是在付定金前让每一条成本可见，让你测算的利润就是最终利润。现行条文与税率请在询价时复核。",
+    "caps": [
+      [
+        "Incoterms stated up front: EXW / FOB Shenzhen / CIF / DDP available",
+        "报价 upfront 标明贸易术语：EXW / FOB 深圳 / CIF / DDP 可选"
+      ],
+      [
+        "Line-item quotation separating product, tooling, packaging and QC",
+        "分项报价：产品、开模、包装与质检分列"
+      ],
+      [
+        "Freight quoted on actual packed dimensions, not a stale estimate",
+        "按实际装箱尺寸报运费，不用过期估算"
+      ],
+      [
+        "Complete export document package: CI, PL, CO, packing declaration",
+        "完整出口单证包：商业发票、装箱单、产地证、装箱声明"
+      ],
+      [
+        "Product description, material and use data prepared for HS classification",
+        "为 HS 归类备妥品名、材质与用途资料"
+      ],
+      [
+        "Multi-SKU consolidation to amortise entry and brokerage per unit",
+        "多 SKU 拼柜摊薄单件报关与代理成本"
+      ],
+      [
+        "Consolidated carton manifest cross-checked before container sealing",
+        "封柜前核对合并装箱清单"
+      ],
+      [
+        "48h engineer quote with every cost line visible before deposit",
+        "48 小时工程师报价，付定金前每条成本可见"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (mixed-SKU consolidation allowed)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard items",
+        "标准品 48 小时报价"
+      ],
+      [
+        "Incoterms",
+        "EXW / FOB Shenzhen / CIF / DDP available",
+        "EXW / FOB 深圳 / CIF / DDP 可选"
+      ],
+      [
+        "Cost breakdown",
+        "Product, tooling, packaging, QC, inland freight, consolidation",
+        "产品、开模、包装、质检、内陆运输、拼柜"
+      ],
+      [
+        "Export documents",
+        "CI, PL, CO, packing list, carton manifest",
+        "商业发票、装箱单、产地证、装箱清单"
+      ],
+      [
+        "Duty & entry fees",
+        "Buyer-side; determined by your broker and official tariff schedule",
+        "买方侧；由报关行与官方税则确定"
+      ],
+      [
+        "Importer of record",
+        "Buyer or its appointed broker (Anchormere does not act as IOR)",
+        "买方或其指定报关行（Anchormere 不充当进口商）"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "landed cost from China 2026, total landed cost calculator, de minimis exemption ended, China import tariff 2026, cost to import from China, FOB vs CIF vs DDP, 中国采购 到岸成本",
+    "related": [
+      [
+        "landed cost from China",
+        "中国到岸成本"
+      ],
+      [
+        "total landed cost calculator",
+        "到岸成本计算器"
+      ],
+      [
+        "de minimis exemption ended",
+        "小额免税终止"
+      ],
+      [
+        "China import tariff 2026",
+        "中国进口关税 2026"
+      ],
+      [
+        "cost to import from China",
+        "从中国进口成本"
+      ],
+      [
+        "Section 301 duty China goods",
+        "301 条款 关税"
+      ],
+      [
+        "customs clearance China imports",
+        "中国进口 清关"
+      ],
+      [
+        "MPF HMF customs fees",
+        "报关规费 MPF HMF"
+      ],
+      [
+        "FOB vs CIF vs DDP explained",
+        "FOB CIF DDP 区别"
+      ],
+      [
+        "freight cost from China 2026",
+        "中国海运 运费 2026"
+      ],
+      [
+        "low-value import duty EU US",
+        "低值进口 关税 欧美"
+      ],
+      [
+        "export documents CI PL CO",
+        "出口单证 发票 装箱单 产地证"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What exactly is included in landed cost?",
+        "The product cost, tooling and packaging, QC, international freight and insurance, import duty and tariffs, customs entry fees (MPF, HMF where applicable), brokerage, drayage and inbound receiving. We make the export-side lines explicit in the quote."
+      ],
+      [
+        "Does the USD 800 de minimis exemption still apply?",
+        "No for commercial shipments: the US suspended it and the EU removed its low-value duty exemption in 2026. Low-value parcels now require an entry and applicable duty. Confirm the current rule text with your broker at RFQ."
+      ],
+      [
+        "Can Anchormere tell me my duty rate?",
+        "We do not issue binding classification or duty rates. We supply the product description, materials, BOM and use data your licensed broker needs to classify the goods against the official tariff schedule."
+      ],
+      [
+        "Which Incoterm should I choose for a first order?",
+        "It depends on who controls freight and who bears the import side. We quote EXW, FOB Shenzhen, CIF or DDP so you can compare like-for-like; the choice is yours and should be stated before production."
+      ],
+      [
+        "How do I avoid a surprise cost between quote and shipment?",
+        "Ask for a fresh freight quote on actual packed dimensions right before booking, keep all cost lines separate, and hold a buffer for freight and duty volatility. Our 48h quote lists every export-side line up front."
+      ]
+    ],
+    "cases": [
+      [
+        "Incoterms 2020 (ICC)",
+        "Incoterms 2020（国际商会）",
+        "Public rule set defining where cost and risk transfer between seller and buyer — reference only, not an endorsement.",
+        "界定买卖双方成本与风险转移点的公开规则，仅作参考，非背书。"
+      ],
+      [
+        "WCO Harmonized System",
+        "WCO 协调制度",
+        "The international 6-digit classification basis that national tariff schedules build on — reference only.",
+        "各国税则表所依据的国际 6 位归类基础，仅作参考。"
+      ]
+    ],
+    "cluster": "knowledge",
+    "expertise": {
+      "en_intro": "Landed cost is an allocation problem as much as a price problem: shared freight, duty and fees must be split by whatever actually drives them, or a mixed-SKU shipment quietly misprices half the carton.",
+      "zh_intro": "到岸成本既是价格问题也是分摊问题：共用的运费、关税与规费必须按真实驱动因素拆分，否则混装货柜会悄悄算错一半 SKU 的成本。",
+      "process": [
+        [
+          "Each cost line is quoted separately (product, tooling, packaging, QC, inland freight, consolidation) so duty is never applied to a bundled number.",
+          "产品、开模、包装、质检、内陆运输与拼柜逐项报价，避免关税被计入混合总价。"
+        ],
+        [
+          "Freight is allocated by the real constraint — weight for dense goods, volume for bulky light goods — rather than divided evenly across units.",
+          "运费按真实约束分摊：重货按重量、轻抛货按体积，而非按件数平均。"
+        ],
+        [
+          "Carton manifest, invoice value and packing declaration are cross-checked before the container is sealed, so the broker sees one consistent set of figures.",
+          "封柜前交叉核对装箱清单、发票金额与装箱声明，让报关行看到一套一致数据。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the destination market and the Incoterm at RFQ; the duty base and who pays the entry fees change with both.",
+          "询价写明目的市场与贸易术语；计税基础与报关费承担方随二者变化。"
+        ],
+        [
+          "Ask your broker to confirm the HS classification before the production slot, not after the goods are packed.",
+          "排产前请报关行确认 HS 归类，不要等装箱后再补。"
+        ],
+        [
+          "Budget a buffer for freight and duty volatility; an old freight estimate is the most common reason a 'cheap' order loses money.",
+          "为运费与关税波动预留缓冲；沿用过期运费估算是「便宜订单」亏损的最常见原因。"
+        ]
+      ],
+      "qc": [
+        [
+          "Commercial invoice, packing list and certificate of origin are checked against each other for quantity, value and description consistency.",
+          "商业发票、装箱单与产地证的数量、金额、品名逐项互核。"
+        ],
+        [
+          "A pre-shipment photo set and carton manifest are issued so the receiver can reconcile the shipment without opening every carton.",
+          "出货前提供照片集与装箱清单，收货方无需逐箱开验即可对账。"
+        ]
+      ],
+      "faq": [
+        [
+          "Do you include duty in your quote?",
+          "No. Our quote covers the export-side lines and states the Incoterm; duty, entry fees and brokerage are buyer-side and depend on the official tariff schedule in force at entry. We give your broker the product data needed to calculate them.",
+          "报价含关税吗？",
+          "不含。我方报价覆盖出口侧条目并标明贸易术语；关税、报关规费与代理费属买方侧，取决于入境当日官方税则。我们向你的报关行提供计算所需的产品资料。"
+        ],
+        [
+          "Can you ship DDP so I get one all-in number?",
+          "DDP can be quoted, but the duty and clearance component still rests on a licensed broker's classification and current rates. We separate that line so you can see what is a supplier cost and what is a statutory charge.",
+          "能做 DDP 给一个总价吗？",
+          "可以报 DDP，但关税与清关部分仍取决于持牌报关行的归类与当期税率。我们把这一条单列，便于区分供应商成本与法定税费。"
+        ]
+      ]
+    },
+    "serp_title": "Landed Cost From China 2026 | Duty & Freight",
+    "serp_desc": "Model total landed cost after de minimis ended: product, freight, duty, entry fees, brokerage. Full export docs from our GBA desk.",
+    "buyer_guide": true
+  },
+  {
+    "slug": "china-plus-one-sourcing",
+    "en_title": "China Plus One Sourcing | Dual-Sourcing & Second Supplier Qualification",
+    "zh_title": "China+1 采购 | 双源策略与第二供应商资格验证",
+    "en_lede": "Diversify by SKU, not by company: keep complex builds in the Greater Bay Area, qualify a second line for simple high-volume items, and map component dependencies before you move.",
+    "zh_lede": "按 SKU 分散而非按公司搬走：复杂品留在大湾区，简单大批量的品项验证第二产线，转移前先摸清零部件依赖。",
+    "en_intro": "China Plus One is real but it is not an exit. Industry surveys through 2025-2026 show most importers moved only part of their volume, and a majority of supply-chain executives named diversification — not relocation — as their leading strategy. The reason is component depth: factories in Vietnam, India or Mexico often still assemble with Chinese subassemblies, so a finished-goods move rarely delivers the independence it appears to promise. Anchormere helps buyers make that decision at SKU level. We map which parts of a bill of materials are truly China-dependent, keep complex multi-material, tight-tolerance and tooling-heavy products in the Greater Bay Area cluster, and qualify a second line for simple, labour-heavy, tariff-sensitive items. We do not sell 'leave China' as a service; we give you a written reason for where each SKU sits, a sample and mass-production consistency check, and one accountable coordinator for both lines. The result is redundancy that survives a duty change or a freight spike without rebuilding your supplier base from scratch.",
+    "zh_intro": "China+1 是真的，但不是撤离。2025–2026 年多项行业调研显示，多数进口商只转移了部分货量，且多数供应链高管把「多元化」而非「整体搬迁」列为首要战略。原因在零部件深度：越南、印度或墨西哥的工厂往往仍用中国产半成品组装，成品转移往往只增加了环节，并未带来表面上的独立性。Anchormere 帮买家在 SKU 层面做判断：梳理 BOM 中真正依赖中国产能的部分，把多材质、高精度、重开模的复杂品留在大湾区集群，为简单、劳动密集、关税敏感的品项验证第二产线。我们不把「离开中国」当服务卖，而是给每个 SKU 一条写明理由的产地决策、样品与量产一致性核验，以及两条产线共用的单一责任协调方。结果是：遇到关税调整或运费跳涨时具备冗余，却不必从零重建供应商体系。",
+    "caps": [
+      [
+        "SKU-level sourcing map with a written rationale per item",
+        "SKU 级采购地图，逐项写明产地理由"
+      ],
+      [
+        "Component and subassembly dependency mapping before any move",
+        "转移前梳理零部件与半成品依赖"
+      ],
+      [
+        "Second-line qualification: sample, pilot run, mass-production audit",
+        "第二产线资格验证：样品、试产、量产审核"
+      ],
+      [
+        "China base retained for complex, tooling-heavy, tight-tolerance builds",
+        "复杂、重开模、高精度品留在中国基地"
+      ],
+      [
+        "Cross-origin sample-to-production consistency comparison",
+        "跨产地样品与量产一致性比对"
+      ],
+      [
+        "Consolidated documentation across both origins",
+        "两产地统一出口单证口径"
+      ],
+      [
+        "Hybrid consolidation with one accountable coordinator",
+        "混合拼柜，单一责任协调方"
+      ],
+      [
+        "Scheduled six-month review of duty, freight and lead-time assumptions",
+        "每半年复核关税、运费与交期假设"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (mixed-SKU consolidation allowed)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Second-line qualification",
+        "Sample + pilot run + mass-production consistency check",
+        "样品 + 试产 + 量产一致性核验"
+      ],
+      [
+        "Review cycle",
+        "Duty, freight and lead-time assumptions reviewed every 6 months",
+        "关税、运费与交期假设每 6 个月复核"
+      ],
+      [
+        "Dependency mapping",
+        "BOM split by China-dependent vs locally substitutable parts",
+        "BOM 按依赖中国产能 / 可本地替代拆分"
+      ],
+      [
+        "Documentation",
+        "CI, PL, CO with consistent descriptions across origins",
+        "商业发票、装箱单、产地证跨产地口径一致"
+      ],
+      [
+        "Incoterms",
+        "EXW / FOB Shenzhen / CIF / DDP available",
+        "EXW / FOB 深圳 / CIF / DDP 可选"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard items",
+        "标准品 48 小时报价"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "China Plus One sourcing, dual sourcing strategy, Vietnam vs China manufacturing, supply chain diversification 2026, second supplier qualification, nearshoring vs China, China+1 采购 双源",
+    "related": [
+      [
+        "China Plus One sourcing",
+        "China+1 采购"
+      ],
+      [
+        "dual sourcing strategy",
+        "双源采购策略"
+      ],
+      [
+        "Vietnam vs China manufacturing",
+        "越南 vs 中国 制造"
+      ],
+      [
+        "supply chain diversification 2026",
+        "供应链多元化 2026"
+      ],
+      [
+        "second supplier qualification",
+        "第二供应商资格验证"
+      ],
+      [
+        "China plus one component dependency",
+        "China+1 零部件依赖"
+      ],
+      [
+        "nearshoring vs friendshoring",
+        "近岸 vs 友岸外包"
+      ],
+      [
+        "dual sourcing by SKU",
+        "按 SKU 双源"
+      ],
+      [
+        "Mexico vs China assembly",
+        "墨西哥 vs 中国 组装"
+      ],
+      [
+        "tariff-driven sourcing shift",
+        "关税驱动的采购转移"
+      ],
+      [
+        "sample vs mass production consistency",
+        "样品与量产一致性"
+      ],
+      [
+        "hybrid consolidation China origin",
+        "混合拼柜 中国产地"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Is everyone moving manufacturing out of China?",
+        "No. Most importers diversify a share of volume while China remains central for complex electronics, battery packs, injection-moulded assemblies and tooling-heavy goods. Final assembly often moves while components stay Chinese."
+      ],
+      [
+        "Should I dual-source by company or by SKU?",
+        "By SKU. Qualify a second line for the products that are simple, labour-heavy and tariff-sensitive, and keep the complex third of the catalogue in the deepest cluster. Dual-sourcing the whole catalogue usually doubles qualification work for little gain."
+      ],
+      [
+        "What should I check before moving a SKU?",
+        "Map the BOM first. If the new origin still imports Chinese subassemblies, you may add lead time and cost without gaining independence. Then compare a pilot run against the China sample for tolerance, finish and yield."
+      ],
+      [
+        "Can Anchormere manage both origins?",
+        "We coordinate the China base and qualify a second line, then keep descriptions, carton manifests and export documents consistent across both so your broker and receiver see one set of figures."
+      ],
+      [
+        "How often should the sourcing map be revisited?",
+        "Every six months, and immediately after a duty or freight change. Classification and rate schedules move on administrative timelines, so a map that is a year old is usually a stale map."
+      ]
+    ],
+    "cases": [
+      [
+        "Greater Bay Area cluster",
+        "大湾区产业集群",
+        "Category reference: the dense electronics, tooling and PCBA supplier network that keeps complex builds competitive.",
+        "品类参考：电子、开模与 PCBA 高密度供应网络，是复杂品保持竞争力的基础。"
+      ],
+      [
+        "China Plus One (industry term)",
+        "China+1（行业术语）",
+        "Category reference: the diversification pattern of keeping a China base while adding a second origin — an industry term, not an endorsement.",
+        "品类参考：保留中国基地并增设第二产地的多元化模式，属行业术语，非背书。"
+      ]
+    ],
+    "cluster": "knowledge",
+    "expertise": {
+      "en_intro": "A diversification plan is only as good as its bill of materials: moving final assembly while the subassemblies still ship from China adds a border crossing without removing the dependency.",
+      "zh_intro": "多元化方案的可靠性取决于 BOM：若半成品仍从中国发运，搬走最终组装只是多了一道关境，依赖并未消除。",
+      "process": [
+        [
+          "Each BOM line is tagged China-dependent, substitutable locally, or dual-sourceable before any origin decision is made.",
+          "任何产地决策前，先把 BOM 每行标注为依赖中国产能、可本地替代或可双源。"
+        ],
+        [
+          "A pilot run at the second line is built to the same drawing and measured against the China sample for tolerance, finish and yield.",
+          "第二产线按同一图纸试产，并与中国样品比对公差、外观与良率。"
+        ],
+        [
+          "Product descriptions, HS data and carton manifests are normalised across origins so classification does not drift when a SKU moves.",
+          "跨产地统一品名、HS 资料与装箱清单，避免 SKU 转移后归类口径漂移。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Classify your catalogue by complexity, not by supplier relationship: tooling depth and tolerance decide where a SKU belongs.",
+          "按复杂度而非供应商关系给目录分类：开模深度与公差决定 SKU 归属。"
+        ],
+        [
+          "Require a written reason for every SKU's origin and re-review it after each duty or freight change.",
+          "要求每个 SKU 的产地都有书面理由，并在每次关税或运费变动后复核。"
+        ],
+        [
+          "Do not assume a second origin removes China exposure; ask what share of its components are still Chinese.",
+          "不要假定第二产地就消除了中国敞口；先问其零部件中仍有几成来自中国。"
+        ]
+      ],
+      "qc": [
+        [
+          "Pilot-run units from both origins are measured on the same fixture and compared with the approved golden sample.",
+          "两产地试产件用同一治具量测，并与已签样金样比对。"
+        ],
+        [
+          "A single carton manifest format is used across origins so inbound receiving and brokerage data stay comparable.",
+          "两产地共用同一装箱清单格式，使收货与报关数据可比。"
+        ]
+      ],
+      "faq": [
+        [
+          "Will you move all my production out of China?",
+          "We do not recommend that. We map component dependencies, keep complex builds in the Greater Bay Area and qualify a second line only where the numbers justify it. The goal is redundancy, not relocation for its own sake.",
+          "会把我的产能全部搬出中国吗？",
+          "不建议。我们先梳理零部件依赖，复杂品留在大湾区，只在数据支持时为简单品验证第二产线。目标是冗余，不是为搬迁而搬迁。"
+        ],
+        [
+          "How do you keep quality consistent between two origins?",
+          "Both lines build to the same drawing, both pilot runs are measured against one approved golden sample, and the same inspection checklist and carton manifest format apply. Any deviation is flagged before the production slot is confirmed.",
+          "两地质量如何保持一致？",
+          "两条产线按同一图纸生产，试产件都与同一签样金样比对，共用检验清单与装箱单格式。排产确认前会标出任何偏差。"
+        ]
+      ]
+    },
+    "serp_title": "China Plus One Sourcing | Dual-Sourcing & Second Line",
+    "serp_desc": "Diversify by SKU, not by company: map component dependencies, keep complex builds in GBA, qualify a second line. One accountable desk.",
+    "buyer_guide": true
+  },
+  {
+    "slug": "hts-code-tariff-classification",
+    "en_title": "HTS Code & Tariff Classification for China Imports | Sourcing Guide",
+    "zh_title": "中国进口 HTS 编码与关税归类 | 采购指南",
+    "en_lede": "Classification became a sourcing decision in 2026. Get the product description, material, BOM and use data your broker needs — prepared on the export side before the goods ship.",
+    "zh_lede": "2026 年归类已成采购决策。出货前由出口侧备妥品名、材质、BOM 与用途资料，交你的报关行完成归类。",
+    "en_intro": "Two importers buying the same factory output can pay very different duty depending on how the article is described and classified. Since 2026 every commercial shipment needs a correct 10-digit classification and a formal or informal entry, so the Harmonized System code is no longer a paperwork detail: it decides the rate stack, the exemption tests and sometimes whether a category is profitable at all. Anchormere does not act as a customs broker and never issues a binding classification or duty ruling. What we do is prepare the export-side evidence your licensed broker needs — an unambiguous product description, material composition, BOM, intended use, photographs, net and gross weights, and a consistent commercial invoice and packing list — and keep those descriptions identical across SKUs, cartons and origins. That removes the most common cause of reclassification delays: a factory invoice that says one thing and a carton label that says another. Rates, exemption tests and rules of origin are confirmed by your broker against the official tariff schedule in force at entry.",
+    "zh_intro": "两家进口商采购同一工厂的同一批货，可能因品名描述与归类不同而承担截然不同的关税。2026 年起每票商业货运都需正确的 10 位归类与正式或简易报关，HS 编码不再是文书细节：它决定税率叠加、豁免判定，有时甚至决定一个品类是否有利润。Anchormere 不充当报关行，也不出具约束性归类或税率裁定。我们做的是备妥出口侧证据供你的持牌报关行使用——无歧义的品名、材质构成、BOM、预期用途、照片、净重毛重，以及口径一致的商业发票与装箱单——并让这些描述在 SKU、外箱与各产地之间完全一致。这消除了最常见的归类延误原因：工厂发票写一套、箱唛写另一套。税率、豁免判定与原产地规则由你的报关行按入境当日官方税则确认。",
+    "caps": [
+      [
+        "Unambiguous English product description with intended use",
+        "无歧义英文品名并注明预期用途"
+      ],
+      [
+        "Material composition and BOM prepared for classification",
+        "备妥材质构成与 BOM 供归类"
+      ],
+      [
+        "Net / gross weight, carton count and packed dimensions",
+        "净重 / 毛重、箱数与装箱尺寸"
+      ],
+      [
+        "Product photo set and process description on request",
+        "按需提供产品照片集与工艺说明"
+      ],
+      [
+        "Consistent descriptions across invoice, packing list and carton",
+        "发票、装箱单与外箱描述一致"
+      ],
+      [
+        "Rules-of-origin supporting data kept with the document pack",
+        "原产地规则佐证资料随单证包留存"
+      ],
+      [
+        "Multi-SKU classification data sheet for the broker",
+        "多 SKU 归类资料表交报关行"
+      ],
+      [
+        "48h engineer quote with HS-relevant product data",
+        "48 小时工程师报价附归类相关产品资料"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (mixed-SKU consolidation allowed)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Classification data",
+        "Description, material, BOM, use, photos, net/gross weight",
+        "品名、材质、BOM、用途、照片、净毛重"
+      ],
+      [
+        "Binding ruling",
+        "Not provided; issued by your licensed broker / authority",
+        "不提供；由持牌报关行 / 主管机关出具"
+      ],
+      [
+        "Document consistency",
+        "Invoice, PL, CO and carton marks use identical descriptions",
+        "发票、装箱单、产地证与箱唛描述一致"
+      ],
+      [
+        "Rules of origin",
+        "Supporting manufacturing data supplied on request",
+        "按需提供制造过程佐证资料"
+      ],
+      [
+        "Export documents",
+        "CI, PL, CO, packing list, carton manifest",
+        "商业发票、装箱单、产地证、装箱清单"
+      ],
+      [
+        "Quote time",
+        "48 hours for standard items",
+        "标准品 48 小时报价"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "HTS code classification China imports, HS code for products from China, Section 301 duty list, customs duty stacking, rules of origin China, tariff classification sourcing, HS 编码 关税归类",
+    "related": [
+      [
+        "HTS code classification China imports",
+        "中国进口 HTS 归类"
+      ],
+      [
+        "HS code for products from China",
+        "中国产品 HS 编码"
+      ],
+      [
+        "Section 301 duty list",
+        "301 条款 清单"
+      ],
+      [
+        "customs duty stacking 2026",
+        "关税叠加 2026"
+      ],
+      [
+        "rules of origin China goods",
+        "中国货物 原产地规则"
+      ],
+      [
+        "10-digit HTSUS classification",
+        "10 位 HTSUS 归类"
+      ],
+      [
+        "tariff classification sourcing decision",
+        "归类即采购决策"
+      ],
+      [
+        "HS code lookup by product",
+        "按产品查 HS 编码"
+      ],
+      [
+        "customs broker vs sourcing agent",
+        "报关行 vs 采购代理"
+      ],
+      [
+        "commercial invoice description consistency",
+        "商业发票品名一致性"
+      ],
+      [
+        "duty drawback and exemption tests",
+        "退税与豁免判定"
+      ],
+      [
+        "product compliance certificates for import",
+        "进口产品合规证书"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Can you tell me the HTS code for my product?",
+        "We do not issue binding classifications. We prepare the description, material, BOM, use and weight data so your licensed broker can classify it against the official schedule. A code guessed from a factory invoice is the most common source of delays."
+      ],
+      [
+        "Why does the same product sometimes get different duty?",
+        "Rate stacks depend on classification, origin and the exemption tests in force on the day of entry. Small differences in material composition or intended use can move an article to a different line."
+      ],
+      [
+        "What documents does my broker need from the factory?",
+        "A commercial invoice and packing list with identical descriptions, material composition, BOM, intended use, product photos, net/gross weights and carton manifest. We keep all of these consistent in one pack."
+      ],
+      [
+        "Do you handle rules of origin or claim preferences?",
+        "We supply the manufacturing and sourcing data your broker needs to assess origin, but we do not make the claim. Preference eligibility is a legal determination for the importer and its broker."
+      ],
+      [
+        "What happens if the invoice and carton label disagree?",
+        "The broker may have to re-describe the goods, which delays entry and can change the rate. We cross-check invoice, packing list, CO and carton marks against each other before sealing the container."
+      ]
+    ],
+    "cases": [
+      [
+        "WCO Harmonized System",
+        "WCO 协调制度",
+        "Public reference: the 6-digit international classification basis that national 10-digit tariff lines extend — reference only, not an endorsement.",
+        "公开参考：各国 10 位税则在此基础上延展的国际 6 位归类，仅作参考，非背书。"
+      ],
+      [
+        "Incoterms 2020 (ICC)",
+        "Incoterms 2020（国际商会）",
+        "Public reference: defines which party controls freight and customs formalities, which shapes the declared value basis — reference only.",
+        "公开参考：界定由哪一方掌控运输与报关手续，进而影响申报价值基础，仅作参考。"
+      ]
+    ],
+    "cluster": "knowledge",
+    "expertise": {
+      "en_intro": "Classification is decided on the article as described, not on the supplier's catalogue name. The export-side job is to make that description precise, evidenced and identical everywhere it appears.",
+      "zh_intro": "归类依据的是「货物如何被描述」，而非供应商目录里的叫法。出口侧的任务是让这一描述精确、有佐证，且在出现的每一处都一致。",
+      "process": [
+        [
+          "The product description is written from material composition and intended use, not from a marketing name or a category label.",
+          "品名按材质构成与预期用途撰写，不用营销名或类目俗称。"
+        ],
+        [
+          "Invoice, packing list, certificate of origin and carton marks are generated from one source description so wording cannot drift.",
+          "发票、装箱单、产地证与箱唛由同一描述源生成，措辞不会漂移。"
+        ],
+        [
+          "Photographs, BOM and weight data are filed with the document pack and re-issued whenever a specification changes.",
+          "照片、BOM 与重量资料随单证包归档，规格变更时同步更新。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Ask your broker to confirm the classification before the production slot, because a material change can move the article to another line.",
+          "排产前请报关行确认归类；材质一变就可能换到另一税则行。"
+        ],
+        [
+          "Check that the description on the commercial invoice matches the carton label and the packing list word for word.",
+          "逐字核对商业发票、箱唛与装箱单上的品名是否一致。"
+        ],
+        [
+          "Treat rates and exemption tests as time-sensitive: review them at every order, not once a year.",
+          "把税率与豁免判定视为有时效的判断：每单复核，而非一年一次。"
+        ]
+      ],
+      "qc": [
+        [
+          "A three-way check compares invoice value, packing-list quantity and carton manifest before the container is sealed.",
+          "封柜前三方核对：发票金额、装箱单数量与装箱清单。"
+        ],
+        [
+          "Any specification revision triggers a re-issue of the classification data sheet so the broker never works from a stale BOM.",
+          "规格一旦修订即重发归类资料表，避免报关行沿用过期 BOM。"
+        ]
+      ],
+      "faq": [
+        [
+          "Do you provide a binding tariff ruling?",
+          "No. Binding rulings and classifications come from the customs authority or your licensed broker. We provide the product evidence and keep description wording consistent across all export documents.",
+          "提供约束性税率裁定吗？",
+          "不提供。约束性裁定与归类来自海关主管机关或你的持牌报关行。我们提供产品佐证，并保证所有出口单证的品名口径一致。"
+        ],
+        [
+          "Why do you ask for material composition and intended use?",
+          "Because those two facts usually decide the tariff line. A marketing name like 'smart band' is not enough for a broker to classify a device that may contain a radio, a battery and a display.",
+          "为什么要材质与用途资料？",
+          "因为这两项通常决定税则行。像「智能手环」这样的营销名不足以让报关行归类一台可能含射频、电池与显示屏的设备。"
+        ]
+      ]
+    },
+    "serp_title": "HTS Code & Tariff Classification for China Imports",
+    "serp_desc": "Classification is a sourcing decision in 2026. We prepare the description, BOM and origin data your broker needs — consistent across every export doc.",
+    "buyer_guide": true
+  },
+  {
+    "slug": "ai-hardware-smart-glasses-oem",
+    "en_title": "AI Hardware & Smart Glasses OEM Shenzhen | Native AI Device Manufacturing",
+    "zh_title": "AI 硬件与智能眼镜 OEM 深圳 | AI 原生设备制造",
+    "en_lede": "Build AI-native hardware in Shenzhen — smart glasses, AI pens, voice recorders and smart rings — with enclosure, PCBA, optics, acoustics and assembly integrated under one accountable desk.",
+    "zh_lede": "在深圳整合 AI 原生硬件：智能眼镜、AI 翻译笔、录音设备与智能戒指，覆盖结构件、PCBA、光学、声学与整机组装。",
+    "en_intro": "AI-native devices are not an existing product with a feature bolted on. Smart glasses, AI translation pens, voice recorders and screen-less smart bands are designed from the chip, sensor and algorithm layer upward, and Greater Bay Area output of AI hardware grew sharply through 2026 as component markets in Huaqiangbei retooled around them. Anchormere integrates the physical build: optical and display modules, low-power PCBA, micro-acoustics, battery and charging, injection-moulded or metal enclosures, and final assembly and test. Circuit design and core algorithm R&D stay with specialist electronics partners; single-point accountability and the quality baseline always sit with us. That split matters for buyers, because the failure modes of an AI device are usually physical — hinge fatigue, microphone wind noise, battery swelling, optical alignment and thermal drift — not algorithmic. We quote to the drawing, run a pilot batch at 500 pcs, and hand your RFQ a capability sheet that says exactly which parts we own and which your silicon or model partner owns.",
+    "zh_intro": "AI 原生设备并非在既有产品上加一个功能。智能眼镜、AI 翻译笔、录音设备与无屏智能手环，是从芯片、传感器与算法层向上重新设计的品类；2026 年随着华强北元器件市场围绕其重组，大湾区 AI 硬件产出显著增长。Anchormere 整合的是物理制造：光学与显示模组、低功耗 PCBA、微型声学、电池与充电、注塑或金属外壳，以及整机组装与测试。电路设计与核心算法研发由专业电子伙伴承担，单点责任与质量基线始终归我们。这个分工对买家很关键，因为 AI 设备的失效模式通常是物理的——铰链疲劳、麦克风风噪、电池鼓包、光轴偏移与温漂——而非算法问题。我们按图纸报价、以 500 件试产，并在询盘时提供能力表，明确哪些环节由我们负责、哪些由你的芯片或模型伙伴负责。",
+    "caps": [
+      [
+        "Optical / display module sourcing and alignment fixtures",
+        "光学 / 显示模组采购与对位治具"
+      ],
+      [
+        "Low-power PCBA, SMT and box-build integration",
+        "低功耗 PCBA、SMT 与整机组装"
+      ],
+      [
+        "Micro-acoustics: MEMS mic array, speaker, wind-noise tuning",
+        "微型声学：MEMS 麦克风阵列、扬声器、风噪调校"
+      ],
+      [
+        "Injection-moulded, CNC or magnesium-alloy enclosures",
+        "注塑、CNC 或镁合金外壳"
+      ],
+      [
+        "Small-form-factor battery, charging case and thermal management",
+        "小型电池、充电盒与热管理"
+      ],
+      [
+        "Hinge, wear-comfort and drop-test validation",
+        "铰链、佩戴舒适度与跌落验证"
+      ],
+      [
+        "Pilot runs from 500 pcs with golden-sample sign-off",
+        "500 件起试产并签样确认"
+      ],
+      [
+        "48h engineer quote with a written capability boundary",
+        "48 小时工程师报价附书面能力边界"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per SKU (pilot run)",
+        "单 SKU 500 件起（试产）"
+      ],
+      [
+        "Sample lead time",
+        "12-20 days (existing platform) / 25-40 days (new tooling)",
+        "12-20 天（现有平台）/ 25-40 天（新开模）"
+      ],
+      [
+        "PCBA",
+        "Low-power SMT, fine-pitch, 0201 passives supported",
+        "低功耗 SMT、细间距、0201 器件"
+      ],
+      [
+        "Optics",
+        "Waveguide / birdbath / micro-OLED module options",
+        "波导 / Birdbath / 微 OLED 模组可选"
+      ],
+      [
+        "Enclosure",
+        "PC/ABS injection, CNC aluminium, Mg alloy",
+        "PC/ABS 注塑、CNC 铝、镁合金"
+      ],
+      [
+        "Validation",
+        "Hinge cycle, drop, thermal, mic wind-noise, battery cycle",
+        "铰链寿命、跌落、温升、风噪、电池循环"
+      ],
+      [
+        "Boundary",
+        "No chip design or core algorithm R&D; specialist partners hold those",
+        "不做芯片设计或核心算法研发，由专业伙伴承担"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "consumer-smart-electronics.html",
+      "Consumer & smart electronics"
+    ],
+    "kw": "AI hardware manufacturer China, smart glasses OEM Shenzhen, AI wearable ODM, AI voice recorder OEM, AI translation pen manufacturer, AI native device sourcing, AI 硬件 智能眼镜 OEM",
+    "related": [
+      [
+        "AI hardware manufacturer China",
+        "AI 硬件制造商 中国"
+      ],
+      [
+        "smart glasses OEM Shenzhen",
+        "智能眼镜 OEM 深圳"
+      ],
+      [
+        "AI wearable ODM",
+        "AI 可穿戴 ODM"
+      ],
+      [
+        "AI voice recorder OEM",
+        "AI 录音设备 OEM"
+      ],
+      [
+        "AI translation pen manufacturer",
+        "AI 翻译笔 制造商"
+      ],
+      [
+        "AI pin / smart ring manufacturer",
+        "AI 徽章 / 智能戒指 制造商"
+      ],
+      [
+        "smart glasses display module sourcing",
+        "智能眼镜 显示模组 采购"
+      ],
+      [
+        "low power PCBA for wearables",
+        "可穿戴 低功耗 PCBA"
+      ],
+      [
+        "MEMS microphone array supplier China",
+        "MEMS 麦克风阵列 供应商"
+      ],
+      [
+        "Huaqiangbei AI hardware supply chain",
+        "华强北 AI 硬件 供应链"
+      ],
+      [
+        "AI device pilot run 500 pcs",
+        "AI 设备 500 件 试产"
+      ],
+      [
+        "AI glasses OEM vs ODM",
+        "AI 眼镜 OEM 与 ODM"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you design the chip or the AI model?",
+        "No. Circuit design and core algorithm R&D stay with specialist electronics partners. We own the physical integration, assembly, test and single-point accountability, and we state that boundary in writing at RFQ."
+      ],
+      [
+        "What is the MOQ for a new AI device?",
+        "500 pcs for a pilot run on an existing platform. New tooling or a custom optical module needs a longer sample phase, quoted separately."
+      ],
+      [
+        "Which parts of a smart glasses build do you handle?",
+        "Optical/display module sourcing and alignment, low-power PCBA, micro-acoustics, battery and charging case, enclosure, hinge and final assembly and test."
+      ],
+      [
+        "How do you validate wear-comfort and durability?",
+        "Hinge cycle tests, drop tests, thermal drift checks, microphone wind-noise tuning and battery cycle checks, all against an approved golden sample before the production slot."
+      ],
+      [
+        "Can you source pre-certified radio modules?",
+        "Where a Wi-Fi / BLE module is already certified, we source that module and keep its certificate with the document pack; delta testing is coordinated with your compliance partner. We do not claim certifications we have not verified."
+      ]
+    ],
+    "cases": [
+      [
+        "Meta Ray-Ban",
+        "Meta Ray-Ban",
+        "Category reference: the product that made camera-and-audio smart glasses a mainstream category — market context only, not a supply relationship.",
+        "品类参考：让摄像与音频智能眼镜成为主流品类的产品，仅作市场认知，非供应关系。"
+      ],
+      [
+        "XREAL",
+        "XREAL",
+        "Category reference: a leading AR-glasses brand illustrating the optical-module and lightweight-enclosure supply chain — market context only.",
+        "品类参考：AR 眼镜头部品牌，体现光学模组与轻量化外壳供应链，仅作市场认知。"
+      ]
+    ],
+    "cluster": "electronics",
+    "expertise": {
+      "en_intro": "AI-native hardware fails at the mechanical and acoustical edges long before it fails at the model layer: hinge fatigue, optical alignment drift, microphone wind noise and heat in a sealed enclosure.",
+      "zh_intro": "AI 原生硬件往往先在机械与声学边缘失效，而非模型层：铰链疲劳、光轴漂移、麦克风风噪，以及密闭外壳内的积热。",
+      "process": [
+        [
+          "Optical modules are aligned on a fixed fixture and the alignment is re-checked after thermal cycling, not only at first assembly.",
+          "光学模组在固定治具上对位，温循后复核对位，而非只在初装时检查。"
+        ],
+        [
+          "MEMS microphone arrays are tuned with wind-noise and echo tests in the assembled enclosure, since gasket and cavity shape change the response.",
+          "MEMS 麦克风阵列在整机壳体内做风噪与回声调校，因为密封件与腔体会改变响应。"
+        ],
+        [
+          "Battery and charging contacts go through cycle and temperature checks before a pilot batch is released.",
+          "电池与充电触点在试产放行前完成循环与温度测试。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State clearly who owns the silicon, the model and the app; our scope is the physical build and test.",
+          "明确芯片、模型与 App 由谁负责；我方范围是物理制造与测试。"
+        ],
+        [
+          "Provide the optical and acoustic acceptance criteria with the drawing, not after the first pilot run.",
+          "随图纸提供光学与声学验收标准，别等首轮试产后才补。"
+        ],
+        [
+          "Ask for a written capability boundary so no one assumes the integrator also owns algorithm R&D.",
+          "索取书面能力边界，避免误以为整合方也承担算法研发。"
+        ]
+      ],
+      "qc": [
+        [
+          "Hinge cycle and drop tests are run on pilot units with results filed against the golden sample.",
+          "试产件做铰链寿命与跌落测试，结果对照金样归档。"
+        ],
+        [
+          "A full-function check covers mic, speaker, display, wireless, charging and thermal behaviour on every pilot unit.",
+          "每件试产件全功能检查：麦克风、扬声器、显示、无线、充电与温升。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you build the whole AI device including the algorithm?",
+          "We integrate the physical device and own the quality baseline, but core algorithm and chip design belong with specialist partners. We document the split at RFQ so responsibilities are unambiguous.",
+          "能连算法一起做整机吗？",
+          "我们整合物理设备并承担质量基线，但核心算法与芯片设计由专业伙伴负责。询盘时会书面写明分工，责任不含糊。"
+        ],
+        [
+          "Why is a pilot run needed for smart glasses?",
+          "Optical alignment, hinge feel and acoustic behaviour only stabilise after a real assembly run. A 500-pc pilot exposes those variations before you commit to volume tooling.",
+          "智能眼镜为什么要试产？",
+          "光轴对位、铰链手感与声学表现只有在真实组装批次后才会稳定。500 件试产能在开量产模前暴露这些波动。"
+        ]
+      ]
+    },
+    "serp_title": "AI Hardware & Smart Glasses OEM Shenzhen",
+    "serp_desc": "AI-native device build in Shenzhen: optics, low-power PCBA, micro-acoustics, enclosures, assembly. 500 pcs pilot, 48h quote, clear scope.",
+    "buyer_guide": false
+  },
+  {
+    "slug": "service-robot-manufacturer-china",
+    "en_title": "Service & Cleaning Robot Manufacturer China | GBA Robot OEM & Parts",
+    "zh_title": "服务与清洁机器人制造商中国 | 大湾区机器人 OEM 与部件",
+    "en_lede": "Source commercial cleaning, service and humanoid-robot hardware from the Greater Bay Area: chassis, sheet metal, injection parts, harnesses, motor and sensor modules, and full assembly.",
+    "zh_lede": "从大湾区采购商用清洁、服务与人形机器人硬件：底盘、钣金、注塑件、线束、电机与传感器模组及整机组装。",
+    "en_intro": "Chinese robot exports grew rapidly through 2026, with commercial cleaning, delivery and inspection robots moving from trade-show demonstrations into batch orders, and humanoid and quadruped platforms growing even faster off a small base. Most buyers at that stage are not looking for a single finished robot; they need a supply partner who can hold tolerances on a chassis, qualify a motor and sensor module set, and keep sample-to-mass-production consistency across a mechanical bill of materials that can run to hundreds of parts. Anchormere coordinates that physical build in the Greater Bay Area: sheet-metal and CNC frames, injection-moulded housings, wheel and drive modules, wiring harnesses, sensor brackets, battery integration and final assembly and functional test. We do not claim to supply robot navigation, SLAM or control algorithms — those stay with the buyer's software and motion-control partners — and we do not present prototypes as mass-production-ready. What we offer is a tooling-and-assembly route with a pilot batch, an inspection checklist and one accountable coordinator, so a buyer can move from a demo unit to a repeatable production lot without rebuilding the supplier base.",
+    "zh_intro": "2026 年中国机器人出口快速增长，商用清洁、配送与巡检机器人从展会演示走向批量订单，人形与四足平台在低基数上增速更快。这个阶段的买家多数并非要一台成品机器人，而是需要一个能把底盘公差守住、把电机与传感器模组组验证好、并在动辄数百个零件的机械 BOM 上保持样品与量产一致性的供应伙伴。Anchormere 在大湾区协调这一物理制造：钣金与 CNC 框架、注塑外壳、轮组与驱动模组、线束、传感器支架、电池集成，以及整机组装与功能测试。我们不宣称提供导航、SLAM 或控制算法——这些由买家的软件与运控伙伴负责——也不把样机当作可量产状态。我们提供的是一条带试产批次、检验清单与单一责任协调方的开模与组装路径，让买家从演示样机走向可复现的量产批次，而不必重建供应商体系。",
+    "caps": [
+      [
+        "Sheet-metal, CNC and die-cast chassis and frames",
+        "钣金、CNC 与压铸底盘框架"
+      ],
+      [
+        "Injection-moulded housings, bumpers and covers",
+        "注塑外壳、保险杠与盖板"
+      ],
+      [
+        "Drive, wheel, caster and gearbox module sourcing",
+        "驱动、轮组、万向轮与减速箱模组采购"
+      ],
+      [
+        "Wiring harness, connector and cable-routing assembly",
+        "线束、连接器与走线组装"
+      ],
+      [
+        "Sensor bracket, LiDAR / camera mount and calibration fixture",
+        "传感器支架、激光雷达 / 相机安装与标定治具"
+      ],
+      [
+        "Battery pack integration with charge-dock interface",
+        "电池包集成与充电桩接口"
+      ],
+      [
+        "End-of-line functional test: drive, obstacle, dock, runtime",
+        "产线末端功能测试：行走、避障、回充、续航"
+      ],
+      [
+        "Pilot batch from 500 pcs with golden-sample sign-off",
+        "500 件起试产批次并签样确认"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per platform (pilot batch)",
+        "单平台 500 件起（试产批次）"
+      ],
+      [
+        "Chassis",
+        "Sheet metal / CNC aluminium / die-cast options",
+        "钣金 / CNC 铝 / 压铸可选"
+      ],
+      [
+        "Sample lead time",
+        "20-35 days (existing tooling) / 40-60 days (new tooling)",
+        "20-35 天（现模）/ 40-60 天（新开模）"
+      ],
+      [
+        "Harness",
+        "Custom loom with keyed connectors and labelled routing",
+        "定制线束，防呆连接器与标识走线"
+      ],
+      [
+        "EOL test",
+        "Drive, obstacle detection, auto-dock, runtime, noise",
+        "行走、避障、自动回充、续航、噪声"
+      ],
+      [
+        "Boundary",
+        "No SLAM, navigation or control algorithms supplied",
+        "不提供 SLAM、导航或控制算法"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, battery and radio module documentation where applicable",
+        "商业发票、装箱单、产地证，按适用性附电池与射频资料"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "service robot manufacturer China, commercial cleaning robot OEM, humanoid robot components supplier, AGV parts Greater Bay Area, robot ODM China, warehouse robot chassis manufacturer, 服务机器人 制造商 中国",
+    "related": [
+      [
+        "service robot manufacturer China",
+        "服务机器人 制造商 中国"
+      ],
+      [
+        "commercial cleaning robot OEM",
+        "商用清洁机器人 OEM"
+      ],
+      [
+        "humanoid robot components supplier",
+        "人形机器人 部件 供应商"
+      ],
+      [
+        "AGV parts Greater Bay Area",
+        "AGV 部件 大湾区"
+      ],
+      [
+        "robot ODM China",
+        "机器人 ODM 中国"
+      ],
+      [
+        "delivery robot chassis manufacturer",
+        "配送机器人 底盘 制造商"
+      ],
+      [
+        "robot sheet metal frame supplier",
+        "机器人 钣金 框架 供应商"
+      ],
+      [
+        "robot wiring harness assembly China",
+        "机器人 线束 组装 中国"
+      ],
+      [
+        "LiDAR mount and calibration fixture",
+        "激光雷达 支架 与 标定治具"
+      ],
+      [
+        "quadruped robot parts sourcing",
+        "四足机器人 部件 采购"
+      ],
+      [
+        "robot pilot run 500 pcs",
+        "机器人 500 件 试产"
+      ],
+      [
+        "sample vs mass production robot quality",
+        "机器人 样品与量产一致性"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you supply the robot's navigation or control software?",
+        "No. We build and test the physical platform; SLAM, navigation, fleet software and motion control stay with your software and motion-control partners. The boundary is stated at RFQ."
+      ],
+      [
+        "What is the MOQ for a robot platform?",
+        "500 pcs for a pilot batch. A complex platform with new tooling needs a longer sample phase, which we quote separately."
+      ],
+      [
+        "Can you take a demo prototype into mass production?",
+        "We can run a design-for-manufacture review, re-tool where needed and build a pilot batch, but we do not present a prototype as production-ready. Sample-to-mass-production consistency is verified against an approved golden sample."
+      ],
+      [
+        "Which parts of the robot do you actually make?",
+        "Sheet-metal and CNC frames, injection housings, wheel and drive modules, harnesses, sensor brackets, battery integration, final assembly and end-of-line functional test."
+      ],
+      [
+        "How do you check a robot before shipment?",
+        "End-of-line tests cover drive, obstacle detection, auto-docking, runtime and noise, with results filed per batch against the golden sample."
+      ]
+    ],
+    "cases": [
+      [
+        "Narwal",
+        "云鲸 Narwal",
+        "Category reference: a leading cleaning-robot brand illustrating the GBA cleaning-robot supply base — market context only, not a supply relationship.",
+        "品类参考：清洁机器人头部品牌，体现大湾区清洁机器人供应基础，仅作市场认知，非供应关系。"
+      ],
+      [
+        "Pudu Robotics",
+        "普渡科技 Pudu",
+        "Category reference: a delivery-robot brand with large overseas deployment — market context only, not a supply relationship.",
+        "品类参考：海外部署规模较大的配送机器人品牌，仅作市场认知，非供应关系。"
+      ]
+    ],
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "A robot is a tolerance chain: a chassis that is 0.5 mm out at the caster mount shows up later as docking failure and wheel wear, not as an obvious visual defect.",
+      "zh_intro": "机器人是一条公差链：万向轮安装位偏差 0.5 毫米，不会立刻显成外观缺陷，而会在后期表现为回充失败与轮子偏磨。",
+      "process": [
+        [
+          "Chassis and caster mounts are checked on a fixture before any harness or module is fitted, so datum drift is caught early.",
+          "装线束与模组前先在治具上核对底盘与万向轮安装位，及早发现基准漂移。"
+        ],
+        [
+          "Harnesses are built with keyed connectors and labelled routing, then continuity-tested as a subassembly.",
+          "线束采用防呆连接器与标识走线，作为部件先做通断测试。"
+        ],
+        [
+          "Sensor brackets are assembled with a calibration fixture so LiDAR and camera alignment is repeatable across units.",
+          "传感器支架借助标定治具装配，使激光雷达与相机对位在件间可复现。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Define who owns SLAM, fleet software and safety certification before the mechanical drawing is frozen.",
+          "冻结机械图纸前先明确 SLAM、集群软件与安全认证由谁负责。"
+        ],
+        [
+          "Require a design-for-manufacture review on prototype-derived parts; demo units are usually not tooled for volume.",
+          "对样机衍生件要求可制造性评审；演示样机通常未按量产开模。"
+        ],
+        [
+          "Ask for end-of-line test criteria with the drawing, including docking success rate and runtime threshold.",
+          "随图纸索取产线末端测试标准，含回充成功率与续航阈值。"
+        ]
+      ],
+      "qc": [
+        [
+          "Each pilot unit runs the full end-of-line sequence and the results are filed against the golden sample.",
+          "每件试产件跑完整产线末端测试，结果对照金样归档。"
+        ],
+        [
+          "Wheel, caster and gearbox modules are batch-traceable so a wear issue can be isolated to one supplier lot.",
+          "轮组、万向轮与减速箱模组可批次追溯，磨损问题可定位到单一供应批次。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you build a humanoid robot for us?",
+          "We supply and integrate the mechanical and electromechanical build — frames, housings, harnesses, drive and sensor modules, assembly and test. Actuator control, balance algorithms and system software remain with your specialist partners.",
+          "能做人形机器人整机吗？",
+          "我们供应并集成机械与机电部分：框架、外壳、线束、驱动与传感器模组、组装与测试。关节控制、平衡算法与系统软件仍由你的专业伙伴负责。"
+        ],
+        [
+          "Why do you insist on a pilot batch?",
+          "Because a demo unit is usually hand-built. A 500-pc pilot is where tooling variation, harness fit and docking repeatability actually appear, and it is far cheaper to fix them there than after volume tooling.",
+          "为什么坚持试产批次？",
+          "因为演示样机多为手工装配。500 件试产才会暴露开模波动、线束配合与回充复现性问题，在此修正比量产开模后便宜得多。"
+        ]
+      ]
+    },
+    "serp_title": "Service & Cleaning Robot Manufacturer China | GBA",
+    "serp_desc": "GBA robot OEM: chassis, sheet metal, injection parts, harnesses, drive & sensor modules, EOL test. 500 pcs pilot, clear scope boundary.",
+    "buyer_guide": false
+  },
+  {
+    "slug": "portable-power-station-oem",
+    "en_title": "Portable Power Station & Home Storage OEM China | Battery Pack Assembly",
+    "zh_title": "便携储能与家庭储能 OEM 中国 | 电池包组装",
+    "en_lede": "Source portable power stations, home storage and LiFePO4 battery packs from the Greater Bay Area — cell sourcing, BMS, PCBA, enclosure, thermal design and assembly.",
+    "zh_lede": "从大湾区采购便携电站、家庭储能与磷酸铁锂电池包：电芯采购、BMS、PCBA、外壳、热设计与整机组装。",
+    "en_intro": "New-energy exports from China expanded sharply through 2026, with portable power stations and small residential storage moving from optional accessories to everyday essentials in markets with unstable grids. For a buyer, the hard part is not finding a cell supplier — it is integrating cells, BMS, inverter PCBA, thermal management and a certified enclosure into a unit that ships legally as dangerous goods and performs the same in the thousandth cycle as in the first. Anchormere coordinates that integration in the Greater Bay Area: we source cells and modules to the buyer's approved list, assemble packs with the specified BMS, integrate inverter and charging PCBA, build sheet-metal or injection enclosures, and run functional and safety checks before packing. We do not manufacture cells, we do not issue UN38.3 or IEC test reports, and we do not claim certifications we have not verified; test reports and dangerous-goods documentation are coordinated with the buyer's nominated lab and freight forwarder. What we own is a traceable pack build, a consistent export document set and a single accountable coordinator for a category where paperwork is as important as the hardware.",
+    "zh_intro": "2026 年中国新能源出口显著扩张，在电网不稳的市场，便携电站与小型家庭储能从可选配件变成日常刚需。对买家而言，难点不在找到电芯供应商，而在于把电芯、BMS、逆变 PCBA、热管理与合规外壳整合成一台能作为危险品合法运输、且第千次循环表现与首次一致的设备。Anchormere 在大湾区协调这一集成：按买家认可清单采购电芯与模组，按指定 BMS 组装电池包，集成逆变与充电 PCBA，制造钣金或注塑外壳，并在装箱前完成功能与安全检查。我们不生产电芯、不出具 UN38.3 或 IEC 测试报告，也不宣称未经核实的认证；测试报告与危险品单证由买家指定的实验室与货代协同办理。我们承担的是可追溯的电池包制造、口径一致的出口单证，以及在这个「单证与硬件同等重要」的品类里提供单一责任协调方。",
+    "caps": [
+      [
+        "Cell and module sourcing to the buyer's approved vendor list",
+        "按买家认可供应商清单采购电芯与模组"
+      ],
+      [
+        "LiFePO4 / NMC pack assembly with specified BMS",
+        "按指定 BMS 组装磷酸铁锂 / 三元电池包"
+      ],
+      [
+        "Inverter, DC/DC and charging PCBA integration",
+        "逆变、DC/DC 与充电 PCBA 集成"
+      ],
+      [
+        "Sheet-metal or injection enclosure with thermal path",
+        "钣金或注塑外壳与散热路径"
+      ],
+      [
+        "Busbar, harness and connector assembly with torque records",
+        "母排、线束与连接器装配并留扭矩记录"
+      ],
+      [
+        "Cycle, capacity, protection-trip and thermal checks",
+        "循环、容量、保护触发与温升检查"
+      ],
+      [
+        "Dangerous-goods packing support and label data",
+        "危险品包装配合与标签资料"
+      ],
+      [
+        "Pilot batch from 500 pcs with pack traceability",
+        "500 件起试产批次，电池包可追溯"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per model (pilot batch)",
+        "单型号 500 件起（试产批次）"
+      ],
+      [
+        "Cell chemistry",
+        "LiFePO4 / NMC, sourced to buyer's approved list",
+        "磷酸铁锂 / 三元，按买家认可清单采购"
+      ],
+      [
+        "BMS",
+        "Buyer-specified board with protection and balancing",
+        "买家指定板，含保护与均衡"
+      ],
+      [
+        "Sample lead time",
+        "20-35 days (existing platform) / 40-60 days (new tooling)",
+        "20-35 天（现有平台）/ 40-60 天（新开模）"
+      ],
+      [
+        "EOL test",
+        "Capacity, cycle sample, over-current / over-temp trip, insulation",
+        "容量、循环抽检、过流 / 过温保护、绝缘"
+      ],
+      [
+        "Certification",
+        "Reports coordinated with buyer's nominated lab; not issued by us",
+        "报告由买家指定实验室协同；不由我方出具"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, pack traceability sheet, DG data as applicable",
+        "商业发票、装箱单、产地证、电池包追溯表、按适用性附危险品资料"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "portable power station OEM China, home energy storage manufacturer China, LiFePO4 battery pack assembly, solar inverter OEM Guangdong, power station ODM factory, battery pack supplier Greater Bay Area, 便携储能 家庭储能 OEM",
+    "related": [
+      [
+        "portable power station OEM China",
+        "便携电站 OEM 中国"
+      ],
+      [
+        "home energy storage manufacturer China",
+        "家庭储能 制造商 中国"
+      ],
+      [
+        "LiFePO4 battery pack assembly",
+        "磷酸铁锂 电池包 组装"
+      ],
+      [
+        "solar inverter OEM Guangdong",
+        "太阳能逆变器 OEM 广东"
+      ],
+      [
+        "power station ODM factory",
+        "储能电源 ODM 工厂"
+      ],
+      [
+        "battery pack supplier Greater Bay Area",
+        "电池包 供应商 大湾区"
+      ],
+      [
+        "BMS board sourcing China",
+        "BMS 板 采购 中国"
+      ],
+      [
+        "off-grid power station manufacturer",
+        "离网 储能电源 制造商"
+      ],
+      [
+        "UN38.3 test report for battery packs",
+        "电池包 UN38.3 测试报告"
+      ],
+      [
+        "dangerous goods packing lithium battery",
+        "锂电池 危险品 包装"
+      ],
+      [
+        "portable solar generator OEM",
+        "便携太阳能发电机 OEM"
+      ],
+      [
+        "battery enclosure thermal design",
+        "电池 外壳 热设计"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you manufacture the battery cells?",
+        "No. We source cells and modules to your approved vendor list and assemble the pack with the specified BMS. Cell manufacturing and cell-level certification stay with the cell maker."
+      ],
+      [
+        "Can you provide UN38.3 or IEC test reports?",
+        "We do not issue test reports or claim unverified certifications. We coordinate sample submission, pack traceability and dangerous-goods documentation with your nominated lab and forwarder."
+      ],
+      [
+        "What is the MOQ for a portable power station?",
+        "500 pcs for a pilot batch on an existing platform. A new enclosure or inverter platform needs a longer sample phase, quoted separately."
+      ],
+      [
+        "How do you keep packs consistent across a batch?",
+        "Cells are lot-traceable, busbar and connector torque is recorded, and every pack runs capacity, protection-trip and insulation checks before packing."
+      ],
+      [
+        "Can you handle the dangerous-goods shipping paperwork?",
+        "We supply pack data, labels and a consistent commercial invoice and packing list, and coordinate with your forwarder. The carrier and your DG declarant complete the formal declaration."
+      ]
+    ],
+    "cases": [
+      [
+        "EcoFlow",
+        "正浩 EcoFlow",
+        "Category reference: a leading portable-power brand illustrating the GBA power-station supply base — market context only, not a supply relationship.",
+        "品类参考：便携储能头部品牌，体现大湾区储能电源供应基础，仅作市场认知，非供应关系。"
+      ],
+      [
+        "Jackery",
+        "电小二 Jackery",
+        "Category reference: a portable-solar generator brand with broad overseas retail presence — market context only, not a supply relationship.",
+        "品类参考：海外零售覆盖较广的便携太阳能储能品牌，仅作市场认知，非供应关系。"
+      ]
+    ],
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "A battery pack is a traceability problem: capacity and safety behaviour are decided by cell lot, busbar torque and BMS calibration, none of which is visible once the enclosure is closed.",
+      "zh_intro": "电池包本质是追溯问题：容量与安全表现由电芯批次、母排扭矩与 BMS 标定决定，而外壳一封，这些都看不见了。",
+      "process": [
+        [
+          "Cell lots are recorded against each pack serial before assembly, so a capacity outlier can be traced to one incoming lot.",
+          "装配前把电芯批次与每个电池包序列号绑定，容量异常可定位到单一来料批次。"
+        ],
+        [
+          "Busbar and connector torque values are logged per unit and the BMS protection thresholds are verified on the assembled pack.",
+          "逐台记录母排与连接器扭矩，并在整包上验证 BMS 保护阈值。"
+        ],
+        [
+          "A thermal path check is run at rated load before the enclosure is sealed, since a gap shows up only under sustained output.",
+          "封壳前在额定负载下做散热路径检查；间隙只有在持续输出时才会暴露。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Nominate the cell vendor and BMS in the drawing; substituting either changes the test and certification basis.",
+          "在图纸中指定电芯供应商与 BMS；任一替换都会改变测试与认证基础。"
+        ],
+        [
+          "Confirm who obtains UN38.3, IEC and the DG declaration before the production slot, not at booking.",
+          "排产前确认 UN38.3、IEC 与危险品申报由谁办理，别等订舱时。"
+        ],
+        [
+          "Require pack-level traceability and per-unit torque and capacity records with the shipment.",
+          "要求随货提供电池包级追溯表与逐台扭矩、容量记录。"
+        ]
+      ],
+      "qc": [
+        [
+          "Every pack runs capacity, over-current / over-temperature trip and insulation checks before packing.",
+          "每台电池包装箱前做容量、过流 / 过温保护与绝缘检查。"
+        ],
+        [
+          "Cycle sampling is taken from the pilot batch and filed with the cell-lot record for later comparison.",
+          "从试产批次抽取循环样本，与电芯批次记录一并归档备查。"
+        ]
+      ],
+      "faq": [
+        [
+          "Do you issue the battery certifications?",
+          "No. We assemble and test the pack and provide traceability and documentation support; test reports and certifications are issued by the buyer's nominated lab and the cell maker. We do not claim certifications we have not verified.",
+          "电池认证由你们出具吗？",
+          "不是。我们负责电池包组装、测试与追溯及单证配合；测试报告与认证由买家指定实验室和电芯厂出具。我们不宣称未经核实的认证。"
+        ],
+        [
+          "Why do you need the cell vendor named in the drawing?",
+          "Because the cell lot and BMS define capacity, protection behaviour and the basis of the test report. A substitution invalidates that basis and can change the dangerous-goods classification data.",
+          "为什么图纸要写明电芯供应商？",
+          "因为电芯批次与 BMS 决定容量、保护行为和测试报告依据。替换会使依据失效，并可能改变危险品归类资料。"
+        ]
+      ]
+    },
+    "serp_title": "Portable Power Station & Home Storage OEM China",
+    "serp_desc": "GBA power-station OEM: cell sourcing to your AVL, BMS pack assembly, inverter PCBA, enclosure, EOL tests. 500 pcs pilot, traceable.",
+    "buyer_guide": false
+  },
+  {
+    "slug": "e-bike-manufacturer-china",
+    "en_title": "E-Bike & Electric Two-Wheeler Manufacturer China | GBA OEM & Parts",
+    "zh_title": "电动两轮车制造商中国 | 大湾区 e-bike OEM 与部件",
+    "en_lede": "Source e-bikes and electric two-wheelers from China's deepest two-wheeler cluster: frame, motor, controller, battery pack, harness and final assembly, adapted to your destination market.",
+    "zh_lede": "从中国最密集的两轮车集群采购电动自行车与电动两轮车：车架、电机、控制器、电池包、线束与整车组装，按目的市场适配。",
+    "en_intro": "Electric two-wheelers became one of China's fastest-growing export categories in 2026, with first-quarter volumes up sharply and strong demand from emerging markets seeking low-cost mobility as well as from European dealers replacing short-trip car use. For an importer the difficulty is not price, it is configuration: voltage standards, motor rating, pedal-assist rules, brake and lighting requirements, battery documentation and charger plugs all differ by destination, and a container built to the wrong spec is expensive to rework after arrival. Anchormere coordinates the physical build in the Greater Bay Area and the wider two-wheeler cluster: frame and fork, hub or mid-drive motor, controller and display, battery pack and charger, wiring harness, brakes and lighting, and final assembly and functional test. We quote against a written configuration sheet that states the destination market, voltage, motor rating and required documentation, and we adapt the build before production rather than after. We do not issue type approval, homologation or battery certifications; those are obtained by the importer with its nominated body. Our role is a consistent, traceable build with a full export document package and one accountable coordinator.",
+    "zh_intro": "2026 年电动两轮车成为中国增长最快的出口品类之一，一季度出口量大幅上升：新兴市场追求低成本出行，欧洲经销商也在用两轮车替代短途驾车。对进口商而言难点不是价格，而是配置：电压标准、电机功率、助力规则、制动与灯光要求、电池单证与充电插头，各目的市场都不同；按错误规格装柜，到港后返工代价极高。Anchormere 在大湾区及更广的两轮车集群协调物理制造：车架与前叉、轮毂或中置电机、控制器与仪表、电池包与充电器、线束、制动与灯光，以及整车组装与功能测试。我们按书面配置表报价，写明目的市场、电压、电机功率与所需单证，并在投产前完成适配，而不是到货后返工。型式认证、整车准入与电池认证由进口商联合其指定机构办理，不由我方出具。我们承担的是口径一致、可追溯的制造，配完整出口单证包与单一责任协调方。",
+    "caps": [
+      [
+        "Frame and fork sourcing: steel, aluminium, folding options",
+        "车架与前叉采购：钢、铝、折叠款可选"
+      ],
+      [
+        "Hub / mid-drive motor, controller and display integration",
+        "轮毂 / 中置电机、控制器与仪表集成"
+      ],
+      [
+        "Battery pack assembly with charger matched to destination plug",
+        "电池包组装并按目的市场插头配充电器"
+      ],
+      [
+        "Wiring harness, lighting, brake and sensor set",
+        "线束、灯光、制动与传感器套件"
+      ],
+      [
+        "Destination-specific configuration sheet signed before production",
+        "投产前签署目的市场配置表"
+      ],
+      [
+        "End-of-line test: drive, brake, lights, range sample, charge",
+        "产线末端测试：骑行、制动、灯光、续航抽检、充电"
+      ],
+      [
+        "Full export document package with pack traceability",
+        "完整出口单证包并附电池包追溯"
+      ],
+      [
+        "Pilot batch from 500 pcs with golden-sample sign-off",
+        "500 件起试产批次并签样确认"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per model (pilot batch)",
+        "单型号 500 件起（试产批次）"
+      ],
+      [
+        "Frame",
+        "Hi-ten steel / aluminium / folding, to buyer drawing",
+        "高碳钢 / 铝合金 / 折叠，按买家图纸"
+      ],
+      [
+        "Motor",
+        "Hub or mid-drive, rating set by destination rules",
+        "轮毂或中置，功率按目的市场规则设定"
+      ],
+      [
+        "Sample lead time",
+        "20-35 days (existing platform) / 40-60 days (new frame)",
+        "20-35 天（现有平台）/ 40-60 天（新车架）"
+      ],
+      [
+        "EOL test",
+        "Drive, brake, lighting, charge, sampled range",
+        "骑行、制动、灯光、充电、续航抽检"
+      ],
+      [
+        "Certification",
+        "Type approval / homologation obtained by importer; not issued by us",
+        "型式认证 / 准入由进口商办理；不由我方出具"
+      ],
+      [
+        "Documents",
+        "CI, PL, CO, battery pack traceability, configuration sheet",
+        "商业发票、装箱单、产地证、电池包追溯表、配置表"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "e-bike manufacturer China, electric two-wheeler OEM Guangdong, e-bike parts supplier Greater Bay Area, electric scooter ODM factory, e-bike battery pack supplier, electric bicycle OEM 500 MOQ, 电动自行车 制造商 中国",
+    "related": [
+      [
+        "e-bike manufacturer China",
+        "电动自行车 制造商 中国"
+      ],
+      [
+        "electric two-wheeler OEM Guangdong",
+        "电动两轮车 OEM 广东"
+      ],
+      [
+        "e-bike parts supplier Greater Bay Area",
+        "e-bike 部件 供应商 大湾区"
+      ],
+      [
+        "electric scooter ODM factory",
+        "电动滑板车 ODM 工厂"
+      ],
+      [
+        "e-bike battery pack supplier",
+        "e-bike 电池包 供应商"
+      ],
+      [
+        "hub motor manufacturer China",
+        "轮毂电机 制造商 中国"
+      ],
+      [
+        "e-bike frame and fork supplier",
+        "e-bike 车架 前叉 供应商"
+      ],
+      [
+        "pedal assist configuration by market",
+        "按市场 助力规则 配置"
+      ],
+      [
+        "electric bicycle controller and display",
+        "电动自行车 控制器 仪表"
+      ],
+      [
+        "e-bike charger plug by country",
+        "e-bike 充电插头 按国家"
+      ],
+      [
+        "electric two-wheeler export documents",
+        "电动两轮车 出口单证"
+      ],
+      [
+        "e-bike pilot run 500 pcs",
+        "e-bike 500 件 试产"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Do you handle type approval or homologation?",
+        "No. The importer obtains type approval, homologation and battery certifications with its nominated body. We build to a signed configuration sheet and supply the technical and traceability data those applications need."
+      ],
+      [
+        "What is the MOQ for an e-bike model?",
+        "500 pcs for a pilot batch on an existing frame platform. A new frame or a new motor platform needs a longer sample phase, quoted separately."
+      ],
+      [
+        "Can you adapt the bike to my market's rules?",
+        "Yes, before production. The configuration sheet states destination, voltage, motor rating, pedal-assist behaviour, lighting, brake spec and charger plug, and the build is adapted to it rather than reworked after arrival."
+      ],
+      [
+        "Which components do you integrate?",
+        "Frame and fork, hub or mid-drive motor, controller and display, battery pack and charger, harness, brakes, lighting and sensors, plus final assembly and end-of-line functional test."
+      ],
+      [
+        "How do you verify a batch before shipment?",
+        "Each unit runs drive, brake, lighting and charge checks; range is sampled from the pilot batch; battery packs are lot-traceable with the record shipped alongside the documents."
+      ]
+    ],
+    "cases": [
+      [
+        "NIU",
+        "小牛电动 NIU",
+        "Category reference: a leading electric-two-wheeler brand illustrating the China two-wheeler supply base — market context only, not a supply relationship.",
+        "品类参考：电动两轮车头部品牌，体现中国两轮车供应基础，仅作市场认知，非供应关系。"
+      ],
+      [
+        "Yadea",
+        "雅迪 Yadea",
+        "Category reference: a high-volume electric-two-wheeler maker with broad export reach — market context only, not a supply relationship.",
+        "品类参考：出口覆盖广、产量大的电动两轮车厂商，仅作市场认知，非供应关系。"
+      ]
+    ],
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "An e-bike container is usually wrong because of configuration, not workmanship: a charger plug, assist limit or lighting spec that fits one market makes the whole shipment hard to sell in another.",
+      "zh_intro": "一柜 e-bike 出问题，通常不是做工而是配置：插头、助力上限或灯光规格适配了 A 市场，整柜到 B 市场就难以销售。",
+      "process": [
+        [
+          "A configuration sheet naming destination, voltage, motor rating, assist behaviour and plug type is signed before any production slot is booked.",
+          "排产前签署配置表，写明目的市场、电压、电机功率、助力行为与插头类型。"
+        ],
+        [
+          "Battery packs, chargers and controllers are matched as a set and verified together on the assembled bike.",
+          "电池包、充电器与控制器按套匹配，并在整车上联调验证。"
+        ],
+        [
+          "End-of-line lighting, brake and charge checks are run against the destination spec, not a generic checklist.",
+          "产线末端的灯光、制动与充电检查按目的市场规格执行，而非通用清单。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the destination market and its assist, power and lighting rules at RFQ; they determine the bill of materials.",
+          "询价写明目的市场及助力、功率与灯光规则，它们决定 BOM。"
+        ],
+        [
+          "Confirm who obtains type approval and battery certification before tooling, not at booking.",
+          "开模前确认型式认证与电池认证由谁办理，别等订舱时。"
+        ],
+        [
+          "Ask for the signed configuration sheet to accompany the commercial invoice so the receiver can reconcile spec to goods.",
+          "要求签署配置表随商业发票同行，便于收货方按规格核对实物。"
+        ]
+      ],
+      "qc": [
+        [
+          "Every unit is checked for drive, brake, lighting and charging, with results filed per batch.",
+          "逐台检查骑行、制动、灯光与充电，结果按批次归档。"
+        ],
+        [
+          "Battery pack serials are matched to the bike frame number and included in the shipment traceability sheet.",
+          "电池包序列号与车架号绑定，并列入随货追溯表。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can you supply a bike that is already approved for my market?",
+          "We do not issue or claim type approval. We build to the configuration sheet you supply and provide the technical data your nominated approval body requires; the approval itself is obtained by the importer.",
+          "能提供已获我市场准入的整车吗？",
+          "型式认证不由我方出具或宣称。我们按你提供的配置表制造，并向指定认证机构提供所需技术资料；准入由进口商办理。"
+        ],
+        [
+          "Why is a configuration sheet mandatory?",
+          "Because voltage, motor rating, assist limits, lighting and charger plugs are market-specific. Without a signed sheet, a batch can be built correctly to the wrong spec and become expensive to rework after arrival.",
+          "为什么必须签配置表？",
+          "因为电压、电机功率、助力上限、灯光与充电插头都因市场而异。没有签署配置表，批次可能「按错误规格做对了」，到港后返工代价很高。"
+        ]
+      ]
+    },
+    "serp_title": "E-Bike & Electric Two-Wheeler Manufacturer China",
+    "serp_desc": "GBA e-bike OEM: frame, motor, controller, battery pack, harness, EOL test. Signed destination config, 500 pcs pilot, full export docs.",
+    "buyer_guide": false
+  },
+  {
+    "slug": "outdoor-camping-gear-oem",
+    "en_title": "Lightweight Outdoor & Camping Gear OEM China | Small-Batch Sourcing",
+    "zh_title": "轻量化户外露营装备 OEM 中国 | 小批量采购",
+    "en_lede": "Build a lightweight outdoor line from the Greater Bay Area — folding furniture, camp lighting, coolers and soft goods — with low MOQs, mixed-SKU consolidation and one export document set.",
+    "zh_lede": "从大湾区组一条轻量化户外产品线：折叠桌椅、露营灯串、保温箱与软装备，低起订量、多 SKU 拼柜、一套出口单证。",
+    "en_intro": "Lightweight, compact outdoor gear for short 'micro-getaway' trips was one of the faster-growing ecommerce categories through 2026, and it suits smaller sellers precisely because the tooling is modest and the MOQs are low. The catch is SKU sprawl: a single assortment may mix aluminium folding frames, injection-moulded lamp housings, rotomoulded or EPS coolers, sewn soft goods and small electronics, each from a different workshop. Anchormere consolidates that spread into one accountable build. We source and coordinate aluminium and steel tubing, injection and rotomoulded parts, textile and sewn components, LED lighting modules and retail packaging, then consolidate the assortment into one container with a single commercial invoice, packing list and carton manifest. We quote from 500 pcs per item with mixed-SKU consolidation allowed, which lets a new brand test several products in one shipment instead of committing to a full container of one SKU. We do not claim unverified safety or food-contact certifications; where a cooler liner, a lithium lamp or a load-bearing chair needs a test report, we coordinate with the buyer's nominated lab and keep the report with the document pack.",
+    "zh_intro": "面向短途「城市微度假」的轻量化紧凑户外装备，是 2026 年增长较快的电商品类之一；正因为开模投入不大、起订量低，它尤其适合中小卖家。难点在 SKU 分散：一个系列可能同时包含铝制折叠骨架、注塑灯壳、滚塑或 EPS 保温箱、缝制软装备与小电子件，来自不同作坊。Anchormere 把这种分散整合为单一责任制造：协调铝管与钢管、注塑与滚塑件、纺织缝制件、LED 照明模组与零售包装，再把整个系列拼成一柜，配一套商业发票、装箱单与装箱清单。我们按单品 500 件起报价并允许跨 SKU 拼柜，让新品牌能在一票货里测试多个产品，而不必为单一 SKU 压满整柜。我们不宣称未经核实的安全或食品接触认证；保温箱内胆、含锂灯具或承重椅需要测试报告时，与买家指定实验室协同并把报告随单证包留存。",
+    "caps": [
+      [
+        "Aluminium / steel tube frame and folding mechanism sourcing",
+        "铝 / 钢管骨架与折叠机构采购"
+      ],
+      [
+        "Injection-moulded and rotomoulded part coordination",
+        "注塑与滚塑件协调"
+      ],
+      [
+        "Sewn soft goods: bags, straps, covers, carry cases",
+        "缝制软装备：收纳袋、织带、罩套、提箱"
+      ],
+      [
+        "LED camp-lighting module and battery option sourcing",
+        "露营 LED 照明模组与电池方案采购"
+      ],
+      [
+        "Retail box, hangtag, barcode and bilingual insert",
+        "彩盒、吊牌、条码与双语卡片"
+      ],
+      [
+        "Load, stability, cycle and water-resistance checks",
+        "承重、稳定、折叠寿命与防水检查"
+      ],
+      [
+        "Mixed-SKU consolidation into one container",
+        "多 SKU 合并拼为一柜"
+      ],
+      [
+        "48h engineer quote with a single export document set",
+        "48 小时工程师报价，配一套出口单证"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (mixed-SKU consolidation allowed)",
+        "单品 500 件起（可跨 SKU 拼柜）"
+      ],
+      [
+        "Sample lead time",
+        "7-15 days (existing tooling) / 20-30 days (new tooling)",
+        "7-15 天（现模）/ 20-30 天（新开模）"
+      ],
+      [
+        "Frame",
+        "Aluminium / steel tube, folding hinge to buyer drawing",
+        "铝 / 钢管，折叠铰链按买家图纸"
+      ],
+      [
+        "Packaging",
+        "Retail box, mailer, hangtag, barcode, bilingual insert",
+        "彩盒、快递箱、吊牌、条码、双语卡片"
+      ],
+      [
+        "Validation",
+        "Load, stability, hinge cycle, water resistance",
+        "承重、稳定、铰链寿命、防水"
+      ],
+      [
+        "Consolidation",
+        "Multi-SKU into one container, one document set",
+        "多 SKU 一柜，一套单证"
+      ],
+      [
+        "Certification",
+        "Test reports coordinated with buyer's nominated lab; not issued by us",
+        "测试报告由买家指定实验室协同；不由我方出具"
+      ],
+      [
+        "Payment",
+        "T/T 30% deposit, 70% before shipment",
+        "T/T 30% 定金，发货前 70%"
+      ]
+    ],
+    "mother": [
+      "supply-base.html",
+      "Greater Bay Area supply base"
+    ],
+    "kw": "lightweight camping gear OEM China, outdoor equipment manufacturer Greater Bay Area, folding camping furniture OEM, portable cooler supplier China, camping lighting manufacturer, low MOQ outdoor products, 轻量化 露营装备 OEM",
+    "related": [
+      [
+        "lightweight camping gear OEM China",
+        "轻量化 露营装备 OEM 中国"
+      ],
+      [
+        "outdoor equipment manufacturer Greater Bay Area",
+        "户外装备 制造商 大湾区"
+      ],
+      [
+        "folding camping furniture OEM",
+        "折叠 露营家具 OEM"
+      ],
+      [
+        "portable cooler supplier China",
+        "便携保温箱 供应商 中国"
+      ],
+      [
+        "camping lighting manufacturer",
+        "露营 灯串 制造商"
+      ],
+      [
+        "low MOQ outdoor products",
+        "低起订量 户外产品"
+      ],
+      [
+        "aluminium folding table factory China",
+        "铝制 折叠桌 工厂 中国"
+      ],
+      [
+        "camping chair OEM 500 MOQ",
+        "露营椅 OEM 500 起订"
+      ],
+      [
+        "outdoor soft goods sewn parts",
+        "户外 软装备 缝制件"
+      ],
+      [
+        "mixed SKU consolidation outdoor gear",
+        "户外装备 多 SKU 拼柜"
+      ],
+      [
+        "camp lantern LED module sourcing",
+        "露营灯 LED 模组 采购"
+      ],
+      [
+        "outdoor retail packaging supplier",
+        "户外 零售包装 供应商"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the MOQ for a new outdoor line?",
+        "500 pcs per item, with mixed-SKU consolidation allowed. That lets you test several products in one shipment instead of committing to a full container of a single SKU."
+      ],
+      [
+        "Can you combine furniture, lighting and soft goods in one order?",
+        "Yes. We coordinate the different workshops, then consolidate the assortment into one container with a single commercial invoice, packing list and carton manifest."
+      ],
+      [
+        "Do you provide load or safety test reports?",
+        "We run load, stability, hinge-cycle and water-resistance checks in-house and file the results; formal reports are obtained with your nominated lab. We do not claim certifications we have not verified."
+      ],
+      [
+        "How long does a sample take?",
+        "7-15 days on existing tooling and 20-30 days if new tooling is needed, depending on the mix of frame, moulded and sewn parts."
+      ],
+      [
+        "Can you do retail-ready packaging?",
+        "Yes — retail box, mailer, hangtag, barcode and bilingual insert, applied before consolidation so the assortment arrives shelf-ready."
+      ]
+    ],
+    "cases": [
+      [
+        "Naturehike",
+        "挪客 Naturehike",
+        "Category reference: a lightweight-camping brand illustrating the China outdoor-gear supply base — market context only, not a supply relationship.",
+        "品类参考：轻量化露营品牌，体现中国户外装备供应基础，仅作市场认知，非供应关系。"
+      ],
+      [
+        "Snow Peak",
+        "Snow Peak",
+        "Category reference: a premium camping brand often used as a design benchmark for compact outdoor gear — market context only.",
+        "品类参考：常被当作紧凑户外装备设计标杆的高端露营品牌，仅作市场认知。"
+      ]
+    ],
+    "cluster": "industrial",
+    "expertise": {
+      "en_intro": "A lightweight outdoor assortment is a consolidation exercise: five workshops produce five very different parts, and the buyer's real risk is a container that arrives with five incompatible document sets.",
+      "zh_intro": "轻量化户外系列本质是拼柜工程：五家作坊做五种截然不同的件，买家真正的风险是一柜货到了却带着五套对不上的单证。",
+      "process": [
+        [
+          "Tube frames, moulded parts, sewn goods and lighting modules are quoted as separate line items but consolidated under one carton manifest.",
+          "管架、模压件、缝制件与照明模组分项报价，但合并到同一装箱清单。"
+        ],
+        [
+          "Retail packaging and barcodes are applied at each workshop before consolidation, so the assortment does not need re-labelling on arrival.",
+          "各作坊在拼柜前完成零售包装与条码，到货后无需重新贴标。"
+        ],
+        [
+          "Load, stability and hinge-cycle checks are run on the assembled furniture rather than on the frame alone.",
+          "承重、稳定与折叠寿命测试在整装家具上做，而非只测骨架。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the full SKU mix at RFQ; consolidation only saves money when the assortment is known up front.",
+          "询价给出完整 SKU 组合；只有提前知道系列构成，拼柜才真正省钱。"
+        ],
+        [
+          "Ask which parts need a test report (load-bearing frames, food-contact liners, lithium lamps) and nominate the lab early.",
+          "明确哪些件需测试报告（承重骨架、食品接触内胆、含锂灯具）并尽早指定实验室。"
+        ],
+        [
+          "Require one carton manifest and one invoice for the whole assortment, not one set per workshop.",
+          "要求整个系列一套装箱清单、一套发票，而不是每家作坊各一套。"
+        ]
+      ],
+      "qc": [
+        [
+          "Assembled furniture units are load- and stability-checked with hinge-cycle sampling from the pilot batch.",
+          "整装家具做承重与稳定检查，并从试产批次抽样做折叠寿命。"
+        ],
+        [
+          "Carton counts, barcodes and retail inserts are cross-checked against the consolidated manifest before sealing.",
+          "封柜前按合并装箱清单交叉核对箱数、条码与零售卡片。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can I order 500 pcs each of five different products?",
+          "Yes. Mixed-SKU consolidation is allowed at 500 pcs per item, so a new line can be tested across several products in one container with one export document set.",
+          "五个产品各订 500 件可以吗？",
+          "可以。按单品 500 件起并允许跨 SKU 拼柜，新品线可在一柜里测多个产品，配一套出口单证。"
+        ],
+        [
+          "Do you certify the load rating of a camping chair?",
+          "We run load, stability and cycle checks and provide the results, but formal certification is obtained with your nominated lab. We do not publish load claims we have not measured.",
+          "露营椅承重由你们认证吗？",
+          "我们做承重、稳定与寿命检查并提供结果，正式认证由你指定的实验室办理。未实测的承重数值我们不会对外标注。"
+        ]
+      ]
+    },
+    "serp_title": "Lightweight Outdoor & Camping Gear OEM China",
+    "serp_desc": "GBA outdoor OEM: folding frames, moulded parts, soft goods, camp lighting, retail packaging. 500 pcs/item, mixed-SKU, one doc set.",
+    "buyer_guide": false
   }
 ]

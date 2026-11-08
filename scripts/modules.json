@@ -75,7 +75,7 @@
       "build": null,
       "verify_default": true,
       "invalidates": ["longtail", "config"],
-      "note": "只影响 28 个长尾页与 sitemap，不触碰新闻与框架页。"
+      "note": "只影响 36 个长尾页与 sitemap，不触碰新闻与框架页。"
     },
     {
       "id": "data-briefings",
@@ -147,20 +147,24 @@
     },
     {
       "id": "longtail",
-      "title": "长尾关键词品类页（28 页）",
+      "title": "长尾关键词品类页（36 页）",
       "policy": "auto",
       "paths": [
-        "amazon-private-label-manufacturer.html", "china-sourcing-agent.html",
-        "custom-product-development.html", "drone-parts-manufacturer-gba.html",
+        "ai-hardware-smart-glasses-oem.html", "amazon-private-label-manufacturer.html",
+        "china-landed-cost-2026.html", "china-plus-one-sourcing.html",
+        "china-sourcing-agent.html", "custom-product-development.html",
+        "drone-parts-manufacturer-gba.html", "e-bike-manufacturer-china.html",
         "earbuds-oem-shenzhen.html", "educational-robot-manufacturer.html",
         "ev-charger-components-sourcing.html", "hardware-startup-manufacturer.html",
-        "how-to-find-manufacturer-china.html", "import-from-china-guide.html",
-        "iot-sensor-module-sourcing.html", "low-moq-oem-factory.html",
-        "metal-sheet-fabrication-dongguan.html", "odm-factory-guangdong.html",
-        "oem-manufacturer-china.html", "oem-vs-odm.html",
-        "oled-display-module-sourcing.html", "pcb-assembly-shenzhen.html",
+        "how-to-find-manufacturer-china.html", "hts-code-tariff-classification.html",
+        "import-from-china-guide.html", "iot-sensor-module-sourcing.html",
+        "low-moq-oem-factory.html", "metal-sheet-fabrication-dongguan.html",
+        "odm-factory-guangdong.html", "oem-manufacturer-china.html",
+        "oem-vs-odm.html", "oled-display-module-sourcing.html",
+        "outdoor-camping-gear-oem.html", "pcb-assembly-shenzhen.html",
         "pcba-contract-manufacturer.html", "plastic-injection-molding-shenzhen.html",
-        "private-label-manufacturer.html", "small-batch-manufacturing.html",
+        "portable-power-station-oem.html", "private-label-manufacturer.html",
+        "service-robot-manufacturer-china.html", "small-batch-manufacturing.html",
         "smart-home-module-sourcing.html", "smart-toy-manufacturer-gba.html",
         "tablet-pcba-sourcing.html", "usb-c-charger-oem.html",
         "verify-chinese-manufacturer.html", "wearable-oem-shenzhen.html"

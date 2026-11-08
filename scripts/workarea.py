@@ -101,7 +101,10 @@ def git_head():
 
 def git_changed():
     """返回工作区相对仓库根有变动的文件集合；非 git 环境返回 None（触发深扫）。"""
-    out = git("status", "--porcelain", "--untracked-files=all")
+    # core.quotePath=false：否则中文/非 ASCII 文件名会被 git 转成八进制转义并加引号，
+    # git_changed() 拿到的路径与 walk_files() 的 Unicode 路径对不上，中文文档改动
+    # 会永远显示为 CLEAN（换模型接手时会漏判）。此开关对该子命令局部生效。
+    out = git("-c", "core.quotePath=false", "status", "--porcelain", "--untracked-files=all")
     if out is None:
         return None
     if out == "":
@@ -138,8 +141,10 @@ def assign(reg):
     for m in reg["modules"]:
         cand = set()
         for p in m.get("paths", []):
-            if p in remaining:
-                cand.add(p)
+            # 显式声明的路径始终归属本模块，即使文件尚未落盘。
+            # 新增页场景下注册表先写入 slug、生成器随后创建文件；若这里要求
+            # 文件已存在，新页会被挡在 WORKAREA_FILES 之外，导致「只重建旧页」。
+            cand.add(p)
         for p in io.expand(m.get("globs", [])):
             if p in remaining:
                 cand.add(p)
@@ -257,7 +262,7 @@ def closure(reg, seeds, include_scheduled=False):
 def topo_order(affected, byid):
     """按 invalidates 做拓扑排序：上游先于下游。
 
-    典型场景：longtail -> config。必须先生成 28 个页面，再重建 sitemap，
+    典型场景：longtail -> config。必须先生成全部长尾页面，再重建 sitemap，
     否则 sitemap 的 lastmod 取到的是上一版页面。字母序会把 config 排到前面，
     因此这里必须按依赖入度排序。
     """
