@@ -135,6 +135,7 @@
 - **E-E-A-T 审核署名**：每个长尾页含可见 "Reviewed by the Anchormere sourcing desk" 与 `WebPage.lastReviewed` / `reviewedBy` 结构化数据，二者成对一致并由 `verify_seo.py` 校验。
 - **实体单一数据源**：`scripts/org_entity.json` 是全站唯一 Organization 定义（含 `contactPoint` / `telephone` / 街道级 `address` / `logo` / `knowsAbout` / `@id`）。`longtail.py`、`seo_inject.py`、`news_digest.py` 均读取该文件，**109 个页面实体 100% 一致**（含 news 页与归档页），CI 每夜重生不漂移。
 - **未编造信息**：未添加 `foundingDate` / `sameAs`（需真实注册信息与外部 URL，待用户提供后直接补入 `scripts/org_entity.json`）；公司资质不提供，站内不新增资质板块、不设占位字段，避免虚构实体信号。
+- **差异化第二轮（2026-11-09）**：新增 `scripts/longtail_depth.json` 并由 `scripts/longtail.py` 渲染，36 页各得页级专属 h2（36 个全不同）、4 条品类专属工程笔记（144 条全局唯一）、1 个 RFQ 决策场景、公开标准引用表、6 条品类术语（`DefinedTermSet`）与 1 条下单前核验动作。平均可见正文 988 → **1,240 词**，两两 Jaccard 0.437 → **0.418**、>0.70 组合 **1 → 0**，前 6 个 h2 完全相同的最多页数 **19/36 → 1/36**。严格 set 口径独有词占比 7.1% → 8.2%（分母含 NAV/FOOTER/通用 FAQ/CTA 共 292 个共享词，属转化路径，不做堆砌式刷高）。
 - **回归清理**：`seo_inject.py` 残留的 `Offer`/`offers` 电商字段已移除，防止重注入时带回 GSC 购物误归类。
 
 ---
@@ -243,3 +244,18 @@
 - **口径边界**：明确声明为行业公开案例，**不是** Anchormere 客户项目、合作或背书；「采购启示（Buyer takeaway）」为本站对公开事实的解读，不代表原来源结论。`verify_seo.py` 闸门 3f 阻断「无来源案例」与「our client / our customer」等背书措辞。
 - **覆盖**：`sourcing-case-studies.html` 枢纽页 + 36/36 个长尾页案例板块（每页按主题匹配最多 2 条），形成 41→76 条案例引用与 36 条枢纽页内链，兼顾关键词覆盖与可核验权威度。
 - **资质处理**：按用户决定，资质不提供、不预留板块或占位字段；`sameAs` 待外部 URL 到位后补入，当前不预置空值。
+
+## 15. 长尾页差异化与内容权威性（2026-11-09）
+
+**问题**：评估报告（11-06）判定「独有词占比 6.6%、93% 正文为复用骨架、GSC 平均排名 36」，存在 Google 2024 起打击的 scaled content abuse 风险；11-07 首轮加 `expertise` 后相似度已降到 0.488，但扩到 36 页后仍残留结构雷同。
+
+**策略（两件事一条链）**
+- **差异化**：按 5 类 cluster 写品类专属实质内容，而非关键词替换；页级专属 h2 打破统一骨架；术语表与标准清单提供大量专有名词。
+- **权威性（站内可自证的 E-E-A-T）**：Experience = 每个 RFQ 决策场景写具体约束冲突；Expertise = 工艺/失效/检验细节 + 公开标准适用范围；Authoritativeness = `/editorial-standards` 编辑标准页 + `WebPage.citation` / `isBasedOn` / `DefinedTermSet`；Trust = 典型值口径、非认证声明、复核署名与日期、更正渠道、不冒领公开案例。
+
+**已知边界（写进页面与闸门，不绕开）**
+- 标准名（IEC / ISO / IPC / FCC / CE / Incoterms / HS / GRI）为**编辑性引用**，供买方要求供应商提供证据；**不主张持有任何认证**，不设资质板块或占位。
+- 数字均为行业典型区间，以图纸、目标市场与书面 RFQ 确认为准；`china-landed-cost-2026` 的算例明确标注为假设数字、非报价。
+- 公开案例保留完整 `Source URL:` 明文，明确非客户项目；`3f` / `3g` 闸门阻断背书措辞与无来源案例。
+
+**制度固化**：`verify_seo.py` 新增 `3g` 全局闸门——校验深度数据源字段完整性、36 个 h2 两两不同、144 条笔记全局唯一、每页实质资产与编辑标准页内链、两两相似度 >0.70 组合为 0、编辑标准页边界声明。用**可验证的结构性不变量**而非可被堆砌刷高的百分比，确保换模型 / CI 重生都不会把模板页带回来。

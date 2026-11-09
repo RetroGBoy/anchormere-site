@@ -1,0 +1,3234 @@
+{
+  "version": 1,
+  "updated": "2026-11-09",
+  "purpose": "Per-page substantive, category-specific depth content. Single source of truth rendered by scripts/longtail.py. Each page's content is unique (no cross-page boilerplate) to remove the scaled-content pattern and to make E-E-A-T self-evidencing: engineering detail, public standard references (editorial, NOT certification claims), a buyer decision scenario, and an explicit data-provenance / typical-value disclaimer.",
+  "policy": "Standards are cited as public references for buyers to verify with their supplier; Anchormere does NOT claim to hold any certification. All numeric figures are typical industry ranges, confirmed against the buyer's drawing and target market at RFQ. No client projects, no fabricated prices, no invented credentials.",
+  "clusters": {
+    "electronics": {
+      "h2": "Bill of materials, failure modes & acceptance",
+      "zh": "物料清单、失效模式与验收口径"
+    },
+    "industrial": {
+      "h2": "Tolerances, tooling & process control",
+      "zh": "公差、模具与过程控制"
+    },
+    "toys": {
+      "h2": "Safety compliance, materials & child-use testing",
+      "zh": "安全合规、材料与儿童使用测试"
+    },
+    "capability": {
+      "h2": "Engagement models, commercial terms & risk allocation",
+      "zh": "合作模式、商务条款与风险分担"
+    },
+    "knowledge": {
+      "h2": "Definitions, calculation method & worked example",
+      "zh": "定义、计算口径与算例"
+    }
+  },
+  "pages": {
+    "earbuds-oem-shenzhen": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Driver impedance and sensitivity set the acoustic ceiling before any DSP tuning; a 10 mm dynamic driver and a balanced armature need different chamber volumes and cannot share a housing.",
+          "喇叭阻抗与灵敏度在 DSP 调音前就定下声学上限；10 mm 动圈与动铁需要不同腔体容积，不能共用外壳。"
+        ],
+        [
+          "Bluetooth SoC selection (BES, Qualcomm, Realtek) fixes ANC depth, LE Audio support and multipoint pairing; changing it after tooling forces a full RF re-qualification.",
+          "蓝牙 SoC 选型（BES / Qualcomm / Realtek）决定 ANC 深度、LE Audio 与多点连接；开模后更换需重新做射频认证。"
+        ],
+        [
+          "Pogo-pin contact resistance in the charging case is the top field-return cause; specify gold-plating thickness and a wipe-cycle target rather than accepting a generic contact spec.",
+          "充电仓 pogo-pin 接触电阻是售后退货首因；应规定镀金厚度与插拔寿命目标，而不是接受笼统的触点规格。"
+        ],
+        [
+          "Battery cell, protection PCM and charging-case firmware must be validated as one system under IEC 62133-2 and UN 38.3, with the pack-level test report matching the exact cell model in the BOM.",
+          "电芯、保护板与充电仓固件须作为一套系统按 IEC 62133-2 与 UN 38.3 验证，电池组报告中的电芯型号要与 BOM 完全一致。"
+        ]
+      ],
+      "scenario": [
+        "A buyer asks for 30 dB ANC and a 6 mm slim case in the same RFQ. Physics pushes back: the feedforward mic needs spacing from the driver, and a smaller case halves cell capacity. We normally present two BOMs at RFQ — an acoustic-first build and a runtime-first build — so the trade-off is decided before tooling, not after the first pilot run.",
+        "买家在同一份询价里要求 30 dB ANC 与 6 mm 超薄充电仓，物理上会冲突：前馈麦克风需与喇叭保持间距，仓体缩小会让电芯容量减半。我们通常在报价阶段给出两套 BOM——声学优先与续航优先——把取舍定在开模之前，而不是试产之后。"
+      ],
+      "standards": [
+        [
+          "IEC 62133-2",
+          "portable lithium cell and pack safety (product use)"
+        ],
+        [
+          "UN 38.3",
+          "lithium battery transport test summary"
+        ],
+        [
+          "Bluetooth SIG",
+          "radio qualification / declaration for the chosen SoC"
+        ],
+        [
+          "FCC Part 15 / CE RED",
+          "intentional-radiator compliance, by target market"
+        ]
+      ],
+      "checklist": [
+        "Ask the factory for the cell-level AND pack-level IEC 62133-2 report, then match the cell model printed on the sample to the report.",
+        "要求工厂同时提供电芯级与电池组级 IEC 62133-2 报告，并核对样品电芯型号与报告一致。"
+      ],
+      "h2": [
+        "Acoustic, RF and battery decisions in a TWS program",
+        "TWS 项目里的声学、射频与电池决策"
+      ],
+      "terms": [
+        [
+          "Pogo-pin",
+          "spring-loaded charging contact inside the case",
+          "Pogo-pin",
+          "充电仓内弹簧充电触点"
+        ],
+        [
+          "ANC depth",
+          "measured attenuation of ambient noise in dB",
+          "ANC 降噪深度",
+          "以 dB 计的环境噪声衰减量"
+        ],
+        [
+          "LE Audio",
+          "Bluetooth LC3-based audio standard",
+          "LE Audio",
+          "基于 LC3 的蓝牙音频标准"
+        ],
+        [
+          "Golden sample",
+          "sealed approved unit used as the reference",
+          "封样",
+          "封存并作为基准的批准样机"
+        ],
+        [
+          "Driver",
+          "electroacoustic transducer setting the sound signature",
+          "喇叭",
+          "决定音色特征的电声换能器"
+        ],
+        [
+          "SoC BOM",
+          "chipset-dependent component list",
+          "SoC 物料清单",
+          "随芯片组变化的元件清单"
+        ]
+      ]
+    },
+    "tablet-pcba-sourcing": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Panel selection (a-Si, LTPS, IGZO, OLED) drives the timing controller, backlight driver and touch IC — these are not interchangeable after the board is laid out.",
+          "面板选型（a-Si / LTPS / IGZO / OLED）决定 TCON、背光驱动与触控 IC，布板后不可互换。"
+        ],
+        [
+          "DDR and eMMC/UFS parts need a locked approved-vendor list; a silent memory substitution changes boot timing and can pass a basic power-on test yet fail in the field.",
+          "DDR 与 eMMC/UFS 需锁定认可料号清单；静默更换存储颗粒可能通过开机测试却在现场失效。"
+        ],
+        [
+          "Impedance-controlled traces for MIPI DSI and high-speed USB need a stack-up note and TDR coupon results, not just a Gerber set.",
+          "MIPI DSI 与高速 USB 的阻抗线需提供叠层说明与 TDR 阻抗条测试值，而不仅是 Gerber。"
+        ],
+        [
+          "Acceptance is normally referenced to IPC-A-610 Class 2 (or Class 3 for industrial panels); X-ray on BGA voiding and AOI on fine-pitch solder joints should be specified per lot.",
+          "验收通常引用 IPC-A-610 Class 2（工业屏可 Class 3）；BGA 空洞需 X-ray、细间距焊点需 AOI，并约定逐批执行。"
+        ]
+      ],
+      "scenario": [
+        "A buyer supplies a reference design but no AVL. We ask for the memory and display part numbers in writing before the first build, because the two most common cost-down substitutions in this category are the DRAM and the panel — and both change the firmware or the optical stack.",
+        "买家提供参考设计但无认可料号清单。我们会在首版量产前书面确认内存与面板料号，因为该品类最常见的两处降本替换正是 DRAM 与面板，两者都会牵动固件或光学叠层。"
+      ],
+      "standards": [
+        [
+          "IPC-A-610",
+          "acceptability of electronic assemblies (Class 2 / 3)"
+        ],
+        [
+          "IPC-6012 / IPC-2221",
+          "rigid PCB qualification and design"
+        ],
+        [
+          "JEDEC JESD47",
+          "stress-test-driven qualification of ICs"
+        ],
+        [
+          "RoHS / REACH",
+          "restricted substances declarations"
+        ]
+      ],
+      "checklist": [
+        "Request the impedance stack-up, an AVL with part numbers, and a first-article inspection report before releasing mass production.",
+        "量产放行前索取阻抗叠层、带料号的 AVL 与首件检验报告。"
+      ],
+      "h2": [
+        "Display interface, memory locking and PCBA acceptance",
+        "显示接口、内存锁定与 PCBA 验收"
+      ],
+      "terms": [
+        [
+          "TCON",
+          "timing controller matched to the panel",
+          "TCON",
+          "与面板配套的时序控制器"
+        ],
+        [
+          "MIPI DSI",
+          "high-speed display serial interface",
+          "MIPI DSI",
+          "高速显示串行接口"
+        ],
+        [
+          "TDR coupon",
+          "test trace verifying controlled impedance",
+          "TDR 阻抗条",
+          "验证阻抗控制的测试走线"
+        ],
+        [
+          "AVL",
+          "approved vendor list locking part numbers",
+          "AVL",
+          "锁定料号的认可供应商清单"
+        ],
+        [
+          "BGA voiding",
+          "gas pockets inside solder balls seen on X-ray",
+          "BGA 空洞",
+          "X-ray 下焊球内气孔"
+        ],
+        [
+          "Stack-up",
+          "PCB layer order and dielectric thickness",
+          "叠层",
+          "PCB 层序与介质厚度"
+        ]
+      ]
+    },
+    "wearable-oem-shenzhen": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Optical heart-rate accuracy depends on the sensor-to-skin optical stack and the wrist-band clamp pressure, so the strap material and the sensor window are qualified together.",
+          "光电心率精度取决于传感器到皮肤的光学叠层与腕带压紧力，因此表带材质与传感器视窗需联调验证。"
+        ],
+        [
+          "Water resistance claims (5 ATM, IP68) require a defined test method and a seal-aging plan; an IP68 pass on fresh samples does not survive adhesive creep after thermal cycling.",
+          "5 ATM / IP68 需明确测试方法与密封老化方案；新样通过 IP68 不代表经历冷热循环、胶材蠕变后仍成立。"
+        ],
+        [
+          "Coin-cell or Li-po packs in small enclosures leave little room for the protection circuit; verify the PCM is physically present in the teardown photo, not just on the schematic.",
+          "小型腔体内扣式或锂聚合物电池留给保护板的空间有限；应在拆机照片中确认 PCM 实物存在，而不只看原理图。"
+        ],
+        [
+          "Strap skin-contact materials fall under REACH and, for the EU, the Skin-contact REACH Annex XVII entries; request a material declaration for the band as well as the case.",
+          "表带接触皮肤材料受 REACH 及欧盟附件 XVII 相关条目约束；表带与表壳都需索取材料声明。"
+        ]
+      ],
+      "scenario": [
+        "A brand wants a metal case and a sub-8 mm stack. Metal shields the antenna, so the radio design and the ID have to converge early; we usually run a quick antenna-efficiency check on a 3D-printed housing before committing to CNC tooling.",
+        "品牌方要金属外壳且整机厚度小于 8 mm。金属会屏蔽天线，射频与 ID 必须尽早收敛；我们通常在 CNC 开模前先用 3D 打印壳做一次天线效率快测。"
+      ],
+      "standards": [
+        [
+          "IEC 60529",
+          "IP code ingress protection (test method)"
+        ],
+        [
+          "ISO 22810",
+          "water-resistant watch designation"
+        ],
+        [
+          "IEC 62133-2",
+          "rechargeable lithium pack safety"
+        ],
+        [
+          "REACH Annex XVII",
+          "skin-contact substance restrictions"
+        ]
+      ],
+      "checklist": [
+        "Ask which IP/ATM test method and which cycle-aging plan back the water-resistance claim, and get the band's material declaration.",
+        "确认防水宣称对应的测试方法与老化循环方案，并取得表带材料声明。"
+      ],
+      "h2": [
+        "Optical sensing, sealing and skin-contact materials",
+        "光学传感、密封与皮肤接触材料"
+      ],
+      "terms": [
+        [
+          "Optical stack",
+          "lens, adhesive and sensor spacing",
+          "光学叠层",
+          "透镜、胶层与传感器间距"
+        ],
+        [
+          "Clamp pressure",
+          "band force affecting PPG signal quality",
+          "压紧力",
+          "影响光电信号的腕带压力"
+        ],
+        [
+          "IP68",
+          "ingress rating requiring a stated test method",
+          "IP68",
+          "需注明测试方法的防护等级"
+        ],
+        [
+          "Adhesive creep",
+          "seal degradation after thermal cycling",
+          "胶材蠕变",
+          "冷热循环后的密封退化"
+        ],
+        [
+          "PCM",
+          "battery protection circuit module",
+          "保护板",
+          "电池保护电路模块"
+        ],
+        [
+          "Skin-contact REACH",
+          "substance limits for worn materials",
+          "皮肤接触 REACH",
+          "穿戴材料限用物质要求"
+        ]
+      ]
+    },
+    "smart-home-module-sourcing": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Mains-connected modules bring IEC 62368-1 creepage and clearance requirements into a compact PCB; a cost-reduced transformer or a narrower slot can void the safety file.",
+          "市电供电模块把 IEC 62368-1 的爬电距离与电气间隙带进紧凑 PCB；降本变压器或开槽变窄会让安规文件失效。"
+        ],
+        [
+          "Relay or triac selection sets the inrush rating for LED drivers; specify the load type, not just the resistive ampere rating, because LED drivers draw a high crest-factor current.",
+          "继电器 / 可控硅选型决定 LED 驱动的浪涌能力；应规定负载类型而非仅阻性安培数，因为 LED 驱动电流波峰因数很高。"
+        ],
+        [
+          "Matter / Thread, Zigbee or Wi-Fi firmware needs a defined OTA update path and a rollback partition before the first shipment, otherwise a field bug becomes a recall.",
+          "Matter / Thread、Zigbee 或 Wi-Fi 固件需在首批出货前定义 OTA 升级路径与回滚分区，否则现场缺陷会演变成召回。"
+        ],
+        [
+          "Radio coexistence between Wi-Fi and Zigbee/Thread on 2.4 GHz needs a coexistence test with both radios active, not a single-radio FCC scan.",
+          "2.4 GHz 上 Wi-Fi 与 Zigbee/Thread 共存需双射频同时工作的共存测试，而非单射频 FCC 扫描。"
+        ]
+      ],
+      "scenario": [
+        "A buyer specifies a 1-gang enclosure but wants a 16 A relay and Matter over Thread. The thermal budget rarely closes at that size; we normally offer a derated 10 A version plus a separate high-load DIN-rail variant rather than quietly exceeding the enclosure temperature.",
+        "买家指定 1 位面板尺寸却要求 16 A 继电器与 Matter over Thread。该尺寸下热预算通常不成立；我们一般给出降额 10 A 版本，并另配导轨式大负载型号，而不是让壳温悄悄超标。"
+      ],
+      "standards": [
+        [
+          "IEC 62368-1",
+          "safety of audio/video and ICT equipment"
+        ],
+        [
+          "IEC 60664-1",
+          "insulation coordination / creepage & clearance"
+        ],
+        [
+          "FCC Part 15 / CE RED",
+          "radio and EMC"
+        ],
+        [
+          "Matter / CSA",
+          "connectivity certification for the chosen stack"
+        ]
+      ],
+      "checklist": [
+        "Request creepage/clearance measurements on the actual PCB and a dual-radio coexistence test report.",
+        "索取实板爬电/电气间隙实测值与双射频共存测试报告。"
+      ],
+      "h2": [
+        "Mains safety, load types and radio coexistence",
+        "市电安规、负载类型与射频共存"
+      ],
+      "terms": [
+        [
+          "Creepage",
+          "surface distance between live conductors",
+          "爬电距离",
+          "带电导体间沿面距离"
+        ],
+        [
+          "Clearance",
+          "air distance between live conductors",
+          "电气间隙",
+          "带电导体间空气距离"
+        ],
+        [
+          "Crest factor",
+          "peak-to-RMS current ratio of LED drivers",
+          "波峰因数",
+          "LED 驱动峰值与有效值电流比"
+        ],
+        [
+          "OTA rollback",
+          "firmware partition allowing safe revert",
+          "OTA 回滚",
+          "允许安全回退的固件分区"
+        ],
+        [
+          "Coexistence",
+          "two radios operating without desense",
+          "共存",
+          "双射频互不劣化工作"
+        ],
+        [
+          "Triac",
+          "AC switching device for dimming or loads",
+          "可控硅",
+          "调光或负载用交流开关器件"
+        ]
+      ]
+    },
+    "usb-c-charger-oem": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "USB Power Delivery negotiation lives in the port controller firmware; a charger that passes 5 V/3 A can still fail at 20 V/5 A PPS because of cable e-marker handling and thermal derating.",
+          "USB PD 协商在端口控制器固件里；能通过 5 V/3 A 的充电器仍可能在 20 V/5 A PPS 失败，原因常是线缆 e-marker 处理与热降额。"
+        ],
+        [
+          "GaN designs shrink the transformer but raise dv/dt; the Y-capacitor, common-mode choke and PCB layout must be re-verified for conducted EMI, not carried over from a silicon reference design.",
+          "GaN 方案缩小变压器却提高 dv/dt；Y 电容、共模电感与 PCB 布局需重做传导骚扰验证，不能沿用硅方案参考设计。"
+        ],
+        [
+          "Plug-pin retention, shell temperature under full load and the IEC 62368-1 touch-temperature limits are the three checks most often skipped on a cost-down sample.",
+          "插脚保持力、满载外壳温度与 IEC 62368-1 可触及温度限值，是降本样品最常漏做的三项检查。"
+        ],
+        [
+          "Safety approvals are market-specific (UL/ETL for North America, CE/EN 62368-1 for EU, PSE for Japan, CCC for China) and must be filed under the correct brand and model.",
+          "安规认证按市场区分（北美 UL/ETL、欧盟 CE/EN 62368-1、日本 PSE、中国 CCC），且须以正确品牌与型号备案。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants one SKU for the US, EU and Japan. That is rarely one certification file; we usually quote a common PCB with three market-specific label and approval packs, so the BOM stays shared while the compliance files stay valid.",
+        "买家想用一个 SKU 覆盖美、欧、日。这 rarely 是同一套认证文件；我们通常报共用 PCB 加三套市场专属标签与安规包，让 BOM 共享而合规文件各自有效。"
+      ],
+      "standards": [
+        [
+          "IEC/EN/UL 62368-1",
+          "ICT/AV equipment safety"
+        ],
+        [
+          "USB-IF PD 3.1 / PPS",
+          "PD compliance and e-marker handling"
+        ],
+        [
+          "EN 55032 / CISPR 32",
+          "conducted & radiated emissions"
+        ],
+        [
+          "DOE Level VI / EU CoC",
+          "external power supply efficiency"
+        ]
+      ],
+      "checklist": [
+        "Ask for the PD compliance test log including PPS, a full-load thermal report and the exact model name on each safety certificate.",
+        "索取含 PPS 的 PD 合规日志、满载温升报告，并核对各安规证书上的型号名。"
+      ],
+      "h2": [
+        "PD negotiation, GaN EMI and market-specific approvals",
+        "PD 协商、GaN 骚扰与市场专属安规"
+      ],
+      "terms": [
+        [
+          "USB PD",
+          "power delivery negotiation protocol",
+          "USB PD",
+          "功率传输协商协议"
+        ],
+        [
+          "E-marker",
+          "cable chip declaring current capability",
+          "E-marker",
+          "声明载流能力的线缆芯片"
+        ],
+        [
+          "PPS",
+          "programmable power supply voltage steps",
+          "PPS",
+          "可编程电源步进电压"
+        ],
+        [
+          "GaN",
+          "wide-bandgap switch raising dv/dt",
+          "氮化镓",
+          "提高 dv/dt 的宽禁带开关"
+        ],
+        [
+          "dv/dt",
+          "voltage slew rate driving EMI",
+          "电压变化率",
+          "驱动传导骚扰的电压斜率"
+        ],
+        [
+          "Level VI",
+          "external supply efficiency regulation",
+          "Level VI",
+          "外置电源能效等级要求"
+        ]
+      ]
+    },
+    "oled-display-module-sourcing": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "OLED brightness, burn-in lifetime and the driver IC are coupled: raising peak luminance shortens usable life, so the target nits and the duty cycle belong in the RFQ, not in a later email.",
+          "OLED 亮度、烧屏寿命与驱动 IC 相互耦合：提高峰值亮度会缩短可用寿命，目标尼特与占空比应写进询价而非后续邮件。"
+        ],
+        [
+          "Module bonding (COG, COF, COP) sets the bezel width and the flex bending radius; a thinner bottom border needs a different flex and cannot be reached by trimming an existing module.",
+          "COG / COF / COP 邦定方式决定边框宽度与 FPC 弯折半径；更窄下边框需换 FPC，无法靠裁切现有模组实现。"
+        ],
+        [
+          "MIPI DSI lane count and the initialization code are supplier-specific; request the full init sequence and a confirmed driver IC part number before writing host firmware.",
+          "MIPI DSI lane 数与初始化代码因供应商而异；写主机固件前应索取完整初始化序列与确认的驱动 IC 料号。"
+        ],
+        [
+          "Polarizer, cover-glass adhesive (OCA) and the anti-reflection stack affect outdoor readability; specify the optical stack and a contrast measurement under defined ambient lux.",
+          "偏光片、OCA 光学胶与减反叠层影响户外可读性；应规定光学叠层并给出指定环境照度下的对比度实测。"
+        ]
+      ],
+      "scenario": [
+        "A wearable buyer asks for an always-on display at 1000 nits. On a small OLED that usually means an aggressive lifetime trade-off; we quote the luminance/lifetime curve at RFQ and offer a lower-nits always-on mode plus a raise-to-wake high-brightness mode.",
+        "穿戴类买家要 1000 nit 常亮。小尺寸 OLED 上这通常意味着明显牺牲寿命；我们会在报价阶段给出亮度-寿命曲线，并提供低亮度常亮 + 抬腕高亮双模式。"
+      ],
+      "standards": [
+        [
+          "IEC 62341",
+          "OLED display modules — measuring methods"
+        ],
+        [
+          "MIPI DSI",
+          "display interface specification"
+        ],
+        [
+          "RoHS / REACH",
+          "material declarations"
+        ],
+        [
+          "ISO 9241-3xx",
+          "ergonomic display measurement (context)"
+        ]
+      ],
+      "checklist": [
+        "Request the luminance-to-lifetime curve, the full init code and a contrast reading at a stated ambient lux.",
+        "索取亮度-寿命曲线、完整初始化代码与指定照度下的对比度实测。"
+      ],
+      "h2": [
+        "Luminance lifetime, bonding and the optical stack",
+        "亮度寿命、邦定方式与光学叠层"
+      ],
+      "terms": [
+        [
+          "Burn-in",
+          "permanent luminance residue from static content",
+          "烧屏",
+          "静态内容留下的永久亮度残影"
+        ],
+        [
+          "COF",
+          "chip-on-flex bonding for narrow bezels",
+          "COF",
+          "窄边框用覆晶薄膜邦定"
+        ],
+        [
+          "Init code",
+          "supplier-specific display start-up sequence",
+          "初始化代码",
+          "供应商专属的点屏序列"
+        ],
+        [
+          "OCA",
+          "optically clear adhesive in the cover stack",
+          "OCA",
+          "盖板叠层中的光学透明胶"
+        ],
+        [
+          "Nits",
+          "candela per square metre of luminance",
+          "尼特",
+          "每平方米坎德拉亮度"
+        ],
+        [
+          "Duty cycle",
+          "on-time fraction affecting lifetime",
+          "占空比",
+          "影响寿命的点亮时间比例"
+        ]
+      ]
+    },
+    "pcb-assembly-shenzhen": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "A build package needs Gerbers (RS-274X or ODB++), a centroid/PnP file, an approved BOM with manufacturer part numbers, and a tested fixture requirement — a Gerber-only enquiry cannot be quoted accurately.",
+          "生产包需 Gerber（RS-274X 或 ODB++）、坐标/PnP 文件、带原厂料号的 BOM 与测试治具要求；只有 Gerber 的询价无法准确报价。"
+        ],
+        [
+          "Solder paste type, stencil thickness and the reflow profile are a matched set; changing to a lead-free high-reliability alloy without re-profiling causes head-in-pillow defects on BGA.",
+          "锡膏类型、钢网厚度与回流曲线是配套组合；不做曲线重调就换成高可靠无铅合金，会在 BGA 上产生枕头效应。"
+        ],
+        [
+          "IPC-A-610 Class 2 versus Class 3 changes the acceptable void percentage, fillet and cleanliness criteria; state the class in the PO so both sides inspect to the same standard.",
+          "IPC-A-610 Class 2 与 Class 3 在空洞率、焊趾与清洁度判据上不同；应在采购单写明等级，双方按同一标准检验。"
+        ],
+        [
+          "ICT or flying-probe coverage should be defined by net count and by which nets are safety-critical, not by a blanket '100% test' clause that excludes boundary-scan-only nets.",
+          "ICT / 飞针覆盖率应按网络数与安全关键网络定义，而不是一句排除边界扫描网络的『100% 测试』。"
+        ]
+      ],
+      "scenario": [
+        "A buyer sends a prototype BOM with 12 'or equivalent' lines. Equivalents are where yield drifts; we return a locked AVL with lifecycle and MOQ notes before the pilot build, so the price stays stable and the firmware does not get a surprise revision.",
+        "买家的样板 BOM 有 12 行写『或同等品』。同等品正是良率漂移的来源；我们会在试产前回一份带生命周期与 MOQ 备注的锁定 AVL，让价格稳定、固件不遭遇意外改版。"
+      ],
+      "standards": [
+        [
+          "IPC-A-610",
+          "acceptability of electronic assemblies"
+        ],
+        [
+          "IPC-6012",
+          "qualification and performance of rigid PCBs"
+        ],
+        [
+          "IPC/J-STD-001",
+          "soldered electrical and electronic assemblies"
+        ],
+        [
+          "J-STD-033",
+          "handling of moisture-sensitive devices"
+        ]
+      ],
+      "checklist": [
+        "Send a complete build package and state the IPC-A-610 class plus the test coverage by net in the PO.",
+        "提供完整生产包，并在采购单写明 IPC-A-610 等级与按网络计的测试覆盖率。"
+      ],
+      "h2": [
+        "Build packages, solder profiles and test coverage",
+        "生产包、回流曲线与测试覆盖率"
+      ],
+      "terms": [
+        [
+          "Gerber RS-274X",
+          "standard layer artwork format",
+          "Gerber RS-274X",
+          "标准层图形格式"
+        ],
+        [
+          "Centroid file",
+          "pick-and-place coordinate data",
+          "坐标文件",
+          "贴片坐标数据"
+        ],
+        [
+          "Stencil",
+          "laser-cut paste aperture sheet",
+          "钢网",
+          "激光切割的锡膏开口薄片"
+        ],
+        [
+          "Head-in-pillow",
+          "BGA defect from poor reflow wetting",
+          "枕头效应",
+          "回流润湿不良的 BGA 缺陷"
+        ],
+        [
+          "Reflow profile",
+          "time-temperature curve for soldering",
+          "回流曲线",
+          "焊接用时间-温度曲线"
+        ],
+        [
+          "Flying probe",
+          "fixtureless electrical test method",
+          "飞针",
+          "无需治具的电测方法"
+        ]
+      ]
+    },
+    "iot-sensor-module-sourcing": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Sensor calibration coefficients are usually per-device or per-lot; specify whether the module ships with calibration data in EEPROM and how traceability links a serial number to the calibration record.",
+          "传感器校准系数通常逐器件或逐批次；需明确模组是否随 EEPROM 附校准数据，以及序列号如何追溯到校准记录。"
+        ],
+        [
+          "Low-power designs live or die on sleep current and the wake source; quote sleep current at the actual supply voltage and with the regulator's quiescent current included.",
+          "低功耗设计的成败在休眠电流与唤醒源；应按实际供电电压、并计入 LDO 静态电流来报休眠电流。"
+        ],
+        [
+          "LoRaWAN, NB-IoT and LTE-M certifications are region and carrier specific; a module certified for EU868 is not automatically valid for US915 or for a carrier's network.",
+          "LoRaWAN、NB-IoT 与 LTE-M 认证按区域与运营商区分；EU868 认证不自动适用于 US915 或某运营商网络。"
+        ],
+        [
+          "Enclosure ingress protection interacts with the sensing element — a sealed IP67 housing needs a vent membrane for pressure and humidity sensors or the readings drift.",
+          "外壳防护等级与传感元件互相影响：IP67 密封壳对压力/湿度传感器需加透气膜，否则读数漂移。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a 5-year coin-cell sensor. That target usually fails on radio transmit current, not on the sensor; we reframe the RFQ around reporting interval, payload size and network coverage before choosing the radio, because those three numbers determine the battery more than the MCU does.",
+        "买家要 5 年纽扣电池寿命的传感器。目标通常败在射频发射电流而非传感器；我们会先按上报间隔、载荷长度与网络覆盖重构询价，再选射频方案——这三个数比 MCU 更决定电池。"
+      ],
+      "standards": [
+        [
+          "IEC 60529",
+          "IP ingress protection"
+        ],
+        [
+          "LoRa Alliance / 3GPP",
+          "regional radio parameters and certification"
+        ],
+        [
+          "IEC 61000-4-x",
+          "EMC immunity for industrial environments"
+        ],
+        [
+          "RoHS / REACH",
+          "material declarations"
+        ]
+      ],
+      "checklist": [
+        "Request calibration traceability by serial number and a sleep-current measurement at the real supply voltage with the regulator included.",
+        "索取按序列号的校准追溯，以及含稳压器静态电流、在实际电压下的休眠电流实测。"
+      ],
+      "h2": [
+        "Calibration traceability, sleep current and regional radio",
+        "校准追溯、休眠电流与区域射频"
+      ],
+      "terms": [
+        [
+          "Sleep current",
+          "draw in low-power standby mode",
+          "休眠电流",
+          "低功耗待机电流"
+        ],
+        [
+          "Calibration coefficient",
+          "per-device correction stored in memory",
+          "校准系数",
+          "存于存储器的逐器件修正值"
+        ],
+        [
+          "Quiescent current",
+          "regulator's own no-load draw",
+          "静态电流",
+          "稳压器自身空载耗流"
+        ],
+        [
+          "Vent membrane",
+          "pressure-equalising waterproof film",
+          "透气膜",
+          "平衡压力的防水薄膜"
+        ],
+        [
+          "EU868 / US915",
+          "regional LoRa frequency plans",
+          "EU868 / US915",
+          "区域 LoRa 频段规划"
+        ],
+        [
+          "EEPROM",
+          "non-volatile memory holding device data",
+          "EEPROM",
+          "保存器件数据的非易失存储器"
+        ]
+      ]
+    },
+    "ai-hardware-smart-glasses-oem": {
+      "cluster": "electronics",
+      "notes": [
+        [
+          "Smart glasses concentrate the battery, SoC, waveguide or micro-OLED optics, cameras and microphones into a sub-60 g frame; thermal soak near the temple is the dominant comfort and reliability constraint.",
+          "智能眼镜把电池、SoC、波导或 Micro-OLED 光学、摄像头与麦克风塞进 60 g 以内的镜架；镜腿热积聚是舒适性与可靠性的首要约束。"
+        ],
+        [
+          "Camera and always-on microphone designs raise privacy-by-design requirements: a hardware mute, a visible recording indicator and a data-path description belong in the product spec, not only in the app.",
+          "摄像头与常开麦克风带来隐私设计要求：硬件静音、可见录制指示灯与数据路径说明应写进产品规格，而不只在 App 里。"
+        ],
+        [
+          "Optical alignment between the waveguide and the projector needs an active-alignment station with a defined tolerance budget; rework after bonding is generally not possible.",
+          "波导与光机需主动对准工位与明确公差预算；贴合后通常无法返工。"
+        ],
+        [
+          "Hinge, nose-pad and temple flex cycles are mechanical wear items that electrical QA does not cover; specify a flex-cycle target and a salt-spray test for skin-contact metal parts.",
+          "铰链、鼻托与镜腿弯折是电气 QA 不覆盖的机械磨损项；应规定弯折循环次数与皮肤接触金属件的盐雾测试。"
+        ]
+      ],
+      "scenario": [
+        "A buyer asks for 8-hour battery and open-ear audio in a 45 g frame. The energy budget rarely closes; we normally present a tethered-capability option or a reduced always-on feature set at RFQ, because promising both usually ends in a heavier frame at DVT.",
+        "买家要 45 g 镜架里做 8 小时续航加开放式音频。能量预算通常不成立；我们会在报价阶段给出外接供电方案或缩减常开功能，因为两者都承诺往往在 DVT 阶段变成更重的镜架。"
+      ],
+      "standards": [
+        [
+          "IEC 62133-2 / UN 38.3",
+          "lithium pack safety and transport"
+        ],
+        [
+          "IEC 62368-1",
+          "ICT/AV equipment safety"
+        ],
+        [
+          "ISO 12312-1",
+          "eyewear general requirements (context)"
+        ],
+        [
+          "GDPR / local privacy law",
+          "camera & microphone data handling"
+        ]
+      ],
+      "checklist": [
+        "Ask for the active-alignment tolerance budget, a temple-temperature report at sustained load, and a written camera/mic data-path description.",
+        "索取主动对准公差预算、持续负载下的镜腿温度报告，以及摄像头/麦克风数据路径的书面说明。"
+      ],
+      "h2": [
+        "Thermal budget, optical alignment and privacy by design",
+        "热预算、光学对准与隐私设计"
+      ],
+      "terms": [
+        [
+          "Waveguide",
+          "transparent optical combiner for the display",
+          "光波导",
+          "显示用透明光学合波器"
+        ],
+        [
+          "Active alignment",
+          "positioning optics while measuring output",
+          "主动对准",
+          "边测量边定位光学件"
+        ],
+        [
+          "Temple soak",
+          "heat build-up near the wearer's temple",
+          "镜腿热积聚",
+          "佩戴者镜腿处的热量累积"
+        ],
+        [
+          "Hardware mute",
+          "physical microphone disconnect",
+          "硬件静音",
+          "物理断开麦克风的开关"
+        ],
+        [
+          "DVT",
+          "design verification build stage",
+          "DVT",
+          "设计验证试产阶段"
+        ],
+        [
+          "Flex cycle",
+          "repeated bending endurance test",
+          "弯折循环",
+          "反复弯折耐久测试"
+        ]
+      ]
+    },
+    "plastic-injection-molding-shenzhen": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Shrinkage is resin- and direction-dependent: a semi-crystalline PA66 with 30% glass fibre shrinks differently along and across flow, so a steel-safe first tool leaves material to remove after the first trial rather than cutting the cavity to nominal.",
+          "收缩率随树脂与流向变化：30% 玻纤增强 PA66 沿流向与垂直流向收缩不同，因此首套模具做「钢料留量」，试模后再逐步修到名义尺寸。"
+        ],
+        [
+          "Draft angle, rib-to-wall ratio and gate location are decided together; ribs thicker than roughly 60% of the nominal wall sink on the cosmetic face, and a witness mark there is a tooling decision, not an operator error.",
+          "拔模角、筋位壁厚比与浇口位置需一起定；筋厚超过名义壁厚约 60% 会在外观面缩水，这类缩痕是模具决策而非操作失误。"
+        ],
+        [
+          "Tool steel choice (P20, 718H, H13, S136) follows the resin abrasiveness and the expected shot count; glass-filled or flame-retardant resins justify hardened cavities and a defined maintenance interval in cavities and slides.",
+          "模具钢（P20 / 718H / H13 / S136）按树脂磨蚀性与预期模次选；玻纤或阻燃料需要淬硬型腔，并约定型腔与滑块的保养模次。"
+        ],
+        [
+          "A proper DFM report should give wall-thickness map, weld-line locations, sink-risk areas and a proposed gate scheme before steel is cut; asking for it after T1 is what turns a 30-day tool into a 60-day one.",
+          "正式的 DFM 报告应在开钢前给出壁厚分布、熔接痕位置、缩水风险区与浇口方案；T1 之后才要，等于把 30 天模具拖成 60 天。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a textured cosmetic housing and a 0.8 mm wall to save weight. Thin walls plus texture push up injection pressure and make weld lines visible; we normally propose a local thickening around bosses and move the gate to hide the weld line in a non-cosmetic rib.",
+        "买家要皮纹外观面又想用 0.8 mm 薄壁减重。薄壁加皮纹会抬高注塑压力并让熔接痕显形；我们通常建议在螺丝柱局部加厚，并把浇口移到非外观筋位以藏住熔接痕。"
+      ],
+      "standards": [
+        [
+          "ISO 20457 / DIN 16901",
+          "dimensional tolerances and acceptance conditions for moulded parts"
+        ],
+        [
+          "ISO 527 / ISO 178",
+          "tensile and flexural property testing"
+        ],
+        [
+          "UL 94",
+          "plastics flammability rating (as required)"
+        ],
+        [
+          "ISO 9001 / IATF 16949",
+          "supplier quality system, verify scope by industry"
+        ]
+      ],
+      "checklist": [
+        "Request the DFM report and the steel certificate before T0, and agree the dimensional tolerance standard in the PO.",
+        "开钢前索取 DFM 报告与钢材证明，并在采购单约定尺寸公差标准。"
+      ],
+      "h2": [
+        "Shrinkage, draft and the DFM-before-steel rule",
+        "收缩、拔模与开钢前 DFM"
+      ],
+      "terms": [
+        [
+          "Draft angle",
+          "taper allowing part ejection",
+          "拔模角",
+          "便于脱模的斜度"
+        ],
+        [
+          "Weld line",
+          "visible seam where flow fronts meet",
+          "熔接痕",
+          "料流前沿汇合的可见接缝"
+        ],
+        [
+          "Sink mark",
+          "surface depression over thick ribs",
+          "缩痕",
+          "厚筋位上方的表面凹陷"
+        ],
+        [
+          "Steel-safe",
+          "tool left with material for later adjustment",
+          "钢料留量",
+          "模具留料以便后续修模"
+        ],
+        [
+          "DFM",
+          "design-for-manufacture review before steel",
+          "DFM",
+          "开钢前的可制造性评审"
+        ],
+        [
+          "Glass fibre",
+          "reinforcement raising abrasiveness",
+          "玻纤",
+          "提高磨蚀性的增强材料"
+        ]
+      ]
+    },
+    "metal-sheet-fabrication-dongguan": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Bend allowance and K-factor depend on the actual tool radius and material batch, not on a generic chart; a first-article flat pattern should be corrected from measured parts before a laser nest is released.",
+          "折弯补偿与 K 因子取决于实际下模 R 角与材料批次，而非通用查表；应先按实测首件修正展开图，再放行激光排版。"
+        ],
+        [
+          "Laser-cut edges on stainless and aluminium carry a heat-affected zone and a dross direction; specify which face is cosmetic and whether a deburr, tumble or passivation step is required before powder coat.",
+          "不锈钢与铝的激光切面存在热影响区与挂渣方向；需规定外观面，以及喷涂前是否要去毛刺、滚抛或钝化。"
+        ],
+        [
+          "Powder-coat adhesion on aluminium needs a proper pretreatment (chromate-free conversion or equivalent); adhesion failure months later is usually a pretreatment issue, not a powder issue.",
+          "铝件喷粉附着力依赖前处理（无铬转化膜或等效）；数月后掉粉通常是前处理问题，而非粉末问题。"
+        ],
+        [
+          "Weld distortion on thin-gauge enclosures is controlled by fixture design and weld sequence; specify flatness and hole-position tolerance on the finished weldment, not on the individual cut parts.",
+          "薄板箱体焊接变形靠治具与焊接顺序控制；应在焊后总成上规定平面度与孔位公差，而不是只规定单件下料件。"
+        ]
+      ],
+      "scenario": [
+        "A buyer sends a 3D STEP with no flat pattern and asks for a quote in 24 hours. We can quote a budget, but an accurate price needs bend radii, hardware list and finish spec; we normally return a short RFQ checklist with the budget so the number does not get revised twice.",
+        "买家只给 3D STEP、没有展开图却要 24 小时报价。我们可给预算价，但准确报价需折弯 R 角、五金件清单与表面处理规格；通常随预算回一份简短 RFQ 清单，避免价格反复改两次。"
+      ],
+      "standards": [
+        [
+          "ISO 2768 / ISO 13920",
+          "general tolerances and welded-structure tolerances"
+        ],
+        [
+          "ISO 9013",
+          "quality classes for thermal cutting"
+        ],
+        [
+          "ISO 12944 / ASTM B117",
+          "coating system and salt-spray testing"
+        ],
+        [
+          "RoHS / REACH",
+          "surface-treatment material declarations"
+        ]
+      ],
+      "checklist": [
+        "Ask for a first-article dimensional report on the finished weldment and the pretreatment spec behind the coating warranty.",
+        "索取焊后总成首件尺寸报告，以及涂层质保对应的前处理工艺说明。"
+      ],
+      "h2": [
+        "Bend allowance, cut edges and pretreatment",
+        "折弯补偿、切割面与前处理"
+      ],
+      "terms": [
+        [
+          "Bend allowance",
+          "flat length correction for a bend",
+          "折弯补偿",
+          "折弯处的展开长度修正"
+        ],
+        [
+          "K-factor",
+          "neutral-axis position in the bend",
+          "K 因子",
+          "折弯中中性层位置"
+        ],
+        [
+          "HAZ",
+          "heat-affected zone at a laser cut",
+          "热影响区",
+          "激光切边的受热影响区"
+        ],
+        [
+          "Dross",
+          "resolidified slag on the cut edge",
+          "挂渣",
+          "切边再凝固的熔渣"
+        ],
+        [
+          "Conversion coating",
+          "pretreatment for paint adhesion",
+          "转化膜",
+          "提升涂层附着力的前处理"
+        ],
+        [
+          "Flat pattern",
+          "unfolded 2D blank for cutting",
+          "展开图",
+          "用于下料的二维展开件"
+        ]
+      ]
+    },
+    "drone-parts-manufacturer-gba": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Carbon-fibre plate and CNC aluminium parts for airframes are tolerance-critical at the motor mount: a 0.1 mm flatness error at the arm root multiplies into motor-axis misalignment and measurable vibration at the flight controller.",
+          "机架碳板与 CNC 铝件在电机座处最吃公差：臂根 0.1 mm 平面度误差会放大成电机轴不对中，在飞控上表现为可测振动。"
+        ],
+        [
+          "Propeller balance, motor KV spread and ESC firmware version are a matched set; buyer-side incoming QC should log motor KV per batch rather than trusting a single datasheet value.",
+          "桨叶动平衡、电机 KV 离散与电调固件版本是配套组合；买方来料检验应逐批记录电机 KV，而不是只信一份规格书。"
+        ],
+        [
+          "LiPo or Li-ion pack wiring, XT-series connectors and the BMS current rating need a defined continuous-versus-peak discharge figure; quoting only a peak C-rating hides thermal sag under hover load.",
+          "锂电池组配线、XT 系列插头与 BMS 电流规格需区分持续与峰值放电；只报峰值 C 数会掩盖悬停负载下的压降与发热。"
+        ],
+        [
+          "Radio links and GNSS modules trigger market-specific conformity (FCC Part 15 / CE RED / SRRC in China); the transmitter module's certification ID must match the exact module soldered on the board.",
+          "射频链路与 GNSS 模块触发市场专属合规（FCC Part 15 / CE RED / 中国 SRRC）；发射模块认证编号必须与实焊模块一致。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a 30-minute endurance quad with a given payload. Endurance is dominated by all-up weight and prop diameter, so we normally ask for the payload mass and target cruise speed first, then work backwards to battery and motor KV, instead of selecting parts from a catalog list.",
+        "买家要载重某值下 30 分钟续航。续航主要由起飞全重与桨径决定；我们通常先索取载荷质量与目标巡航速度，再反推电池与电机 KV，而不是照目录选件。"
+      ],
+      "standards": [
+        [
+          "IPC-A-610",
+          "electronics assembly acceptance (flight-controller PCBA)"
+        ],
+        [
+          "UN 38.3 / IEC 62133-2",
+          "battery transport and cell safety"
+        ],
+        [
+          "FCC Part 15 / CE RED / SRRC",
+          "radio compliance, by target market"
+        ],
+        [
+          "ISO 9001 / AS9100",
+          "supplier quality system, verify by industry"
+        ]
+      ],
+      "checklist": [
+        "Request motor KV distribution per lot, a motor-mount flatness report and the exact radio module certification ID.",
+        "索取逐批电机 KV 分布、电机座平面度报告与射频模块认证编号。"
+      ],
+      "h2": [
+        "Motor-mount flatness, KV spread and pack wiring",
+        "电机座平面度、KV 离散与电池配线"
+      ],
+      "terms": [
+        [
+          "Motor KV",
+          "rpm per volt, no-load constant",
+          "电机 KV",
+          "每伏空载转速常数"
+        ],
+        [
+          "Backlash",
+          "gear play causing positioning error",
+          "回差",
+          "齿轮间隙导致的定位误差"
+        ],
+        [
+          "Prop balance",
+          "mass symmetry of the propeller",
+          "桨叶动平衡",
+          "螺旋桨质量对称性"
+        ],
+        [
+          "C-rating",
+          "discharge multiplier for the pack",
+          "C 数",
+          "电池组放电倍率"
+        ],
+        [
+          "SRRC",
+          "China radio type approval",
+          "SRRC",
+          "中国无线电型号核准"
+        ],
+        [
+          "Arm root",
+          "frame interface to the motor mount",
+          "臂根",
+          "机架与电机座连接处"
+        ]
+      ]
+    },
+    "ev-charger-components-sourcing": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "AC wallbox and DC fast-charge components live under different standards: IEC 61851 for the charging system, IEC 62196 for connectors, and DIN 70121 / ISO 15118 for communication — a control board qualified for one is not automatically valid for the others.",
+          "交流壁挂与直流快充部件适用标准不同：IEC 61851 充电系统、IEC 62196 连接器、DIN 70121 / ISO 15118 通信；按其中之一验证的控制板不自动适用于其他。"
+        ],
+        [
+          "Contactor, relay and cable ratings must be specified for continuous current at 40 °C ambient and for the prospective short-circuit current, not just a nominal 32 A / 63 A label.",
+          "接触器、继电器与线缆额定值需按 40 °C 环境温度下的持续电流及预期短路电流规定，而非只标 32 A / 63 A。"
+        ],
+        [
+          "Residual-current protection for EVSE has a specific requirement (Type A plus 6 mA DC detection or Type B per IEC 62955 / IEC 62423); substituting a general Type A RCD is a common and costly compliance gap.",
+          "EVSE 剩余电流保护有专门要求（IEC 62955 / IEC 62423 下 Type A 加 6 mA 直流检测或 Type B）；用普通 Type A 漏电保护替代是常见且代价高的合规缺口。"
+        ],
+        [
+          "Outdoor enclosures need a defined IK impact rating alongside IP, plus UV and salt-fog data for the cable and housing polymer; a UV-untested PC/ABS blend yellows and embrittles in field sunlight.",
+          "户外壳体除 IP 外需规定 IK 抗冲击等级，并索取线缆与壳体聚合物的紫外与盐雾数据；未做 UV 验证的 PC/ABS 在户外日照下会黄变脆化。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants one wallbox platform for EU and North America. Connector (Type 2 vs J1772/NACS), grid metering and RCD rules diverge; we usually quote a shared power stage with region-specific connector, metering and approval packs, so the certification file stays valid in each market.",
+        "买家想用一套壁挂平台覆盖欧美。连接器（Type 2 对 J1772/NACS）、计量与漏保规则都不同；我们通常报共用功率级加区域专属连接器、计量与安规包，让各市场认证文件各自有效。"
+      ],
+      "standards": [
+        [
+          "IEC 61851 / IEC 62196",
+          "charging system and connector interfaces"
+        ],
+        [
+          "ISO 15118 / DIN 70121",
+          "vehicle-to-charger communication"
+        ],
+        [
+          "IEC 62955 / IEC 62423",
+          "DC residual-current detection / Type B"
+        ],
+        [
+          "IEC 60529 / IEC 62262",
+          "ingress protection and impact protection ratings"
+        ]
+      ],
+      "checklist": [
+        "Ask for the RCD protection scheme, continuous-current derating at 40 °C, and the exact connector standard per target market.",
+        "索取漏保方案、40 °C 下持续电流降额曲线，以及各目标市场对应的连接器标准。"
+      ],
+      "h2": [
+        "Charging standards, RCD scheme and derating",
+        "充电标准、漏保方案与降额"
+      ],
+      "terms": [
+        [
+          "EVSE",
+          "electric vehicle supply equipment",
+          "EVSE",
+          "电动汽车供电设备"
+        ],
+        [
+          "Type B RCD",
+          "residual-current device covering DC faults",
+          "Type B 漏保",
+          "覆盖直流故障的剩余电流装置"
+        ],
+        [
+          "ISO 15118",
+          "vehicle-to-grid communication protocol",
+          "ISO 15118",
+          "车网通信协议"
+        ],
+        [
+          "Derating",
+          "current reduction at high ambient temperature",
+          "降额",
+          "高温环境下的电流下调"
+        ],
+        [
+          "IK rating",
+          "impact protection code for enclosures",
+          "IK 等级",
+          "外壳抗冲击代码"
+        ],
+        [
+          "Prospective SCC",
+          "expected fault current at the supply",
+          "预期短路电流",
+          "供电端预期故障电流"
+        ]
+      ]
+    },
+    "service-robot-manufacturer-china": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Service robots combine a drive train, LiDAR or depth cameras, a compute board and a battery in a public-space form factor; functional safety and pedestrian interaction are addressed in ISO 13482, not in a generic machinery checklist.",
+          "服务机器人把底盘驱动、激光雷达或深度相机、计算板与电池集成在公共空间形态里；功能安全与人机交互由 ISO 13482 覆盖，而非通用机械清单。"
+        ],
+        [
+          "Wheel/gearbox backlash and encoder resolution set the odometry drift; request a straight-line drift figure over a defined distance rather than a generic '±10 mm positioning accuracy' claim.",
+          "轮系/减速机回差与编码器分辨率决定里程计漂移；应索取指定距离下的直线漂移实测，而不是笼统的『±10 mm 定位精度』。"
+        ],
+        [
+          "Battery charging contacts and docking alignment are high-cycle wear items with public-space duty cycles; specify mate/unmate cycles and a contact-resistance log, since intermittent docking is the top service call.",
+          "充电触点与回桩对准是公共场景高循环磨损项；应规定插拔寿命与接触电阻记录，因为间歇性回桩失败是售后服务首因。"
+        ],
+        [
+          "LiDAR and camera data paths need a documented storage, retention and access policy; for EU deployments GDPR obligations attach to the operator, but the supplier still owes a clear data-flow description.",
+          "激光雷达与相机数据路径需有存储、留存与访问策略的书面说明；欧盟部署下 GDPR 义务在运营方，但供方仍需给出清晰的数据流说明。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants indoor delivery across two floors. That changes the requirement from mapping to elevator integration and fleet scheduling; we normally scope the robot and the site-integration package separately at RFQ, because quoting the hardware alone tends to hide the integration cost until commissioning.",
+        "买家要跨两层楼的室内配送。需求便从建图升级为梯控对接与调度系统；我们通常在报价阶段把机器人本体与现场集成包分开列，因为只报硬件往往把集成成本藏到验收阶段。"
+      ],
+      "standards": [
+        [
+          "ISO 13482",
+          "safety of personal care robots (reference for service robots)"
+        ],
+        [
+          "IEC 62133-2 / UN 38.3",
+          "battery safety and transport"
+        ],
+        [
+          "IEC 62368-1",
+          "safety of computing and electronic assemblies"
+        ],
+        [
+          "ISO 13849-1 / IEC 62061",
+          "functional safety of control systems (as required)"
+        ]
+      ],
+      "checklist": [
+        "Request an odometry drift measurement over a stated distance, docking mate-cycle data and a written sensor data-flow description.",
+        "索取指定距离下的里程漂移实测、回桩插拔寿命数据与传感器数据流书面说明。"
+      ],
+      "h2": [
+        "Odometry drift, docking cycles and data flow",
+        "里程漂移、回桩寿命与数据流"
+      ],
+      "terms": [
+        [
+          "Odometry",
+          "position estimate from wheel sensing",
+          "里程计",
+          "由轮速推算的位置估计"
+        ],
+        [
+          "Backlash",
+          "gearbox play degrading motion accuracy",
+          "回差",
+          "降低运动精度的减速机间隙"
+        ],
+        [
+          "Mate cycle",
+          "docking connect/disconnect count",
+          "插拔循环",
+          "回桩接通/断开次数"
+        ],
+        [
+          "ISO 13482",
+          "safety standard for personal care robots",
+          "ISO 13482",
+          "个人护理机器人安全标准"
+        ],
+        [
+          "LiDAR",
+          "laser ranging sensor for mapping",
+          "激光雷达",
+          "建图用激光测距传感器"
+        ],
+        [
+          "Data-flow map",
+          "documented sensor data path",
+          "数据流图",
+          "成文的传感器数据路径"
+        ]
+      ]
+    },
+    "portable-power-station-oem": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Rated watt-hour, inverter continuous/ surge wattage and the cell chemistry (LFP vs NMC) are three independent specs; a 1 kWh LFP pack with a 1000 W inverter is a different product from a 1 kWh NMC pack with a 2000 W inverter.",
+          "额定 Wh、逆变器持续/峰值功率与电芯体系（LFP 对 NMC）是三项独立规格；1 kWh LFP 配 1000 W 逆变器，与 1 kWh NMC 配 2000 W 逆变器是两种不同产品。"
+        ],
+        [
+          "Pure sine wave output, transfer behaviour under UPS mode and THD under non-linear loads should be measured, not inferred from the inverter datasheet; a resistive-load-only test hides fan-noise and thermal-derating issues.",
+          "纯正弦输出、UPS 模式切换行为与非线性负载下 THD 应实测，不能由逆变器规格书推断；只做阻性负载测试会掩盖风扇噪声与热降额问题。"
+        ],
+        [
+          "Battery packs for this category fall under IEC 62133-2 / UN 38.3 and, for the EU, Regulation (EU) 2023/1542; the pack-level test report should name the exact cell model and series/parallel configuration.",
+          "该品类电池组适用 IEC 62133-2 / UN 38.3，欧盟还涉及 (EU) 2023/1542 电池法规；电池组报告应写明电芯型号与串并联 configuration。"
+        ],
+        [
+          "AC outlet type, solar MPPT input range and the mains charger approval are region-specific; a unit certified for 230 V / 50 Hz is not a 120 V / 60 Hz SKU with a different plug.",
+          "交流插座制式、太阳能 MPPT 输入范围与市电充电器安规按区域区分；230 V / 50 Hz 认证机型不等于换个插头就是 120 V / 60 Hz SKU。"
+        ]
+      ],
+      "scenario": [
+        "A buyer quotes a target retail price and asks for '1000 W, about 1 kWh'. At that level the cell cost dominates, so we present two BOMs — LFP with longer cycle life and NMC with lower weight — and make the buyer choose the cycle-life-versus-weight trade-off explicitly at RFQ.",
+        "买家给目标零售价，只说『1000 W、1 kWh 左右』。该量级下电芯成本占主导；我们会给出两套 BOM——循环寿命更长的 LFP 与更轻的 NMC——让买方在报价阶段明确选择寿命与重量的取舍。"
+      ],
+      "standards": [
+        [
+          "IEC 62133-2 / UN 38.3",
+          "battery safety and transport"
+        ],
+        [
+          "IEC 62368-1 / UL 2743",
+          "safety of the complete portable power product"
+        ],
+        [
+          "(EU) 2023/1542",
+          "EU batteries regulation"
+        ],
+        [
+          "FCC Part 15 / CE EMC",
+          "electromagnetic compatibility"
+        ]
+      ],
+      "checklist": [
+        "Ask for the exact cell model in the pack test report, a THD reading under a non-linear load and the region-specific charger approval.",
+        "核对电池组报告中的电芯型号，索取非线性负载下 THD 实测与区域专属充电器安规。"
+      ],
+      "h2": [
+        "Wh rating, inverter THD and cell chemistry",
+        "Wh 额定、逆变器 THD 与电芯体系"
+      ],
+      "terms": [
+        [
+          "Wh rating",
+          "stored energy, voltage times amp-hours",
+          "Wh 额定",
+          "电压乘安时所得储能"
+        ],
+        [
+          "THD",
+          "harmonic distortion of the AC output",
+          "THD",
+          "交流输出谐波失真"
+        ],
+        [
+          "LFP",
+          "lithium iron phosphate cell chemistry",
+          "磷酸铁锂",
+          "磷酸铁锂电芯体系"
+        ],
+        [
+          "MPPT",
+          "maximum power point solar tracking",
+          "MPPT",
+          "太阳能最大功率点跟踪"
+        ],
+        [
+          "Surge wattage",
+          "short-duration peak inverter output",
+          "峰值功率",
+          "逆变器短时峰值输出"
+        ],
+        [
+          "Chargeable weight",
+          "billable freight weight, actual or volumetric",
+          "计费重",
+          "实重与体积重取大的计费重量"
+        ]
+      ]
+    },
+    "e-bike-manufacturer-china": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "E-bike class definitions drive the whole BOM: EU EN 15194 limits assisted speed and motor nominal power, while US three-class rules and CPSC requirements differ; a single controller firmware rarely satisfies both.",
+          "电助力车分级决定整套 BOM：欧盟 EN 15194 限定助力速度与电机额定功率，美国三级分类与 CPSC 要求不同；一套控制器固件通常难以同时满足。"
+        ],
+        [
+          "Hub motor versus mid-drive changes the frame dropout, torque-sensor placement and chain wear; a mid-drive conversion is not a motor swap but a frame and drivetrain redesign.",
+          "轮毂电机与中置电机改变车架勾爪、扭矩传感器位置与链条磨损；中置化不是换电机，而是车架与传动系统重新设计。"
+        ],
+        [
+          "Battery packs need IEC 62133-2 / UN 38.3 evidence and, for the EU, EN 50604-1 for light EV traction batteries; the charger should carry its own approval under the destination market rules.",
+          "电池组需 IEC 62133-2 / UN 38.3 证据，欧盟另涉及 EN 50604-1 轻型电动车牵引电池；充电器应按目标市场单独取得安规。"
+        ],
+        [
+          "Frame fatigue, brake performance under load and water-ingress routing for the display and connectors are validation items that a simple road test does not replace; request the test standard and cycle count behind each claim.",
+          "车架疲劳、载荷下制动性能与仪表/接插件的进水路径是路试替代不了的验证项；应索取每项宣称背后的测试标准与循环次数。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants one SKU for the EU and US at 250 W nominal. The motor label is the easy part; speed limiter behaviour, throttle legality and the required markings diverge. We normally quote a shared frame with region-specific controller firmware, label and approval packs.",
+        "买家想用一个 250 W 额定的 SKU 覆盖欧美的。电机标称只是最容易的部分；限速逻辑、转把合法性与必需标识都不同。我们通常报共用车架加区域专属控制器固件、标签与认证包。"
+      ],
+      "standards": [
+        [
+          "EN 15194 / UL 2849",
+          "EU EPAC and US e-bike electrical systems"
+        ],
+        [
+          "EN 50604-1 / IEC 62133-2",
+          "light EV and portable battery safety"
+        ],
+        [
+          "UN 38.3",
+          "lithium battery transport"
+        ],
+        [
+          "ISO 4210 / CPSC 16 CFR 1512",
+          "frame and complete-vehicle mechanical safety"
+        ]
+      ],
+      "checklist": [
+        "Confirm the target-market class, then request the controller speed-limiter behaviour description and the frame fatigue test cycle count.",
+        "先确认目标市场分级，再索取控制器限速逻辑说明与车架疲劳循环次数。"
+      ],
+      "h2": [
+        "Class definitions, drivetrain and frame fatigue",
+        "分级定义、传动系统与车架疲劳"
+      ],
+      "terms": [
+        [
+          "EPAC",
+          "electrically power-assisted cycle (EU)",
+          "EPAC",
+          "欧盟电助力自行车"
+        ],
+        [
+          "Mid-drive",
+          "crank-mounted motor driving the chain",
+          "中置电机",
+          "驱动链条的曲柄电机"
+        ],
+        [
+          "Speed limiter",
+          "controller cut-off at the class limit",
+          "限速逻辑",
+          "达到分级车速时控制器切断助力"
+        ],
+        [
+          "EN 50604-1",
+          "light EV traction battery standard",
+          "EN 50604-1",
+          "轻型电动车牵引电池标准"
+        ],
+        [
+          "Dropout",
+          "frame slot holding the wheel axle",
+          "勾爪",
+          "固定轮轴的车架槽口"
+        ],
+        [
+          "Fatigue cycle",
+          "repeated load test count for frames",
+          "疲劳循环",
+          "车架重复载荷试验次数"
+        ]
+      ]
+    },
+    "outdoor-camping-gear-oem": {
+      "cluster": "industrial",
+      "notes": [
+        [
+          "Fabric specifications need denier, weave, coating type and a hydrostatic-head figure; 'waterproof 3000 mm' without a test method (ISO 811 vs AATCC 127) and a seam-taping spec is not a comparable quote.",
+          "面料规格需写明丹尼数、织法、涂层类型与耐水压值；只写『防水 3000 mm』而不给测试方法（ISO 811 对 AATCC 127）与压胶条规格，报价无法横向比较。"
+        ],
+        [
+          "Aluminium pole alloy and temper (e.g. 7001-T6 vs 6061-T6) determine the flex recovery after a wind load; a bend-and-return test is more telling than a wall-thickness number alone.",
+          "铝杆合金与状态（如 7001-T6 对 6061-T6）决定风载后的回弹；弯折回复试验比单看壁厚更能说明问题。"
+        ],
+        [
+          "Flame resistance for tents and sleeping products is market regulated (CPAI-84 in the US, EN 5912 / ISO 5912 families in Europe); a fabric that passes one does not automatically carry the other.",
+          "帐篷与睡具阻燃按市场监管（美国 CPAI-84、欧洲 EN/ISO 5912 系列）；通过其一不自动满足另一。"
+        ],
+        [
+          "Zips, buckles and webbing are the field-failure leaders; specify cycle counts, salt-spray exposure for metal hardware and UV-aging hours for the webbing rather than approving on hand-feel.",
+          "拉链、扣具与织带是户外现场失效高发件；应规定循环次数、金属件盐雾时长与织带紫外老化小时数，而不是凭手感放行。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a 4-season tent at a 3-season price point. The gap is usually the pole alloy, the fabric coating and the number of guy-out points; we quote the two builds side by side with the weight and wind-test consequences stated, so the season rating is not just a marketing label.",
+        "买家想用三季帐的价格做四季帐。差距通常落在铝杆合金、面料涂层与风绳挂点数量；我们会把两种配置并列报价，并写明重量与风洞测试结果的差异，让『四季』不只是营销标签。"
+      ],
+      "standards": [
+        [
+          "ISO 811 / AATCC 127",
+          "fabric hydrostatic-head testing"
+        ],
+        [
+          "CPAI-84 / EN 5912",
+          "tent flame resistance"
+        ],
+        [
+          "ISO 5912",
+          "camping tent requirements"
+        ],
+        [
+          "REACH / OEKO-TEX",
+          "chemical and eco-textile requirements (as applicable)"
+        ]
+      ],
+      "checklist": [
+        "Ask for the hydrostatic-head test method, the pole alloy temper and the hardware cycle/salt-spray data.",
+        "索取耐水压测试方法、铝杆合金状态与五金循环/盐雾数据。"
+      ],
+      "h2": [
+        "Fabric specs, pole temper and hardware cycles",
+        "面料规格、铝杆状态与五金寿命"
+      ],
+      "terms": [
+        [
+          "Denier",
+          "linear mass density of the yarn",
+          "丹尼数",
+          "纱线线密度"
+        ],
+        [
+          "Hydrostatic head",
+          "water column a fabric resists",
+          "耐水压",
+          "织物可承受水柱高度"
+        ],
+        [
+          "Seam tape",
+          "sealed strip over stitched seams",
+          "压胶条",
+          "缝线上方的密封胶条"
+        ],
+        [
+          "Temper",
+          "heat-treatment state of aluminium alloy",
+          "合金状态",
+          "铝合金热处理状态"
+        ],
+        [
+          "CPAI-84",
+          "US tent flammability standard",
+          "CPAI-84",
+          "美国帐篷阻燃标准"
+        ],
+        [
+          "Guy-out",
+          "anchor point for guylines",
+          "风绳挂点",
+          "风绳固定点"
+        ]
+      ]
+    },
+    "smart-toy-manufacturer-gba": {
+      "cluster": "toys",
+      "notes": [
+        [
+          "A connected toy is both a toy and a radio device: EN 71-1/2/3 or ASTM F963 cover mechanical, flammability and chemical hazards, while FCC Part 15 / CE RED and IEC 62133-2 cover the radio and battery — the two compliance files are independent.",
+          "联网玩具同时是玩具与无线电设备：EN 71-1/2/3 或 ASTM F963 覆盖机械、阻燃与化学风险，FCC Part 15 / CE RED 与 IEC 62133-2 覆盖射频与电池——两套合规文件相互独立。"
+        ],
+        [
+          "Small-parts testing uses a defined cylinder and age grading; a detachable eye or a screw-accessible battery door changes the age grade and therefore the whole test plan.",
+          "小零件测试使用规定尺寸的量筒并关联年龄分级；可脱落的眼睛件或螺丝可开启的电池盖会改变年龄等级，从而改变整套测试方案。"
+        ],
+        [
+          "Children's Product Certificate (US CPSIA) and EU Declaration of Conformity require third-party lab reports tied to the exact material and colour masterbatch; a report for the natural resin does not cover a pigmented part.",
+          "美国 CPSIA 的 CPC 与欧盟符合性声明需要对应具体材料与色母的第三方报告；本色树脂报告不覆盖着色件。"
+        ],
+        [
+          "Voice-recording or camera features add a children's-privacy layer (COPPA in the US, GDPR-K in the EU); the data-flow description belongs in the product spec before firmware is frozen.",
+          "录音或摄像功能叠加儿童隐私要求（美国 COPPA、欧盟 GDPR-K）；数据流说明应在固件冻结前写进产品规格。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a voice-interactive plush with a removable, washable electronics pod. That design choice is good for care labelling but creates a small-parts and ingress risk at the pod opening; we normally ask for the age grade first, because it determines both the test plan and the closure design.",
+        "买家要做语音互动毛绒，电子舱可拆洗。这个设计对标洗护标识友好，却在舱口带来小零件与进液风险；我们通常先索取年龄等级，因为它同时决定测试方案与舱口结构。"
+      ],
+      "standards": [
+        [
+          "EN 71-1/2/3 / ISO 8124",
+          "EU and international toy mechanical, flammability and chemical safety"
+        ],
+        [
+          "ASTM F963 / CPSIA",
+          "US toy safety and children's product certificate"
+        ],
+        [
+          "IEC 62133-2 / UN 38.3",
+          "rechargeable battery safety and transport"
+        ],
+        [
+          "FCC Part 15 / CE RED",
+          "wireless module compliance"
+        ]
+      ],
+      "checklist": [
+        "Request the age grade, lab reports tied to actual colour masterbatches, and a written voice/camera data-flow description.",
+        "索取年龄分级、对应实际色母的实验室报告，以及语音/摄像数据流书面说明。"
+      ],
+      "h2": [
+        "Age grading, small parts and children's data",
+        "年龄分级、小零件与儿童数据"
+      ],
+      "terms": [
+        [
+          "Age grade",
+          "regulatory age bracket setting test scope",
+          "年龄分级",
+          "决定测试范围的法定年龄档"
+        ],
+        [
+          "Small-parts cylinder",
+          "gauge for choking hazards",
+          "小零件量筒",
+          "窒息风险量规"
+        ],
+        [
+          "CPC",
+          "children's product certificate (US)",
+          "CPC",
+          "美国儿童产品证书"
+        ],
+        [
+          "Masterbatch",
+          "pigment carrier affecting lab reports",
+          "色母",
+          "影响实验室报告的着色载体"
+        ],
+        [
+          "COPPA",
+          "US children's online privacy rule",
+          "COPPA",
+          "美国儿童在线隐私规则"
+        ],
+        [
+          "DoC",
+          "EU declaration of conformity",
+          "符合性声明",
+          "欧盟符合性声明"
+        ]
+      ]
+    },
+    "educational-robot-manufacturer": {
+      "cluster": "toys",
+      "notes": [
+        [
+          "Coding robots for children sit under toy safety standards even when they contain a programmable MCU; EN 71 / ASTM F963 apply alongside IEC 62368-1 for the electronics, and the age grade decides the small-parts and battery-door rules.",
+          "儿童编程机器人即使内含可编程 MCU 仍属玩具：EN 71 / ASTM F963 与电子部分的 IEC 62368-1 并行适用，年龄分级决定小零件与电池盖规则。"
+        ],
+        [
+          "Encoder resolution, gear backlash and wheel-slip calibration set how accurately a line-following or grid-navigation lesson behaves; a classroom lesson plan assumes repeatable motion, so motion tolerance belongs in the spec.",
+          "编码器分辨率、齿轮回差与轮滑标定决定循线或网格教学的可复现性；课堂教案默认动作可重复，因此运动公差应写进规格。"
+        ],
+        [
+          "Rechargeable packs need IEC 62133-2 cell/pack reports and UN 38.3 for shipping; a USB charging port on a child-facing product also needs an ingress and a short-circuit consideration that a lab will test under the toy standard.",
+          "充电电池需 IEC 62133-2 电芯/电池组报告与 UN 38.3 运输测试；儿童可见的 USB 充电口还涉及进液与短路风险，实验室会按玩具标准一并测试。"
+        ],
+        [
+          "Curriculum claims and app data handling are separate from hardware compliance; if the product stores a child's progress or voice, the operator's privacy obligations and the supplier's data-flow description should be documented at RFQ.",
+          "课程宣称与 App 数据处理独立于硬件合规；若产品存储学习进度或语音，运营方的隐私义务与供方的数据流说明应在询价阶段书面化。"
+        ]
+      ],
+      "scenario": [
+        "A school buyer wants 30 units with a one-term lesson plan. The hidden dependency is unit-to-unit motion consistency: if wheel calibration varies across the batch, the same lesson fails on some desks. We normally add a batch motion-consistency check to the outgoing QC instead of testing only one golden sample.",
+        "学校买家要 30 台并配一学期教案。隐藏依赖是台间运动一致性：若轮组标定逐台漂移，同一节课在部分课桌上会失败。我们通常在出货 QC 加一项批次运动一致性抽检，而不是只测一台金色样机。"
+      ],
+      "standards": [
+        [
+          "EN 71 / ASTM F963 / CPSIA",
+          "toy safety and children's product certificate"
+        ],
+        [
+          "IEC 62368-1 / IEC 62133-2",
+          "electronics and battery safety"
+        ],
+        [
+          "UN 38.3",
+          "lithium battery transport"
+        ],
+        [
+          "COPPA / GDPR-K",
+          "children's data and privacy (operator obligation)"
+        ]
+      ],
+      "checklist": [
+        "Ask for a batch motion-consistency report, colour-matched lab reports and a written app/voice data-flow description.",
+        "索取批次运动一致性报告、对应色母的实验室报告与 App/语音数据流书面说明。"
+      ],
+      "h2": [
+        "Motion consistency, safety files and curriculum data",
+        "运动一致性、安全文件与课程数据"
+      ],
+      "terms": [
+        [
+          "Encoder resolution",
+          "counts per wheel revolution",
+          "编码器分辨率",
+          "每轮转计数"
+        ],
+        [
+          "Grid navigation",
+          "position-based classroom lesson pattern",
+          "网格导航",
+          "基于位置的课堂教案动作"
+        ],
+        [
+          "Golden sample",
+          "reference unit for comparison",
+          "封样",
+          "用于比对的基准样机"
+        ],
+        [
+          "Age grade",
+          "test-scope-defining age bracket",
+          "年龄分级",
+          "决定测试范围的年龄档"
+        ],
+        [
+          "UN 38.3",
+          "lithium battery transport test",
+          "UN 38.3",
+          "锂电池运输测试"
+        ],
+        [
+          "Data-flow map",
+          "progress and voice data path",
+          "数据流图",
+          "学习进度与语音数据路径"
+        ]
+      ]
+    },
+    "oem-manufacturer-china": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "OEM, ODM and contract manufacturing allocate design ownership differently, and the contract should say who owns the tooling, the firmware source and any mould-derived IP before the first payment is made.",
+          "OEM、ODM 与代工对设计归属的划分不同；首笔付款前，合同就应写明模具、固件源码与模具衍生 IP 的归属。"
+        ],
+        [
+          "A purchase order that references only a part number leaves the acceptance criteria undefined; attach a signed specification sheet, an AQL sampling plan and a golden sample so a dispute has a measurable reference.",
+          "只写料号的采购单会让验收标准悬空；应附双方签署的规格书、AQL 抽样方案与封样，让争议有可测量的依据。"
+        ],
+        [
+          "Incoterms 2020 defines where risk and cost transfer, not when title passes; FOB Shenzhen and EXW Dongguan produce the same physical goods but very different responsibility for export clearance and inland haulage.",
+          "Incoterms 2020 规定风险与费用转移点，不规定所有权转移；FOB 深圳与 EXW 东莞交付的实物相同，但出口报关与内陆运输责任差别很大。"
+        ],
+        [
+          "Payment structures commonly combine a deposit with a pre-shipment balance against a defined inspection milestone; the contract should name the inspection standard and the cure period for a failed lot.",
+          "付款结构通常是订金加出货前尾款，并绑定一个明确的检验节点；合同应写明检验标准与批次不合格时的整改期限。"
+        ]
+      ],
+      "scenario": [
+        "A buyer asks 'can you make this?' and sends one photo. We can give a feasibility read, but an accurate OEM quotation needs a drawing, target quantity, destination market and packaging spec. Returning those four as a short RFQ checklist is usually faster than three rounds of revised budget prices.",
+        "买家发一张照片问『能做吗』。可给可行性初判，但准确的 OEM 报价需要图纸、目标数量、目的市场与包装规格。把四项做成简短 RFQ 清单回过去，通常比三轮改预算价更快。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "ICC rules defining the transfer of risk and cost"
+        ],
+        [
+          "ISO 2859-1 / ANSI Z1.4",
+          "attribute sampling inspection plans"
+        ],
+        [
+          "CISG",
+          "applicable law for international sales (as agreed)"
+        ],
+        [
+          "UCP 600",
+          "documentary credit practice (where an L/C is used)"
+        ]
+      ],
+      "checklist": [
+        "Put the tooling and IP ownership clause, the AQL plan and the Incoterm into the PO before paying a deposit.",
+        "付订金前把模具与 IP 归属、AQL 抽样方案、Incoterm 写进采购单。"
+      ],
+      "h2": [
+        "IP ownership, acceptance criteria and Incoterms",
+        "IP 归属、验收判据与贸易术语"
+      ],
+      "terms": [
+        [
+          "Golden sample",
+          "sealed reference for dispute resolution",
+          "封样",
+          "争议裁决用封存基准"
+        ],
+        [
+          "AQL",
+          "acceptance quality limit in sampling",
+          "AQL",
+          "抽样中的接收质量限"
+        ],
+        [
+          "Incoterms 2020",
+          "ICC rules on cost and risk transfer",
+          "Incoterms 2020",
+          "ICC 费用与风险转移规则"
+        ],
+        [
+          "Title transfer",
+          "ownership passage, distinct from risk",
+          "所有权转移",
+          "区别于风险转移的权属转移"
+        ],
+        [
+          "Cure period",
+          "time allowed to fix a failed lot",
+          "整改期限",
+          "批次不合格允许的修复时间"
+        ],
+        [
+          "Tooling IP",
+          "ownership of moulds and derived designs",
+          "模具 IP",
+          "模具及衍生设计的归属"
+        ]
+      ]
+    },
+    "odm-factory-guangdong": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "An ODM platform saves tooling and certification lead time because the base design already exists, but the buyer's differentiation is then limited to the changeable layer: housing colour, logo, firmware parameters and packaging.",
+          "ODM 平台省开模与认证周期，因为基础设计已存在；但买方差异化空间被限制在可变层：外壳颜色、logo、固件参数与包装。"
+        ],
+        [
+          "Ask which certifications belong to the ODM platform and in whose name they are filed; a platform certificate under the factory's model number may not cover a private-label SKU sold under the buyer's brand.",
+          "需问清认证属于 ODM 平台还是以谁的名义备案；以工厂型号备案的证书，未必覆盖以买方品牌销售的贴牌 SKU。"
+        ],
+        [
+          "Firmware parameter changes (radio region, language pack, default settings) can trigger re-testing even on an unchanged board; treat 'just a software change' as a change-control item with a defined re-qualification scope.",
+          "固件参数变更（射频区域、语言包、出厂设置）即使板子不变也可能触发重测；应把『只是改软件』纳入变更控制并约定重认证范围。"
+        ],
+        [
+          "Mould ownership is the recurring ODM dispute: if the buyer funds a custom housing on an ODM base, the contract should state whether that mould is exclusive, who stores it and what happens at end of programme.",
+          "模具归属是 ODM 高频争议点：若买方出资在 ODM 底座上做定制外壳，合同应写明模具是否专用、由谁保管、项目结束如何处置。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a fast launch with a unique look. A pure ODM gives speed but a shared housing; a hybrid — ODM electronics with a buyer-funded custom top cover — is usually the workable middle, provided the mould exclusivity clause is signed before tooling starts.",
+        "买家要快速上市又要独特外观。纯 ODM 快但外壳共用；折中方案是 ODM 电子部分加买方出资的定制上盖，前提是开模前签好模具专用条款。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ],
+        [
+          "ISO 9001",
+          "supplier QMS — verify scope and validity"
+        ],
+        [
+          "FCC / CE RED",
+          "verify certificate holder against the platform model"
+        ],
+        [
+          "ISO 2859-1",
+          "outgoing sampling inspection plan"
+        ]
+      ],
+      "checklist": [
+        "Request the platform certificate holder name, a written change-control scope for firmware edits, and a signed mould-ownership clause.",
+        "索取平台证书持有人名称、固件变更的重认证范围说明，以及签署的模具归属条款。"
+      ],
+      "h2": [
+        "Platform certificates, change control and mould ownership",
+        "平台证书、变更控制与模具归属"
+      ],
+      "terms": [
+        [
+          "Platform",
+          "pre-existing base design",
+          "平台",
+          "既有基础设计"
+        ],
+        [
+          "Changeable layer",
+          "customisable colour, logo, firmware, pack",
+          "可变层",
+          "可定制的颜色、标识、固件与包装"
+        ],
+        [
+          "Change control",
+          "documented scope of any later edit",
+          "变更控制",
+          "后续修改范围的书面约定"
+        ],
+        [
+          "Mould exclusivity",
+          "right to sole use of a funded tool",
+          "模具专用权",
+          "出资模具的独占使用权"
+        ],
+        [
+          "Certificate holder",
+          "entity named on the approval file",
+          "证书持有人",
+          "认证文件上的主体"
+        ],
+        [
+          "Re-qualification",
+          "re-testing after a firmware change",
+          "重新认证",
+          "固件变更后的重测"
+        ]
+      ]
+    },
+    "low-moq-oem-factory": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "Low MOQ is an economic structure, not a favour: it is viable when the programme shares a material, a colour masterbatch or an existing tooling family, and expensive when it needs a dedicated set-up for every SKU.",
+          "低 MOQ 是一种经济结构而非人情：当项目能共用材料、色母或既有模具族时可行；若每个 SKU 都要专属调机，成本会明显上升。"
+        ],
+        [
+          "Set-up costs (mould changeover, screen printing screens, test fixture, first-article inspection) are largely fixed per run, which is why a 300-piece order carries a higher unit cost than a 3,000-piece order of the same part.",
+          "换模、丝印网版、测试治具与首件检验等调机成本按批次基本固定，因此同一零件 300 件的单件成本高于 3,000 件。"
+        ],
+        [
+          "Consolidating several SKUs into one production window and one shipment is the standard way to make small quantities economical; it requires the buyer to accept a shared colour or a common packaging spec.",
+          "把多个 SKU 并到同一生产窗口与同一票货，是让小批量经济的常规做法；前提是买方接受共用颜色或统一包装规格。"
+        ],
+        [
+          "A pilot run should be priced and scheduled as a distinct deliverable with its own inspection report, rather than described as 'mass production but smaller' — the two have different yield and documentation expectations.",
+          "试产应作为独立交付报价与排期并单独出检验报告，而不是称作『小一点的量产』；两者的良率与文件要求不同。"
+        ]
+      ],
+      "scenario": [
+        "A hardware startup needs 200 units across three colours. Three separate colour runs multiply the set-up; we normally propose one neutral housing colour with three interchangeable accent parts, which keeps the MOQ per variant low without tripling changeovers.",
+        "硬件初创要三色各 200 台。三次独立配色会成倍增加调机；我们通常建议一种中性主体色配三种可换饰件，让每个变体 MOQ 保持低量而不三倍换线。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ],
+        [
+          "ISO 2859-1",
+          "low-volume sampling plan and AQL"
+        ],
+        [
+          "ISO 9001",
+          "supplier quality system verification"
+        ],
+        [
+          "ISO 10012",
+          "measuring equipment calibration (as required)"
+        ]
+      ],
+      "checklist": [
+        "Ask which set-up costs are fixed per run, then group SKUs into one production window before comparing unit prices.",
+        "先问清哪些调机成本按批次固定，再把 SKU 并到同一生产窗口后比较单价。"
+      ],
+      "h2": [
+        "Set-up amortisation, material minimums and pilot lots",
+        "调机摊销、材料起订与试产批"
+      ],
+      "terms": [
+        [
+          "Set-up cost",
+          "fixed per-run changeover expense",
+          "调机成本",
+          "按批次固定的换线费用"
+        ],
+        [
+          "Material minimum",
+          "supplier's smallest sellable lot",
+          "材料起订量",
+          "供方最小可售批量"
+        ],
+        [
+          "Masterbatch",
+          "colour concentrate with a lot minimum",
+          "色母",
+          "有批量下限的色母"
+        ],
+        [
+          "Consolidation",
+          "grouping SKUs into one run",
+          "并单",
+          "把多个 SKU 并入一批"
+        ],
+        [
+          "Pilot run",
+          "distinct low-volume validation lot",
+          "试产批",
+          "独立的小批量验证批"
+        ],
+        [
+          "Amortisation",
+          "spreading fixed cost over unit count",
+          "摊销",
+          "把固定成本分摊到件数"
+        ]
+      ]
+    },
+    "private-label-manufacturer": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "Private label means the buyer owns the brand and the market-facing claims; the supplier owns the production process, so the artwork, regulatory labelling and trademark clearance sit on the buyer side of the split.",
+          "贴牌意味着买方拥有品牌与面向市场的宣称，供方拥有生产过程；因此包装美术、法规标签与商标清关落在买方一侧。"
+        ],
+        [
+          "Logo application method (laser marking, pad printing, silk screen, embossed tooling) has very different reworkability and durability; laser-marked logos on metal or moulded housings cannot be corrected after the run.",
+          "Logo 工艺（镭雕、移印、丝印、模具蚀纹）在可返工性与耐久度上差异很大；金属或注塑壳上的镭雕 logo 量产后不可更正。"
+        ],
+        [
+          "Retail packaging must carry the destination-market markings (CE/UKCA, FCC ID, WEEE, recycling and country-of-origin rules); a factory-approved carton artwork is not a substitute for a compliance review of the labels.",
+          "零售包装需承载目的市场标识（CE/UKCA、FCC ID、WEEE、回收与原产地规则）；工厂确认的箱唛美术不能替代标签合规审核。"
+        ],
+        [
+          "A trademark clearance and an artwork approval sheet signed before the first print run prevent the most expensive private-label failure: a container of correctly made goods with the wrong mark on the box.",
+          "首版印刷前完成商标清关并签署美术确认单，可避免贴牌最贵的事故：一整柜产品做得没问题，箱上标识却错了。"
+        ]
+      ],
+      "scenario": [
+        "A brand wants its own packaging but asks the factory to 'handle the labels'. That transfers a legal judgement to a production team; we normally split the job — factory supplies the artwork dieline and the buyer's compliance reviewer signs off the markings — so each side owns what it is qualified to own.",
+        "品牌方要自有包装，却让工厂『把标签处理一下』。这把法律判断转给了生产团队；我们通常拆分职责——工厂提供刀版，买方合规审核人签核标识——让各方承担自己有资质承担的部分。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ],
+        [
+          "ISO 2859-1",
+          "outgoing sampling inspection"
+        ],
+        [
+          "FCC / CE / UKCA marking rules",
+          "verify markings by destination market"
+        ],
+        [
+          "WEEE / packaging regulations",
+          "producer responsibility (by market)"
+        ]
+      ],
+      "checklist": [
+        "Sign a logo-method approval sheet and have the destination-market label set reviewed before the first print run.",
+        "签署 logo 工艺确认单，并在首版印刷前完成目的市场标识审核。"
+      ],
+      "h2": [
+        "Brand claims, logo methods and market markings",
+        "品牌宣称、Logo 工艺与市场标识"
+      ],
+      "terms": [
+        [
+          "FNSKU",
+          "marketplace unit identifier label",
+          "FNSKU",
+          "平台单品标识标签"
+        ],
+        [
+          "Dieline",
+          "artwork cutting template",
+          "刀版",
+          "印刷裁切模板"
+        ],
+        [
+          "Pad printing",
+          "ink transfer for curved surfaces",
+          "移印",
+          "曲面油墨转移工艺"
+        ],
+        [
+          "Laser marking",
+          "non-reworkable permanent logo",
+          "镭雕",
+          "不可返工的永久标识"
+        ],
+        [
+          "Trademark clearance",
+          "right-to-use check before printing",
+          "商标清关",
+          "印刷前的使用权核查"
+        ],
+        [
+          "Country of origin",
+          "marking required by destination rules",
+          "原产地标识",
+          "目的市场要求的产地标记"
+        ]
+      ]
+    },
+    "pcba-contract-manufacturer": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "Turnkey, consigned and hybrid sourcing differ in who owns component liability; in a consigned build the buyer carries the shortage and counterfeit risk for the parts it supplies.",
+          "Turnkey、客供料与混合模式在元器件责任归属上不同；客供料模式下，买方承担自供料的缺料与假冒料风险。"
+        ],
+        [
+          "Component lifecycle status (active, NRND, last-time-buy) should be checked at quotation, not at the purchase order; a part that goes NRND between quote and build is the classic source of an unplanned redesign.",
+          "元器件生命周期（量产、不建议新设计、最后采购）应在报价阶段核对，而非下单时；报价到生产之间转为 NRND 的料号，是计划外改版的典型来源。"
+        ],
+        [
+          "Counterfeit avoidance is a documented process: authorised distribution, incoming visual/D-CAP inspection where warranted, and lot traceability linking each reel to a purchase record.",
+          "防伪是成文流程：授权渠道采购、必要时来料外观/开盖检查，以及把每盘料号关联到采购记录的批次追溯。"
+        ],
+        [
+          "Test strategy should be priced explicitly — ICT fixture, flying probe, functional test rig, burn-in — because '100% tested' without a defined coverage figure is not a comparable line item.",
+          "测试策略应单独报价——ICT 治具、飞针、功能测试架、老化——因为没有覆盖率定义的『100% 测试』不是可比报价项。"
+        ]
+      ],
+      "scenario": [
+        "A buyer's BOM has three single-source ICs with 20-week lead times. We normally flag those at RFQ and propose an approved alternative with a firmware-qualified second source, because a 20-week part discovered after PO has already set the ship date.",
+        "买家 BOM 里三颗单源 IC 交期 20 周。我们通常在报价阶段标红，并建议带固件验证的第二来源；因为下单后才发现 20 周交期，货期其实已被定死。"
+      ],
+      "standards": [
+        [
+          "IPC-A-610 / J-STD-001",
+          "assembly acceptance and soldering"
+        ],
+        [
+          "J-STD-033",
+          "handling of moisture-sensitive devices"
+        ],
+        [
+          "JEDEC JESD47 / J-STD-020",
+          "component reliability and reflow sensitivity level"
+        ],
+        [
+          "ISO 9001 / IATF 16949",
+          "supplier quality system (industry dependent)"
+        ]
+      ],
+      "checklist": [
+        "Request component lifecycle status at quote, an authorised-channel statement and a test-coverage figure by net.",
+        "报价阶段索取料号生命周期状态、授权渠道声明与按网络计的测试覆盖率。"
+      ],
+      "h2": [
+        "Sourcing models, lifecycle status and test strategy",
+        "备料模式、生命周期与测试策略"
+      ],
+      "terms": [
+        [
+          "Turnkey",
+          "supplier buys all components",
+          "Turnkey",
+          "供方全包备料"
+        ],
+        [
+          "Consigned",
+          "buyer supplies part of the BOM",
+          "客供料",
+          "买方提供部分 BOM"
+        ],
+        [
+          "NRND",
+          "not recommended for new designs",
+          "NRND",
+          "不建议用于新设计"
+        ],
+        [
+          "Last-time buy",
+          "final order window before obsolescence",
+          "最后采购",
+          "停产前的最后下单窗口"
+        ],
+        [
+          "AVL",
+          "locked approved component list",
+          "AVL",
+          "锁定的认可料号清单"
+        ],
+        [
+          "Test coverage",
+          "share of nets actually checked",
+          "测试覆盖率",
+          "实际受检网络占比"
+        ]
+      ]
+    },
+    "custom-product-development": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "A development programme needs a stage-gate structure — concept, EVT, DVT, PVT — with a defined deliverable and exit criterion for each; skipping DVT is what moves a design flaw into a tooling change.",
+          "开发项目需要阶段门（概念、EVT、DVT、PVT），每阶段有明确交付物与退出判据；跳过 DVT 往往把设计缺陷推到改模阶段。"
+        ],
+        [
+          "NRE, tooling and unit price are three separate commercial lines; a quote that folds tooling into unit price hides the buyer's exposure if the programme stops after DVT.",
+          "NRE、模具与单价是三条独立的商务线；把模具摊进单价，会掩盖项目在 DVT 后中止时买方的实际敞口。"
+        ],
+        [
+          "Design-for-manufacture and design-for-test reviews should happen before steel is cut; a board with no test points or a housing with no draft angle becomes a recurring cost on every unit.",
+          "DFM 与 DFT 评审应在开钢前完成；没有测试点的板子、没有拔模角的外壳，会让每台产品长期背负成本。"
+        ],
+        [
+          "IP terms should cover background IP brought by each side, foreground IP created in the programme, and the right to use a sub-supplier's design; 'we design it for you' does not settle ownership.",
+          "IP 条款应覆盖双方带入的背景 IP、项目中产生的前景 IP，以及使用次级供应商设计的权利；『我们替你设计』并不等于归属已定。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants a product from a sketch with a fixed launch date. The honest answer is a schedule with two parallel paths — a long-lead tooling path and a short-lead prototype path — so a DVT finding does not push the launch by a full tool lead time.",
+        "买家凭草图要固定上市日。诚实的答案是双路径排期：长周期开模路径与短周期手板路径并行，让 DVT 阶段的发现不至于把上市日整体推后一个模具周期。"
+      ],
+      "standards": [
+        [
+          "ISO 9001 / ISO 13485",
+          "quality system (verify by industry)"
+        ],
+        [
+          "IEC 62368-1 / EN 71",
+          "product-category safety standards"
+        ],
+        [
+          "ISO 2859-1",
+          "pilot and mass-production sampling"
+        ],
+        [
+          "Incoterms 2020",
+          "mass-production delivery trade terms"
+        ]
+      ],
+      "checklist": [
+        "Agree the stage-gate deliverables, keep NRE/tooling/unit price as separate lines, and sign the background-versus-foreground IP clause before kickoff.",
+        "约定阶段门交付物，NRE/模具/单价分列，并在启动前签署背景与前景 IP 条款。"
+      ],
+      "h2": [
+        "Stage gates, NRE split and IP boundaries",
+        "阶段门、NRE 拆分与 IP 边界"
+      ],
+      "terms": [
+        [
+          "EVT",
+          "engineering validation build",
+          "EVT",
+          "工程验证试产"
+        ],
+        [
+          "DVT",
+          "design validation build",
+          "DVT",
+          "设计验证试产"
+        ],
+        [
+          "PVT",
+          "production validation build",
+          "PVT",
+          "生产验证试产"
+        ],
+        [
+          "NRE",
+          "one-time non-recurring engineering cost",
+          "NRE",
+          "一次性工程费用"
+        ],
+        [
+          "Background IP",
+          "pre-existing IP each side brings",
+          "背景 IP",
+          "各方带入的既有 IP"
+        ],
+        [
+          "Foreground IP",
+          "IP created during the programme",
+          "前景 IP",
+          "项目中新产生的 IP"
+        ]
+      ]
+    },
+    "small-batch-manufacturing": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "Small-batch economics are dominated by set-up amortisation and material minimums: a resin sold in 25 kg bags or a fabric with a 300 m dye-lot minimum sets a floor that has nothing to do with the part count.",
+          "小批量经济由调机摊销与材料起订量主导：25 kg 袋装树脂、300 m 起染色织带定的下限，与件数无关。"
+        ],
+        [
+          "Rapid processes (CNC from billet, 3D printing, soft tooling, laser-cut sheet) trade unit cost for lead time; the break-even quantity should be stated so the buyer knows when to move to hard tooling.",
+          "CNC 切削、3D 打印、软模、激光切割等快速工艺用单件成本换交期；应写明转硬模的盈亏平衡数量，让买方知道何时该切换。"
+        ],
+        [
+          "Traceability matters more, not less, at low volume: with few units a single deviation is a large fraction of the lot, so each unit should carry a serial-linked inspection record.",
+          "小批量下追溯反而更重要：台数少时单件偏差占整批比例很高，因此每台都应有序列号关联的检验记录。"
+        ],
+        [
+          "A pilot lot and a production lot should not be quoted from the same yield assumption; first-article scrap, learning-curve time and engineering change orders belong in the pilot price.",
+          "试产批与量产批不应套用同一良率假设；首件报废、学习曲线工时与工程变更应计入试产报价。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants 50 assembled units now and 5,000 later. Quoting both on one hard-tool BOM overcharges the 50 and under-specifies the 5,000; we normally define a bridge plan — soft-tooled pilot, then hard tooling with a documented changeover point.",
+        "买家现在要 50 台、日后 5,000 台。用同一套硬模 BOM 报两批，会让 50 台过贵、5,000 台欠规格；我们通常给桥接方案——软模试产，再在明确切换点转硬模。"
+      ],
+      "standards": [
+        [
+          "ISO 2768",
+          "general tolerances for untoleranced dimensions"
+        ],
+        [
+          "ISO 2859-1 / 100% inspection",
+          "sampling or 100% inspection, by lot size"
+        ],
+        [
+          "ISO 9001",
+          "supplier quality system"
+        ],
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ]
+      ],
+      "checklist": [
+        "Ask which material minimums set the floor and at what quantity hard tooling becomes cheaper.",
+        "问清哪些材料起订量构成下限，以及硬模在什么数量上开始更划算。"
+      ],
+      "h2": [
+        "Break-even tooling, traceability and pilot yield",
+        "硬模盈亏平衡、追溯与试产良率"
+      ],
+      "terms": [
+        [
+          "Soft tooling",
+          "low-cost short-life mould",
+          "软模",
+          "低成本短寿命模具"
+        ],
+        [
+          "Break-even quantity",
+          "volume justifying hard tooling",
+          "盈亏平衡数量",
+          "值得开硬模的数量"
+        ],
+        [
+          "Dye lot",
+          "minimum fabric colour batch",
+          "染色批",
+          "面料最小起染批量"
+        ],
+        [
+          "Learning curve",
+          "yield improvement over early units",
+          "学习曲线",
+          "早期台数带来的良率提升"
+        ],
+        [
+          "FAIR",
+          "first article inspection report",
+          "首件检验报告",
+          "首件尺寸与符合性报告"
+        ],
+        [
+          "ECO",
+          "engineering change order",
+          "工程变更单",
+          "正式的工程变更指令"
+        ]
+      ]
+    },
+    "amazon-private-label-manufacturer": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "Marketplace readiness is a documentation problem as much as a manufacturing one: FNSKU labelling, carton weight limits, polybag suffocation warnings and a shipment plan all need to be correct before the carton is sealed.",
+          "平台就绪既是生产问题也是文件问题：FNSKU 标签、箱重限制、胶袋窒息警示与货件计划都要在封箱前正确。"
+        ],
+        [
+          "Product compliance for the destination marketplace (CPC for children's products, FCC ID for radios, Proposition 65 warnings, GPSR in the EU) is the seller's obligation; a supplier's 'we have certificates' is not a substitute for a document review.",
+          "目的站点合规（儿童产品 CPC、射频 FCC ID、65 号提案警示、欧盟 GPSR）是卖家义务；供应商一句『我们有证书』不能代替文件审核。"
+        ],
+        [
+          "Review-generation insert cards and packaging claims are governed by marketplace policy, so the artwork proof should be checked against the current policy version, not the version from a previous product launch.",
+          "索评卡与包装宣称受平台政策约束，美术稿应按当前政策版本核对，而不是沿用上一次上架的版本。"
+        ],
+        [
+          "A landed-cost model for a marketplace SKU includes referral fees, fulfilment fees, inbound freight, duty, returns and storage; a factory unit price alone cannot tell whether a SKU is viable.",
+          "平台 SKU 的落地成本模型含佣金、配送费、头程、关税、退货与仓储；单看工厂单价判断不了 SKU 是否成立。"
+        ]
+      ],
+      "scenario": [
+        "A seller compares two factory quotes on unit price alone. The cheaper one needs a repack at the fulfilment centre because the polybag warning is missing; we normally put labelling and carton-spec compliance into the quote comparison, since a repack fee can exceed the unit-price saving.",
+        "卖家只按单价比较两家报价。便宜那家因缺少胶袋警示需在仓内重新贴标；我们通常把标签与箱规合规纳入比价，因为返工贴标费可能超过单价省下的钱。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020 / DDP practice",
+          "inbound freight and duty responsibility"
+        ],
+        [
+          "CPSC / FCC / GPSR",
+          "verify by destination market and category"
+        ],
+        [
+          "ISO 2859-1",
+          "outgoing sampling inspection"
+        ],
+        [
+          "FBA / marketplace packaging rules",
+          "verify against the current policy version"
+        ]
+      ],
+      "checklist": [
+        "Request a carton-and-label compliance check against the current marketplace policy before the first shipment.",
+        "首批出货前按当前平台政策做一次箱规与标签合规核对。"
+      ],
+      "h2": [
+        "Marketplace documentation, compliance and landed cost",
+        "平台单证、合规与落地成本"
+      ],
+      "terms": [
+        [
+          "FNSKU",
+          "fulfilment network SKU label",
+          "FNSKU",
+          "平台配送网络 SKU 标签"
+        ],
+        [
+          "CPC",
+          "children's product certificate",
+          "CPC",
+          "儿童产品证书"
+        ],
+        [
+          "GPSR",
+          "EU general product safety regulation",
+          "GPSR",
+          "欧盟通用产品安全法规"
+        ],
+        [
+          "Referral fee",
+          "marketplace commission on sale",
+          "平台佣金",
+          "按销售额计的平台费用"
+        ],
+        [
+          "Repack",
+          "unplanned relabelling at the warehouse",
+          "贴标返工",
+          "仓内计划外的重新贴标"
+        ],
+        [
+          "Chargeable weight",
+          "freight weight, actual or volumetric",
+          "计费重",
+          "实重或体积重计运费"
+        ]
+      ]
+    },
+    "china-sourcing-agent": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "A sourcing agent's deliverable is a decision package, not a list of factories: comparable quotations on the same specification, a supplier verification record, a sample evaluation and a documented recommendation.",
+          "采购代理的交付物是决策包，而非工厂名单：同一规格下的可比报价、供方核验记录、样品评估与有依据的推荐结论。"
+        ],
+        [
+          "Quotation comparability fails when suppliers quote different Incoterms, different packaging or different AQL assumptions; normalising these four before comparison is most of the work.",
+          "工厂若按不同 Incoterms、包装或 AQL 假设报价，就失去可比性；比价前把四项拉齐，本身就是主要工作量。"
+        ],
+        [
+          "Supplier verification covers business licence scope, export history, equipment list, quality system validity and bank-account name consistency — none of which is established by a polished catalogue.",
+          "供方核验覆盖营业执照经营范围、出口记录、设备清单、体系证书有效期与收款账户名一致性；精美产品册证明不了这些。"
+        ],
+        [
+          "The agency agreement should state who is the seller of record, who holds the product liability, and whether the agent is paid by fee or by margin; an undisclosed margin changes the incentive behind a recommendation.",
+          "代理协议应写明谁是记录卖方、谁承担产品责任、代理收服务费还是赚差价；未披露的差价会改变推荐背后的激励。"
+        ]
+      ],
+      "scenario": [
+        "A buyer has five quotes spread across a 40% price range. The spread usually comes from spec drift, not from five factories' efficiency; we rebuild one normalised RFQ sheet — same drawing, Incoterm, packaging and AQL — and the range typically narrows enough for a real decision.",
+        "买家拿到五份报价、价差 40%。差距多半来自规格漂移，而非五家效率差异；我们重建一张拉齐的询价表——同图纸、同 Incoterm、同包装、同 AQL——价差通常收窄到可以做决策的程度。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "harmonised quotation basis"
+        ],
+        [
+          "ISO 2859-1",
+          "harmonised AQL sampling"
+        ],
+        [
+          "ISO 9001",
+          "verification of certificate scope and validity"
+        ],
+        [
+          "UCP 600 / CISG",
+          "settlement and contract rules"
+        ]
+      ],
+      "checklist": [
+        "Ask for a normalised comparison sheet and a written supplier-verification record before selecting a factory.",
+        "定厂前索取拉齐口径的比价表与书面供方核验记录。"
+      ],
+      "h2": [
+        "Comparable quotes, verification and the agency agreement",
+        "可比报价、供方核验与代理协议"
+      ],
+      "terms": [
+        [
+          "Normalised RFQ",
+          "same-spec quote sheet for all suppliers",
+          "拉齐询价表",
+          "各供方同规格的报价表"
+        ],
+        [
+          "Verification record",
+          "licence, scope, account-name checks",
+          "核验记录",
+          "执照、范围、户名核对记录"
+        ],
+        [
+          "Seller of record",
+          "entity legally selling the goods",
+          "记录卖方",
+          "法律上的售货主体"
+        ],
+        [
+          "Undisclosed margin",
+          "hidden markup behind a recommendation",
+          "未披露差价",
+          "推荐背后的隐性加价"
+        ],
+        [
+          "AQL",
+          "agreed sampling acceptance limit",
+          "AQL",
+          "约定的抽样接收限"
+        ],
+        [
+          "Bank name match",
+          "payee matching the licence holder",
+          "户名一致",
+          "收款方与执照主体一致"
+        ]
+      ]
+    },
+    "hardware-startup-manufacturer": {
+      "cluster": "capability",
+      "notes": [
+        [
+          "A startup's constraint is cash and learning speed, not unit price; the right first build is the one that answers the biggest open question — fit, thermal, RF or user interaction — at the lowest irreversible spend.",
+          "初创的约束是现金与学习速度，不是单价；首版该做的是以最低不可逆投入回答最大的未知项——装配、热、射频还是交互。"
+        ],
+        [
+          "Engineering change orders are normal between EVT and DVT; the commercial question is who absorbs scrapped material and obsolete tooling when a change lands after a PO is placed.",
+          "EVT 到 DVT 之间工程变更是常态；商务问题是变更落在下单之后时，报废物料与失效模具由谁承担。"
+        ],
+        [
+          "Certification budgeting belongs in the seed-stage plan: radio, battery and safety testing have fixed lab costs that do not scale down with a 100-unit build.",
+          "认证预算应写进早期计划：射频、电池与安规测试有固定实验室费用，不会因只做 100 台而按比例缩小。"
+        ],
+        [
+          "A design freeze should be a documented event with a revision-controlled BOM and a signed golden sample; 'we'll fix it in the next run' is the most common path to a launch delayed by one full lead time.",
+          "设计冻结应是有文件、有版本控制 BOM、有签署封样的事件；『下一版再改』是最常见的、让上市推迟整整一个料周期的路径。"
+        ]
+      ],
+      "scenario": [
+        "A founder wants to skip the pilot and go straight to 2,000 units to hit a launch date. Without a DVT build, a single fit or thermal finding becomes 2,000 units of rework; we normally propose a 50-unit pilot with an explicit go/no-go gate tied to the launch date, not an extra phase for its own sake.",
+        "创始人想跳过试产直接做 2,000 台赶上市。没有 DVT，一处装配或散热问题就变成 2,000 台返工；我们通常建议 50 台试产并设与上市日绑定的明确放行门，而不是为多一个阶段而加阶段。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ],
+        [
+          "IEC 62368-1 / FCC / CE",
+          "safety and radio budget by product category"
+        ],
+        [
+          "ISO 2859-1",
+          "pilot-lot sampling"
+        ],
+        [
+          "ISO 9001",
+          "supplier quality system verification"
+        ]
+      ],
+      "checklist": [
+        "Write the ECO cost-allocation rule into the development agreement and keep certification lab costs in the seed budget.",
+        "开发协议写明 ECO 成本分担规则，并把认证实验室费用留进早期预算。"
+      ],
+      "h2": [
+        "Learning speed, ECO cost and design freeze",
+        "学习速度、ECO 成本与设计冻结"
+      ],
+      "terms": [
+        [
+          "EVT",
+          "early engineering validation build",
+          "EVT",
+          "早期工程验证试产"
+        ],
+        [
+          "ECO",
+          "engineering change order and its cost",
+          "工程变更单",
+          "工程变更及其成本"
+        ],
+        [
+          "Design freeze",
+          "revision-controlled BOM and golden sample",
+          "设计冻结",
+          "版本受控 BOM 与封样"
+        ],
+        [
+          "Certification budget",
+          "fixed lab costs per SKU",
+          "认证预算",
+          "按 SKU 固定的实验室费用"
+        ],
+        [
+          "Go/no-go gate",
+          "documented pilot decision point",
+          "放行门",
+          "成文的试产决策点"
+        ],
+        [
+          "Irreversible spend",
+          "tooling or PO that cannot be undone",
+          "不可逆投入",
+          "无法撤回的模具或订单支出"
+        ]
+      ]
+    },
+    "oem-vs-odm": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "The distinction is about who owns the design decisions: in OEM the buyer supplies the specification and the factory builds to it; in ODM the factory supplies an existing platform and the buyer selects from its changeable layer.",
+          "分界在于谁掌握设计决策：OEM 由买方给规格、工厂照做；ODM 由工厂提供既有平台，买方在其可变层里选择。"
+        ],
+        [
+          "Compare the two on four axes — time to first shipment, non-recurring cost, differentiation ceiling and certification ownership — because a model that wins on speed usually loses on differentiation.",
+          "用四个轴比较——首货周期、一次性投入、差异化上限、认证归属——因为速度占优的模式通常在差异化上让步。"
+        ],
+        [
+          "A hybrid is common: ODM electronics with a buyer-funded custom housing, or an OEM enclosure around a standard PCBA; the contract must then split IP and tooling ownership by component, not by project.",
+          "混合模式很常见：ODM 电子部分配买方出资的定制外壳，或标准 PCBA 装进 OEM 外壳；此时合同须按部件而非按项目拆分 IP 与模具归属。"
+        ],
+        [
+          "Certification is the most-forgotten axis: a platform certificate filed under the factory's model number may need a new filing when the product is sold under the buyer's brand.",
+          "认证是最常被漏掉的一轴：以工厂型号备案的平台证书，在产品以买方品牌销售时可能需要重新备案。"
+        ]
+      ],
+      "scenario": [
+        "A buyer with a 10-week launch and no engineering team is usually better served by ODM; a buyer with a differentiated acoustic or optical design needs OEM even at a longer lead time. We put those two constraints in writing at RFQ because the wrong model is expensive to reverse after tooling.",
+        "10 周上市、无工程团队的买家通常更适合 ODM；若声学或光学设计本身是差异点，即使周期更长也该走 OEM。我们会在询价阶段把这两个约束写清楚，因为开模之后再换模式代价很高。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms (common to both models)"
+        ],
+        [
+          "ISO 9001",
+          "supplier quality system verification"
+        ],
+        [
+          "FCC / CE RED",
+          "verify certification ownership by model"
+        ],
+        [
+          "ISO 2859-1",
+          "outgoing sampling inspection"
+        ]
+      ],
+      "checklist": [
+        "Decide the model against time-to-shipment and differentiation ceiling, then write the IP and tooling split into the agreement.",
+        "按首货周期与差异化上限选定模式，再把 IP 与模具拆分写进协议。"
+      ],
+      "h2": [
+        "Four axes that separate OEM from ODM",
+        "区分 OEM 与 ODM 的四个轴"
+      ],
+      "terms": [
+        [
+          "OEM",
+          "buyer owns the specification",
+          "OEM",
+          "买方拥有规格"
+        ],
+        [
+          "ODM",
+          "factory owns the base platform",
+          "ODM",
+          "工厂拥有基础平台"
+        ],
+        [
+          "Changeable layer",
+          "customisable surface of a platform",
+          "可变层",
+          "平台可定制的表层"
+        ],
+        [
+          "NRE",
+          "one-time engineering cost",
+          "NRE",
+          "一次性工程费用"
+        ],
+        [
+          "Certificate holder",
+          "named entity on the approval",
+          "证书持有人",
+          "认证文件上的主体"
+        ],
+        [
+          "Hybrid",
+          "platform electronics plus custom housing",
+          "混合模式",
+          "平台电子件加定制外壳"
+        ]
+      ]
+    },
+    "how-to-find-manufacturer-china": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "Start from a written specification, not from a supplier list: a drawing, target quantity, destination market, packaging spec and acceptance standard are what make two quotations comparable.",
+          "起点应是书面规格，而非供应商名单：图纸、目标数量、目的市场、包装规格与验收标准，才让两份报价可比。"
+        ],
+        [
+          "Verification has layers — business licence scope, export record, equipment list, quality-system certificate validity and bank account name — and a catalogue or a trade-show booth establishes none of them.",
+          "核验分层：营业执照经营范围、出口记录、设备清单、体系证书有效期、收款户名；产品册或展位证明不了其中任何一项。"
+        ],
+        [
+          "Sample evaluation should be distinct from supplier evaluation: a good hand-made sample proves the factory can build one unit, not that it can hold tolerance across 5,000.",
+          "样品评估与供方评估要分开：一件精良的手板只证明工厂能做一台，不证明它能在 5,000 台上稳住公差。"
+        ],
+        [
+          "Use a normalised RFQ sheet with the same Incoterm, AQL and packaging on every line; otherwise a low quote usually means a missing cost, not a more efficient factory.",
+          "用拉齐口径的询价表：每行同 Incoterm、同 AQL、同包装；否则低价通常意味着漏项，而非工厂效率更高。"
+        ]
+      ],
+      "scenario": [
+        "A buyer shortlists five factories from a marketplace and asks which is best. We normally rebuild one RFQ sheet and send it to all five, then compare the returned quotations plus a verification record; the ranking often changes once the specs are identical.",
+        "买家从平台筛出五家问哪家最好。我们通常重建一张询价表发给五家，再比回收报价加核验记录；规格拉齐后排序常会变化。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "harmonised quotation basis"
+        ],
+        [
+          "ISO 2859-1",
+          "harmonised AQL"
+        ],
+        [
+          "ISO 9001",
+          "certificate scope and validity period"
+        ],
+        [
+          "CISG / UCP 600",
+          "contract and settlement rules"
+        ]
+      ],
+      "checklist": [
+        "Send one normalised RFQ to every candidate and verify the business licence scope before the first payment.",
+        "给所有候选发同一张拉齐的询价表，并在首笔付款前核验营业执照经营范围。"
+      ],
+      "h2": [
+        "From written specification to normalised RFQ",
+        "从书面规格到拉齐的询价表"
+      ],
+      "terms": [
+        [
+          "Normalised RFQ",
+          "identical spec sent to all candidates",
+          "拉齐询价表",
+          "发给所有候选的同一规格"
+        ],
+        [
+          "Licence scope",
+          "legally registered business activity",
+          "经营范围",
+          "依法登记的业务范围"
+        ],
+        [
+          "Golden sample",
+          "approved reference unit",
+          "封样",
+          "批准的基准样机"
+        ],
+        [
+          "AQL",
+          "sampling acceptance limit",
+          "AQL",
+          "抽样接收质量限"
+        ],
+        [
+          "Incoterm",
+          "cost and risk transfer term",
+          "贸易术语",
+          "费用与风险转移条款"
+        ],
+        [
+          "First-article report",
+          "dimensional check of the first unit",
+          "首件报告",
+          "首台尺寸检验报告"
+        ]
+      ]
+    },
+    "import-from-china-guide": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "An import transaction has a fixed document chain: commercial invoice, packing list, bill of lading or airway bill, certificate of origin where applicable, and the product-specific compliance file required by the destination market.",
+          "一票进口有固定单证链：商业发票、装箱单、提单或运单、适用时的原产地证，以及目的市场要求的品类合规文件。"
+        ],
+        [
+          "Incoterms 2020 determines who books freight and clears export, but the importer of record remains responsible for customs entry, duty and product compliance in most destination markets.",
+          "Incoterms 2020 决定谁订舱与办出口报关，但多数目的市场里，进口申报、关税与产品合规仍由进口方负责。"
+        ],
+        [
+          "Duty is driven by HS/HTS classification, origin and valuation — three separate determinations; a supplier's declared HS code is an input, not a binding ruling for the importer.",
+          "关税由 HS/HTS 归类、原产地与完税价格三项独立判定驱动；供应商申报的 HS 编码是输入项，对进口方不具裁定效力。"
+        ],
+        [
+          "Plan the cash cycle: deposit, pre-shipment balance, ocean or air freight, duty and destination charges land at different times, and a landed-cost model that ignores the timing understates the working capital needed.",
+          "要规划现金周期：订金、出货前尾款、海/空运、关税与目的港费用发生在不同时点；落地成本模型若忽略时点，会低估所需营运资金。"
+        ]
+      ],
+      "scenario": [
+        "A first-time importer chooses EXW because the unit price looks lowest. The saving often disappears in export clearance, inland haulage and the buyer's lack of a Chinese export entity; comparing EXW against FOB on a landed basis usually reverses the ranking.",
+        "首次进口者因单价看起来最低而选 EXW。省下的钱常耗在出口报关、内陆运输，以及买方缺少中国出口主体上；按落地成本比较 EXW 与 FOB，排序往往会反转。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "trade terms"
+        ],
+        [
+          "WCO HS / destination tariff schedule",
+          "goods classification"
+        ],
+        [
+          "WTO Valuation Agreement / destination customs valuation",
+          "customs value"
+        ],
+        [
+          "UCP 600",
+          "documentary credits (where used)"
+        ]
+      ],
+      "checklist": [
+        "Map the document chain and the duty determinants before the PO, then compare quotes on a landed-cost basis rather than unit price.",
+        "下单前梳理单证链与关税决定项，并按落地成本而非单价比较报价。"
+      ],
+      "h2": [
+        "Document chain, duty determinants and cash cycle",
+        "单证链、关税决定项与现金周期"
+      ],
+      "terms": [
+        [
+          "Commercial invoice",
+          "value declaration for customs",
+          "商业发票",
+          "向海关申报货值的发票"
+        ],
+        [
+          "Bill of lading",
+          "carrier's title and receipt document",
+          "提单",
+          "承运人物权与收据凭证"
+        ],
+        [
+          "Certificate of origin",
+          "document supporting origin claims",
+          "原产地证",
+          "支持原产地主张的文件"
+        ],
+        [
+          "Importer of record",
+          "party liable for entry and duty",
+          "进口方",
+          "承担申报与关税责任的一方"
+        ],
+        [
+          "Customs valuation",
+          "method fixing the dutiable value",
+          "海关估价",
+          "确定完税价格的方法"
+        ],
+        [
+          "Chargeable weight",
+          "freight weight, actual or volumetric",
+          "计费重",
+          "实重或体积重计运费"
+        ]
+      ]
+    },
+    "verify-chinese-manufacturer": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "Business licence verification checks the registered scope, the legal representative, the registered capital and the operating term — and whether the entity name matches the bank account that will receive the deposit.",
+          "营业执照核验看经营范围、法定代表人、注册资本与经营期限，以及主体名称是否与收订金的银行账户名一致。"
+        ],
+        [
+          "A quality-system certificate is only meaningful with its scope, issuing body and validity date; 'ISO 9001 certified' without a scope may cover a trading office rather than the production site.",
+          "体系证书只有在给出范围、发证机构与有效期时才有意义；只说『ISO 9001 认证』而不给范围，可能覆盖的是贸易办公室而非生产现场。"
+        ],
+        [
+          "On-site or remote verification should confirm the equipment list against the process the supplier claims to run, and check whether key steps are subcontracted to another workshop.",
+          "现场或远程核验应把设备清单与供方声称的工艺对照，并确认关键工序是否外发到其他车间。"
+        ],
+        [
+          "Sample provenance matters: ask for a first-article report, the material lot and a serial-linked inspection record, so the approved golden sample can be compared with a later production unit.",
+          "样品来源可追溯很重要：索取首件报告、材料批次与序列号关联的检验记录，让封样能与后续量产件比对。"
+        ]
+      ],
+      "scenario": [
+        "A buyer receives a polished factory video and a low quote. A video proves a camera was present, not that the line is theirs; we normally request the licence-bank name match, a certificate with scope, and a live walkthrough of the specific process, which separates a factory from a trading intermediary quickly.",
+        "买家收到精美工厂视频与低报价。视频只证明有摄像机到场，不证明产线属于对方；我们通常核验执照与户名一致、索取带范围的证书，并做指定工序的实时走查，这能很快区分工厂与贸易中介。"
+      ],
+      "standards": [
+        [
+          "China National Enterprise Credit Information Publicity System",
+          "public business-licence and business-scope lookup"
+        ],
+        [
+          "ISO 9001 / IATF 16949",
+          "certificate scope and validity period"
+        ],
+        [
+          "ISO 2859-1",
+          "outgoing sampling inspection"
+        ],
+        [
+          "ISO 10012 / measurement calibration",
+          "validity of measuring equipment"
+        ]
+      ],
+      "checklist": [
+        "Verify licence-to-bank name consistency and request a certificate with scope plus a serial-linked first-article report.",
+        "核验执照与户名一致，索取带范围的证书和序列号关联的首件报告。"
+      ],
+      "h2": [
+        "Licence, certificate scope and sample provenance",
+        "执照、证书范围与样品溯源"
+      ],
+      "terms": [
+        [
+          "Licence scope",
+          "registered business activity",
+          "经营范围",
+          "登记的业务活动"
+        ],
+        [
+          "Legal representative",
+          "registered company signatory",
+          "法定代表人",
+          "登记的公司签署人"
+        ],
+        [
+          "Certificate scope",
+          "activities covered by a QMS certificate",
+          "证书范围",
+          "体系证书覆盖的活动"
+        ],
+        [
+          "Bank name match",
+          "payee matching the licence entity",
+          "户名一致",
+          "收款方与执照主体一致"
+        ],
+        [
+          "Subcontracting",
+          "key steps outsourced elsewhere",
+          "外发",
+          "关键工序外包他处"
+        ],
+        [
+          "First-article report",
+          "serial-linked dimensional record",
+          "首件报告",
+          "序列号关联的尺寸记录"
+        ]
+      ]
+    },
+    "china-landed-cost-2026": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "Landed cost is a formula, not a quote: ex-works unit price plus inland freight and export clearance, plus international freight and insurance, plus duty and taxes, plus destination charges, compliance testing and a working-capital allowance.",
+          "落地成本是公式而非报价：出厂单价 + 内陆运输与出口报关 + 国际运费与保险 + 关税与税费 + 目的港费用 + 合规测试 + 营运资金占用。"
+        ],
+        [
+          "Duty is the product of three independent determinations — the HS/HTS classification, the country of origin and the customs valuation — so a single 'China tariff rate' cannot be applied to a whole order.",
+          "关税是三项独立判定的乘积——HS/HTS 归类、原产地、海关完税价格——因此不存在可用于整单的『中国关税税率』。"
+        ],
+        [
+          "Freight is charged on chargeable weight (actual or volumetric, whichever is greater), which is why a light-but-bulky product can cost more to ship than a dense one of the same value.",
+          "运费按计费重（实重与体积重取大）计收，因此轻抛货的运费可能高于同货值的重货。"
+        ],
+        [
+          "Compliance and testing costs are largely fixed per SKU, not per unit; at low volume they dominate the per-unit landed cost, which is why a small pilot has a very different cost curve from mass production.",
+          "合规与测试成本按 SKU 基本固定、不随件数摊薄；小批量时它们主导单件落地成本，这也是试产与量产成本曲线差异极大的原因。"
+        ]
+      ],
+      "scenario": [
+        "Worked illustration (hypothetical figures, not a quotation): an ex-works unit price of 10.00 with 0.40 inland/export, 1.20 freight and insurance, 8% duty on the customs value (0.80), 0.35 destination charges and 0.25 of per-unit compliance amortisation gives 13.00 landed. At 500 units the fixed compliance and tooling items roughly double the per-unit overhead versus 5,000 units — the arithmetic, not the supplier, drives that gap.",
+        "算例（假设数字，非报价）：出厂 10.00 + 内陆与出口 0.40 + 运费保险 1.20 + 按完税价 8% 关税 0.80 + 目的港 0.35 + 单件合规摊销 0.25 = 落地 13.00。500 件时固定合规与模具项的单件分摊约为 5,000 件的两倍——这个差距来自算术，不是供应商。"
+      ],
+      "standards": [
+        [
+          "Incoterms 2020",
+          "cost and risk transfer points"
+        ],
+        [
+          "WCO HS / destination tariff schedule",
+          "classification determines the tariff line"
+        ],
+        [
+          "WTO Valuation Agreement",
+          "customs valuation rules"
+        ],
+        [
+          "IATA / IMDG",
+          "air/sea chargeable weight and dangerous-goods rules"
+        ]
+      ],
+      "checklist": [
+        "Build the model line by line with your own duty rate and freight quote, and state the volume at which fixed costs are amortised.",
+        "按自己的税率与运费报价逐行建模，并写明固定成本按多少数量摊薄。"
+      ],
+      "h2": [
+        "The landed-cost formula and a worked illustration",
+        "落地成本公式与算例"
+      ],
+      "terms": [
+        [
+          "Ex-works",
+          "price at the factory gate",
+          "出厂价",
+          "工厂门口交货价"
+        ],
+        [
+          "Customs value",
+          "base on which duty is levied",
+          "完税价格",
+          "计征关税的基数"
+        ],
+        [
+          "HS code",
+          "classification determining the tariff line",
+          "HS 编码",
+          "决定税则的归类编码"
+        ],
+        [
+          "Duty",
+          "tariff from classification, origin, value",
+          "关税",
+          "由归类、原产地、价格决定"
+        ],
+        [
+          "Chargeable weight",
+          "greater of actual or volumetric weight",
+          "计费重",
+          "实重与体积重取大"
+        ],
+        [
+          "Working capital",
+          "cash tied up before resale",
+          "营运资金",
+          "转售前占用的现金"
+        ]
+      ]
+    },
+    "china-plus-one-sourcing": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "China+1 is a diversification decision about concentration risk, not a binary relocation: the usual outcome is a second source for a subset of SKUs while the deeper component ecosystem stays in the Greater Bay Area.",
+          "China+1 是关于集中度风险的多元化决策，不是非此即彼的搬迁：常见结果是部分 SKU 建立第二来源，而更深的元器件生态仍留在大湾区。"
+        ],
+        [
+          "The three variables most often under-counted are the component supply chain (a finished-goods move still imports parts), the tooling and qualification lead time, and the yield-learning curve at the new site.",
+          "最常被低估的三个变量是：元器件供应链（成品搬走仍需进口零件）、模具与认证周期，以及新厂区的良率学习曲线。"
+        ],
+        [
+          "Country-of-origin rules are separate from where a product is assembled; a substantial-transformation test, not the last screw, usually determines the origin marking and the duty outcome.",
+          "原产地规则与组装地是两回事；通常由实质性改变标准而非最后一道锁螺丝决定原产地标识与税赋结果。"
+        ],
+        [
+          "A second source needs its own qualification package: first-article report, process capability data, a compliance file and a defined split of volume so the line stays warm enough to hold yield.",
+          "第二来源需要独立认证包：首件报告、过程能力数据、合规文件，以及明确的量份分配，让产线保持足够热度以维持良率。"
+        ]
+      ],
+      "scenario": [
+        "A buyer wants 30% of volume outside China within one quarter. For a PCBA-heavy product that is rarely achievable with equivalent yield, because the BOM still sources from the same component base; we normally scope a phased second source on one high-volume SKU first, with a documented qualification gate rather than a percentage target.",
+        "买家想一季度内把 30% 产量迁出中国。对 PCBA 密集的产品，因 BOM 仍来自同一元器件基础，很难在同等良率下达成；我们通常先在一个高量 SKU 上做分阶段第二来源，并设书面认证门，而不是设百分比目标。"
+      ],
+      "standards": [
+        [
+          "WCO rules of origin / substantial transformation",
+          "origin determination"
+        ],
+        [
+          "destination customs rulings / binding tariff information",
+          "advance rulings on classification and origin"
+        ],
+        [
+          "ISO 9001 / IATF 16949",
+          "second-source quality system verification"
+        ],
+        [
+          "ISO 2859-1",
+          "second-source outgoing sampling inspection"
+        ]
+      ],
+      "checklist": [
+        "Model the component origin, tooling lead time and yield-learning curve before setting a relocation percentage.",
+        "设定迁移比例前，先建模元器件来源、模具周期与良率学习曲线。"
+      ],
+      "h2": [
+        "Concentration risk, origin rules and qualification",
+        "集中度风险、原产地规则与认证"
+      ],
+      "terms": [
+        [
+          "Concentration risk",
+          "exposure to a single supply base",
+          "集中度风险",
+          "依赖单一供应基地的敞口"
+        ],
+        [
+          "Substantial transformation",
+          "origin test, not final assembly",
+          "实质性改变",
+          "判定原产地的标准，非最后组装"
+        ],
+        [
+          "Binding ruling",
+          "advance official classification decision",
+          "约束性裁定",
+          "官方预先归类决定"
+        ],
+        [
+          "Second source",
+          "qualified alternate production site",
+          "第二来源",
+          "通过认证的备选生产地"
+        ],
+        [
+          "Yield learning",
+          "ramp-up curve at a new line",
+          "良率爬坡",
+          "新线的良率提升曲线"
+        ],
+        [
+          "Tooling lead time",
+          "time to build and qualify a mould",
+          "模具周期",
+          "制造并验证模具所需时间"
+        ]
+      ]
+    },
+    "hts-code-tariff-classification": {
+      "cluster": "knowledge",
+      "notes": [
+        [
+          "HS is the international 6-digit nomenclature; national tariff schedules extend it to 8–10 digits (HTSUS in the US, CN/TARIC in the EU), so the 6-digit code is a starting point, not the dutiable classification.",
+          "HS 是国际 6 位目录；各国税则扩展为 8–10 位（美国 HTSUS、欧盟 CN/TARIC），因此 6 位编码是起点，不是完税归类。"
+        ],
+        [
+          "Classification follows the General Rules of Interpretation in order — GRI 1 (terms and notes) before GRI 3 (composite goods) — so a product's marketing name rarely decides its code.",
+          "归类按归类总规则顺序适用：先 GRI 1（品目条文与注释），再 GRI 3（复合货品）；因此营销名称很少决定编码。"
+        ],
+        [
+          "A binding ruling (a US CBP ruling or an EU BTI) gives legal certainty for a specific product and set of facts; a supplier's declared code has no such standing for the importer.",
+          "约束性裁定（美国 CBP 裁定、欧盟 BTI）对特定产品与事实组合给出确定性；供应商申报编码对进口方没有这种效力。"
+        ],
+        [
+          "Misclassification exposure is retrospective: duty differentials, penalties and post-entry corrections attach to past entries, which is why a classification memo should be retained with the entry documents.",
+          "归类错误的敞口具有追溯性：税差、罚金与事后更正会追及既往报关单，因此归类说明应与报关单证一并留存。"
+        ]
+      ],
+      "scenario": [
+        "An importer treats a foldable e-bike as a bicycle part because a supplier declared that code. If the article has the essential character of a complete vehicle, classification and duty change materially; the practical step is to request a binding ruling on the exact configuration before the first container, not after a customs query.",
+        "进口商因供应商申报某零件编码，把折叠电助力车当作自行车零件。若该货物具备整车基本特征，归类与税赋会明显改变；务实做法是在第一柜之前就具体配置申请约束性裁定，而不是等海关问询之后。"
+      ],
+      "standards": [
+        [
+          "WCO HS 2022 / 2028 editions",
+          "international 6-digit nomenclature and notes"
+        ],
+        [
+          "HTSUS / CN-TARIC",
+          "destination-country tariff extensions"
+        ],
+        [
+          "GRI 1–6",
+          "General Rules of Interpretation"
+        ],
+        [
+          "19 CFR Part 177 / EU BTI",
+          "binding ruling procedures"
+        ]
+      ],
+      "checklist": [
+        "Document the GRI reasoning for the chosen code and request a binding ruling for high-value or ambiguous configurations.",
+        "记录所选编码的 GRI 推理，对高货值或易争议配置申请约束性裁定。"
+      ],
+      "h2": [
+        "HS to national tariffs, GRI order and binding rulings",
+        "HS 到国税则、GRI 顺序与约束性裁定"
+      ],
+      "terms": [
+        [
+          "HS 6-digit",
+          "international harmonised heading",
+          "HS 6 位",
+          "国际协调制度品目"
+        ],
+        [
+          "HTSUS / TARIC",
+          "national 8–10 digit tariff extensions",
+          "国税则扩展码",
+          "各国 8–10 位税则扩展"
+        ],
+        [
+          "GRI",
+          "General Rules of Interpretation, applied in order",
+          "归类总规则",
+          "按顺序适用的归类总规则"
+        ],
+        [
+          "Binding ruling",
+          "official advance classification decision",
+          "约束性裁定",
+          "官方预先归类决定"
+        ],
+        [
+          "Essential character",
+          "test for composite goods under GRI 3",
+          "基本特征",
+          "GRI 3 下复合货品判据"
+        ],
+        [
+          "Post-entry correction",
+          "retrospective duty adjustment",
+          "事后更正",
+          "追溯性关税调整"
+        ]
+      ]
+    }
+  }
+}

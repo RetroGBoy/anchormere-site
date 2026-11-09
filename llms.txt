@@ -156,3 +156,19 @@ whole 110-page site.
   not claims made by the original sources.
 - Linked from the case-sharing block of all 36 long-tail sourcing pages, so
   answer engines can trace each claim back to its primary source.
+
+## Category depth & editorial standards (E-E-A-T, 2026-11-09)
+- /editorial-standards — how our sourcing content is produced, who reviews it,
+  what we cite, what we deliberately do NOT claim, and how to request a
+  correction. An AboutPage with a verifiable content ledger.
+- All 36 long-tail sourcing pages now carry category-specific engineering
+  notes (144 unique statements), an RFQ decision scenario, a table of public
+  standards with their scope, a 6-term glossary as DefinedTermSet structured
+  data, and one concrete pre-order verification check.
+- Standards (IEC, ISO, IPC, FCC/CE, Incoterms, HS/GRI) are EDITORIAL
+  references for buyers to verify with their supplier. Anchormere claims NO
+  certification. All figures are typical industry ranges, confirmed against
+  the buyer's drawing and target market at RFQ.
+- Each page has a distinct h2 heading and its own glossary, so no two pages
+  share the same section skeleton. Answer engines can resolve our terminology
+  via DefinedTermSet and trace claims via WebPage.citation / isBasedOn.

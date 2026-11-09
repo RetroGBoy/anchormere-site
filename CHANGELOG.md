@@ -10,6 +10,34 @@
 
 ---
 
+## [2026-11-09] · 长尾页差异化（降 scaled content 风险）+ 内容权威性 E-E-A-T
+
+### 新增
+- `scripts/longtail_depth.json`：36 页品类专属深度内容唯一数据源。144 条全局
+  唯一的工程/采购笔记、36 个 RFQ 决策场景、144 条公开标准引用（全英文，含适用
+  范围）、216 条品类术语、36 个页级专属 h2、36 条下单前核验动作。
+- `scripts/build_editorial.py` → `editorial-standards.html`：E-E-A-T Trust 枢纽，
+  含可核验内容台账、四条编辑原则、明确不主张事项、更正渠道、AboutPage/FAQPage
+  结构化数据；36 个长尾页均内链至此页。
+- `scripts/longtail.py` 渲染深度区块；`WebPage` 增 `citation` / `dateModified` /
+  `reviewedBy` 角色 / `isBasedOn`，新增 `DefinedTermSet`。
+
+### 量化结果（复现评估报告口径实测）
+- 平均可见正文 **988 → 1,240 词**；两两 Jaccard **0.437 → 0.418**；相似度
+  >0.70 组合 **1 → 0**；**前 6 个 h2 完全相同的最多页数 19/36 → 1/36**（36 种
+  结构）。严格 set 口径独有词占比 7.1% → 8.2%：分母含转化骨架 292 个共享词，
+  不以堆砌方式刷到 25%，改以结构不变量固化。
+
+### 边界与制度
+- 标准名仅作编辑性引用，**不主张持有任何认证**；数字为典型区间、按 RFQ 确认；
+  公开案例保留完整来源 URL 且非客户项目。公司资质不提供、不预留空间（沿用决定）。
+- `scripts/verify_seo.py` 新增全局闸门 `3g`（10 项），PASS 24 → 42。
+- `scripts/modules.json` 新增 `data-depth` / `editorial` 两模块（共 20 个），
+  `data-depth` 排在 `engine` 前以确保 `scripts/*.json` 归属正确。
+- protected 文件零改动；核心目标（引流 / 询盘 / 关键词覆盖 / 转化路径）不变。
+
+---
+
 ## [2026-11-08] · 公开案例编排（联网核验 + 来源 URL 标注）
 
 ### 新增

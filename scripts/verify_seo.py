@@ -357,6 +357,88 @@ else:
     else:
         ok('公开案例未被表述为 Anchormere 客户项目 / 背书')
 
+# ---- 3g. 长尾页差异化 / E-E-A-T 结构性不变量（防 scaled content 回退）----
+# 不用「独有词占比」这类会被转化骨架（NAV/FOOTER/通用 FAQ/CTA）稀释、且可
+# 被堆砌刷高的软指标；改为校验每页必须存在的、可逐页点开核对的实质资产。
+# 数据源 longtail_depth.json 是唯一真源，闸门从它推导期望值，换模型也不漂移。
+DEPTH_JSON = os.path.join('scripts', 'longtail_depth.json')
+EDITORIAL = 'editorial-standards.html'
+if not os.path.exists(DEPTH_JSON):
+    fail('缺少 scripts/longtail_depth.json（品类深度内容数据源）')
+else:
+    dj = json.load(open(DEPTH_JSON, encoding='utf-8'))
+    dpages = dj['pages']
+    # (1) 数据源自身完整性：每页 h2 / terms / notes / standards / scenario / checklist
+    incomplete = [k for k, v in dpages.items()
+                  if not all(v.get(x) for x in ('h2', 'terms', 'notes', 'standards', 'scenario', 'checklist'))]
+    if incomplete:
+        fail(f'深度数据源字段不全: {len(incomplete)} 页 ' + ', '.join(incomplete[:3]))
+    else:
+        ok(f'深度数据源 {len(dpages)} 页字段完整（h2/terms/notes/standards/scenario/checklist）')
+    # (2) 页级 h2 必须两两不同（消除"前 6 个 h2 完全相同"的模板骨架）
+    h2s = [v['h2'][0] for v in dpages.values()]
+    if len(set(h2s)) != len(h2s):
+        fail(f'品类深度 h2 存在重复（{len(h2s)-len(set(h2s))} 处），结构雷同未消除')
+    else:
+        ok(f'{len(h2s)} 个品类深度 h2 两两不同（无模板骨架雷同）')
+    # (3) 工程笔记必须全局唯一，不允许跨页复用（防关键词替换式批量页）
+    notes = [n[0] for v in dpages.values() for n in v['notes']]
+    if len(set(notes)) != len(notes):
+        fail(f'深度笔记存在跨页重复（{len(notes)-len(set(notes))} 条），疑似模板复用')
+    else:
+        ok(f'{len(notes)} 条品类工程笔记全局唯一（非关键词替换）')
+    # (4) 每页落盘 HTML 必须含全部实质资产 + 编辑标准页内链 + 口径声明
+    miss_depth, miss_terms, miss_std, miss_link, miss_disc, miss_ldset = [], [], [], [], [], []
+    for slug in dpages:
+        f = slug + '.html'
+        t = PAGE.get(f, '')
+        if 'class="l2 depth"' not in t: miss_depth.append(f)
+        if 'depth-terms' not in t: miss_terms.append(f)
+        if 'depth-standards' not in t: miss_std.append(f)
+        if 'editorial-standards' not in t: miss_link.append(f)
+        if 'does not claim to hold any of these certifications' not in t: miss_disc.append(f)
+        if '"DefinedTermSet"' not in t: miss_ldset.append(f)
+    for label, bad in [('深度区块', miss_depth), ('品类术语表', miss_terms),
+                       ('标准引用表', miss_std), ('编辑标准页内链', miss_link),
+                       ('非认证声明', miss_disc), ('DefinedTermSet', miss_ldset)]:
+        if bad:
+            fail(f'{len(bad)} 页缺{label}: ' + ', '.join(bad[:3]))
+        else:
+            ok(f'全站 {len(dpages)} 页均含{label}')
+    # (5) 近似重复：两两 Jaccard > 0.70 的组合必须为 0（逐页实质文本，含骨架）
+    import itertools as _it
+    def _wt(t):
+        c = re.sub(r'<script.*?</script>', ' ', t, flags=re.S | re.I)
+        c = re.sub(r'<[^>]+>', ' ', c)
+        c = re.sub(r'&[a-z]+;|&#\d+;', ' ', c)
+        return set(w.lower() for w in re.findall(r'[A-Za-z][A-Za-z\-]{3,}', c))
+    _sets = {f: _wt(PAGE[f]) for f in dpages if f in PAGE}
+    _pairs = [len(_sets[a] & _sets[b]) / len(_sets[a] | _sets[b])
+              for a, b in _it.combinations(sorted(_sets), 2) if _sets[a] | _sets[b]]
+    _hi = [x for x in _pairs if x > 0.70]
+    if _hi:
+        fail(f'{len(_hi)} 组页面相似度 >0.70（scaled content 风险）')
+    elif _pairs:
+        ok(f'长尾页两两相似度均值 {sum(_pairs)/len(_pairs):.3f}，>0.70 组合 0（无近似重复）')
+
+# (6) 编辑标准页（E-E-A-T 枢纽）必须存在且声明边界
+if not os.path.exists(EDITORIAL):
+    fail('缺少编辑标准页 editorial-standards.html（E-E-A-T Trust 枢纽）')
+else:
+    et = PAGE.get(EDITORIAL, '')
+    checks = [
+        ('AboutPage / FAQPage 结构化数据', '"AboutPage"' in et and '"FAQPage"' in et),
+        ('不主张持有认证的边界声明', 'claims no certification' in et or 'do not claim to hold' in et),
+        ('更正渠道', 'Corrections and feedback' in et),
+        ('可见复核署名', 'reviewed by the Anchormere sourcing desk' in et),
+        ('可核验台账', 'What you can actually verify' in et),
+    ]
+    bad = [k for k, v in checks if not v]
+    if bad:
+        fail('编辑标准页缺: ' + ', '.join(bad))
+    else:
+        ok('编辑标准页含结构化数据 / 边界声明 / 更正渠道 / 复核署名 / 可核验台账')
+
 for need in ('Organization', 'WebSite', 'Service', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")

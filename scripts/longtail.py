@@ -9,6 +9,12 @@ _wa_sys.path.insert(0, _wa_os.path.dirname(_wa_os.path.abspath(__file__)))
 import io_util  # workarea: write_if_changed / selected
 
 ORG_LD = open(os.path.join(os.path.dirname(__file__), "org_entity.json"), encoding="utf-8").read().strip()
+
+# Per-page substantive depth content (single source of truth). Loaded once at
+# import time; missing entries are tolerated so a newly added seed never breaks
+# the generator (the verifier's 3g gate will catch the gap instead).
+_DEPTH_PATH = os.path.join(os.path.dirname(__file__), "longtail_depth.json")
+DEPTH = json.load(open(_DEPTH_PATH, encoding="utf-8")) if os.path.exists(_DEPTH_PATH) else {"clusters": {}, "pages": {}}
 ORG_ID = json.loads(ORG_LD)["@id"]   # 全站唯一 Organization @id，供 service.provider 串联
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -71,7 +77,7 @@ GA4 = ('<!-- GA4 is loaded consent-gated via assets/consent.js (set GA4_ID there
 # Date of the most recent editorial/engineering review. Surfaced as visible
 # text AND WebPage.lastReviewed so the E-E-A-T signal is policy-compliant
 # (structured data must match on-page content).
-REVIEW_DATE = "2026-11-07"
+REVIEW_DATE = "2026-11-09"
 
 # ---- Publicly reported case references (single source of truth) -------------
 # Real, verifiable cases from Reuters / QIMA / U.S. CBP / public filings, each
@@ -302,6 +308,65 @@ def build_page(seed, all_seeds):
     else:
         expertise_section = ""
 
+    # ---- Category-specific depth: the E-E-A-T core of each page --------------
+    # Rendered from longtail_depth.json. Every statement in this block is unique
+    # to this page (not a keyword-substituted template), which is what removes
+    # the "scaled content" pattern. Standards are cited as PUBLIC references for
+    # the buyer to verify with their supplier — never as certifications we hold.
+    dp = DEPTH.get("pages", {}).get(slug)
+    depth_section = ""
+    depth_citations = []
+    if dp:
+        cl_meta = DEPTH.get("clusters", {}).get(dp.get("cluster"), {})
+        # Page-level heading: 36 distinct h2 values, so no two long-tail pages
+        # share the same section skeleton. Falls back to the cluster heading only
+        # if a newly added seed has no depth entry yet (verifier 3g catches it).
+        page_h2 = dp.get("h2") or [cl_meta.get("h2", "Engineering & sourcing depth"),
+                                  cl_meta.get("zh", "工程与采购深度要点")]
+        h2_en, h2_zh = page_h2[0], page_h2[1]
+        term_rows = "".join(
+            f'<tr><td><b>{html.escape(t_en)}</b><br><span class="cn" lang="zh-CN">{html.escape(t_zh)}</span></td>'
+            f'<td data-zh="{html.escape(t_zhd, quote=True)}">{html.escape(t_end)}<br>'
+            f'<span class="cn" lang="zh-CN">{html.escape(t_zhd)}</span></td></tr>'
+            for t_en, t_end, t_zh, t_zhd in dp.get("terms", []))
+        note_rows = "".join(
+            f'<li><span data-zh="{html.escape(zh, quote=True)}">{html.escape(en)}</span></li>'
+            for en, zh in dp["notes"])
+        std_rows = "".join(
+            f'<tr><td>{html.escape(code)}</td><td>{html.escape(scope)}</td></tr>'
+            for code, scope in dp["standards"])
+        depth_citations = [code for code, _ in dp["standards"]]
+        scen_en, scen_zh = dp["scenario"]
+        chk_en, chk_zh = dp["checklist"]
+        depth_section = (
+            '<section class="l2 depth"><div class="container">\n'
+            f'  <h2 data-zh="{html.escape(h2_zh, quote=True)}">{html.escape(h2_en)}</h2>\n'
+            f'  <p class="cn">{html.escape(h2_zh)}</p>\n'
+            '  <p class="lead" data-zh="以下要点按品类整理自公开的工程规范与买家常见失效模式；规格数字为行业典型区间，最终以贵方图纸、目标市场与询价确认的版本为准。">These notes are compiled per category from public engineering standards and the failure modes buyers most often meet. Figures are typical industry ranges; the binding version is the one confirmed against your drawing, target market and RFQ.</p>\n'
+            f'  <ul class="check depth-notes">{note_rows}</ul>\n'
+            f'  <h3 data-zh="报价阶段的一个真实取舍">A real trade-off at RFQ stage</h3>\n'
+            f'  <p class="depth-scenario" data-zh="{html.escape(scen_zh, quote=True)}">{html.escape(scen_en)}</p>\n'
+            f'  <h3 data-zh="可核验的公开标准 / 规范（编辑性引用）">Public standards you can verify (editorial references)</h3>\n'
+            '  <table class="spec-table depth-standards"><thead><tr><th data-zh="标准 / 规范">Standard / reference</th><th data-zh="适用范围（供买方核对）">Scope (for buyer verification)</th></tr></thead>'
+            f'    <tbody>{std_rows}</tbody></table>\n'
+            '  <p class="rel-note" data-zh="以上为公开标准与规范的编辑性引用，供买方要求供应商提供相应证据；Anchormere 不主张持有其中任何认证，也不代表原标准机构。内容产出与核验方式见编辑标准页。">These are editorial references to public standards, listed so buyers can ask their supplier for the matching evidence. Anchormere does not claim to hold any of these certifications and does not represent the issuing bodies. How we produce and verify content is documented on our <a href="editorial-standards.html" data-zh="编辑与核验标准">editorial standards</a> page.</p>\n'
+            f'  <h3 data-zh="本页品类术语">Category terms used on this page</h3>\n'
+            '  <table class="spec-table depth-terms"><thead><tr><th data-zh="术语">Term</th><th data-zh="含义（本站口径）">Meaning (as used here)</th></tr></thead>'
+            f'    <tbody>{term_rows}</tbody></table>\n'
+            f'  <h3 data-zh="下单前值得做的一项核验">One check worth running before you commit</h3>\n'
+            f'  <p class="depth-check" data-zh="{html.escape(chk_zh, quote=True)}">{html.escape(chk_en)}</p>\n'
+            '</div></section>')
+        defined_terms = json.dumps({
+            "@context": "https://schema.org", "@type": "DefinedTermSet",
+            "name": h2_en, "url": url + "#terms",
+            "inLanguage": "en",
+            "hasDefinedTerm": [
+                {"@type": "DefinedTerm", "name": t[0],
+                 "description": t[1], "inDefinedTermSet": url + "#terms"}
+                for t in dp.get("terms", [])]}, ensure_ascii=False)
+    else:
+        defined_terms = ""
+
     # E-E-A-T: an explicit, visible review statement mirrored in structured data.
     # lastReviewed + reviewedBy are valid WebPage properties (no invented author
     # or founding date, no fabricated sameAs links).
@@ -309,11 +374,18 @@ def build_page(seed, all_seeds):
         "@context": "https://schema.org", "@type": "WebPage",
         "@id": url + "#webpage", "url": url, "name": en_t,
         "isPartOf": {"@type": "WebSite", "name": "Anchormere", "url": SITE},
-        "inLanguage": "en", "lastReviewed": REVIEW_DATE,
-        "reviewedBy": {"@type": "Organization", "name": "Anchormere sourcing desk", "url": SITE},
+        "inLanguage": "en", "lastReviewed": REVIEW_DATE, "dateModified": REVIEW_DATE,
+        "reviewedBy": {"@type": "Organization", "name": "Anchormere sourcing desk",
+                       "url": SITE,
+                       "description": "In-house sourcing engineering desk; reviews technical notes, standards scope and typical-value disclaimers."},
         "publisher": {"@type": "Organization", "name": "Anchormere", "url": SITE},
         "about": {"@type": "Thing", "name": en_t},
+        "citation": [{"@type": "CreativeWork", "name": c} for c in depth_citations],
+        "isBasedOn": {"@type": "WebPage", "url": SITE + "/editorial-standards"},
     }, ensure_ascii=False)
+
+    ld_terms_block = (f'<script type="application/ld+json">{defined_terms}</script>'
+                      if defined_terms else "")
 
     doc = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -347,6 +419,7 @@ def build_page(seed, all_seeds):
 <script type="application/ld+json">{faq}</script>
 <script type="application/ld+json">{prod}</script>
 <script type="application/ld+json">{webpage}</script>
+{ld_terms_block}
 </head><body>
 <div class="topbar"><span data-zh="⚓ <b>48 小时报价</b>">⚓ <b>48h quote</b></span><span data-zh="🏭 <b>20+ 家认证工厂</b>">🏭 <b>20+ vetted factories</b></span><span data-zh="📦 <b>500 件起订</b>">📦 <b>500 pcs MOQ</b></span><span data-zh="📑 <b>完整出口单证</b>">📑 <b>Full export docs</b></span></div>
 {NAV}
@@ -374,6 +447,7 @@ def build_page(seed, all_seeds):
   <table class="spec-table"><thead><tr><th data-zh="项目">Parameter</th><th data-zh="说明">Detail</th></tr></thead><tbody>{specs}</tbody></table>
 </div></section>
 {expertise_section}
+{depth_section}
 <section class="l1"><div class="container">
   <h2 data-zh="常见问题">FAQ</h2>
   <p class="cn">常见问题</p>
