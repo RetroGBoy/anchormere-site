@@ -462,6 +462,35 @@ if canon_missing:
 else:
     ok("canonical 全部存在且与 URL 一致")
 
+# ---- 4c. SEO URL 绝对形式必须是 clean URL（无 .html）----------------------
+# 4 节的 norm() 会剥掉 .html，因此 canonical 写成 .html 也会被判为「一致」；
+# 但 Cloudflare Pages 把 /xxx.html 308 到 /xxx，sitemap 是无扩展名形式，
+# Google 会把该页判为「备用网页（有适当的规范标记）」而不收录。
+# 这里检查原始字符串以防回归；不检查 contact.html 的表单 redirect（value=）。
+OG_URL_RE = re.compile(r'<meta\s+property="og:url"\s+content="([^"]*)"', re.I)
+MEP_RE = re.compile(r'"mainEntityOfPage"\s*:\s*"([^"]*)"')
+ABS_DIRTY = re.compile(r'https://anchormere\.com/[A-Za-z0-9_.-]+\.html')
+abs_dirty = []
+for f in S(pages):
+    t = PAGE[f]
+    for label, rx in (("canonical", CANON_RE), ("hreflang", HL_RE),
+                      ("og:url", OG_URL_RE), ("mainEntityOfPage", MEP_RE)):
+        for m in rx.finditer(t):
+            for g in m.groups():
+                hit = ABS_DIRTY.search(g) if g else None
+                if hit:
+                    abs_dirty.append((f, label, hit.group(0)))
+# JSON-LD 块内的同域 .html 绝对 URL（BreadcrumbList.item / url / mainEntityOfPage）
+for f in S(pages):
+    for b in LD_RE.findall(PAGE[f]):
+        for hit in ABS_DIRTY.finditer(b):
+            abs_dirty.append((f, "JSON-LD", hit.group(0)))
+if abs_dirty:
+    fail(f"{len(abs_dirty)} 处 SEO URL 仍带 .html（会 308、与 sitemap 冲突、被判备用网页）: "
+         + ", ".join(f"{f}:{lab}" for f, lab, _ in abs_dirty[:4]))
+else:
+    ok("canonical / hreflang / og:url / mainEntityOfPage 全部为 clean URL 绝对形式")
+
 # ---- 4b. sitemap lastmod 必须是真实的、按内容分布的日期 ----
 # 若用文件 mtime，CI checkout 会把全站 mtime 重置为当天，产生「全站每天
 # 全量更新」的虚假信号，Google 会忽略不可信的 lastmod。

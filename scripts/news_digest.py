@@ -494,6 +494,10 @@ def build_post(item, cats, today, title_en, title_zh):
         filename = base.replace(".html", f"-{i}.html")
         i += 1
 
+    # canonical / hreflang / og:url / JSON-LD 一律用 clean URL（无 .html）：
+    # Cloudflare Pages 把 /xxx.html 308 到 /xxx，sitemap 也是无扩展名形式。
+    page_url = f"{SITE}/{filename[:-5]}"
+
     json_ld = json.dumps({
         "@context": "https://schema.org", "@type": "Article",
         "headline": title_en,
@@ -502,7 +506,7 @@ def build_post(item, cats, today, title_en, title_zh):
         "author": {"@type": "Organization", "name": "Anchormere"},
         "publisher": {"@type": "Organization", "name": "Anchormere"},
         "description": html.unescape(item["summary"][:160] or item["title"]),
-        "mainEntityOfPage": f"{SITE}/{filename}",
+        "mainEntityOfPage": page_url,
         "citation": cite,
     }, ensure_ascii=False)
 
@@ -516,15 +520,15 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta name="keywords" content="{kw_esc}">
 <meta name="description" content="{serp_d}">
 <meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
-<link rel="canonical" href="{SITE}/{filename}">
-<link rel="alternate" hreflang="en" href="{SITE}/{filename}">
-<link rel="alternate" hreflang="x-default" href="{SITE}/{filename}">
+<link rel="canonical" href="{page_url}">
+<link rel="alternate" hreflang="en" href="{page_url}">
+<link rel="alternate" hreflang="x-default" href="{page_url}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Anchormere">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="{serp_t} | Anchormere">
 <meta property="og:description" content="{serp_d}">
-<meta property="og:url" content="{SITE}/{filename}">
+<meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{SITE}/assets/img/warehouse.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{serp_t} | Anchormere">

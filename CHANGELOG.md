@@ -10,6 +10,35 @@
 
 ---
 
+## [2026-11-10] · 修复 news 页 canonical 指向 .html（GSC「备用网页 / 自动重定向」）
+
+### 问题
+GSC「网页索引编制」显示 85 页未编入索引，原因含「备用网页（有适当的规范标记）」
+与「网页会自动重定向」。站内排查定位：54 个 news 页的 canonical / hreflang /
+og:url / JSON-LD `mainEntityOfPage` 写成 `https://anchormere.com/xxx.html`，
+而 Cloudflare Pages 把 `.html` 308 到 clean URL、sitemap 也是无扩展名形式。
+Google 因此把 clean URL 判为「备用网页」、把 `.html` URL 判为「重定向」，两者都不收录。
+`verify_seo.py` 第 4 节的 `norm()` 会剥掉 `.html`，所以这个错误一直被判为 PASS。
+
+### 根治（数据源 → 生成器 → 收口层 → 闸门）
+- `scripts/news_digest.py`：新增 `page_url`（去 `.html`），5 处 URL 字段统一用它，
+  CI 每夜重生不会再带回。
+- `scripts/html_finalize.py`：收口层不变量 5 → 6 条，绝对 URL 形式的 SEO URL
+  （`href` / `og:url` / JSON-LD 内所有同域 `.html`，含 `BreadcrumbList.item`）
+  强制 clean；刻意不碰 `contact.html`（protected）的表单 `redirect`
+  （功能性 `value=`，非 SEO 字段）。
+- `scripts/verify_seo.py` 新增闸门 `4c`：检查原始字符串（含 JSON-LD 块），
+  PASS 42 → 43。
+- 一次性 `site_normalize.py` 归一化 54 个 news 页的 5 类 URL 字段。
+
+### 边界与核验
+- protected 文件零改动；`site_normalize --check` 0；全站归一化幂等。
+- 线上 sitemap 131 URLs 全 200、clean URL、无 404 / 重定向；canonical 自引用 131/131。
+- 唯一保留的同域 `.html` 绝对 URL 是 `contact.html` 表单 redirect（故意，功能所需）。
+- 核心目标（引流 / 询盘 / 关键词覆盖 / 转化路径）不变。
+
+---
+
 ## [2026-11-09] · 长尾页差异化（降 scaled content 风险）+ 内容权威性 E-E-A-T
 
 ### 新增

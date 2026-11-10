@@ -12,13 +12,17 @@ HTML 最终态归一化（纯函数，无写盘、无 cwd 依赖）
 以前单独重跑 longtail.py / build_briefings.py 会先写 38 个文件、再被改回，
 现在单独重跑即零写盘。这是「没有问题的不做变动」的源头保证。
 
-五条不变量：
+六条不变量：
   1. 站内 <a href> 用 clean URL（/about），与 canonical / sitemap 一致（避免 308）。
-  2. 中文片段标 lang="zh-CN"（WCAG 2.1 AA 3.1.2）。
-  3. Article / NewsArticle 的 author、publisher 用 @id 串联唯一 Organization。
-  4. meta keywords ≤200 字符：Google 忽略该标签，超长只增加关键词堆砌观感；
+  2. canonical / hreflang / og:url / JSON-LD mainEntityOfPage 等 SEO URL
+     即使是绝对形式也必须是 clean URL（无 .html）：Cloudflare Pages 把
+     /xxx.html 308 到 /xxx，写成 .html 会让 Google 判定「备用网页（有适当的
+     规范标记）」而不收录。只对 SEO 字段生效，不碰表单 redirect 等功能性 value。
+  3. 中文片段标 lang="zh-CN"（WCAG 2.1 AA 3.1.2）。
+  4. Article / NewsArticle 的 author、publisher 用 @id 串联唯一 Organization。
+  5. meta keywords ≤200 字符：Google 忽略该标签，超长只增加关键词堆砌观感；
      按逗号词边界收敛，零关键词损失（LSI 词仍在正文 / FAQ / 结构化数据里）。
-  5. FAQPage 带 speakable：把语音助手与答案引擎指向页面里真实存在的问答 DOM。
+  6. FAQPage 带 speakable：把语音助手与答案引擎指向页面里真实存在的问答 DOM。
      长尾页有 .qa 问答块，早期框架页的 FAQ 问题落在 h3，选择器按页面自适应。
 
 放在收口层而非各生成器里的原因：任何新生成器、手写页、CI 重生都必然经过
@@ -34,6 +38,20 @@ with open(os.path.join(_HERE, "org_entity.json"), encoding="utf-8") as _fh:
 
 HREF_ATTR = re.compile(r'(href\s*=\s*)(["\'])([^"\']*)(\2)')
 REL_HTML = re.compile(r'^([A-Za-z0-9_][A-Za-z0-9_.-]*)\.html((?:[#?].*)?)$')
+ABS_HTML = re.compile(
+    r'^https://anchormere\.com/([A-Za-z0-9_][A-Za-z0-9_.-]*)\.html((?:[#?].*)?)$')
+# 不用 href 承载的 SEO URL：og:url 用 content=，mainEntityOfPage 在 JSON-LD 里。
+# 刻意不做「全站任意同域 .html」全局替换 —— contact.html（protected）的表单
+# redirect（<input value="https://anchormere.com/contact.html?sent=1">）是功能性
+# 配置，必须原样保留。
+OG_URL_ABS = re.compile(
+    r'(<meta\s+property="og:url"\s+content="https://anchormere\.com/'
+    r'[A-Za-z0-9_][A-Za-z0-9_.-]*)\.html(")', re.I)
+# JSON-LD 内的同域 .html 绝对 URL（mainEntityOfPage / BreadcrumbList.item /
+# url 等）统一在 _ld_repl 里清洗；限定在 <script ld+json> 块内，不碰
+# contact.html 的表单 redirect。
+LD_ABS_HTML = re.compile(
+    r'(https://anchormere\.com/[A-Za-z0-9_][A-Za-z0-9_.-]*)\.html(?=")')
 CN_TAG = re.compile(r'(<[A-Za-z][A-Za-z0-9]*\b[^>]*\bclass="[^"]*\bcn\b[^"]*"[^>]*?)(>)', re.S)
 LD_BLOCK = re.compile(r'(<script type="application/ld\+json">)(.*?)(</script>)', re.S)
 # 全站生成器统一输出 <meta name="keywords" content="...">；属性用双引号。
@@ -44,11 +62,18 @@ KW_MAX = 200
 def _href_repl(m):
     val = m.group(3)
     hit = REL_HTML.match(val)
-    if not hit:
-        return m.group(0)
-    slug, suffix = hit.group(1), hit.group(2)
-    clean = "/" if slug == "index" else "/" + slug
-    return m.group(1) + m.group(2) + clean + suffix + m.group(4)
+    if hit:
+        slug, suffix = hit.group(1), hit.group(2)
+        clean = "/" if slug == "index" else "/" + slug
+        return m.group(1) + m.group(2) + clean + suffix + m.group(4)
+    # 绝对 URL 形式：canonical / hreflang / og / 站内 <a> 都必须是 clean URL。
+    hit = ABS_HTML.match(val)
+    if hit:
+        slug, suffix = hit.group(1), hit.group(2)
+        clean = "" if slug == "index" else slug
+        return (m.group(1) + m.group(2) + "https://anchormere.com/" + clean
+                + suffix + m.group(4))
+    return m.group(0)
 
 
 def _cn_repl(m):
@@ -80,21 +105,25 @@ def _kw_repl(m):
 
 
 def _ld_repl(m, has_qa):
+    # 先清洗块内所有同域 .html 绝对 URL，保证 BreadcrumbList.item / url /
+    # mainEntityOfPage 都指向 clean URL；幂等。
+    raw = LD_ABS_HTML.sub(r'\1', m.group(2))
+    head, tail = m.group(1), m.group(3)
     try:
-        obj = json.loads(m.group(2))
+        obj = json.loads(raw)
     except (ValueError, TypeError):
-        return m.group(0)
+        return head + raw + tail
     if not isinstance(obj, dict):
-        return m.group(0)
+        return head + raw + tail
     t = obj.get("@type")
     if t == "FAQPage" and "speakable" not in obj:
         obj["speakable"] = {
             "@type": "SpeakableSpecification",
             "cssSelector": [".qa h3", ".qa p"] if has_qa else ["h3"],
         }
-        return m.group(1) + json.dumps(obj, ensure_ascii=False) + m.group(3)
+        return head + json.dumps(obj, ensure_ascii=False) + tail
     if t not in ("Article", "NewsArticle"):
-        return m.group(0)
+        return head + raw + tail
     changed = False
     for key in ("author", "publisher"):
         v = obj.get(key)
@@ -102,13 +131,14 @@ def _ld_repl(m, has_qa):
             obj[key] = {"@id": ORG_ID}
             changed = True
     if not changed:
-        return m.group(0)
-    return m.group(1) + json.dumps(obj, ensure_ascii=False) + m.group(3)
+        return head + raw + tail
+    return head + json.dumps(obj, ensure_ascii=False) + tail
 
 
 def normalize(text):
     """幂等：normalize(normalize(x)) == normalize(x)。"""
     text = HREF_ATTR.sub(_href_repl, text)
+    text = OG_URL_ABS.sub(r'\1\2', text)
     text = CN_TAG.sub(_cn_repl, text)
     text = META_KW.sub(_kw_repl, text)
     has_qa = 'class="qa"' in text
