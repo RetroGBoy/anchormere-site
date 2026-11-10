@@ -97,7 +97,7 @@ assets / config 变更 → 强制跑一次全站全局不变量
 | 层级 | 内容 | 何时跑 |
 |---|---|---|
 | **local（逐页）** | hreflang、中文版本声明、canonical、JSON-LD、Organization 一致性、E-E-A-T、`wordCount`、clean URL、`lang`、Article `@id` | 仅对脏模块闭包内的页面 |
-| **global（全站不变量）** | 孤儿页、sitemap lastmod、robots AI 爬虫、IndexNow、GSC/Bing 验证、实体类型覆盖、SEO URL 绝对形式 clean URL（无 .html） | 每次校验跑一次（基于单次读取缓存，开销极小） |
+| **global（全站不变量）** | 孤儿页、sitemap lastmod、robots AI 爬虫、IndexNow、GSC/Bing 验证、实体类型覆盖、SEO URL 绝对形式 clean URL（无 .html）、meta description 有效性（60–170 字符、无 RSS 噪声词）、站内锚点 0 死锚 | 每次校验跑一次（基于单次读取缓存，开销极小） |
 | **full（全量复审）** | 上述全部，对全部页面 | 仅 `verify --all`、显式复审需求、或 `engine`/`data-org` 等强变更触发 |
 
 `verify_seo.py` 退出码：`1 = FAIL 阻断推送`，`2 = WARN 提示`，`0 = PASS`。24 项 PASS 基线保持不变。

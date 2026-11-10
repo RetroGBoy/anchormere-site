@@ -10,6 +10,38 @@
 
 ---
 
+## [2026-11-10] · 质量巡检：修案例页死锚 + news 页脏 description（技术硬问题）
+
+### 全站质量体检（132 页 / 131 sitemap URL）
+技术健康、内容体量、结构化数据、可访问性、安全响应头、线上一致性多维巡检结论：
+常规项全绿（title/description 唯一性 0 重复、H1 唯一、图片 alt 全覆盖、
+外链 noopener 全覆盖、496 个 JSON-LD 块 0 解析失败、36 长尾页 Jaccard 0.428
+且 >0.70 组合 0、独有词 7.9%）；线上 HSTS/CSP/X-Frame-Options/Referrer-Policy/
+COOP/CORP 齐全，HTTP/2+3、Brotli、TLS 正常，sitemap 全 200。
+
+### 修复的 2 类真 bug
+- **案例枢纽页 4 个死锚**：`build_cases.py` 的 TOC 生成 `#reshoring` 等 4 个
+  锚点，但分组 `<section>` 从未写 `id`，导航链接全部无效。已给 section 加 id 并重建。
+- **4 个 news 页脏/过短 description**：RSS 抓到模板噪声「Comments」或极短副标题
+  （8/29/56/59 字符），污染 description / desc-zh / og / twitter / JSON-LD 五处。
+  `news_digest.py` 新增 `NOISE_SUMMARY` + `MIN_SERP_DESC=60` 兜底，用真实标题构造
+  133–144 字符完整句（不编造事件/数据/背书）；存量 4 页一次性修复，5 字段统一。
+
+### 制度固化（换模型仍有效）
+`verify_seo.py` 新增两条闸门：`4d` meta description 60–170 字符且无 RSS 噪声词、
+`4e` 站内锚点 `href=#id` 必须可跳转（0 死锚）。PASS 43 → 45。
+同步 `modules.json` verify.global / `WORKFLOW.md` 不变量清单。
+
+### 明确不改（设计取舍 / 非缺陷）
+footer 用 h4 造成的 heading 跳级（131 页，属可访问性建议非 WCAG 失败项、
+改动会触碰全站骨架与 protected 边界）；图片缺 width/height（CSS 已固定容器
+尺寸、无实际 CLS）；404 页薄内容 / 无 JSON-LD / 无 twitter:card（404 本就不该
+索引）；TTFB ~1s（`_headers` 为 protected，属 CDN 层）。按「无问题不改动」制度
+保留，列为建议项。protected 与简报页零改动；核心目标（引流/询盘/关键词覆盖/
+转化路径）不变。
+
+---
+
 ## [2026-11-10] · 修复 news 页 canonical 指向 .html（GSC「备用网页 / 自动重定向」）
 
 ### 问题

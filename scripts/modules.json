@@ -36,7 +36,7 @@
   },
   "verify": {
     "local": "逐页检查：hreflang / 中文版本声明 / canonical / JSON-LD / Organization 一致性 / E-E-A-T / wordCount / clean URL / lang / Article @id。增量模式仅对脏模块的页面执行。",
-    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable / 公开案例来源 URL 明文与免责声明 / 长尾页差异化结构不变量 / 编辑标准页 E-E-A-T 边界 / SEO URL 绝对形式为 clean URL（canonical、hreflang、og:url、JSON-LD 均不含 .html）。始终执行一次（基于单次读取缓存，开销极小）。",
+    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable / 公开案例来源 URL 明文与免责声明 / 长尾页差异化结构不变量 / 编辑标准页 E-E-A-T 边界 / SEO URL 绝对形式为 clean URL（canonical、hreflang、og:url、JSON-LD 均不含 .html）/ meta description 60–170 字符且无 RSS 噪声词 / 站内锚点 href=#id 全部可跳转（0 死锚）。始终执行一次（基于单次读取缓存，开销极小）。",
     "full_flag": "--all",
     "gate": "verify_seo.py 退出码 1 = FAIL 阻断推送；2 = WARN 提示；0 = PASS"
   },

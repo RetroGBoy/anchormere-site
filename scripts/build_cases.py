@@ -76,7 +76,7 @@ def build():
         if not items:
             continue
         cards = "\n".join(case_card(c, titles) for c in items)
-        sections.append(f'''<section class="l2"><div class="container">
+        sections.append(f'''<section class="l2" id="{esc(g["id"])}"><div class="container">
   <h2 data-zh="{esc(g["zh"])}">{esc(g["en"])}</h2>
   <p class="cn" lang="zh-CN">{esc(g["zh"])}</p>
   <div class="case-list">{cards}</div>

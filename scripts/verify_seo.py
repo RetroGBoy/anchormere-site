@@ -591,6 +591,44 @@ if inline:
 else:
     ok("Article author/publisher 均以 @id 串联全站唯一 Organization 实体")
 
+# ---- 4d. meta description 有效性（防 RSS 噪声 / 过短片段进入 SERP）----------
+# 历史 bug：CI 抓到 "Comments" 之类 RSS 模板词或极短副标题，直接写入
+# description / og / twitter / desc-zh / JSON-LD，SERP 摘要失去引流价值。
+META_DESC_RE = re.compile(r'<meta name="description" content="([^"]*)"')
+NOISE_DESC = {"", "comments", "read more", "continue reading", "advertisement",
+              "sponsored", "share", "sign up", "subscribe", "n/a", "na", "-"}
+desc_bad = []
+for f in S(pages):
+    m = META_DESC_RE.search(PAGE[f])
+    if not m:
+        desc_bad.append((f, "缺 meta description")); continue
+    d = html.unescape(m.group(1)).strip()
+    if d.lower().strip(" .!?:;·—–-\n\t") in NOISE_DESC or not (60 <= len(d) <= 170):
+        desc_bad.append((f, f"{len(d)} 字符 {d[:34]!r}"))
+if desc_bad:
+    fail(f"{len(desc_bad)} 页 meta description 为噪声词或长度越界(<60/>170): "
+         + ", ".join(f"{f}({why})" for f, why in desc_bad[:4]))
+else:
+    ok(f"meta description 全为有效摘要（{len(S(pages))} 页，60–170 字符、无 RSS 噪声词）")
+
+# ---- 4e. 站内锚点必须可跳转（防死锚）----------------------------------
+# 历史 bug：案例枢纽页 TOC 生成 #group-id 锚点，但分组 <section> 从未写 id，
+# 4 个导航链接全部无效，影响站内导航与转化路径。
+ANCHOR_RE = re.compile(r'href="#([^"]+)"')
+ID_RE = re.compile(r'\bid="([^"]+)"')
+dead_anchors = []
+for f in S(pages):
+    t = PAGE[f]
+    ids = set(ID_RE.findall(t))
+    for a in ANCHOR_RE.findall(t):
+        if a and a not in ids:
+            dead_anchors.append((f, a))
+if dead_anchors:
+    fail(f"{len(dead_anchors)} 个站内死锚（href=#id 无对应元素）: "
+         + ", ".join(f"{f}→#{a}" for f, a in dead_anchors[:5]))
+else:
+    ok(f"站内锚点全部可跳转（{len(S(pages))} 页，0 死锚）")
+
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")
 print(f"  校验模式：{MODE}  |  全站 {len(htmls)} 个 HTML，单次读取缓存")

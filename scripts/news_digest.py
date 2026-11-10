@@ -423,8 +423,24 @@ def clip_serp_title(raw, limit=60):
     return cut.rstrip(" ,;:-–—")
 
 
-def clip_serp_desc(raw, limit=155):
-    d = html.unescape(raw).strip()
+# RSS 噪声摘要：站点模板词（如 "Comments"）不能作为 SERP 描述。
+# 低于 MIN_SERP_DESC 的片段信息量不足，Google 通常会自行改写，且不利于引流。
+NOISE_SUMMARY = {
+    "comments", "read more", "continue reading", "advertisement",
+    "sponsored", "share", "sign up", "subscribe", "n/a", "na", "-", "",
+}
+MIN_SERP_DESC = 60
+
+
+def clip_serp_desc(raw, limit=155, fallback_title=None):
+    d = html.unescape(raw or "").strip()
+    key = d.lower().strip(" .!?:;·—–-\n\t")
+    # 噪声词或过短 → 用真实标题构造符合站点口径的兜底（不编造事件/数据/背书）。
+    # 句式固定且短，保证 title 较长时整句仍在 155 字符内、SERP 不截断。
+    if key in NOISE_SUMMARY or len(d) < MIN_SERP_DESC:
+        if fallback_title:
+            t = html.unescape(fallback_title).strip()
+            d = f"{t} — what it signals for overseas buyers sourcing through the Greater Bay Area."
     if len(d) <= limit:
         return d
     cut = d[:limit]
@@ -456,7 +472,10 @@ def build_post(item, cats, today, title_en, title_zh):
     # SERP display layer (clipped); full headline still used in body + Article JSON-LD.
     serp_t = html.escape(clip_serp_title(title_en))
     _summary_raw = item["summary"] or item["title"]
-    serp_d = html.escape(clip_serp_desc(_summary_raw))
+    # 净化 RSS 噪声/过短摘要，避免 "Comments" 之类脏值进入 SERP / OG / JSON-LD。
+    # limit 足够大：正常页 _desc_clean 与原始 summary 逐字节一致（不触发截断）。
+    _desc_clean = clip_serp_desc(_summary_raw, 1000, fallback_title=title_en)
+    serp_d = html.escape(clip_serp_desc(_desc_clean))
 
     en_lead = (f"Anchormere's digest bot is tracking “{en_title}” and what it signals "
                f"for overseas buyers who source through the Greater Bay Area.{gba_extra_en}")
@@ -505,7 +524,7 @@ def build_post(item, cats, today, title_en, title_zh):
         "datePublished": today.strftime("%Y-%m-%d"),
         "author": {"@type": "Organization", "name": "Anchormere"},
         "publisher": {"@type": "Organization", "name": "Anchormere"},
-        "description": html.unescape(item["summary"][:160] or item["title"]),
+        "description": html.unescape(_desc_clean[:160]),
         "mainEntityOfPage": page_url,
         "citation": cite,
     }, ensure_ascii=False)
@@ -519,7 +538,7 @@ def build_post(item, cats, today, title_en, title_zh):
 <meta name="content-kind" content="digest">
 <meta name="keywords" content="{kw_esc}">
 <meta name="description" content="{serp_d}">
-<meta name="desc-zh" content="{html.escape(html.unescape(item['summary'][:155] or item['title']))}">
+<meta name="desc-zh" content="{html.escape(html.unescape(_desc_clean[:155]))}">
 <link rel="canonical" href="{page_url}">
 <link rel="alternate" hreflang="en" href="{page_url}">
 <link rel="alternate" hreflang="x-default" href="{page_url}">
