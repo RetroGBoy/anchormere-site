@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-15",
   "purpose": "Per-page substantive, category-specific depth content. Single source of truth rendered by scripts/longtail.py. Each page's content is unique (no cross-page boilerplate) to remove the scaled-content pattern and to make E-E-A-T self-evidencing: engineering detail, public standard references (editorial, NOT certification claims), a buyer decision scenario, and an explicit data-provenance / typical-value disclaimer.",
   "policy": "Standards are cited as public references for buyers to verify with their supplier; Anchormere does NOT claim to hold any certification. All numeric figures are typical industry ranges, confirmed against the buyer's drawing and target market at RFQ. No client projects, no fabricated prices, no invented credentials.",
   "clusters": {
@@ -23,6 +23,10 @@
     "knowledge": {
       "h2": "Definitions, calculation method & worked example",
       "zh": "定义、计算口径与算例"
+    },
+    "pcb": {
+      "h2": "PCB chain: material, fabrication, assembly & signal integrity",
+      "zh": "PCB 产业链：材料、制板、组装与信号完整性"
     }
   },
   "pages": {
@@ -3227,6 +3231,718 @@
           "retrospective duty adjustment",
           "事后更正",
           "追溯性关税调整"
+        ]
+      ]
+    },
+    "ccl-copper-clad-laminate-sourcing": {
+      "cluster": "pcb",
+      "h2": [
+        "Laminate grade, foil roughness and lot traceability",
+        "板材等级、铜箔粗糙度与批次可追溯性"
+      ],
+      "notes": [
+        [
+          "The same FR-4 designation covers a wide Tg and Dk range; a PO that names only FR-4 allows the mill to substitute a resin system with a different press window and CTE.",
+          "同为 FR-4 的牌号覆盖很宽的 Tg 与 Dk 区间；采购单只写 FR-4，板厂就可换成压合窗口与 CTE 不同的树脂体系。"
+        ],
+        [
+          "Dk and Df are frequency-dependent; a datasheet value measured at 1 MHz cannot be used to predict a multi-gigabit channel, so the test method belongs in the RFQ.",
+          "Dk 与 Df 随频率变化；1 MHz 下测得的值无法预测数 Gbps 通道，因此测试方法应写入询价。"
+        ],
+        [
+          "Prepreg resin content and flow are a matched pair with the press cycle; changing copper distribution on an inner layer without re-checking flow produces resin starvation at the weave knuckles.",
+          "半固化片树脂含量与流动度是和压合曲线配套的一对参数；内层铜分布改变后不复核流动度，会在织纹结点处出现缺胶。"
+        ],
+        [
+          "A generic type-test report is not a lot COA. Traceability requires the batch number on the packing list to match the tested lot, especially for CAF-sensitive designs.",
+          "通用型式试验报告不等于批次 COA。可追溯性要求装箱单批号与受检批次一致，对 CAF 敏感设计尤其重要。"
+        ]
+      ],
+      "scenario": [
+        "A buyer asks for a high-Tg laminate but does not state the Dk test frequency. Two mills quote the same Tg with different resin systems; the assembled boards then miss the impedance target because the pressed Dk differs. We normally hold the quote until the frequency, foil type and IPC-4101 slash sheet are all fixed, so the impedance model and the material baseline refer to the same datasheet.",
+        "买家要求高 Tg 板材，却未写明 Dk 测试频率。两家板厂按同一 Tg 报了不同树脂体系，成品因压合后 Dk 不同而偏离阻抗目标。我们通常在频率、铜箔类型与 IPC-4101 规格表编号全部锁定前暂不报价，让阻抗模型与材料基线指向同一份规格书。"
+      ],
+      "standards": [
+        [
+          "IPC-4101",
+          "specification for base materials for rigid and multilayer boards"
+        ],
+        [
+          "IPC-TM-650",
+          "test methods manual for laminate properties"
+        ],
+        [
+          "UL 94",
+          "flammability classification of polymeric materials (editorial reference)"
+        ],
+        [
+          "IEC 61189-2",
+          "test methods for interconnecting materials and assemblies"
+        ]
+      ],
+      "checklist": [
+        "Ask the mill for a lot-specific COA and name the IPC-4101 slash sheet, copper weight, foil type and Dk test frequency in the PO.",
+        "要求板厂提供批次 COA，并在采购单写明 IPC-4101 规格表编号、铜厚、铜箔类型与 Dk 测试频率。"
+      ],
+      "terms": [
+        [
+          "CCL",
+          "copper-clad laminate, the copper-foiled base sheet",
+          "覆铜板",
+          "双面覆铜的基材板"
+        ],
+        [
+          "Prepreg",
+          "resin-impregnated glass cloth used to bond layers",
+          "半固化片",
+          "浸树脂玻纤布，用于层间粘接"
+        ],
+        [
+          "Tg",
+          "glass transition temperature of the resin system",
+          "玻璃化转变温度",
+          "树脂体系的玻璃化转变温度"
+        ],
+        [
+          "Dk",
+          "relative permittivity at a stated frequency",
+          "介电常数",
+          "指定频率下的相对介电常数"
+        ],
+        [
+          "CAF",
+          "conductive anodic filament growth along glass fibres",
+          "导电阳极丝",
+          "沿玻纤生长的导电阳极丝"
+        ],
+        [
+          "Slash sheet",
+          "IPC-4101 specification sheet identifying one laminate",
+          "规格表编号",
+          "IPC-4101 中标识单一板材的规格表"
+        ]
+      ]
+    },
+    "low-loss-m8-m9-laminate": {
+      "cluster": "pcb",
+      "h2": [
+        "Loss budget split: dielectric, conductor and glass weave",
+        "插损预算拆分：介质、导体与玻纤织纹"
+      ],
+      "notes": [
+        [
+          "At 224G-class rates the conductor loss from copper roughness can rival the dielectric loss, so upgrading the resin while keeping HTE foil often yields a smaller gain than the grade change suggests.",
+          "在 224G 级速率下，铜箔粗糙度带来的导体损耗可能与介质损耗相当；只升级树脂、保留 HTE 铜箔，改善常小于等级变化暗示的幅度。"
+        ],
+        [
+          "Low-Dk and Q-glass reinforcement reduce dielectric loss but change the weave-induced skew; a spread weave and a routing angle rule must be reviewed together with the fabricator.",
+          "低介电与石英玻纤布降低介质损耗，却改变织纹引起的偏斜；开纤布与走线角度规则需与板厂一并复核。"
+        ],
+        [
+          "Hydrocarbon and PTFE resin routes need different press temperatures, and a hybrid stack-up that mixes them requires separate lamination cycles, which is the main cost driver.",
+          "碳氢树脂与 PTFE 路线需要不同压合温度；混用两者的混压叠构需分别压合，这是主要成本来源。"
+        ],
+        [
+          "A grade name such as M8 is a supplier-side family label, not a cross-vendor standard; two M8 materials are not interchangeable without re-running the channel simulation.",
+          "M8 这类等级名是供应商内部系列标签，不是跨厂商标准；两家 M8 材料未经通道仿真复核不能直接互换。"
+        ]
+      ],
+      "scenario": [
+        "A buyer specifies M9 across the whole 24-layer stack-up to protect a few 224G links. The material cost and lead time roughly double, while only four layers actually need that Df. We normally present a hybrid build — high-grade material on the critical layers, mid-grade elsewhere — with two loss-budget simulations, so the trade-off is decided before the press tooling is ordered.",
+        "买家为保护少数 224G 链路把 24 层板全指定为 M9，材料成本与交期近乎翻倍，而真正需要该 Df 的只有四层。我们通常给出混压方案——关键层用高等级材料、其余用中等级——并附两套插损预算仿真，把取舍定在压合工装下单之前。"
+      ],
+      "standards": [
+        [
+          "IPC-4101",
+          "base material specification and slash sheets for high-speed grades"
+        ],
+        [
+          "IPC-TM-650 2.5.5",
+          "test methods for dielectric properties of laminate"
+        ],
+        [
+          "IEEE 802.3",
+          "Ethernet physical-layer channel context for high-speed links"
+        ],
+        [
+          "PCI-SIG PCIe 6.0",
+          "interface specification context for 64 GT/s channels"
+        ]
+      ],
+      "checklist": [
+        "Request Dk/Df at one stated frequency, the foil roughness figure and the insertion-loss coupon report for the exact lot before releasing the build.",
+        "量产放行前索取指定频率下的 Dk/Df、铜箔粗糙度数值，以及该批次的插损测试条报告。"
+      ],
+      "terms": [
+        [
+          "Df",
+          "dissipation factor, dielectric loss tangent",
+          "损耗因子",
+          "介质损耗角正切"
+        ],
+        [
+          "HVLP",
+          "hyper very low profile copper foil with low roughness",
+          "超低轮廓铜箔",
+          "低粗糙度 HVLP 铜箔"
+        ],
+        [
+          "Q-glass",
+          "quartz-glass reinforcement with lower Dk than E-glass",
+          "石英玻纤布",
+          "比 E 玻纤介电更低的石英增强材料"
+        ],
+        [
+          "Insertion loss",
+          "signal power lost along a channel at a given frequency",
+          "插入损耗",
+          "给定频率下沿通道损失的信号功率"
+        ],
+        [
+          "Hybrid stack-up",
+          "build mixing different laminate grades by layer",
+          "混压叠构",
+          "不同层使用不同板材等级的叠构"
+        ],
+        [
+          "Glass-weave skew",
+          "timing difference between traces over glass bundles",
+          "玻纤织纹偏斜",
+          "走线跨玻纤束与间隙造成的时延差"
+        ]
+      ]
+    },
+    "high-layer-count-pcb-ai-server": {
+      "cluster": "pcb",
+      "h2": [
+        "Lamination registration, back-drill stubs and impedance spread",
+        "压合对位、背钻残桩与阻抗离散"
+      ],
+      "notes": [
+        [
+          "Each sequential lamination cycle adds a registration error budget; a 30-layer board built as four sub-composites accumulates more drift than one built as two, regardless of artwork quality.",
+          "每次顺序压合都增加一份对位误差预算；由四块子板压成的 30 层板比两块子板累积更多漂移，与线路图形质量无关。"
+        ],
+        [
+          "Back-drill stub length is a per-net-class requirement: a stub acceptable on a low-rate control net can be a resonant discontinuity on a 224G link on the same board.",
+          "背钻残桩长度是按网络类规定的：同一块板上低速控制网络可接受的残桩，在 224G 链路上可能成为谐振不连续点。"
+        ],
+        [
+          "Impedance is set by the pressed dielectric thickness, which differs from the nominal prepreg datasheet; quoting from the nominal value is the most common source of a systematic offset.",
+          "阻抗由压合后介质厚度决定，与半固化片规格书标称值不同；按标称值报价是系统性偏差最常见的来源。"
+        ],
+        [
+          "Panel-level thickness variation changes the optimum back-drill depth across the same panel, so a single drill-depth setting cannot satisfy the tightest stub limit everywhere.",
+          "拼板内厚度波动会改变同一拼板上各处的最佳背钻深度；单一钻深设定无法在所有位置满足最严残桩限制。"
+        ]
+      ],
+      "scenario": [
+        "A buyer asks for a 30-layer board at a 10% impedance tolerance and a 0.2 mm maximum stub. The fabricator can hold either target alone, but the drill-depth spread across the panel makes the two conflict at the corners. We normally split the net classes in the RFQ — a tight stub limit only on the high-speed links — and require TDR coupons at multiple panel positions, so the trade-off is visible before the first press.",
+        "买家要求 30 层板同时满足 ±10% 阻抗与 0.2 mm 最大残桩。板厂单独任一项都能做到，但拼板内钻深离散让两者在板角冲突。我们通常在询价里按网络类拆分——严格残桩只用于高速链路——并要求拼板多点 TDR 测试条，让取舍在首次压合前就可见。"
+      ],
+      "standards": [
+        [
+          "IPC-6012",
+          "qualification and performance specification for rigid PCBs"
+        ],
+        [
+          "IPC-2221",
+          "generic standard on printed board design"
+        ],
+        [
+          "IPC-TM-650",
+          "test methods including microsection and impedance"
+        ],
+        [
+          "IPC-6018",
+          "microwave end-product board inspection context (editorial reference)"
+        ]
+      ],
+      "checklist": [
+        "Send a full stack-up with pressed dielectric thicknesses, target impedance per net class and the maximum stub length, and ask for TDR coupons at several panel positions.",
+        "提供含压合介质厚度、各网络类阻抗目标与最大残桩长度的完整叠构，并要求拼板多个位置布 TDR 测试条。"
+      ],
+      "terms": [
+        [
+          "Backplane",
+          "board interconnecting multiple line cards or compute trays",
+          "背板",
+          "连接多块线卡或计算托板的板"
+        ],
+        [
+          "Back-drill",
+          "controlled-depth drilling to remove unused via stub",
+          "背钻",
+          "定深钻孔去除无用过孔残桩"
+        ],
+        [
+          "Stack-up",
+          "ordered layer, dielectric and copper build of a board",
+          "叠构",
+          "板的层序、介质与铜厚排列"
+        ],
+        [
+          "Registration",
+          "layer-to-layer alignment accuracy after lamination",
+          "层间对位",
+          "压合后各层之间的对准精度"
+        ],
+        [
+          "TDR",
+          "time-domain reflectometry used to measure impedance",
+          "时域反射",
+          "测量阻抗的时域反射法"
+        ],
+        [
+          "Sequential lamination",
+          "multiple press cycles building sub-composites",
+          "顺序压合",
+          "多次压合构成子复合板的工艺"
+        ]
+      ]
+    },
+    "hdi-msap-anylayer-pcb": {
+      "cluster": "pcb",
+      "h2": [
+        "Microvia structure, seed-layer etch and filled-via planarity",
+        "微孔结构、种子层蚀刻与填孔平整度"
+      ],
+      "notes": [
+        [
+          "HDI names an interconnect structure while mSAP names a patterning process; a board can use stacked microvias without mSAP, and fine lines without any microvia at all.",
+          "HDI 描述互连结构，mSAP 描述图形转移工艺；一块板可以有叠孔微孔而不用 mSAP，也可以有细线而无微孔。"
+        ],
+        [
+          "Stacked microvias concentrate thermal-cycle strain at the build-up interface; the fill copper void percentage matters more to field reliability than the nominal via diameter.",
+          "叠孔微孔把热循环应变集中在增层界面；填充铜空洞率对现场可靠性的影响大于标称孔径。"
+        ],
+        [
+          "In mSAP, seed-layer etch uniformity sets the line-width spread; an exposure tool capable of 3/3 mil does not by itself guarantee that yield at that rule.",
+          "mSAP 中种子层蚀刻均匀性决定线宽离散；曝光设备能解析 3/3 mil 并不等于该线宽下有量产良率。"
+        ],
+        [
+          "A dimple limit on via-in-pad is meaningless without the measurement method and the clamping condition used during final assembly.",
+          "盘中孔凹陷上限若不同时规定测量方法与最终组装的夹紧条件，就没有可执行意义。"
+        ]
+      ],
+      "scenario": [
+        "A buyer specifies any-layer HDI with 3/3 mil lines to shrink a module, then asks why the quoted lead time is longer than a staged HDI build. Every layer interface now needs its own lamination and laser-drill cycle, and the fine-line yield drops at the minimum width. We normally return two options — any-layer with the full density, and a staged build that keeps the same routing on the critical interfaces — with yield and lead-time figures for each, so the decision is made before tooling.",
+        "买家为缩小模组指定任意层 HDI 与 3/3 mil 线宽，随后询问为何交期长于分阶 HDI。因为每个层界面都要独立压合与激光钻孔，且最小线宽处良率下降。我们通常回两套方案——全密度任意层，以及仅在关键界面保持同样布线的分阶结构——各附良率与交期，让选择落在开模之前。"
+      ],
+      "standards": [
+        [
+          "IPC-2226",
+          "design standard for high-density interconnect boards"
+        ],
+        [
+          "IPC-6012",
+          "qualification and performance of rigid boards"
+        ],
+        [
+          "IPC-TM-650",
+          "test methods for microsection and interconnect stress"
+        ],
+        [
+          "JESD22-A104",
+          "temperature cycling reference for interconnect reliability"
+        ]
+      ],
+      "checklist": [
+        "Specify the microvia structure per interface, the minimum line/space, the filled-via dimple limit and the applicable IPC class in the PO.",
+        "在采购单逐界面写明微孔结构、最小线宽/线距、填孔凹陷上限与适用 IPC 等级。"
+      ],
+      "terms": [
+        [
+          "mSAP",
+          "modified semi-additive patterning process",
+          "改良半加成法",
+          "改良型半加成图形转移工艺"
+        ],
+        [
+          "Anylayer",
+          "HDI with microvias between every adjacent layer",
+          "任意层互连",
+          "相邻层间均可做微孔的 HDI"
+        ],
+        [
+          "Microvia",
+          "laser-drilled via spanning one dielectric layer",
+          "微孔",
+          "跨越单层介质的激光孔"
+        ],
+        [
+          "Stacked via",
+          "microvias aligned directly on top of each other",
+          "叠孔",
+          "上下直接对齐堆叠的微孔"
+        ],
+        [
+          "Dimple",
+          "depression left after via filling",
+          "凹陷",
+          "填孔后残留的表面凹陷"
+        ],
+        [
+          "SLP",
+          "substrate-like PCB with very fine line/space",
+          "类载板",
+          "具备极细线宽/线距的类载板 PCB"
+        ]
+      ]
+    },
+    "abf-fcbga-ic-substrate": {
+      "cluster": "pcb",
+      "h2": [
+        "Body size, build-up layer count and warpage at reflow",
+        "封装尺寸、增层数与回流翘曲"
+      ],
+      "notes": [
+        [
+          "Warpage and lamination yield degrade together as body size grows; a substrate maker qualified at one size is not automatically qualified at a larger one on the same design rules.",
+          "翘曲与压合良率随封装尺寸增大同时恶化；载板厂在某一尺寸通过认证，不代表同一设计规则下更大尺寸也通过。"
+        ],
+        [
+          "The layer notation such as 18+n+18 describes build-up symmetry around a core; changing it changes residual stress balance even when the total layer count is similar.",
+          "18+n+18 这类层数记法描述芯板两侧的增层对称性；即使总层数接近，改变它也会改变残余应力平衡。"
+        ],
+        [
+          "CTE mismatch between silicon, mould compound and organic build-up is the dominant driver of package warpage, so a substrate-only flatness figure does not predict assembly yield.",
+          "硅片、塑封料与有机增层之间的 CTE 失配是封装翘曲的主因，因此仅载板的平整度数值不能预测组装良率。"
+        ],
+        [
+          "Embedded passive or IPD options reduce the power delivery path but add a lamination step and a new void-inspection requirement that must be in the qualification plan.",
+          "埋入无源器件或 IPD 缩短供电路径，却增加一次压合工序与新的空洞检验要求，必须写入认证计划。"
+        ]
+      ],
+      "scenario": [
+        "A buyer increases an AI ASIC package body size to fit more HBM stacks and keeps the same substrate layer structure. The quoted lead time jumps because the larger body needs a different stiffener strategy and a new warpage qualification. We normally separate the RFQ into two decisions — the layer structure and the body-size qualification — and ask for room- and reflow-temperature warpage data on the exact revision before the package sign-off.",
+        "买家为容纳更多 HBM 堆叠放大 AI ASIC 封装尺寸，却沿用原载板层结构。交期明显拉长，因为更大尺寸需要不同加强筋方案与新的翘曲认证。我们通常把询价拆成两个决策——层结构与尺寸认证——并在封装签核前索取该具体版本的室温与回流温度翘曲数据。"
+      ],
+      "standards": [
+        [
+          "JEDEC J-STD-020",
+          "moisture sensitivity level classification for packages"
+        ],
+        [
+          "JESD22-A104",
+          "temperature cycling test method reference"
+        ],
+        [
+          "IPC-6012",
+          "rigid board performance context for substrate cores"
+        ],
+        [
+          "IPC-TM-650",
+          "test methods for warpage and microsection"
+        ]
+      ],
+      "checklist": [
+        "State body size and build-up layer structure together, and request room- and reflow-temperature warpage data for the exact substrate revision in the BOM.",
+        "封装尺寸与增层结构须同时写明，并索取 BOM 中具体载板版本的室温与回流温度翘曲数据。"
+      ],
+      "terms": [
+        [
+          "ABF",
+          "Ajinomoto build-up film used as dielectric in substrates",
+          "ABF 增层膜",
+          "用作载板介质的味之素增层膜"
+        ],
+        [
+          "FC-BGA",
+          "flip-chip ball grid array package substrate",
+          "倒装球栅阵列载板",
+          "FC-BGA 封装基板"
+        ],
+        [
+          "BT core",
+          "bismaleimide-triazine resin core layer",
+          "BT 芯板",
+          "双马来酰亚胺三嗪树脂芯层"
+        ],
+        [
+          "Build-up layer",
+          "alternating dielectric and copper layer pair",
+          "增层",
+          "介质与图形铜交替的一对层"
+        ],
+        [
+          "Warpage",
+          "out-of-plane deformation across temperature",
+          "翘曲",
+          "随温度变化的面外形变"
+        ],
+        [
+          "RDL",
+          "redistribution layer routing die pads to bumps",
+          "重布线层",
+          "把芯片焊盘重布到凸点的层"
+        ]
+      ]
+    },
+    "800g-1-6t-optical-module-pcb": {
+      "cluster": "pcb",
+      "h2": [
+        "Insertion-loss budget, launch geometry and S-parameter evidence",
+        "插损预算、馈入几何与 S 参数证据"
+      ],
+      "notes": [
+        [
+          "At module data rates the gold-finger launch and the reference-plane transition can consume as much loss as several centimetres of trace, so a material upgrade alone rarely closes the budget.",
+          "在光模块速率下，金手指馈入与参考平面过渡消耗的损耗可能与数厘米走线相当；单靠升级材料很少能补齐预算。"
+        ],
+        [
+          "mSAP is chosen for smooth conductor profile and fine line/space, but the seed-layer etch must be controlled or line-width spread shows up as impedance ripple.",
+          "选用 mSAP 是为平滑导体形貌与细线宽/线距；但种子层蚀刻失控时，线宽离散会表现为阻抗波动。"
+        ],
+        [
+          "Embedded silicon capacitors shorten the optical-engine power path, yet they add a lamination cycle and require void inspection that a standard bare-board test does not cover.",
+          "埋入硅电容缩短光引擎供电路径，却增加一次压合并需要常规裸板测试不覆盖的空洞检验。"
+        ],
+        [
+          "A grade-level laminate datasheet cannot capture lot-to-lot Dk spread; two lots of the same grade can produce measurably different S-parameters at the band edge.",
+          "等级规格书无法反映批次间 Dk 波动；同等级两个批次在频带边缘可能给出可测的 S 参数差异。"
+        ]
+      ],
+      "scenario": [
+        "A buyer targets a tight insertion loss for a 1.6T module and asks for a better laminate, while the largest measured discontinuity sits at the gold-finger launch. We normally ask for a de-embedded S-parameter report separating the launch from the trace, then present two costed options — a material upgrade and a launch-geometry revision — so the budget is spent where the measurement says it matters.",
+        "买家为 1.6T 模块设定严格插损并要求升级板材，但实测最大不连续点位于金手指馈入处。我们通常先索取把馈入与走线分离的去嵌 S 参数报告，再给出两套带成本的方案——升级材料与修改馈入几何——让预算花在测量指出的位置上。"
+      ],
+      "standards": [
+        [
+          "IEEE 802.3",
+          "Ethernet physical-layer interface context for 800G/1.6T"
+        ],
+        [
+          "OIF CEI",
+          "common electrical I/O implementation agreement context"
+        ],
+        [
+          "IPC-6012",
+          "qualification and performance of rigid boards"
+        ],
+        [
+          "IPC-TM-650",
+          "test methods including high-frequency coupon measurement"
+        ]
+      ],
+      "checklist": [
+        "Specify insertion and return loss per channel with the coupon design, de-embedding method, gold-finger bevel geometry and the required S-parameter report per lot.",
+        "按通道写明插损与回损，并附测试条设计、去嵌方法、金手指倒角几何与逐批 S 参数报告要求。"
+      ],
+      "terms": [
+        [
+          "Insertion loss",
+          "signal power lost through a channel at a frequency",
+          "插入损耗",
+          "给定频率下通过通道损失的信号功率"
+        ],
+        [
+          "S-parameter",
+          "scattering parameters describing RF behaviour",
+          "S 参数",
+          "描述射频行为的散射参数"
+        ],
+        [
+          "NPO / CPO",
+          "near-package / co-packaged optics architectures",
+          "近封装 / 共封装光学",
+          "NPO 与 CPO 光引擎架构"
+        ],
+        [
+          "Gold finger",
+          "plated edge contact mating with the host connector",
+          "金手指",
+          "与主机连接器插接的镀层板边触点"
+        ],
+        [
+          "De-embedding",
+          "removing fixture and launch effects from measurement",
+          "去嵌",
+          "从测量中去除治具与馈入影响"
+        ],
+        [
+          "Embedded capacitor",
+          "capacitor laminated inside the board stack",
+          "埋入电容",
+          "压合在板叠构内部的电容"
+        ]
+      ]
+    },
+    "ai-server-pcba-ems": {
+      "cluster": "pcb",
+      "h2": [
+        "Large-format reflow, BGA voiding and link-level functional test",
+        "大尺寸回流、BGA 空洞与链路级功能测试"
+      ],
+      "notes": [
+        [
+          "A locked reflow profile developed with thermocouples on the largest BGA and a low-mass corner is not transferable to a different board thickness; thermal mass, not the oven recipe, sets the joint history.",
+          "在最大 BGA 与低热容角部器件上用热电偶开发的锁定回流曲线，不能照搬到不同板厚；决定焊点热历程的是热容量而非炉温配方。"
+        ],
+        [
+          "A blanket 100% test clause usually excludes boundary-scan-only nets and high-speed link training; coverage should be defined by link and by net class instead.",
+          "笼统的『100% 测试』条款往往排除仅边界扫描可测的网络与高速链路训练；覆盖率应按链路与网络类定义。"
+        ],
+        [
+          "Cold-plate mounting torque and TIM bond-line thickness change junction temperature as much as the heat-sink choice, so the assembly instruction and the thermal test belong in one build package.",
+          "冷板装配扭矩与导热界面胶层厚度对结温的影响不亚于散热器选型；作业指导书与热测试应并入同一生产包。"
+        ],
+        [
+          "Consigned high-pin-count BGA need moisture-sensitive handling with bake records; a lot code missing at goods-in makes a later field failure untraceable.",
+          "客供高引脚 BGA 需按湿敏器件管理并留存烘烤记录；收货时缺批次码，后续现场失效将无法追溯。"
+        ]
+      ],
+      "scenario": [
+        "A buyer's rack fails acceptance intermittently at high ambient temperature. Three vendors each report a clean result: the board house passes impedance, the assembly house passes AOI, and the thermal vendor passes leak test. We normally require one serial-numbered system-level report per unit — link training, sensor and fan checks, and thermal behaviour during burn-in — so the failure can be localised to a unit rather than argued between suppliers.",
+        "买家的机柜在高环温下间歇性验收失败。三家供应商各自报合格：板厂阻抗合格、组装厂 AOI 合格、热部件厂检漏合格。我们通常要求逐台一份序列号级系统报告——链路训练、传感器与风扇检查、老化期间热行为——让失效可定位到具体整机，而不是在供应商之间争论。"
+      ],
+      "standards": [
+        [
+          "IPC-A-610",
+          "acceptability of electronic assemblies by class"
+        ],
+        [
+          "IPC/J-STD-001",
+          "requirements for soldered electrical assemblies"
+        ],
+        [
+          "J-STD-033",
+          "handling of moisture-sensitive devices"
+        ],
+        [
+          "IPC-6012",
+          "rigid board qualification context for incoming PCBs"
+        ]
+      ],
+      "checklist": [
+        "Send one complete build package and state the IPC-A-610 class plus functional-test coverage by link and by net, with a serial-numbered report format agreed before the pilot.",
+        "提供一份完整生产包，写明 IPC-A-610 等级与按链路、按网络计的功能测试覆盖率，并在试产前约定序列号报告格式。"
+      ],
+      "terms": [
+        [
+          "FCT",
+          "functional circuit test of an assembled board",
+          "功能测试",
+          "对组装板进行的功能电路测试"
+        ],
+        [
+          "Burn-in",
+          "extended powered operation to screen early failures",
+          "老化",
+          "长时间加电运行以筛除早期失效"
+        ],
+        [
+          "Head-in-pillow",
+          "BGA defect from poor reflow wetting",
+          "枕头效应",
+          "回流润湿不良造成的 BGA 缺陷"
+        ],
+        [
+          "Bond-line thickness",
+          "compressed TIM layer thickness under clamp",
+          "胶层厚度",
+          "夹紧状态下导热界面材料的压缩厚度"
+        ],
+        [
+          "Link training",
+          "high-speed interface initialisation and equalisation",
+          "链路训练",
+          "高速接口的初始化与均衡"
+        ],
+        [
+          "AVL",
+          "approved vendor list locking allowed components",
+          "认可料清单",
+          "锁定可用元器件的 AVL"
+        ]
+      ]
+    },
+    "liquid-cooling-cold-plate-sourcing": {
+      "cluster": "pcb",
+      "h2": [
+        "Thermal resistance, pressure drop and leak-test boundaries",
+        "热阻、压降与泄漏测试边界"
+      ],
+      "notes": [
+        [
+          "Adding fin density improves thermal resistance but raises pressure drop, which increases pump power; the two cannot be optimised independently of the loop design.",
+          "提高翅片密度改善热阻却抬高流阻压降，进而增加泵功；两者不能脱离回路设计独立优化。"
+        ],
+        [
+          "Skived fins have no braze interface to fail, but fin height and pitch are limited by the skiving tool; vacuum-brazed closed channels allow complex manifolds at the cost of a braze-void risk.",
+          "铲齿不存在钎焊界面失效，但齿高齿距受刀具限制；真空钎焊封闭流道可做复杂分水结构，代价是钎焊空洞风险。"
+        ],
+        [
+          "A leak rate specified without a test method, test pressure and hold time is not comparable between two suppliers, even when the numeric value looks identical.",
+          "泄漏率若不同时规定测试方法、测试压力与保压时间，两家供应商之间无法比较，即使数值看起来相同。"
+        ],
+        [
+          "Base flatness only has meaning under the clamping condition used in assembly; measuring a free plate can pass a part that lifts the die corner under torque.",
+          "底板平面度只有在实际装配夹紧条件下才有意义；自由状态测量可能放过一件在扭矩下顶起芯片边角的零件。"
+        ]
+      ],
+      "scenario": [
+        "A buyer specifies a very low thermal resistance and a tight pressure-drop cap on the same cold plate. Denser fins meet the first target but push the pump beyond its curve. We normally return two geometries with measured flow-versus-pressure-drop curves and the corresponding thermal figures, so the loop pump is selected against real data rather than a single heat-exchanger number.",
+        "买家在同一块冷板上同时要求极低热阻与很严的压降上限。加密翅片能达到热阻目标，却把泵推到曲线之外。我们通常回两套几何方案，附实测流量—压降曲线与对应热性能数据，让回路泵按实测选型，而不是只看一个换热器数字。"
+      ],
+      "standards": [
+        [
+          "OCP Open Rack v3",
+          "open rack liquid-cooling interface reference"
+        ],
+        [
+          "ASHRAE TC 9.9",
+          "public guidance on data-centre liquid cooling classes"
+        ],
+        [
+          "ASTM E515",
+          "bubble-emission leak test method reference"
+        ],
+        [
+          "ISO 5167",
+          "differential-pressure flow measurement context"
+        ]
+      ],
+      "checklist": [
+        "Provide heat load, coolant type and inlet temperature, allowable pressure drop at design flow, mounting torque, and specify leak rate together with test method, pressure and hold time.",
+        "提供热负载、冷却液类型与入口温度、设计流量下允许压降、装配扭矩；泄漏率须与测试方法、测试压力、保压时间一并规定。"
+      ],
+      "terms": [
+        [
+          "Cold plate",
+          "liquid-cooled metal base contacting the heat source",
+          "冷板",
+          "与热源接触的液冷金属底板"
+        ],
+        [
+          "UQD",
+          "universal quick disconnect for rack coolant loops",
+          "快接头",
+          "机柜冷却回路用通用快接头"
+        ],
+        [
+          "CDU",
+          "coolant distribution unit serving rack loops",
+          "冷量分配单元",
+          "为机柜回路供液的 CDU"
+        ],
+        [
+          "Pressure drop",
+          "flow resistance expressed as pressure loss",
+          "压降",
+          "以压力损失表示的流动阻力"
+        ],
+        [
+          "Skived fin",
+          "fins cut and raised from the base metal itself",
+          "铲齿",
+          "从底板本体铲起成形的翅片"
+        ],
+        [
+          "Bond line",
+          "compressed thermal interface layer thickness",
+          "胶层",
+          "压缩后的导热界面层厚度"
         ]
       ]
     }

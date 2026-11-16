@@ -259,3 +259,35 @@
 - 公开案例保留完整 `Source URL:` 明文，明确非客户项目；`3f` / `3g` 闸门阻断背书措辞与无来源案例。
 
 **制度固化**：`verify_seo.py` 新增 `3g` 全局闸门——校验深度数据源字段完整性、36 个 h2 两两不同、144 条笔记全局唯一、每页实质资产与编辑标准页内链、两两相似度 >0.70 组合为 0、编辑标准页边界声明。用**可验证的结构性不变量**而非可被堆砌刷高的百分比，确保换模型 / CI 重生都不会把模板页带回来。
+
+## 16. PCB 产业链板块与上下游 / AI 趋势长尾词（2026-11-15）
+
+**触发**：用户问「业务内容有没有 PCB 相关的，如果没有请添加相关板块以及上下游长尾词，特别是热门趋势 AI 相关等」。
+
+**审查结论（先判定有没有，再决定怎么加）**
+
+- 已有零散页：`pcb-assembly-shenzhen.html`、`pcba-contract-manufacturer.html`、`tablet-pcba-sourcing.html`、`ai-data-center-sourcing.html`、`consumer-smart-electronics.html`，两篇 11-07 简报，以及关键词地图里的 `PCB assembly Shenzhen` / `PCBA 采购 深圳`、`llms.txt` 里的 "Custom PCBA and box-build assembly China (low MOQ)"。
+- 缺口：**无板块枢纽（Pillar）**、**无上下游产业链长尾词**、**无 PCB × AI 趋势词**。已有页只覆盖「组装 / 整机采购」意向，材料、制板、载板、光互联、热管理全链没有承接页。
+- 因此按「补板块 + 扩长尾」处理，**不改动任何既有页**（核心目标：引流 → 询盘 → 关键词覆盖 → 转化路径不变）。
+
+**新增 1 个枢纽 + 8 个上下游 / AI 长尾页**
+
+| 链段 | 页面 slug | 意图 / 核心词 |
+|---|---|---|
+| 枢纽 | `pcb-supply-chain` | PCB & PCBA supply chain sourcing / AI server board hub（CollectionPage + hasPart） |
+| 上游 | `ccl-copper-clad-laminate-sourcing` | CCL sourcing China, FR-4 high-Tg laminate, prepreg, IPC-4101, HVLP 铜箔 |
+| 上游 | `low-loss-m8-m9-laminate` | M8 / M9 low-loss CCL, low-Dk / Q-glass, 224G SerDes, PCIe 6.0 |
+| 中游 | `high-layer-count-pcb-ai-server` | 20–30 layer AI server PCB, 40+ layer backplane, 压合对位 / 阻抗 |
+| 中游 | `hdi-msap-anylayer-pcb` | HDI / mSAP / Anylayer, 任意层微孔, 细线宽线距 |
+| 中游 | `abf-fcbga-ic-substrate` | ABF / FC-BGA build-up substrate, 大尺寸封装载板 |
+| 下游 | `800g-1-6t-optical-module-pcb` | 800G / 1.6T optical module PCB, 12–16 层, 插损预算 |
+| 下游 | `ai-server-pcba-ems` | AI server PCBA & EMS, 大尺寸 BGA, 系统级功能测试 |
+| 下游 | `liquid-cooling-cold-plate-sourcing` | 冷板 / UQD / CDU / 压降与泄漏率 |
+
+**2026 AI 算力热词（联网校准，写入枢纽页趋势词表）**：AI server PCB 20–30 层 → 40+ 层背板；M7 → M8/M9 低损耗 CCL + HVLP 铜箔 + 低介电 / Q-glass；ABF / FC-BGA 载板产能为全链最紧环节；mSAP / Anylayer HDI；800G → 1.6T 光模块板与近封装光学；液冷与 48V/800V 供电成为 PCB 相邻采购品类。来源 4 条公开 URL 均校验返回 200，枢纽页保留完整 `Source URL:` 明文。
+
+**链路结构（不产生孤儿页、不改既有页）**：枢纽页按上中下游 3 段分组链接 8 个 cluster 页；8 个 cluster 页的 `mother` 统一反链 `/pcb-supply-chain`；`longtail.py` 的 cluster 轮转再让 8 页互链。既有 36 页 / 28 框架页的母品类指向完全不变。
+
+**口径与边界**：标准名（IPC / IEC / JEDEC / IEEE / PCI-SIG / UL）仅编辑性引用；层数、Dk/Df、载板面积、交期为**公开报道的行业典型区间**，不是 Anchormere 报价 / 能力 / 承诺；不主张认证、不编造客户 / 价格 / 资质、不预留资质占位；公开来源明确非客户项目、非背书。
+
+**制度固化**：`longtail_seeds.json` 36→44（纯追加，0 行删除）、`longtail_depth.json` pages 36→44 + `clusters.pcb`；`modules.json` 新增 `data-pcb` / `pcb-hub`，`longtail` 登记 44 页；`verify_seo.py` 新增 `3h` 数据源驱动闸门；`WORKFLOW.md` §11 写明换模型怎么扩词。全站 `PASS=51 WARN=0 FAIL=0`。

@@ -7759,5 +7759,1621 @@
     "serp_title": "Lightweight Outdoor & Camping Gear OEM China",
     "serp_desc": "GBA outdoor OEM: folding frames, moulded parts, soft goods, camp lighting, retail packaging. 500 pcs/item, mixed-SKU, one doc set.",
     "buyer_guide": false
+  },
+  {
+    "slug": "ccl-copper-clad-laminate-sourcing",
+    "en_title": "Copper-Clad Laminate Sourcing China | FR-4, High-Tg CCL & Prepreg",
+    "zh_title": "覆铜板采购中国 | FR-4、高 Tg 覆铜板与半固化片",
+    "en_lede": "Source FR-4, high-Tg CCL and prepreg in the Greater Bay Area, with laminate grade, copper foil type and lot traceability confirmed at RFQ.",
+    "zh_lede": "在大湾区采购 FR-4、高 Tg 覆铜板与半固化片，板材等级、铜箔类型与批次可追溯性在询价阶段确认。",
+    "en_intro": "Laminate is the first irreversible decision in a board: Tg, Td, CTE, dielectric constant and copper roughness are fixed here, and every downstream lamination, drilling and impedance result inherits them. Anchormere consolidates CCL, prepreg and copper foil enquiries across vetted Greater Bay Area mills and issues one lot-level certificate-of-analysis package, so a buyer comparing two fabricators is comparing the same material baseline.",
+    "zh_intro": "覆铜板是板材第一道不可逆决策：Tg、Td、CTE、介电常数与铜箔粗糙度在此确定，下游压合、钻孔与阻抗结果全部继承这些参数。Anchormere 统筹大湾区已审核板材厂的覆铜板、半固化片与铜箔询价，出具一套批次级 COA 文件包，让买家比较两家板厂时基于同一材料基线。",
+    "caps": [
+      [
+        "FR-4 and high-Tg laminate grades",
+        "FR-4 与高 Tg 板材等级"
+      ],
+      [
+        "Prepreg resin content and flow",
+        "半固化片树脂含量与流动度"
+      ],
+      [
+        "HTE / RTF / HVLP copper foil options",
+        "HTE / RTF / HVLP 铜箔选型"
+      ],
+      [
+        "Lot-level COA and traceability",
+        "批次 COA 与可追溯性"
+      ],
+      [
+        "Consolidated multi-SKU material orders",
+        "多料号材料订单拼单"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (laminate by sheet / lot)",
+        "单品 500 件起（板材按张 / 批）"
+      ],
+      [
+        "Typical lead time",
+        "15–25 days",
+        "通常 15–25 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan / Huizhou",
+        "深圳 / 东莞 / 惠州"
+      ],
+      [
+        "Spec references on request",
+        "IPC-4101, UL 94, RoHS",
+        "可按需 IPC-4101、UL 94、RoHS"
+      ],
+      [
+        "Quote time",
+        "48 hours for a defined stack-up",
+        "叠构明确后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "CCL sourcing China, copper clad laminate supplier, FR-4 high Tg laminate, prepreg supplier GBA, 覆铜板 采购 中国",
+    "related": [
+      [
+        "FR-4 high Tg laminate",
+        "FR-4 高 Tg 覆铜板"
+      ],
+      [
+        "prepreg resin content flow",
+        "半固化片 树脂含量 流动度"
+      ],
+      [
+        "HVLP copper foil roughness",
+        "HVLP 铜箔 粗糙度"
+      ],
+      [
+        "IPC-4101 slash sheet",
+        "IPC-4101 规格表"
+      ],
+      [
+        "laminate Dk Df test frequency",
+        "板材 Dk Df 测试频率"
+      ],
+      [
+        "CAF resistance laminate",
+        "耐 CAF 板材"
+      ],
+      [
+        "high Td halogen free CCL",
+        "高 Td 无卤覆铜板"
+      ],
+      [
+        "copper clad laminate COA",
+        "覆铜板 批次 COA"
+      ],
+      [
+        "laminate supplier Greater Bay Area",
+        "覆铜板 供应商 大湾区"
+      ],
+      [
+        "low loss M8 M9 laminate",
+        "低损耗 M8 M9 板材"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is a slash sheet and why does it matter?",
+        "It is the IPC-4101 specification sheet identifying a laminate's resin system, reinforcement and Tg. Quoting a grade without a slash sheet leaves the material ambiguous."
+      ],
+      [
+        "Do you hold UL or IPC certification for the laminate?",
+        "No. UL 94 and IPC references are public editorial references; the mill's own evidence is requested and passed through to the buyer for verification."
+      ],
+      [
+        "Can you source prepreg and core from different mills in one stack-up?",
+        "Hybrid sourcing is possible but must be declared. Mixing resin systems changes the press cycle and CTE, so it is agreed at RFQ rather than substituted later."
+      ],
+      [
+        "What files do you need to quote a laminate?",
+        "A stack-up, target Tg / Td / Dk / Df with test frequency, copper weight and foil type, plus the required IPC-4101 slash sheet and lot traceability depth."
+      ]
+    ],
+    "cases": [
+      [
+        "Shengyi Technology",
+        "生益科技",
+        "A publicly listed laminate maker commonly cited as a reference for FR-4 and high-Tg CCL grades.",
+        "公开上市的覆铜板厂，常作为 FR-4 与高 Tg 板材等级的品类参考。"
+      ],
+      [
+        "Panasonic Megtron",
+        "松下 Megtron",
+        "A well-known low-loss laminate family used as a market reference when discussing high-speed material grades.",
+        "知名低损耗板材系列，讨论高速材料等级时常用的市场参考。"
+      ],
+      [
+        "Isola Group",
+        "Isola",
+        "A laminate supplier frequently named in high-reliability and high-Tg material comparisons.",
+        "高可靠与高 Tg 材料对比中常被提及的板材供应商。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "A laminate grade is not a single number. Tg, Td, CTE, Dk/Df at a stated frequency and copper roughness form a matched set; fixing only Tg leaves the rest open to substitution.",
+      "zh_intro": "板材等级不是一个数字。Tg、Td、CTE、指定频率下的 Dk/Df 与铜箔粗糙度是配套组合；只锁定 Tg，其余参数就可能被替换。",
+      "process": [
+        [
+          "Prepreg resin content and flow are set by the press cycle and the copper distribution of the layer; quoting a resin content without a flow figure is not enough to reproduce the stack-up.",
+          "半固化片树脂含量与流动度由压合曲线和该层铜分布决定；只报树脂含量、不报流动度，无法复现叠构。"
+        ],
+        [
+          "Copper foil type changes the loss budget: HTE, RTF and HVLP differ in surface roughness, which drives conductor loss at high frequency even when Dk/Df are unchanged.",
+          "铜箔类型改变损耗预算：HTE、RTF 与 HVLP 的表面粗糙度不同，即使 Dk/Df 不变，高频导体损耗也会变化。"
+        ],
+        [
+          "T288 and Td describe thermal endurance of the resin system, not the assembly soldering limit; they should be requested as separate line items on the mill COA.",
+          "T288 与 Td 描述树脂体系耐热性，不等于组装焊接上限；应在板材厂 COA 上作为独立条目索取。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State Dk and Df together with the test method and frequency; a Df value without a frequency is not comparable between two mills.",
+          "写明 Dk、Df 并附测试方法与频率；缺频率的 Df 在两家板厂之间无法比较。"
+        ],
+        [
+          "Name the IPC-4101 slash sheet, copper weight and foil type in the PO so the quote and the delivered lot refer to the same material.",
+          "在采购单写明 IPC-4101 规格表编号、铜厚与铜箔类型，使报价与交货批次指向同一材料。"
+        ],
+        [
+          "Ask whether the lot COA is per production batch or a generic type-test report, and require the batch number on the material packing list.",
+          "确认批次 COA 是每生产批实测还是通用型式报告，并要求材料装箱单标注批号。"
+        ]
+      ],
+      "qc": [
+        [
+          "Check peel strength, T288 delamination time and dimensional stability on the incoming lot, not only on a qualification sample.",
+          "来料批次需核对剥离强度、T288 分层时间与尺寸稳定性，而不只是认证样品。"
+        ],
+        [
+          "For CAF-sensitive designs, ask for the CAF test coupon result and the glass-cloth silane treatment record for that lot.",
+          "对 CAF 敏感设计，索取该批次的 CAF 测试条结果与玻纤布硅烷处理记录。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is high-Tg always better?",
+          "No. Higher Tg often means a more brittle resin system and a narrower press window. It should be selected against the assembly thermal profile, not by grade alone.",
+          "高 Tg 一定更好吗？",
+          "不一定。更高 Tg 常伴随更脆的树脂体系与更窄的压合窗口，应按组装热历程选择，而非只看等级。"
+        ],
+        [
+          "Can you supply a single lot for a multi-SKU order?",
+          "Yes. Material lots are consolidated and labelled per SKU so a buyer assembling several board types can keep one traceable material baseline.",
+          "多料号订单能用同一批次吗？",
+          "可以。材料按批次整合并按料号标识，让同时组装多种板型的买家保持同一可追溯材料基线。"
+        ]
+      ]
+    },
+    "serp_title": "Copper-Clad Laminate Sourcing | FR-4, High-Tg CCL China",
+    "serp_desc": "Source FR-4, high-Tg CCL and prepreg in the Greater Bay Area with laminate grade, copper foil type and lot traceability confirmed at RFQ."
+  },
+  {
+    "slug": "low-loss-m8-m9-laminate",
+    "en_title": "M8 / M9 Low-Loss Laminate Sourcing | HVLP Foil & Q-Glass for AI Boards",
+    "zh_title": "M8 / M9 低损耗板材采购 | AI 板用 HVLP 铜箔与石英玻纤布",
+    "en_lede": "Source M8 and M9 grade ultra-low-loss laminate, HVLP copper foil and low-Dk / Q-glass reinforcement for 224G-class AI server channels.",
+    "zh_lede": "采购 M8 / M9 级超低损耗板材、HVLP 铜箔与低介电 / 石英玻纤布，面向 224G 级 AI 服务器通道。",
+    "en_intro": "Once a channel runs at 224G-class SerDes rates, the laminate is part of the signal-integrity budget rather than a commodity. Resin system, glass-cloth weave and copper roughness each take a share of the insertion-loss allowance. Anchormere treats M8/M9 sourcing as a three-way material decision — resin, reinforcement and foil — and consolidates the evidence a buyer needs to compare two stack-ups before committing to tooling.",
+    "zh_intro": "当通道速率进入 224G 级 SerDes，板材就不再是通用料，而是信号完整性预算的一部分。树脂体系、玻纤布织法与铜箔粗糙度各自占用一段插损余量。Anchormere 把 M8/M9 采购视为树脂、增强材料与铜箔的三方决策，整合买家在开模前比较两套叠构所需的证据。",
+    "caps": [
+      [
+        "M7 / M8 / M9 grade laminate options",
+        "M7 / M8 / M9 等级板材选型"
+      ],
+      [
+        "HVLP3 / HVLP4 copper foil",
+        "HVLP3 / HVLP4 超低轮廓铜箔"
+      ],
+      [
+        "Low-Dk E-glass and Q-glass cloth",
+        "低介电 E 玻纤布与石英玻纤布"
+      ],
+      [
+        "Hybrid stack-up cost modelling",
+        "混压叠构成本建模"
+      ],
+      [
+        "Insertion-loss coupon data pass-through",
+        "插损测试条数据转交"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (material by lot)",
+        "单品 500 件起（材料按批）"
+      ],
+      [
+        "Typical lead time",
+        "20–35 days for high-grade material",
+        "高等级材料通常 20–35 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan / Suzhou",
+        "深圳 / 东莞 / 苏州"
+      ],
+      [
+        "Spec references on request",
+        "IPC-4101, IPC-TM-650, IEEE 802.3",
+        "可按需 IPC-4101、IPC-TM-650、IEEE 802.3"
+      ],
+      [
+        "Quote time",
+        "48 hours for a defined loss budget",
+        "插损预算明确后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "M8 M9 low loss laminate sourcing, ultra low loss CCL for AI server, HVLP copper foil supplier, Q-glass low Dk cloth, 低损耗板材 M8 M9 采购",
+    "related": [
+      [
+        "M8 M9 grade laminate",
+        "M8 M9 等级板材"
+      ],
+      [
+        "ultra low loss CCL Df",
+        "超低损耗板材 Df"
+      ],
+      [
+        "HVLP3 HVLP4 copper foil",
+        "HVLP3 HVLP4 铜箔"
+      ],
+      [
+        "Q-glass quartz cloth PCB",
+        "石英玻纤布 Q-Glass PCB"
+      ],
+      [
+        "low Dk glass fabric",
+        "低介电玻纤布"
+      ],
+      [
+        "224G SerDes insertion loss",
+        "224G SerDes 插损"
+      ],
+      [
+        "hybrid stack-up cost",
+        "混压叠构成本"
+      ],
+      [
+        "PCIe 6.0 PCB material",
+        "PCIe 6.0 板材"
+      ],
+      [
+        "hydrocarbon vs PTFE resin",
+        "碳氢树脂 与 PTFE"
+      ],
+      [
+        "low loss laminate China",
+        "低损耗板材 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Why is Df not enough to compare two laminates?",
+        "Conductor loss from copper roughness and glass-weave skew also consume the budget. Ask for Dk/Df at one stated frequency plus foil Rz and the insertion-loss coupon result."
+      ],
+      [
+        "Is M9 always required for an AI server board?",
+        "Not necessarily. Many designs use a hybrid build with high-grade material only on the fastest layers, which is a cost and availability decision made at RFQ."
+      ],
+      [
+        "Do you certify the material to PCIe or IEEE specifications?",
+        "No. Those are public editorial references for the channel standard; conformance evidence comes from the fabricator and the buyer's own SI testing."
+      ],
+      [
+        "What is driving long lead times on high-grade laminate?",
+        "Public 2026 reporting points to low-Dk glass cloth, HVLP foil and lamination capacity as the constrained links. Lead times are indicative and confirmed per lot at RFQ."
+      ]
+    ],
+    "cases": [
+      [
+        "Panasonic Megtron",
+        "松下 Megtron",
+        "A low-loss laminate family widely used as a market reference for M-grade high-speed materials.",
+        "低损耗板材系列，常作为 M 等级高速材料的市场参考。"
+      ],
+      [
+        "Ajinomoto ABF",
+        "味之素 ABF",
+        "Better known for build-up film, ABF is frequently cited alongside high-speed laminate discussions on AI package substrates.",
+        "以增层膜著称，在 AI 封装载板的高速材料讨论中常与低损耗板材并列提及。"
+      ],
+      [
+        "Nitto Boseki",
+        "日东纺",
+        "A glass-cloth maker often referenced in public reporting on low-Dk and low-CTE reinforcement supply.",
+        "玻纤布厂商，在公开报道中常作为低介电 / 低 CTE 增强材料供给方被引用。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "At 224G-class rates the loss budget is split between dielectric loss, conductor loss and glass-weave skew. Changing only the resin grade usually moves less of the budget than buyers expect.",
+      "zh_intro": "在 224G 级速率下，插损预算由介质损耗、导体损耗与玻纤织纹偏斜共同分担。只更换树脂等级，改善幅度通常小于买家预期。",
+      "process": [
+        [
+          "Low-Dk cloth and Q-glass reduce dielectric loss but change the weave-induced skew pattern; the routing angle and spread-glass option must be reviewed with the fabricator.",
+          "低介电玻纤布与石英布降低介质损耗，但改变织纹引起的偏斜形态；需与板厂复核走线角度与开纤布选项。"
+        ],
+        [
+          "HVLP foil lowers conductor loss by reducing surface roughness, but adhesion and peel strength then depend on the oxide treatment rather than on roughness alone.",
+          "HVLP 铜箔通过降低表面粗糙度减少导体损耗，但结合力与剥离强度转而下移到氧化处理工艺。"
+        ],
+        [
+          "Hydrocarbon and PTFE resin routes differ in press temperature and drilling behaviour; a mixed route needs separate lamination cycles, which is why hybrid stack-ups cost more.",
+          "碳氢树脂与 PTFE 路线的压合温度和钻孔行为不同；混用需分别压合，这正是混压叠构成本更高的原因。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Request Dk/Df at one stated test frequency and method, plus the foil roughness figure on the same datasheet revision.",
+          "要求在同一版规格书上给出指定测试频率与方法的 Dk/Df，以及铜箔粗糙度数值。"
+        ],
+        [
+          "Define the loss budget per channel and which layers need high-grade material, instead of specifying M9 across the whole stack-up.",
+          "按通道定义插损预算并明确哪些层需要高等级材料，而不是整板一律指定 M9。"
+        ],
+        [
+          "Ask for the insertion-loss coupon design and the measurement report of the exact laminate lot, not a generic grade datasheet.",
+          "索取该批次板材的插损测试条设计与实测报告，而不是通用等级规格书。"
+        ]
+      ],
+      "qc": [
+        [
+          "Compare coupon S-parameters across the lot and against the simulated channel budget before releasing a production build.",
+          "量产放行前，比较批次间测试条 S 参数并与仿真通道预算对齐。"
+        ],
+        [
+          "Check resin-content uniformity and glass-cloth alignment on a cross-section, since local Dk variation shows up as impedance spread.",
+          "通过切片检查树脂含量均匀性与玻纤布对位，局部 Dk 波动会表现为阻抗离散。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is Q-glass mandatory for 224G channels?",
+          "No. It is one option among spread low-Dk glass weaves. Necessity depends on the channel length and loss budget, not on the headline data rate.",
+          "224G 通道必须用石英玻纤布吗？",
+          "不必。它只是开纤低介电玻纤布的选项之一；是否需要取决于通道长度与插损预算，而非标称速率。"
+        ],
+        [
+          "Can you quote material only, without fabrication?",
+          "Yes. Material-only enquiries are consolidated by lot and can be shipped to a buyer's own fabricator with the COA and lot traceability attached.",
+          "可以只报材料、不含制板吗？",
+          "可以。纯材料询价按批次整合，可发往买家自有板厂并随附 COA 与批次追溯信息。"
+        ]
+      ]
+    },
+    "serp_title": "M8 / M9 Low-Loss Laminate Sourcing | AI Server PCB Material",
+    "serp_desc": "Source M8/M9 ultra-low-loss laminate, HVLP copper foil and low-Dk / Q-glass reinforcement for 224G-class AI server channels."
+  },
+  {
+    "slug": "high-layer-count-pcb-ai-server",
+    "en_title": "High-Layer-Count PCB for AI Servers | 20–40+ Layer & Backplane Sourcing",
+    "zh_title": "AI 服务器高多层 PCB | 20–40 层以上与背板采购",
+    "en_lede": "Source 20–30 layer computing boards and ultra-high-layer backplanes with stack-up, impedance tolerance and back-drill depth agreed at RFQ.",
+    "zh_lede": "采购 20–30 层计算板与超高多层背板，叠构、阻抗公差与背钻深度在询价阶段确认。",
+    "en_intro": "AI compute boards have moved from 8–16 layers to 20–30, and orthogonal backplanes for next-generation accelerator platforms are publicly reported at 40 layers and above. At that count the yield risk sits in lamination registration, back-drill stub control and impedance consistency across every press cycle, not in the artwork. Anchormere qualifies fabricators by layer-count capability and asks for the process evidence a buyer needs before releasing a high-value build.",
+    "zh_intro": "AI 计算板已从 8–16 层提升至 20–30 层，下一代加速平台的正交背板公开报道达 40 层以上。到这个层数，良率风险集中在压合对位、背钻残桩控制与各次压合的阻抗一致性，而非线路图形。Anchormere 按层数能力筛选板厂，并在放行高价值订单前索取买家所需的过程证据。",
+    "caps": [
+      [
+        "20–30 layer computing boards",
+        "20–30 层计算板"
+      ],
+      [
+        "Ultra-high-layer backplane builds",
+        "超高多层背板制造"
+      ],
+      [
+        "Impedance control and TDR coupons",
+        "阻抗控制与 TDR 测试条"
+      ],
+      [
+        "Back-drill stub control",
+        "背钻残桩控制"
+      ],
+      [
+        "Sequential lamination planning",
+        "多次压合工序规划"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (prototype runs lower)",
+        "单品 500 件起（打样可更低）"
+      ],
+      [
+        "Typical lead time",
+        "25–45 days by layer count",
+        "按层数通常 25–45 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Huizhou / Wuxi",
+        "深圳 / 惠州 / 无锡"
+      ],
+      [
+        "Spec references on request",
+        "IPC-6012, IPC-2221, IPC-TM-650",
+        "可按需 IPC-6012、IPC-2221、IPC-TM-650"
+      ],
+      [
+        "Quote time",
+        "48 hours with a complete stack-up",
+        "叠构齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "high layer count PCB AI server, 20 layer PCB manufacturer China, 40 layer backplane PCB, orthogonal backplane sourcing, AI 服务器 高多层 PCB 采购",
+    "related": [
+      [
+        "20 30 layer AI server PCB",
+        "20 30 层 AI 服务器 PCB"
+      ],
+      [
+        "78 layer backplane PCB",
+        "78 层背板 PCB"
+      ],
+      [
+        "orthogonal backplane design",
+        "正交背板设计"
+      ],
+      [
+        "back drill stub length control",
+        "背钻残桩长度控制"
+      ],
+      [
+        "impedance tolerance 10 percent",
+        "阻抗公差 ±10%"
+      ],
+      [
+        "lamination registration X-ray",
+        "压合对位 X 光"
+      ],
+      [
+        "sequential lamination cycle",
+        "多次压合循环"
+      ],
+      [
+        "high layer count PCB yield",
+        "高多层板良率"
+      ],
+      [
+        "low loss CCL AI server board",
+        "低损耗板材 AI 服务器板"
+      ],
+      [
+        "AI accelerator board PCB China",
+        "AI 加速卡 PCB 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is a realistic layer count for a first build?",
+        "It depends on the fabricator's proven volume capability. Public 2026 reporting describes 20–30 layers as mainstream for AI computing boards; ultra-high-layer backplanes are a separate, tighter qualification."
+      ],
+      [
+        "Do you guarantee impedance across the whole panel?",
+        "Impedance tolerance is a defined, measured requirement with TDR coupons per panel. The target and the coupon location are agreed at RFQ and reported per lot."
+      ],
+      [
+        "Why does back-drill depth matter?",
+        "A leftover via stub acts as a resonant discontinuity at high data rates. Stub length is specified per net class rather than as one board-wide value."
+      ],
+      [
+        "Are the 40+ layer figures a capability you offer?",
+        "No. Those are publicly reported industry figures used as buyer context. Feasible layer count, yield and lead time are confirmed against your stack-up by the nominated fabricator at RFQ."
+      ]
+    ],
+    "cases": [
+      [
+        "NVIDIA Rubin platform",
+        "英伟达 Rubin 平台",
+        "Public 2026 reporting cites its backplane layer counts as a widely used industry reference for ultra-high-layer boards.",
+        "2026 年公开报道以其背板层数作为超高多层板的行业参考。"
+      ],
+      [
+        "Shennan Circuits",
+        "深南电路",
+        "A listed PCB maker frequently named in public reporting on high-layer-count and AI computing board capacity.",
+        "公开报道中关于高多层与 AI 计算板产能常被提及的上市 PCB 企业。"
+      ],
+      [
+        "Wus Printed Circuit",
+        "沪电股份",
+        "A listed fabricator often referenced in public coverage of AI server and high-speed switch board investment.",
+        "公开报道中关于 AI 服务器与高速交换机板投资常被提及的上市板厂。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "Above roughly 20 layers the board becomes a lamination programme. Each additional press cycle adds registration error, and the accumulated drift is what limits yield — not the ability to image fine traces.",
+      "zh_intro": "超过约 20 层后，板材变成一项压合工程。每增加一次压合就累积一次对位误差，限制良率的是累积漂移，而不是精细线路的成像能力。",
+      "process": [
+        [
+          "Sequential lamination splits a high-layer board into sub-composites; each sub-composite is pressed and X-ray checked for registration before the final press, otherwise drift compounds invisibly.",
+          "多次压合把高多层板拆成子复合板；每块子板压合后先做 X 光对位检查再进最终压合，否则漂移会无声累积。"
+        ],
+        [
+          "Back-drill depth is specified by the remaining stub length, and the drill depth tolerance must account for board thickness variation across the panel.",
+          "背钻深度按残留残桩长度规定，钻深公差还需计入整板厚度在拼板内的波动。"
+        ],
+        [
+          "Impedance is a function of the actual pressed dielectric thickness, so the stack-up used for quoting must be the one measured on the press coupon, not the nominal prepreg datasheet.",
+          "阻抗取决于压合后的实际介质厚度，因此报价叠构必须是压合测试条实测值，而非半固化片规格书的标称值。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide a full stack-up with dielectric thicknesses, copper weights and the target impedance per net class, plus the allowed stub length.",
+          "提供含介质厚度、铜厚、各网络类阻抗目标与允许残桩长度的完整叠构。"
+        ],
+        [
+          "Ask which layer counts the fabricator runs in steady volume and request the yield and first-pass data for that specific count.",
+          "询问板厂稳定量产的层数区间，并索取该层数的良率与直通率数据。"
+        ],
+        [
+          "Agree the coupon design and the report format per lot before the pilot, since re-qualifying a backplane is far more expensive than specifying it up front.",
+          "试产前约定测试条设计与逐批报告格式；背板重新认证的成本远高于事前约定。"
+        ]
+      ],
+      "qc": [
+        [
+          "Cross-section the press coupon for dielectric thickness and registration, and compare TDR results across panel positions rather than a single site.",
+          "对压合测试条做介质厚度与对位切片，TDR 结果需比较拼板多个位置而非单一点。"
+        ],
+        [
+          "Run thermal stress and ionic contamination checks on high-layer builds, since multiple press cycles increase the risk of latent delamination.",
+          "高多层板需做热应力与离子污染检测，多次压合会提高潜在分层风险。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is a higher layer count always needed for AI boards?",
+          "No. Layer count follows routing density, power distribution and signal-integrity isolation. Some designs trade layers for a more expensive low-loss material instead.",
+          "AI 板层数越高越好吗？",
+          "不是。层数取决于布线密度、供电分配与信号完整性隔离；有些设计用更贵的低损耗材料换取更低层数。"
+        ],
+        [
+          "Can you quote a prototype below 500 pcs?",
+          "Yes. Prototype and pilot builds can start from a handful of boards; the MOQ applies to production runs and is stated in the written RFQ.",
+          "打样能低于 500 件吗？",
+          "可以。原型与试产可从小批量起步；起订量适用于量产，以书面询价为准。"
+        ]
+      ]
+    },
+    "serp_title": "High-Layer-Count PCB for AI Servers | 20–40+ Layer Sourcing",
+    "serp_desc": "Source 20–30 layer computing boards and ultra-high-layer backplanes with stack-up, impedance tolerance and back-drill depth agreed at RFQ."
+  },
+  {
+    "slug": "hdi-msap-anylayer-pcb",
+    "en_title": "HDI / mSAP / Anylayer PCB Sourcing China | Fine-Line Boards",
+    "zh_title": "HDI / mSAP / 任意层 PCB 采购中国 | 细线路板",
+    "en_lede": "Source HDI, mSAP and any-layer interconnect boards with microvia structure, fine line/space and filled-via planarity agreed at RFQ.",
+    "zh_lede": "采购 HDI、mSAP 与任意层互连板，微孔结构、细线宽/线距与填孔平整度在询价阶段确认。",
+    "en_intro": "High-density interconnect is a process choice, not a marketing label. Modified semi-additive processing, any-layer microvias and line/space down to a few micrometres are what make AI accelerator modules, optical engines and compact compute boards routable. Anchormere qualifies HDI suppliers by microvia structure and fine-line yield, and consolidates the qualification evidence before a buyer commits to a high-density stack-up.",
+    "zh_intro": "高密度互连是工艺选择，不是营销标签。改良型半加成法（mSAP）、任意层微孔与数微米级线宽/线距，才使 AI 加速模组、光引擎与紧凑计算板得以布线。Anchormere 按微孔结构与细线良率筛选 HDI 供应商，并在买家锁定高密度叠构前整合认证证据。",
+    "caps": [
+      [
+        "Anylayer HDI structures",
+        "任意层 HDI 结构"
+      ],
+      [
+        "mSAP fine line / space",
+        "mSAP 细线宽 / 线距"
+      ],
+      [
+        "Stacked and staggered microvias",
+        "叠孔与错孔微孔"
+      ],
+      [
+        "Via filling and planarity",
+        "填孔与表面平整度"
+      ],
+      [
+        "SLP-class substrate-like boards",
+        "类载板 SLP 板"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (prototype runs lower)",
+        "单品 500 件起（打样可更低）"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days by build-up count",
+        "按增层次数通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan / Huizhou",
+        "深圳 / 东莞 / 惠州"
+      ],
+      [
+        "Spec references on request",
+        "IPC-2226, IPC-6012, IPC-TM-650",
+        "可按需 IPC-2226、IPC-6012、IPC-TM-650"
+      ],
+      [
+        "Quote time",
+        "48 hours with a build-up drawing",
+        "增层图齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "HDI PCB manufacturer China, mSAP semi additive process PCB, anylayer HDI board, 3/3 mil fine line PCB, HDI 任意层 采购 中国",
+    "related": [
+      [
+        "anylayer HDI PCB",
+        "任意层 HDI 板"
+      ],
+      [
+        "mSAP modified semi additive",
+        "mSAP 改良半加成法"
+      ],
+      [
+        "3/3 mil line space",
+        "3/3 mil 线宽线距"
+      ],
+      [
+        "stacked microvia reliability",
+        "叠孔微孔可靠性"
+      ],
+      [
+        "via in pad filled planar",
+        "盘中孔填孔平整度"
+      ],
+      [
+        "SLP substrate like PCB",
+        "类载板 SLP"
+      ],
+      [
+        "HDI 5 stage build up",
+        "五阶 HDI 增层"
+      ],
+      [
+        "40um microvia laser drill",
+        "40 微米激光微孔"
+      ],
+      [
+        "optical module mSAP PCB",
+        "光模块 mSAP 板"
+      ],
+      [
+        "fine line PCB yield China",
+        "细线路板良率 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What is the difference between HDI and mSAP?",
+        "HDI describes the interconnect structure (microvias and build-up layers); mSAP is a patterning process used to reach very fine line/space. A board can be HDI without mSAP."
+      ],
+      [
+        "Are stacked microvias a reliability risk?",
+        "They need tighter process control than staggered vias. Public standards discuss microvia reliability; the fabricator should evidence its own IST or thermal-cycling results for that structure."
+      ],
+      [
+        "Do you hold IPC certification for HDI builds?",
+        "No. IPC references are public editorial references. Conformance evidence and the applicable class are requested from the fabricator and confirmed in the PO."
+      ],
+      [
+        "What files are needed to quote an any-layer build?",
+        "A build-up drawing with layer count, microvia structure per interface, line/space minimum, filled-via planarity requirement and the target IPC class."
+      ]
+    ],
+    "cases": [
+      [
+        "Unimicron",
+        "欣兴电子",
+        "A fabricator frequently named in public reporting on advanced HDI and substrate-like board capacity for AI hardware.",
+        "公开报道中关于 AI 硬件先进 HDI 与类载板产能常被提及的板厂。"
+      ],
+      [
+        "Avary Holding",
+        "鹏鼎控股",
+        "A listed PCB maker commonly referenced in public coverage of SLP and high-density board investment.",
+        "公开报道中关于 SLP 与高密度板投资常被提及的上市 PCB 企业。"
+      ],
+      [
+        "AT&S",
+        "奥特斯",
+        "Often cited in industry reporting on high-end HDI and IC substrate technology migration.",
+        "行业报道中关于高端 HDI 与 IC 载板技术演进常被引用。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "Fine-line yield is set by the patterning method and the dielectric surface, not by the design rule written on the drawing. Below a few mil, mSAP changes both the conductor profile and the inspection method.",
+      "zh_intro": "细线良率由图形转移方法与介质表面决定，而不是图纸上写的线宽规则。低于数 mil 后，mSAP 同时改变导体形貌与检验方式。",
+      "process": [
+        [
+          "mSAP builds conductors by pattern plating on a thin seed layer; the seed-layer etch uniformity then controls line-width spread more than the exposure tool does.",
+          "mSAP 在薄种子层上图形电镀形成导体；种子层蚀刻均匀性对线宽离散的影响大于曝光设备。"
+        ],
+        [
+          "Stacked microvias concentrate thermal-cycle strain at the interface between build-up layers, so the fill copper quality and the interface cleanliness determine field reliability.",
+          "叠孔微孔把热循环应变集中在增层界面，填充铜质量与界面洁净度决定现场可靠性。"
+        ],
+        [
+          "Via-in-pad planarity affects BGA and fine-pitch assembly; a specified dimple limit must be paired with the measurement method on the same drawing.",
+          "盘中孔平整度影响 BGA 与细间距组装；凹陷上限须与同一图纸上的测量方法成对规定。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Specify the microvia structure per layer interface (stacked, staggered or skipped) rather than a single HDI stage number.",
+          "逐层界面写明微孔结构（叠孔、错孔或跨层），而不是只给一个 HDI 阶数。"
+        ],
+        [
+          "Ask for line/space yield data at the exact minimum width on the drawing, not the fabricator's best-case capability.",
+          "索取图纸最小线宽处的线宽/线距良率数据，而非板厂的最优能力值。"
+        ],
+        [
+          "Define the applicable IPC class and the microvia reliability test method in the PO so both sides inspect to the same criteria.",
+          "在采购单写明适用 IPC 等级与微孔可靠性测试方法，使双方按同一判据检验。"
+        ]
+      ],
+      "qc": [
+        [
+          "Cross-section microvia chains from each build-up interface and review the fill void percentage against the agreed class.",
+          "对每个增层界面的微孔链做切片，并按约定等级核对填充空洞率。"
+        ],
+        [
+          "Use AOI tuned for fine-line defects and confirm the seed-layer residue is cleared, since residual seed causes leakage between adjacent traces.",
+          "使用针对细线缺陷调校的 AOI，并确认种子层残留清除干净；残留会造成相邻线路间漏电。"
+        ]
+      ],
+      "faq": [
+        [
+          "Does any-layer always cost more than a staged HDI build?",
+          "Usually, because every layer interface needs a lamination and laser-drill cycle. A staged build can be cheaper if routing allows.",
+          "任意层一定比常规 HDI 贵吗？",
+          "通常如此，因为每个层界面都要一次压合与激光钻孔；若布线允许，分阶结构可能更经济。"
+        ],
+        [
+          "Can you source HDI without assembly?",
+          "Yes. Bare-board-only enquiries are consolidated with the fabricator's qualification report and shipped to the buyer's nominated EMS.",
+          "可以只采购 HDI 裸板吗？",
+          "可以。纯裸板询价随附板厂认证报告，可发往买家指定的 EMS 厂。"
+        ]
+      ]
+    },
+    "serp_title": "HDI / mSAP / Anylayer PCB Sourcing | Fine-Line Boards China",
+    "serp_desc": "Source HDI, mSAP and any-layer interconnect boards with microvia structure, fine line/space and filled-via planarity agreed at RFQ."
+  },
+  {
+    "slug": "abf-fcbga-ic-substrate",
+    "en_title": "ABF / FC-BGA IC Substrate Sourcing | Build-Up Substrate & BT Core",
+    "zh_title": "ABF / FC-BGA IC 载板采购 | 增层载板与 BT 芯板",
+    "en_lede": "Source ABF build-up and FC-BGA / BT package substrates with body size, layer count and warpage limits confirmed at RFQ.",
+    "zh_lede": "采购 ABF 增层与 FC-BGA / BT 封装载板，封装尺寸、层数与翘曲上限在询价阶段确认。",
+    "en_intro": "As AI GPU and ASIC package areas grow, the build-up substrate becomes the tightest link in the chain: larger body size, more build-up layers and finer line/space all push warpage and yield at once. Anchormere treats IC substrate sourcing as a capacity-and-qualification problem — nominating substrate makers by proven body size and layer structure, and passing through the reliability evidence a buyer needs for package sign-off.",
+    "zh_intro": "随 AI GPU 与 ASIC 封装面积增大，增层载板成为全链最紧环节：更大封装尺寸、更多增层与更细线宽/线距同时推高翘曲与良率压力。Anchormere 把 IC 载板采购视为产能与认证问题——按已验证的封装尺寸与层结构提名载板厂，并转交买家完成封装签核所需的可靠性证据。",
+    "caps": [
+      [
+        "ABF build-up substrate structures",
+        "ABF 增层载板结构"
+      ],
+      [
+        "FC-BGA and BT core options",
+        "FC-BGA 与 BT 芯板选项"
+      ],
+      [
+        "Large-body-size qualification",
+        "大尺寸封装认证"
+      ],
+      [
+        "Fine line/space capability review",
+        "细线宽/线距能力复核"
+      ],
+      [
+        "Warpage and reliability evidence",
+        "翘曲与可靠性证据"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (engineering lots lower)",
+        "单品 500 件起（工程批可更低）"
+      ],
+      [
+        "Typical lead time",
+        "35–60 days subject to capacity",
+        "视产能通常 35–60 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Suzhou / Greater Bay Area",
+        "深圳 / 苏州 / 大湾区"
+      ],
+      [
+        "Spec references on request",
+        "JEDEC J-STD-020, JESD22-A104, IPC-6012",
+        "可按需 JEDEC J-STD-020、JESD22-A104、IPC-6012"
+      ],
+      [
+        "Quote time",
+        "48 hours with a package drawing",
+        "封装图齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "ABF substrate sourcing, FC-BGA substrate supplier China, BT package substrate, IC package substrate AI GPU, ABF 载板 采购 封装基板",
+    "related": [
+      [
+        "ABF build up substrate",
+        "ABF 增层载板"
+      ],
+      [
+        "FC-BGA substrate layer count",
+        "FC-BGA 载板层数"
+      ],
+      [
+        "BT core substrate",
+        "BT 芯板载板"
+      ],
+      [
+        "large body size FCBGA",
+        "大尺寸 FC-BGA"
+      ],
+      [
+        "substrate warpage control",
+        "载板翘曲控制"
+      ],
+      [
+        "3/3 um line space substrate",
+        "3/3 微米 线宽线距 载板"
+      ],
+      [
+        "embedded IPD DTC substrate",
+        "埋入 IPD DTC 载板"
+      ],
+      [
+        "ABF film capacity shortage",
+        "ABF 膜 产能缺口"
+      ],
+      [
+        "glass core TGV substrate",
+        "玻璃芯 TGV 载板"
+      ],
+      [
+        "AI ASIC package substrate China",
+        "AI ASIC 封装载板 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "Why is body size such a strong constraint?",
+        "Warpage and lamination yield degrade as the substrate gets larger. A fabricator qualified at one body size is not automatically qualified at a larger one."
+      ],
+      [
+        "Are the reported ABF shortage figures your forecast?",
+        "No. They are publicly reported 2026 industry figures cited as buyer context. Availability and lead time are confirmed per lot at RFQ."
+      ],
+      [
+        "Do you certify substrates to JEDEC standards?",
+        "No. JEDEC references are public editorial references; MSL and temperature-cycling evidence comes from the substrate maker and the buyer's package qualification."
+      ],
+      [
+        "What do you need to quote a substrate?",
+        "A package drawing with body size, ball map and pitch, build-up layer structure, line/space minimum, target warpage limit and the required reliability test plan."
+      ]
+    ],
+    "cases": [
+      [
+        "Ajinomoto",
+        "味之素",
+        "Its ABF build-up film is widely cited in public reporting as the dominant material for high-end FC-BGA substrates.",
+        "其 ABF 增层膜在公开报道中被广泛引用为高端 FC-BGA 载板的主导材料。"
+      ],
+      [
+        "Ibiden",
+        "揖斐电",
+        "A substrate maker frequently named in public coverage of high-end AI package substrate supply.",
+        "公开报道中关于高端 AI 封装载板供给常被提及的载板厂。"
+      ],
+      [
+        "Shinko Electric",
+        "新光电气",
+        "Often referenced in industry reporting on FC-BGA capacity and large-body-size packages.",
+        "行业报道中关于 FC-BGA 产能与大尺寸封装常被引用。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "Substrate yield is dominated by the mismatch between silicon, mould compound and organic build-up CTE. Every extra build-up layer adds one more interface where that mismatch shows up as warpage.",
+      "zh_intro": "载板良率主要受硅片、塑封料与有机增层之间 CTE 失配支配。每增加一层增层，就多一个把失配表现为翘曲的界面。",
+      "process": [
+        [
+          "Build-up layers are laminated alternating ABF film and patterned copper; the number of lamination cycles fixes both the registration budget and the accumulated residual stress.",
+          "增层由 ABF 膜与图形铜交替压合而成；压合次数同时决定对位预算与累积残余应力。"
+        ],
+        [
+          "Fine line/space below a few micrometres pushes the patterning toward semi-additive routes, where seed-layer control rather than exposure resolution sets the yield.",
+          "数微米以下的线宽/线距迫使图形转移转向半加成路线，此时决定良率的是种子层控制而非曝光分辨率。"
+        ],
+        [
+          "Large-body packages need a core or stiffener strategy; changing the core material to control warpage also changes the drilling and plating behaviour of the through vias.",
+          "大尺寸封装需要芯板或加强筋方案；为控制翘曲更换芯板材料，也会改变通孔的钻孔与电镀行为。"
+        ]
+      ],
+      "buyer": [
+        [
+          "State the body size and the build-up layer structure explicitly; a layer count quoted without a body size is not a comparable offer.",
+          "明确写出封装尺寸与增层结构；不含封装尺寸的层数报价无法横向比较。"
+        ],
+        [
+          "Request warpage data at room and reflow temperature, since room-temperature flatness alone does not predict assembly yield.",
+          "索取室温与回流温度下的翘曲数据；仅室温平整度无法预测组装良率。"
+        ],
+        [
+          "Confirm the ABF film and core material availability for the intended volume before tooling, as public reporting describes long equipment and material lead times.",
+          "开模前确认目标产量下的 ABF 膜与芯板材料可得性；公开报道显示材料与设备交期较长。"
+        ]
+      ],
+      "qc": [
+        [
+          "Review open/short test coverage per net and cross-section the build-up interfaces for voids and registration.",
+          "核对按网络计的开短路覆盖率，并对增层界面做切片检查空洞与对位。"
+        ],
+        [
+          "Match the MSL classification and temperature-cycling report to the exact substrate revision in the BOM, not to a family-level qualification.",
+          "MSL 等级与温度循环报告须对应 BOM 中的具体载板版本，而非系列级认证。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is a glass-core substrate available now?",
+          "Public 2026 reporting describes it as an active development area with commercialisation hurdles. Treat it as a roadmap topic, not a standard production option.",
+          "玻璃芯载板现在能量产吗？",
+          "2026 年公开报道将其列为仍有商业化障碍的研发方向；应作为路线图议题，而非常规量产选项。"
+        ],
+        [
+          "Can you source BT substrates for non-AI packages?",
+          "Yes. BT-core substrates remain common for smaller packages; the structure is matched to the package drawing at RFQ.",
+          "非 AI 封装能采购 BT 载板吗？",
+          "可以。BT 芯板载板在较小封装中仍普遍使用；结构按封装图在询价时匹配。"
+        ]
+      ]
+    },
+    "serp_title": "ABF / FC-BGA Substrate Sourcing | Build-Up Substrate China",
+    "serp_desc": "Source ABF build-up and FC-BGA / BT package substrates with body size, layer count and warpage limits confirmed at RFQ."
+  },
+  {
+    "slug": "800g-1-6t-optical-module-pcb",
+    "en_title": "800G / 1.6T Optical Module PCB Sourcing | mSAP High-Frequency Boards",
+    "zh_title": "800G / 1.6T 光模块 PCB 采购 | mSAP 高频板",
+    "en_lede": "Source 10–16 layer mSAP optical module boards with insertion-loss budget, gold-finger finish and embedded-capacitor options agreed at RFQ.",
+    "zh_lede": "采购 10–16 层 mSAP 光模块板，插损预算、金手指表面处理与埋容选项在询价阶段确认。",
+    "en_intro": "Optical module boards sit where a few tenths of a decibel decide whether a link closes. Public 2026 reporting describes 10–12 layer mSAP builds at 800G rising to 12–16 layers at 1.6T, with near-package and co-packaged optics adding embedded capacitors and tighter insertion-loss budgets. Anchormere consolidates high-frequency board enquiries and the S-parameter evidence a buyer needs before releasing a module programme.",
+    "zh_intro": "光模块板处在零点几分贝就决定链路能否开通的位置。2026 年公开报道描述 800G 用 10–12 层 mSAP、1.6T 升至 12–16 层，近封装与共封装光学进一步引入埋入电容与更严格的插损预算。Anchormere 整合高频板询价，并转交买家放行光模块项目所需的 S 参数证据。",
+    "caps": [
+      [
+        "10–16 layer mSAP module boards",
+        "10–16 层 mSAP 光模块板"
+      ],
+      [
+        "Insertion-loss coupon reporting",
+        "插损测试条报告"
+      ],
+      [
+        "Gold-finger and edge plating",
+        "金手指与板边电镀"
+      ],
+      [
+        "Embedded capacitor options",
+        "埋入电容选项"
+      ],
+      [
+        "NPO / CPO high-frequency structures",
+        "近封装 / 共封装光学高频结构"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (prototype runs lower)",
+        "单品 500 件起（打样可更低）"
+      ],
+      [
+        "Typical lead time",
+        "25–40 days by layer count",
+        "按层数通常 25–40 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan / Huizhou",
+        "深圳 / 东莞 / 惠州"
+      ],
+      [
+        "Spec references on request",
+        "IEEE 802.3, OIF CEI, IPC-6012",
+        "可按需 IEEE 802.3、OIF CEI、IPC-6012"
+      ],
+      [
+        "Quote time",
+        "48 hours with an RF stack-up",
+        "射频叠构齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "800G optical module PCB, 1.6T optical module board manufacturer, mSAP high frequency PCB, CPO NPO module PCB, 800G 光模块 PCB 采购",
+    "related": [
+      [
+        "800G optical module PCB",
+        "800G 光模块 PCB"
+      ],
+      [
+        "1.6T module board 16 layer",
+        "1.6T 光模块 16 层板"
+      ],
+      [
+        "mSAP insertion loss coupon",
+        "mSAP 插损测试条"
+      ],
+      [
+        "CPO co packaged optics PCB",
+        "共封装光学 CPO 板"
+      ],
+      [
+        "NPO near package optics board",
+        "近封装光学 NPO 板"
+      ],
+      [
+        "embedded silicon capacitor PCB",
+        "埋入硅电容 PCB"
+      ],
+      [
+        "gold finger hard gold plating",
+        "金手指 硬金镀层"
+      ],
+      [
+        "S parameter VNA measurement",
+        "S 参数 矢量网络分析"
+      ],
+      [
+        "high frequency low loss laminate",
+        "高频低损耗板材"
+      ],
+      [
+        "optical engine PCB China",
+        "光引擎 PCB 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What changes between 800G and 1.6T module boards?",
+        "Public 2026 reporting describes a layer-count increase and tighter insertion-loss budgets, often with embedded capacitors. The exact stack-up depends on the optical engine and the host channel."
+      ],
+      [
+        "Do you guarantee a specific insertion loss?",
+        "The loss budget is a measured requirement with a defined coupon and method. The target is agreed at RFQ and reported per lot, not assumed from a material datasheet."
+      ],
+      [
+        "Are IEEE 802.3 and OIF documents your certifications?",
+        "No. They are public editorial references for the interface standard. Conformance evidence comes from the board fabricator and the module maker's own compliance testing."
+      ],
+      [
+        "What is needed for a quote?",
+        "An RF stack-up, insertion-loss and return-loss targets by channel, gold-finger finish and thickness, embedded-component requirement and the applicable test method."
+      ]
+    ],
+    "cases": [
+      [
+        "Broadcom Tomahawk",
+        "博通 Tomahawk",
+        "A switch silicon family widely used as a market reference when discussing 800G and 1.6T port speeds.",
+        "讨论 800G 与 1.6T 端口速率时常作为市场参考的交换芯片系列。"
+      ],
+      [
+        "Coherent Corp",
+        "Coherent",
+        "An optical component maker frequently referenced in public coverage of high-speed transceiver supply.",
+        "公开报道中关于高速光模块供给常被提及的光器件厂商。"
+      ],
+      [
+        "Innolight",
+        "中际旭创",
+        "A listed optical module maker often cited in public reporting on 800G and 1.6T module shipments.",
+        "公开报道中关于 800G 与 1.6T 光模块出货常被提及的上市厂商。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "A module board is a microwave component that happens to carry digital data. At these rates the transition geometry, the gold-finger launch and the reference-plane discontinuity can dominate over the trace loss itself.",
+      "zh_intro": "光模块板其实是承载数字信号的微波器件。在这些速率下，过渡结构、金手指馈入与参考平面不连续，可能比走线损耗本身更主导。",
+      "process": [
+        [
+          "mSAP is used because the fine line/space and smooth conductor profile reduce both loss and impedance spread; the seed-layer etch must be tightly controlled to keep the profile consistent.",
+          "采用 mSAP 是因为细线宽/线距与平滑导体形貌同时降低损耗与阻抗离散；种子层蚀刻需严格控制以保持形貌一致。"
+        ],
+        [
+          "Gold-finger plating thickness and the edge bevel affect insertion loss and mating durability; a hard-gold spec without a bevel drawing leaves the launch geometry undefined.",
+          "金手指镀层厚度与板边倒角影响插损和插拔耐久；只写硬金规格、不给倒角图，馈入几何就不确定。"
+        ],
+        [
+          "Embedded silicon capacitors shorten the power delivery path for the optical engine, but they add a lamination step and a new void-inspection requirement.",
+          "埋入硅电容缩短光引擎供电路径，但增加一次压合工序与新的空洞检验要求。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Specify insertion loss and return loss per channel with the measurement method, coupon design and the frequency range of interest.",
+          "按通道写明插损与回损，并附测量方法、测试条设计与关注频段。"
+        ],
+        [
+          "State the host interface standard and the optical engine package so the breakout region can be reviewed before tooling.",
+          "写明主机接口标准与光引擎封装，使扇出区可在开模前复核。"
+        ],
+        [
+          "Ask for S-parameter data on the exact laminate lot, since a grade-level datasheet does not capture lot-to-lot Dk spread.",
+          "索取该批次板材的 S 参数数据；等级规格书不反映批次间 Dk 波动。"
+        ]
+      ],
+      "qc": [
+        [
+          "Measure VNA S-parameters on the agreed coupon per lot and compare against the channel budget before assembly release.",
+          "逐批在约定测试条上测 VNA S 参数，组装放行前与通道预算比对。"
+        ],
+        [
+          "Inspect gold-finger plating thickness, bevel geometry and edge burrs, since a launch defect is rarely caught by electrical test alone.",
+          "检查金手指镀层厚度、倒角几何与板边毛刺；馈入缺陷通常无法仅靠电测发现。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is mSAP mandatory for every 800G board?",
+          "No. It depends on line/space and loss requirements. Some designs reach the target with conventional patterning on a better laminate.",
+          "所有 800G 板都必须 mSAP 吗？",
+          "不必。取决于线宽/线距与损耗要求；部分设计用更好板材配合常规图形转移即可达标。"
+        ],
+        [
+          "Can you quote the board without optical components?",
+          "Yes. Bare-board-only enquiries are consolidated with the S-parameter report and shipped to the buyer's nominated module assembler.",
+          "可以只报裸板、不含光器件吗？",
+          "可以。纯裸板询价随附 S 参数报告，可发往买家指定的光模块组装厂。"
+        ]
+      ]
+    },
+    "serp_title": "800G / 1.6T Optical Module PCB Sourcing | mSAP Boards",
+    "serp_desc": "Source 10–16 layer mSAP optical module boards with insertion-loss budget, gold-finger finish and embedded-capacitor options agreed at RFQ."
+  },
+  {
+    "slug": "ai-server-pcba-ems",
+    "en_title": "AI Server PCBA & EMS Sourcing China | Large-BGA Assembly & System Test",
+    "zh_title": "AI 服务器 PCBA 与 EMS 采购中国 | 大尺寸 BGA 组装与系统测试",
+    "en_lede": "Source AI server PCBA and box-build assembly with high-pin-count BGA, system-level functional test and burn-in coverage agreed at RFQ.",
+    "zh_lede": "采购 AI 服务器 PCBA 与整机组装，高引脚 BGA、系统级功能测试与老化覆盖率在询价阶段确认。",
+    "en_intro": "A 20-plus-layer board only becomes a shippable assembly after high-pin-count BGA soldering, thermal hardware mounting and a system-level functional test that actually exercises the high-speed links. Anchormere integrates PCBA, heat-sink and cold-plate mounting, firmware loading and burn-in under one owner, so a buyer does not have to reconcile three vendors' defect reports when a rack fails acceptance.",
+    "zh_intro": "20 层以上的板子要经过高引脚数 BGA 焊接、散热件装配、以及真正跑通高速链路的系统级功能测试，才成为可出货组件。Anchormere 把 PCBA、散热器与冷板装配、固件烧录和老化整合在单一责任主体下，让机柜验收失败时买家不必去对齐三家供应商的缺陷报告。",
+    "caps": [
+      [
+        "High-pin-count BGA assembly",
+        "高引脚数 BGA 组装"
+      ],
+      [
+        "Large-format board SMT profiles",
+        "大尺寸板 SMT 曲线"
+      ],
+      [
+        "System-level FCT and burn-in",
+        "系统级 FCT 与老化"
+      ],
+      [
+        "Thermal hardware and TIM mounting",
+        "散热件与导热界面材料装配"
+      ],
+      [
+        "Serial-level traceability and reporting",
+        "序列号级追溯与报告"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (pilot runs lower)",
+        "单品 500 件起（试产可更低）"
+      ],
+      [
+        "Typical lead time",
+        "20–35 days with materials ready",
+        "物料齐备通常 20–35 天"
+      ],
+      [
+        "Cluster",
+        "Shenzhen / Dongguan / Huizhou",
+        "深圳 / 东莞 / 惠州"
+      ],
+      [
+        "Spec references on request",
+        "IPC-A-610, IPC/J-STD-001, J-STD-033",
+        "可按需 IPC-A-610、IPC/J-STD-001、J-STD-033"
+      ],
+      [
+        "Quote time",
+        "48 hours for a complete build package",
+        "生产包齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "AI server PCBA China, AI server EMS manufacturer, large BGA assembly Shenzhen, system level functional test PCBA, AI 服务器 PCBA 采购",
+    "related": [
+      [
+        "AI server PCBA assembly",
+        "AI 服务器 PCBA 组装"
+      ],
+      [
+        "high pin count BGA X-ray",
+        "高引脚 BGA X 光"
+      ],
+      [
+        "large format SMT reflow",
+        "大尺寸板 SMT 回流"
+      ],
+      [
+        "system level functional test",
+        "系统级功能测试"
+      ],
+      [
+        "burn in test rack",
+        "老化测试机柜"
+      ],
+      [
+        "firmware provisioning traceability",
+        "固件烧录追溯"
+      ],
+      [
+        "cold plate mounting torque",
+        "冷板装配扭矩"
+      ],
+      [
+        "IPC-A-610 class 3 PCBA",
+        "IPC-A-610 Class 3 PCBA"
+      ],
+      [
+        "box build integration China",
+        "整机集成 中国"
+      ],
+      [
+        "AI accelerator card assembly",
+        "AI 加速卡组装"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What makes AI server PCBA different from ordinary SMT?",
+        "Board size and mass, high-pin-count BGA, tight thermal-planarity requirements and a functional test that must exercise high-speed links rather than just power-on."
+      ],
+      [
+        "Do you provide IPC-A-610 Class 3 certification?",
+        "No. IPC references are public editorial references. The applicable class is stated in the PO and the fabricator's inspection evidence is passed through for verification."
+      ],
+      [
+        "Can you work with consigned components?",
+        "Yes. Consigned parts are stored by lot code, moisture-sensitive devices are baked and tracked, and unused stock is reconciled at shipment."
+      ],
+      [
+        "What is included in system-level test?",
+        "A test spec agreed at RFQ: firmware load, high-speed link training, sensor and fan checks, thermal behaviour, and a serial-numbered report per unit."
+      ]
+    ],
+    "cases": [
+      [
+        "Foxconn",
+        "富士康",
+        "A globally referenced EMS provider often cited as a market benchmark for server and rack-scale assembly.",
+        "全球常被引用为服务器与机柜级组装市场基准的 EMS 厂商。"
+      ],
+      [
+        "Jabil",
+        "捷普",
+        "An EMS maker frequently named in public coverage of computing and infrastructure assembly programmes.",
+        "公开报道中关于计算与基础设施组装项目常被提及的 EMS 厂商。"
+      ],
+      [
+        "Flex",
+        "伟创力",
+        "Often referenced in industry reporting on high-complexity electronics manufacturing and system integration.",
+        "行业报道中关于高复杂度电子制造与系统集成常被引用。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "On a large, high-layer board the reflow profile is no longer a single oven recipe: thermal mass varies across the panel, and the BGA corner joints see a different time-above-liquidus than the centre devices.",
+      "zh_intro": "在大尺寸高多层板上，回流曲线不再是一条炉温配方：拼板各处热容量不同，BGA 角部焊点的液相线以上时间与中心器件并不一致。",
+      "process": [
+        [
+          "A board-specific reflow profile is developed with thermocouples on the largest BGA and on a low-mass corner, then locked; weekly profiler runs catch oven drift.",
+          "用最大 BGA 与低热容角部器件上的热电偶开发专属回流曲线并锁定；每周炉温测试校验炉子漂移。"
+        ],
+        [
+          "X-ray inspection targets voiding and head-in-pillow on high-pin-count BGA; a single 2D image cannot quantify void area, so the sampling plan and acceptance limit are agreed up front.",
+          "X 光检查针对高引脚 BGA 的空洞与枕头效应；单张二维图无法量化空洞面积，抽样方案与判据须事前约定。"
+        ],
+        [
+          "Cold-plate or heat-sink mounting torque and TIM thickness change the junction temperature; the assembly instruction should state torque sequence and the measured bond-line thickness.",
+          "冷板或散热器装配扭矩与导热界面材料厚度改变结温；作业指导书应写明扭矩顺序与实测胶层厚度。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide Gerber/ODB++, a centroid file, an approved BOM with manufacturer part numbers, a test spec and the fixture requirement as one build package.",
+          "一次性提供 Gerber/ODB++、坐标文件、带原厂料号的 BOM、测试规范与治具要求，组成完整生产包。"
+        ],
+        [
+          "State the IPC-A-610 class plus the functional-test coverage by net or by link, not a blanket 100% test clause.",
+          "写明 IPC-A-610 等级，并按网络或按链路定义功能测试覆盖率，而不是笼统的『100% 测试』。"
+        ],
+        [
+          "Agree first-pass yield targets, the rework rule and the serial-numbered report format before the pilot build.",
+          "试产前约定直通率目标、返修规则与序列号报告格式。"
+        ]
+      ],
+      "qc": [
+        [
+          "SPI on 100% of prints, AOI after reflow, X-ray on all high-pin-count BGA and bottom-terminated parts.",
+          "100% SPI 锡膏检测、回流后 AOI，全部高引脚 BGA 与底部端子器件做 X 光。"
+        ],
+        [
+          "Run FCT and burn-in with a logged serial number per unit; issue a defect Pareto and a link-training log with each lot.",
+          "逐台 FCT 与老化记录序列号；每批出具缺陷 Pareto 与链路训练日志。"
+        ]
+      ],
+      "faq": [
+        [
+          "Can a pilot run be smaller than 500 pcs?",
+          "Yes. Prototype and pilot builds can start from a handful of units; the 500 pcs per item MOQ applies to production runs, not engineering validation.",
+          "试产能低于 500 件吗？",
+          "可以。原型与试产可从少量整机起步；单品 500 件起订适用于量产，不约束工程验证。"
+        ],
+        [
+          "Do you do component sourcing or only assembly?",
+          "Both. Turnkey sourcing and consigned-component models are supported, with the AVL and alternate-part policy locked before the pilot.",
+          "只做组装还是也做物料采购？",
+          "两者都支持。一站式统购与客供料均可，AVL 与替代料政策在试产前锁定。"
+        ]
+      ]
+    },
+    "serp_title": "AI Server PCBA & EMS Sourcing | Large-BGA Assembly China",
+    "serp_desc": "Source AI server PCBA and box-build assembly with high-pin-count BGA, system-level functional test and burn-in coverage agreed at RFQ."
+  },
+  {
+    "slug": "liquid-cooling-cold-plate-sourcing",
+    "en_title": "Liquid Cooling Cold Plate Sourcing China | UQD, CDU & Rack Thermal Parts",
+    "zh_title": "液冷冷板采购中国 | UQD 快接头、CDU 与机柜热管理部件",
+    "en_lede": "Source cold plates, UQD quick disconnects and rack thermal parts with pressure-drop, leak-rate and flatness limits agreed at RFQ.",
+    "zh_lede": "采购液冷冷板、UQD 快接头与机柜热管理部件，压降、泄漏率与平面度上限在询价阶段确认。",
+    "en_intro": "AI rack power has pushed thermal hardware into the same procurement conversation as boards: cold plates, quick disconnects, CDU-side manifolds and coolant-compatible seals are now specified alongside the PCB. Anchormere consolidates machined and brazed cold plates, UQD fittings and rack thermal parts into one multi-SKU order, with leak-test and flow data reported per lot so a buyer can qualify the cooling loop as a system.",
+    "zh_intro": "AI 机柜功率把热管理硬件推到了与板材同一场采购对话中：冷板、快接头、CDU 侧分水器与冷却液兼容密封件，如今与 PCB 一起被规定。Anchormere 把机加工与钎焊冷板、UQD 接头及机柜热部件整合为一张多料号订单，逐批出具泄漏与流量数据，让买家按系统认证整个冷却回路。",
+    "caps": [
+      [
+        "Machined and brazed cold plates",
+        "机加工与钎焊冷板"
+      ],
+      [
+        "Skived fin and buried-tube structures",
+        "铲齿与埋管流道结构"
+      ],
+      [
+        "UQD quick disconnects and manifolds",
+        "UQD 快接头与分水器"
+      ],
+      [
+        "Leak-test and flow reporting",
+        "泄漏测试与流量报告"
+      ],
+      [
+        "Consolidated multi-SKU thermal orders",
+        "多料号热管理件拼单"
+      ]
+    ],
+    "specs": [
+      [
+        "MOQ",
+        "500 pcs per item (prototype runs lower)",
+        "单品 500 件起（打样可更低）"
+      ],
+      [
+        "Typical lead time",
+        "20–35 days by machining route",
+        "按机加工路线通常 20–35 天"
+      ],
+      [
+        "Cluster",
+        "Dongguan / Shenzhen / Foshan",
+        "东莞 / 深圳 / 佛山"
+      ],
+      [
+        "Spec references on request",
+        "OCP Open Rack v3, ASHRAE TC9.9, ASTM E515",
+        "可按需 OCP Open Rack v3、ASHRAE TC9.9、ASTM E515"
+      ],
+      [
+        "Quote time",
+        "48 hours with a thermal drawing",
+        "热设计图齐全后 48 小时报价"
+      ]
+    ],
+    "mother": [
+      "pcb-supply-chain.html",
+      "PCB supply chain board"
+    ],
+    "kw": "liquid cooling cold plate sourcing, cold plate manufacturer China, UQD quick disconnect AI rack, CDU manifold GBA, 液冷冷板 采购 中国",
+    "related": [
+      [
+        "liquid cooling cold plate",
+        "液冷冷板"
+      ],
+      [
+        "UQD quick disconnect",
+        "UQD 快接头"
+      ],
+      [
+        "CDU coolant distribution unit",
+        "CDU 冷量分配单元"
+      ],
+      [
+        "skived fin cold plate",
+        "铲齿冷板"
+      ],
+      [
+        "vacuum brazed cold plate",
+        "真空钎焊冷板"
+      ],
+      [
+        "helium leak test cold plate",
+        "氦检 冷板"
+      ],
+      [
+        "pressure drop flow curve",
+        "压降流量曲线"
+      ],
+      [
+        "cold plate flatness TIM",
+        "冷板平面度 导热界面"
+      ],
+      [
+        "OCP Open Rack v3 liquid",
+        "OCP Open Rack v3 液冷"
+      ],
+      [
+        "AI rack thermal parts China",
+        "AI 机柜 热管理件 中国"
+      ]
+    ],
+    "related_qa": [
+      [
+        "What decides whether a cold plate is machined or brazed?",
+        "Channel geometry, fin density and the required pressure drop. Fine skived fins and complex internal manifolds usually push the design toward a brazed or multi-piece build."
+      ],
+      [
+        "Do you certify parts to OCP or ASHRAE standards?",
+        "No. OCP and ASHRAE documents are public editorial references for interface and coolant-class context; dimensional and leak evidence comes from the part maker."
+      ],
+      [
+        "What leak rate should be specified?",
+        "It depends on the coolant and loop pressure. The leak rate, test method, test pressure and hold time are defined together at RFQ rather than as a single number."
+      ],
+      [
+        "Can thermal parts ship with the PCBA order?",
+        "Yes. Cold plates, fittings and manifolds are consolidated into the same multi-SKU shipment with the board assembly and the export document package."
+      ]
+    ],
+    "cases": [
+      [
+        "Open Compute Project",
+        "OCP",
+        "Its Open Rack v3 and UQD interface work are widely cited public references for rack-level liquid cooling.",
+        "其 Open Rack v3 与 UQD 接口工作是机柜级液冷常被引用的公开参考。"
+      ],
+      [
+        "ASHRAE TC 9.9",
+        "ASHRAE TC 9.9",
+        "A public technical committee whose liquid-cooling guidelines are commonly referenced for coolant temperature classes.",
+        "其液冷指南常作为冷却液温度等级的公开参考。"
+      ],
+      [
+        "Boyd Corporation",
+        "Boyd",
+        "A thermal management supplier frequently named in public coverage of data-centre liquid cooling hardware.",
+        "公开报道中关于数据中心液冷硬件常被提及的热管理供应商。"
+      ]
+    ],
+    "cluster": "pcb",
+    "expertise": {
+      "en_intro": "A cold plate is a pressure vessel as much as a heat exchanger. Thermal resistance, pressure drop and leak tightness are coupled: adding fins improves the first and worsens the second, while a thinner base improves both and raises the warpage risk.",
+      "zh_intro": "冷板既是换热器也是承压件。热阻、压降与密封性相互耦合：增加翅片改善热阻却恶化压降，减薄底板两者都改善却提高翘曲风险。",
+      "process": [
+        [
+          "Skived fins are formed from the base itself, so there is no braze interface to fail, but fin height and pitch are limited by the skiving tool and the base thickness.",
+          "铲齿由底板本体成形，没有钎焊界面可失效，但齿高与齿距受铲削刀具和底板厚度限制。"
+        ],
+        [
+          "Vacuum brazing allows closed internal channels and complex manifolds, but flux residue and void area at the braze line become the dominant leak and reliability risks.",
+          "真空钎焊可做封闭内流道与复杂分水结构，但钎剂残留与钎焊线空洞成为主要泄漏与可靠性风险。"
+        ],
+        [
+          "Base flatness directly sets the bond-line thickness of the thermal interface material; a flatness spec without a clamping condition is not a usable requirement.",
+          "底板平面度直接决定导热界面材料的胶层厚度；没有夹紧条件的平面度规格不是可用要求。"
+        ]
+      ],
+      "buyer": [
+        [
+          "Provide heat load, coolant type and inlet temperature, allowable pressure drop at the design flow, and the mounting hole pattern with clamping torque.",
+          "提供热负载、冷却液类型与入口温度、设计流量下的允许压降，以及带夹紧扭矩的安装孔位图。"
+        ],
+        [
+          "Specify leak rate together with the test method, test pressure and hold time, and require a serial-numbered leak record per part.",
+          "泄漏率须与测试方法、测试压力、保压时间一并规定，并要求逐件序列号泄漏记录。"
+        ],
+        [
+          "Confirm coolant compatibility for every wetted material — base, braze alloy, seals and fittings — before the loop is filled.",
+          "回路注液前确认所有接液材料（底板、钎料、密封件、接头）与冷却液兼容。"
+        ]
+      ],
+      "qc": [
+        [
+          "Run a helium or pressure-decay leak test on 100% of parts and record the flow-versus-pressure-drop curve per lot.",
+          "100% 做氦检或压降检漏，并逐批记录流量—压降曲线。"
+        ],
+        [
+          "Measure base flatness in the clamped condition and inspect the braze line by cross-section or X-ray on the qualification lot.",
+          "在夹紧状态测底板平面度，认证批需对钎焊线做切片或 X 光检查。"
+        ]
+      ],
+      "faq": [
+        [
+          "Is a copper plate always better than aluminium?",
+          "Copper conducts better, but aluminium is lighter and cheaper and can be adequate with the right channel design. The choice follows the coolant, weight and cost limits.",
+          "铜冷板一定比铝好吗？",
+          "铜导热更好，但铝更轻更便宜，配合合适流道设计可能已足够；选择取决于冷却液、重量与成本约束。"
+        ],
+        [
+          "Can you source UQD fittings separately?",
+          "Yes. Quick disconnects, manifolds and hoses can be consolidated with the cold plates or quoted as a standalone multi-SKU thermal order.",
+          "UQD 快接头能单独采购吗？",
+          "可以。快接头、分水器与管路可与冷板拼单，也可单独作为多料号热管理订单报价。"
+        ]
+      ]
+    },
+    "serp_title": "Liquid Cooling Cold Plate Sourcing | UQD & Thermal Parts",
+    "serp_desc": "Source cold plates, UQD quick disconnects and rack thermal parts with pressure-drop, leak-rate and flatness limits agreed at RFQ."
   }
 ]

@@ -1,0 +1,27 @@
+{
+  "version": 4,
+  "_note": "自有品牌域名文字动态展示的单一数据源。按用户指示：不使用任何平台图标 / 徽标 / SVG 资源，不发起 fetch 或第三方请求，只在页面加载过程中动态展示域名文字。链接指向本站自有域名首页 https://anchormere.com/，展示文字固定为品牌化写法 Anchormere.com；域名由 href 的主机名派生，display 只承载品牌大小写，且由生成器与 4f 闸门强制要求与 href 同源，杜绝文字与链接失配。清空 profiles / pages 后可用 --rollback 一键还原。",
+  "_schema": {
+    "profiles[].id": "小写标识，仅用于 DOM 标记；不对应任何图片资源",
+    "profiles[].href": "自有域名完整 URL，必须 https:// 开头，禁止占位符",
+    "profiles[].display": "品牌化显示文字（如 Anchormere.com）。只允许 ASCII 字母 / 数字 / 点 / 连字符；小写并去掉 www. 后必须与 href 的 hostname 一致。生成器写入静态兜底文字、data-domain 与 title，运行时 JS 动态写入并做同源一致性校正",
+    "profiles[].label": "英文 aria-label，描述链接用途（自有域名首页）",
+    "profiles[].label_zh": "中文 aria-label，写入 data-zh-attrs 供 assets/lang.js 切换",
+    "profiles[].rel": "默认 noopener noreferrer；自有域名首页链接仍保留，避免新窗口反向影响",
+    "pages": "允许注入的页面文件名白名单；[\"*\"] 表示全站。protected 核心页默认跳过，需显式 allow_protected=true",
+    "allow_protected": "true 时允许改写 index.html / contact.html 等 protected 页面，必须在提交信息中显式说明"
+  },
+  "placement": "footer",
+  "allow_protected": true,
+  "profiles": [
+    {
+      "id": "anchormere",
+      "href": "https://anchormere.com/",
+      "display": "Anchormere.com",
+      "label": "Anchormere.com home",
+      "label_zh": "Anchormere.com 首页",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "pages": ["*"]
+}

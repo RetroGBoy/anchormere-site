@@ -32,6 +32,7 @@
 | `data-depth` | 品类专属深度内容（差异化 / E-E-A-T） | manual | 1 | — |
 | `data-cases` | 公开案例数据源（含来源 URL） | manual | 1 | — |
 | `data-briefings` | 简报数据源 | manual | 1 | — |
+| `social-domains` | 品牌域名文字动态展示（无图标资源，默认零侵入） | auto | 3 | `inject_social_domains.py` |
 | `data-news` | 新闻去重状态 | auto | 1 | — |
 | `engine` | 生成器 / 校验器代码 | manual | 20+ | — |
 | `briefings` | 采购情报简报 | auto | 10 | `build_briefings.py` |
@@ -189,6 +190,122 @@ python3 scripts/workarea.py audit
 
 ---
 
-## 10. 一句话总结
+## 10. 品牌域名文字动态展示：无图标资源的可逆模块
+
+`social-domains` 模块回答的是「域名能否在网页响应加载过程中动态展示」。结论是
+**能，且不需要任何图标**：用户明确要求不使用平台图标 / 徽标 / SVG，
+footer 只放一个指向**本站自有域名首页**的**文字链接**，动态展示文字为品牌化写法 `Anchormere.com`。
+
+| 层 | 放什么 | 时机 | 为什么 |
+|---|---|---|---|
+| 静态 HTML（生成器输出） | `<a href>`、`aria-label`、`data-zh-attrs`、`title`、**静态可见的域名文字**、锁定尺寸的占位 | 响应内容本身 | 爬虫与不执行 JS 的抓取器能读到真实外链与域名文字；禁用 JS / 脚本加载失败也不会空白；占位锁定尺寸 → 0 CLS |
+| `<script defer>` | `assets/social-domains.js` | HTML 解析期下载，`DOMContentLoaded` 后注册 | 与 `consent.js` / `lang.js` 同模式，不阻塞解析 |
+| `requestIdleCallback` | 从 `<a href>` 用 `URL()` 派生域名、校验 `data-domain` 同源后写入品牌文字 | 首屏渲染后的空闲期 | 域名是「动态展示」的；单一数据源是 href，`display` 只承载品牌大小写且被闸门强制同源 |
+
+**零图标、零网络请求**：本模块不 `fetch`、不 `new Image`、不插入 `<svg>`/`<img>`、
+不热链第三方 CDN，也没有任何品牌徽标合规负担。`verify_seo.py` 4f 会强制检查
+`assets/threads.svg` / `social-icons.js` / `inject_social_icons.py` 不得残留、页面
+内不得出现 `SOCIAL-ICONS` / `data-social-slot` 历史痕迹，且域名块内不得有
+`<svg>` / `<img>`。
+
+红线（由 `verify_seo.py` 4f 强制）：
+
+- **不把 `<a href>` 或 `Organization.sameAs` 交给 JS 注入** —— Googlebot 第二波
+  渲染有延迟，Bing / AI 抓取器多数不执行 JS，动态注入等于没写。`sameAs` 仍属
+  `data-org` 模块，真实 URL 到位后单独补，不在此模块内顺手改全站 JSON-LD。
+- **域名只从 href 派生** —— 生成器用 `urlparse` 写 `data-domain` 供闸门校验，
+  运行时 JS 用 `URL()` 解析；`display` 只承载品牌大小写（`Anchormere.com`），
+  `validate()` 与 4f 都要求它小写去 www. 后与 href 的 hostname 完全一致，
+  避免链接与文字失配。配置里不存在第二份独立文案。
+- **不碰 `assets/lang.js`** —— 中文 `aria-label` 走既有 `data-zh-attrs` 机制，
+  动态写入的 slot 恒为 `aria-hidden`，不参与双语引擎。
+- **不碰核心转化路径** —— `index.html` / `contact.html` 等 `protected` 页默认跳过，
+  需 `allow_protected=true` 且提交信息显式说明。
+
+当前状态与回滚（2026-11-16 按用户指示**改为展示自有品牌域名 Anchormere.com**）：
+
+- `href` = `https://anchormere.com/`（本站首页），`display` = `Anchormere.com`，
+  `aria-label` = `Anchormere.com home`（中文「Anchormere.com 首页」），
+  `pages=["*"]` 全站 footer，`allow_protected=true` 已在此显式声明。
+- **不再指向任何第三方平台**：旧版 `www.threads.net` 已从全站 145 页清除，
+  4f 闸门逐页检查不得残留 `threads.net`；链接指向本站首页，不声称任何社媒
+  官方账号 / 合作 / 认证，`Organization.sameAs` 不在此模块改动。
+- 每页仅新增「1 行 defer 脚本 + 1 个 footer 标记块」，逐页剥离后与 `HEAD` 字节一致；
+  生成器幂等（二次运行 0 写入）。生成器**内置历史图标痕迹迁移**：`strip_block()`
+  会同时清掉新旧两套标记块与 script，因此从图标版重跑可一次替换干净，
+  `--rollback` 也能清回 `HEAD` 字节一致，不依赖聊天记录。
+
+```bash
+# 查看影响范围 / 重建 / 校验
+python3 scripts/workarea.py plan --change scripts/social_links.json
+python3 scripts/workarea.py apply --module social-domains
+python3 scripts/workarea.py verify --all
+# 一键还原：清空 profiles / pages 后
+python3 scripts/inject_social_domains.py --rollback
+```
+
+把 `profiles` / `pages` 清空后生成器**连页面都不读取**，直接退出，所以停用态下
+`apply --all` 不会为这个模块产生任何 IO、mtime 漂移或部署。
+
+## 11. PCB 产业链板块：上下游 / AI 趋势的增量维护
+
+`data-pcb` + `pcb-hub` + `longtail` 三个模块回答「业务里有没有 PCB 板块、
+上下游和 AI 热词怎么持续扩」。结论是**按 Pillar-Cluster 建板块，不改动任何既有页**：
+
+| 模块 | 唯一真源 / 产物 | 谁驱动谁 |
+|---|---|---|
+| `data-pcb`（manual） | `scripts/pcb_board.json`（上中下游 3 段、8 个 cluster slug、6 条 2026 AI 趋势词、4 条公开来源完整 URL、边界声明）、`scripts/build_pcb_hub.py` | 变更 → 重建 `pcb-hub` + `config`（sitemap） |
+| `pcb-hub`（auto） | `pcb-supply-chain.html` 枢纽页（`CollectionPage + hasPart`、`FAQPage`、趋势词表、`Source URL:` 明文） | 由 `data-pcb` 驱动；读取 `longtail_seeds.json` 取 8 个页标题 |
+| `longtail`（auto） | 8 个 `cluster=pcb` 长尾页，mother 统一指向枢纽页 | 由 `data-longtail` / `data-depth` 驱动 |
+
+**为什么枢纽页不是孤儿页**：8 个 cluster 页的 CTA 用 `mother` 反链
+`/pcb-supply-chain`，孤儿页检测（只计 `<a>` 导航链接）据此通过；**没有改动
+`index.html` / `supply-base.html` 等任何既有页**，既有页仍指向原有母品类。
+
+**内容边界（写进数据源与页面，3h 闸门强制）**：标准名（IPC / IEC / JEDEC /
+IEEE / PCI-SIG / UL）只作编辑性引用；层数、Dk/Df、载板面积、交期都是公开
+报道的行业典型区间，**不是** Anchormere 报价、能力或承诺；不主张任何认证，
+不编造客户 / 价格 / 资质，不预留资质占位；公开来源保留完整 `Source URL:` 明文，
+明确非客户项目、非背书。热门趋势词按 2026 公开报道校准（AI server PCB 20–30 层、
+40+ 层背板、M8/M9 低损耗 CCL 与 HVLP / Q-glass、ABF / FC-BGA、HDI / mSAP /
+Anylayer、800G / 1.6T 光模块板、液冷与供电）。
+
+**换模型怎么扩这个板块**（不需要读聊天记录）：
+
+1. 加词：把新 seed（`cluster: "pcb"`、`mother` 指向 `pcb-supply-chain.html`）
+   追加到 `longtail_seeds.json`，把对应的页级专属 h2 / 4 条工程笔记 /
+   6 个术语 / 4 条标准 / 决策场景 / 核验动作追加到 `longtail_depth.json`
+   的 `pages`（`cluster: "pcb"`）；笔记与 h2 必须全局唯一（3g 闸门）。
+2. 把新 slug 加入 `pcb_board.json` 对应分组的 `pages`，并同步
+   `modules.json` 中 `longtail.paths`。
+3. 用范围闸门只生成新增页，避免重跑覆盖既有页：
+
+   ```bash
+   WORKAREA_FILES="new-slug,pcb-supply-chain" python3 scripts/longtail.py
+   WORKAREA_FILES="pcb-supply-chain" python3 scripts/build_pcb_hub.py
+   python3 scripts/inject_social_domains.py   # 新页补 footer 域名文字（4f）
+   python3 scripts/build_sitemap.py
+   python3 scripts/workarea.py audit && python3 scripts/verify_seo.py --all
+   ```
+
+   也可以直接 `python3 scripts/workarea.py plan --change scripts/pcb_board.json`
+   让依赖闭包自动定范围；生成器统一走 `io_util.write_final()` / `selected()`，
+   内容相同不落盘。
+4. `3h` 闸门从三个数据源推导期望值（分组页数、AI 趋势、来源 URL、
+   cluster 归属、枢纽内链、反链、sitemap 收录），不写死页数；漏一环就 FAIL。
+
+**一个刻意的例外（别当成漏做）**：公开案例区块由 `case_references.json`
+的 `slugs` 按主题匹配，11 条案例里没有 PCB 材料 / 制板 / 载板主题，因此
+8 个 cluster 页**不渲染** `class="case-refs"` 区块，也不硬挂不相关案例
+（硬挂会破坏主题相关性、带回 scaled content 风险）。枢纽页已承载 4 条公开
+来源完整 URL 与案例枢纽页内链；每页的 E-E-A-T 由工程笔记、公开标准引用、
+术语表、决策场景、复核署名与编辑标准页内链支撑，3g 闸门全部通过。后续若补入
+PCB 主题的真实公开案例，只需在 `case_references.json` 给该案例的 `slugs`
+追加目标页，再用 `WORKAREA_FILES` 限定只重建这些页，避免覆盖既有页。
+
+**不碰的东西**：`protected` 核心转化页、`assets/lang.js`、既有 36 个长尾页与
+28 个框架页的既定内容；社媒域名模块对新页照常注入，规则不变。
+
+## 12. 一句话总结
 
 **按板块声明改动 → 依赖闭包定范围 → 内容相同不写盘 → 只校验脏模块 → 状态写回仓库 → 换模型照章接手。** 全站页面不再因为改一个词而整体重跑；没有问题的板块永远保持原样。

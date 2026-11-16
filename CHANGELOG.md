@@ -10,6 +10,137 @@
 
 ---
 
+## [2026-11-16] · footer 动态域名文字改为自有品牌 Anchormere.com（全站同步检查）
+
+用户指示「动态图标动态加载可以显示为 Anchormere.com，其他内容同步检查，不要有错漏」。
+把 2026-11-15 的「平台域名」方案从 `www.threads.net` 整体改为**本站自有品牌域名**：
+
+- **单一数据源** `scripts/social_links.json` 升到 v4：单条 profile
+  `href=https://anchormere.com/`、`display=Anchormere.com`、
+  `aria-label=Anchormere.com home`（中文「Anchormere.com 首页」）、
+  `rel=noopener noreferrer`；`pages=["*"]`、`allow_protected=true` 不变。
+  新增 `display` 字段承载品牌大小写，生成器与 4f 闸门强制其与 href 同源。
+- **生成器** `scripts/inject_social_domains.py`：新增 `display_of()` / `norm_host()`，
+  `validate()` 增加 charset 与同源校验；静态兜底文字、`data-domain`、`title`、
+  占位宽度全部改用 display。保留 `--rollback` 与历史图标痕迹迁移。
+- **加载器** `assets/social-domains.js`：仍 `defer` + `requestIdleCallback` +
+  `URL()` 从 href 派生；读取 `data-domain` 的品牌写法用 `textContent` 动态写入，
+  若与 href 不同源自动回退为真实 hostname，打 `data-domain-ready=1`。
+  零 fetch / 零 innerHTML / 零图标资源 / 零 CLS 不变。
+- **4f 闸门改为数据源驱动**：期望值全部从 `social_links.json` 推导，逐页校验
+  `href` / `display` / `aria-label` 与配置逐字一致、display 与 href 同源、
+  占位锁定、双语属性、禁止 `noscript` 与第三方 CDN；新增全站 `threads.net`
+  残留检查、动态加载器 `new URL(` / `data-domain-ready` / `textContent` /
+  `requestIdleCallback` 不变量检查；`data-domain` 正则放开品牌大小写。
+- **制度同步**：`modules.json` 的 `social-domains` title / note、`WORKFLOW.md` §10
+  与模块表；`llms.txt` 与 `SEO与SEM关键词地图.md` 核查后无相关登记，无需改动。
+- **全站 145 页重注入**：旧 `www.threads.net` 块整段替换，其它内容零改动；
+  生成器二次运行 0 写入；`verify_seo.py --all` 与 `workarea.py audit` 全通过。
+- **边界**：链接指向本站首页，不声称任何社媒官方账号 / 合作 / 认证，
+  `Organization.sameAs` 不在此模块改动。
+- **推送状态**：2026-11-16 已随单个 commit 推送上线（含此前积压的 PCB 板块
+  与社媒域名文字方案）。用户侧提供 PAT 后，以远端 main tree 为 `base_tree`
+  构造单个 commit，经 Git Data API 更新 main ref；推送前 GitHub 连接器未授权
+  （OAuth 网关返回 `Connector "github" is not authorized`），故先暂存本地。
+  凭据用后立即清理，并建议用户在 GitHub 设置中吊销该 PAT。
+
+---
+
+## [2026-11-15] · PCB 产业链板块 + 上下游 / AI 趋势长尾词
+
+用户问「业务内容有没有 PCB 相关的，如果没有请添加相关板块以及上下游长尾词，
+特别是热门趋势 AI 相关等」。审查结论：站点**已有零散 PCB / PCBA 内容**
+（`pcb-assembly-shenzhen` / `pcba-contract-manufacturer` / `tablet-pcba-sourcing` /
+`ai-data-center-sourcing` 等），但**没有板块枢纽、没有上下游产业链长尾词、
+没有 PCB × AI 趋势词**。按「核心目标不变、既有页零改动」补齐：
+
+- **新增数据源**：`scripts/pcb_board.json`（上中下游 3 段分组、8 个 cluster
+  slug、6 条 2026 AI 算力趋势词、4 条联网校验返回 200 的公开来源完整 URL、
+  边界与免责声明、FAQ）；`scripts/build_pcb_hub.py` 渲染枢纽页。
+- **新增枢纽页**：`pcb-supply-chain.html`（`CollectionPage + hasPart` /
+  `BreadcrumbList` / `WebPage.citation` / `FAQPage`，趋势词表、完整
+  `Source URL:` 明文、编辑标准页与案例枢纽内链）。
+- **新增 8 个长尾页**（`cluster=pcb`，mother 反链枢纽页）：上游
+  `ccl-copper-clad-laminate-sourcing`（FR-4 / 高 Tg / prepreg / IPC-4101）、
+  `low-loss-m8-m9-laminate`（HVLP / Q-glass / Dk-Df）；中游
+  `high-layer-count-pcb-ai-server`（20–30 层 / 40+ 背板）、
+  `hdi-msap-anylayer-pcb`、`abf-fcbga-ic-substrate`；下游
+  `800g-1-6t-optical-module-pcb`、`ai-server-pcba-ems`、
+  `liquid-cooling-cold-plate-sourcing`（冷板 / UQD / CDU）。
+- **真源纯追加**：`longtail_seeds.json` 36→44（0 行删除）、
+  `longtail_depth.json` pages 36→44 / 新增 `clusters.pcb`；176 条工程笔记与
+  44 个页级 h2 全部唯一，3g 相似度闸门继续通过。
+- **制度同步**：`modules.json` 新增 `data-pcb` / `pcb-hub` 模块（排在 `engine`
+  之前先认领），`longtail` 登记 44 页，`data-longtail` 增加 `pcb-hub` 依赖；
+  `verify_seo.py` 新增 `3h` 数据源驱动闸门（分组 / 趋势 / 来源 / 归属 /
+  枢纽内链 / 反链 / sitemap）；`WORKFLOW.md` §11、`llms.txt`、
+  `SEO与SEM关键词地图.md` §16 同步。
+- **验证**：全站 `PASS=51 WARN=0 FAIL=0`；`workarea.py audit` 归属完整；
+  既有 136 个 HTML 逐页 sha256 比对**零改动**；sitemap 144 条 URL；
+  新增 9 页已注入社媒域名文字（4f）。
+- **边界**：标准名仅编辑性引用，不主张认证；层数 / 材料等级 / 交期为公开
+  报道的行业典型区间，**不是** Anchormere 报价、能力或承诺；不编造客户 /
+  价格 / 资质，不预留资质占位；公开来源非客户项目、非背书。
+- **状态**：本批先本地落地，2026-11-16 用户侧提供 PAT 后随同一单 commit
+  推送上线；此前 GitHub 通道不可用（连接器未授权 / 无凭据），故暂存本地。
+
+## [2026-11-15] · 同日修订：去掉图标，改为动态展示域名文字（无图标资源）
+
+用户明确要求「为什么要用 threads 图标？直接动态展示域名即可」。图标方案
+（SVG 资源 / fetch / 品牌徽标合规 / 失败降级）对「显示一个域名文字」属于过度设计，
+整体拆除，改为纯文字动态展示：
+
+- **删除**：`assets/threads.svg`、`assets/social-icons.js`、
+  `scripts/inject_social_icons.py`（不再有任何图标 / 徽标 / 图片资源）。
+- **新增**：`assets/social-domains.js`（defer + `requestIdleCallback`，从 `<a href>`
+  用 `URL()` 派生域名并 `textContent` 写入；**零 fetch、零第三方请求、零 SVG**）、
+  `scripts/inject_social_domains.py`（幂等可逆生成器）。
+- 静态 HTML 保留 `<a href>` + `aria-label` + `data-zh-attrs` + `title` +
+  **初始就可见的域名文字**（放在锁定尺寸的占位内），→ 0 CLS；域名由 `href`
+  单一派生，配置里不存第二份文案。爬虫、禁用 JS、脚本加载失败的浏览器都能
+  读到域名；`defer` 脚本再从 `href` 派生并动态写入一次（动态展示 + 一致性校正）。
+- 生成器**内置历史图标痕迹迁移**：`strip_block()` 同时清理新旧两套标记块与
+  script，从图标版重跑可一次替换干净，`--rollback` 可回到 `HEAD` 字节一致。
+- 制度同步：模块 id `social-icons` → `social-domains`（`modules.json` 路径 / 构建命令
+  / 全局不变量描述、`WORKFLOW.md` §10 与模块表；`llms.txt` 只泛述制度文件、无模块
+  清单，故无需改动）、`verify_seo.py` 4f 闸门改为校验域名文字 / 占位 / 零图标资源
+  / 无第三方热链，并强制检查 `threads.svg` / `social-icons.js` /
+  `inject_social_icons.py` 不得残留。
+- 核心目标、引流 / 询盘 / 关键词覆盖 / 转化路径、其余页面内容均不变；仍以平台域名
+  `https://www.threads.net/` 启用，`pages=["*"]`、`allow_protected=true` 在此显式声明。
+
+---
+
+## [2026-11-15] · 新增社媒图标动态加载模块（默认零侵入 / 可逆）
+
+- 新增 `scripts/social_links.json` 单一数据源、`assets/threads.svg`（本地反白版，
+  不热链 Meta CDN）、`assets/social-icons.js`（defer + `requestIdleCallback` +
+  同域 fetch 注入 + 失败文字降级）、`scripts/inject_social_icons.py`（幂等生成器）。
+- **初始 HTML 只输出静态语义**（`<a href>` + 固定 24×24 占位 + `aria-label` +
+  `data-zh-attrs`），图标本体在页面加载空闲期动态注入；不执行 JS 的爬虫仍能读到
+  外链，注入不改变布局尺寸 → 0 CLS，不抢 LCP，不引入第三方请求。
+- **默认零侵入**：`profiles` / `pages` 为空时生成器连页面都不读取，全站 HTML
+  零写盘、零 diff、零部署；`protected` 核心转化页默认跳过。清空配置后
+  `--rollback` 一键还原。真实主页 URL 到位前不编造、不预置占位值。
+- 登记 `modules.json` 的 `social-icons` 模块（排在 `engine` / `assets` 之前先认领
+  文件）、`verify_seo.py` 4f 闸门（未启用时 no-op PASS；启用后校验静态链接、
+  占位尺寸、双语 aria、rel 与无第三方热链）。初版默认零侵入，全站页面零改动。
+
+### 同日激活：按用户指示改用平台域名
+
+- `profiles[].href` 使用 `https://www.threads.net/`，`pages=["*"]` 全站 footer，
+  `allow_protected=true` 显式放行 `index.html` / `contact.html`（按制度在此声明）。
+- **链接语义修正**：域名入口不等于公司账号，故 `aria-label` 只用平台名 `Threads`、
+  `rel` 去掉 `me`（仅保留 `noopener noreferrer`），不声称官方账号、不暗示合作。
+  `rel` 改为按 profile 可配置，只有真实自有账号页才允许加 `me`。
+- 生成器写入 **136 个 HTML 页面**；逐页与 `HEAD` 比对证明：剥离「1 行 defer 脚本 +
+  1 个 footer 标记块」后**字节完全一致**，其余内容零改动（`git diff` 的 52 个
+  deletion 只是 footer 单行被拆成多行的行级表示，原内容完整保留）。
+- 全站 `verify_seo.py` `PASS=46 WARN=0 FAIL=0`；生成器二次运行 `0 页写入`；
+  Chromium 抽测首页与长尾页：域名链接静态可见、图标空闲期动态注入、24×24 锁定。
+
+---
+
 ## [2026-11-10] · 质量巡检：修案例页死锚 + news 页脏 description（技术硬问题）
 
 ### 全站质量体检（132 页 / 131 sitemap URL）

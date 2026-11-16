@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-15",
   "site": "https://anchormere.com",
   "description": "Anchormere 站点模块化工作区注册表。这是分区、增量与交接制度的唯一事实来源，任何模型/会话/机器接手工作前先读本文件，无需依赖聊天记录。匹配规则：modules 数组自上而下，第一个命中的模块即该文件归属；同一文件只归属一个模块。",
   "unassigned_is_error": true,
@@ -36,7 +36,7 @@
   },
   "verify": {
     "local": "逐页检查：hreflang / 中文版本声明 / canonical / JSON-LD / Organization 一致性 / E-E-A-T / wordCount / clean URL / lang / Article @id。增量模式仅对脏模块的页面执行。",
-    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable / 公开案例来源 URL 明文与免责声明 / 长尾页差异化结构不变量 / 编辑标准页 E-E-A-T 边界 / SEO URL 绝对形式为 clean URL（canonical、hreflang、og:url、JSON-LD 均不含 .html）/ meta description 60–170 字符且无 RSS 噪声词 / 站内锚点 href=#id 全部可跳转（0 死锚）。始终执行一次（基于单次读取缓存，开销极小）。",
+    "global": "全站不变量：孤儿页 / sitemap lastmod / robots AI 爬虫 / IndexNow / GSC-Bing 验证 / 实体类型覆盖 / 无 Product-Offer 零售实体 / meta keywords ≤200 字符 / FAQPage speakable / 公开案例来源 URL 明文与免责声明 / 长尾页差异化结构不变量 / 编辑标准页 E-E-A-T 边界 / SEO URL 绝对形式为 clean URL（canonical、hreflang、og:url、JSON-LD 均不含 .html）/ meta description 60–170 字符且无 RSS 噪声词 / 站内锚点 href=#id 全部可跳转（0 死锚）/ 社媒域名文字模块静态语义、零 CLS 占位、零图标资源与无第三方热链（未启用时 no-op PASS）。始终执行一次（基于单次读取缓存，开销极小）。 / PCB 产业链板块枢纽与上下游 8 页集群不变量（3h：由 pcb_board.json / longtail_seeds.json / longtail_depth.json 推导期望值）",
     "full_flag": "--all",
     "gate": "verify_seo.py 退出码 1 = FAIL 阻断推送；2 = WARN 提示；0 = PASS"
   },
@@ -94,9 +94,10 @@
       "verify_default": true,
       "invalidates": [
         "longtail",
-        "config"
+        "config",
+        "pcb-hub"
       ],
-      "note": "只影响 36 个长尾页与 sitemap，不触碰新闻与框架页。案例内容另由 data-cases 驱动。"
+      "note": "只影响 44 个长尾页与 sitemap，不触碰新闻与框架页。案例内容另由 data-cases 驱动。"
     },
     {
       "id": "data-cases",
@@ -130,7 +131,40 @@
         "editorial",
         "config"
       ],
-      "note": "36 页品类专属工程笔记（144 条全唯一）、决策场景、公开标准引用、术语表与页级专属 h2；由 longtail.py 渲染。3g 闸门校验结构不变量，防止 scaled content 回退。"
+      "note": "44 页品类专属工程笔记（176 条全唯一）、决策场景、公开标准引用、术语表与页级专属 h2；由 longtail.py 渲染。3g 闸门校验结构不变量，防止 scaled content 回退。"
+    },
+    {
+      "id": "social-domains",
+      "title": "品牌域名文字动态展示（无图标资源，默认零侵入）",
+      "policy": "auto",
+      "paths": [
+        "scripts/social_links.json",
+        "scripts/inject_social_domains.py",
+        "assets/social-domains.js"
+      ],
+      "globs": [],
+      "build": "python3 scripts/inject_social_domains.py",
+      "verify_default": true,
+      "invalidates": [],
+      "force_global": true,
+      "note": "须排在 engine / assets 之前以先认领文件（先到先得）。按用户要求不使用任何平台图标 / 徽标 / SVG：footer 只放一个指向本站自有域名首页 https://anchormere.com/ 的文字链接，动态展示文字为品牌化写法 Anchormere.com（social_links.json 的 display 字段，由 4f 闸门强制与 href 同源）。assets/social-domains.js 在页面加载过程中从 <a href> 用 URL() 派生域名、做同源一致性校正后动态写入；零 fetch、零第三方请求、零图标资源。初始 HTML 保留静态 <a href> + aria-label + 静态可见的域名文字（禁用 JS / 脚本失败也不空白），占位锁定固定尺寸防 CLS，不执行 JS 的爬虫仍可读。profiles 或 pages 为空时生成器零读取零写盘；protected 核心转化页默认跳过。生成器内置 SOCIAL-ICONS 历史图标痕迹迁移，--rollback 可一并清干净并回到 HEAD 字节一致。4f 闸门为数据源驱动：逐页校验 href / display / aria-label 与配置逐字一致、display 与 href 同源、全站无 threads.net 残留、动态加载器不变量、静态语义 / 双语 aria / 零图标资源 / 无第三方热链。pages=[*] 全站 footer 并显式 allow_protected=true。链接指向本站首页，不声称任何社媒官方账号 / 合作 / 认证。"
+    },
+    {
+      "id": "data-pcb",
+      "title": "PCB 产业链板块数据源与枢纽页生成器（上下游 / AI 趋势）",
+      "policy": "manual",
+      "paths": [
+        "scripts/pcb_board.json",
+        "scripts/build_pcb_hub.py"
+      ],
+      "globs": [],
+      "build": null,
+      "verify_default": true,
+      "invalidates": [
+        "pcb-hub",
+        "config"
+      ],
+      "note": "须排在 engine 之前先认领两个 PCB 脚本（先到先得，否则被 scripts/*.py 兜底）。pcb_board.json 是 PCB 板块枢纽唯一数据源：上游 CCL / 低损耗板材、中游高多层 / HDI / ABF 载板、下游光模块板 / AI 服务器 PCBA / 液冷，外加 2026 AI 算力热词与 4 条公开来源 URL；边界为不主张认证、不编造客户与报价、不把行业数字写成 Anchormere 能力。build_pcb_hub.py 渲染枢纽页并读取 longtail_seeds.json 取 8 个 cluster 页标题。数据源变更只重建枢纽页与 sitemap，不改既有 HTML。3h 闸门从本数据源推导期望值。"
     },
     {
       "id": "data-briefings",
@@ -251,7 +285,7 @@
       "invalidates": [
         "config"
       ],
-      "note": "由 case_references.json 生成，含 CollectionPage/FAQPage 结构化数据、逐条来源 URL 与免责声明；36 个长尾页的案例区块内链指向此页。"
+      "note": "由 case_references.json 生成，含 CollectionPage/FAQPage 结构化数据、逐条来源 URL 与免责声明；44 个长尾页的案例区块内链指向此页。"
     },
     {
       "id": "editorial",
@@ -266,11 +300,26 @@
       "invalidates": [
         "config"
       ],
-      "note": "说明内容如何产出、谁复核、来源如何标注、不编造什么、典型值口径与更正渠道；不主张任何认证、不设资质占位。36 个长尾页均内链至此页。"
+      "note": "说明内容如何产出、谁复核、来源如何标注、不编造什么、典型值口径与更正渠道；不主张任何认证、不设资质占位。44 个长尾页均内链至此页。"
+    },
+    {
+      "id": "pcb-hub",
+      "title": "PCB 产业链板块枢纽页（Pillar，覆盖上中下游与 AI 趋势）",
+      "policy": "auto",
+      "paths": [
+        "pcb-supply-chain.html"
+      ],
+      "globs": [],
+      "build": "python3 scripts/build_pcb_hub.py",
+      "verify_default": true,
+      "invalidates": [
+        "config"
+      ],
+      "note": "Pillar-Cluster 的板块枢纽：把 CCL / 低损耗材料 / 高多层与 HDI / ABF 载板 / 800G 光模块板 / AI 服务器 PCBA / 液冷 8 个 cluster 页按上中下游分组映射，并保留 AI 趋势词表、公开来源完整 URL 与边界声明。由 data-pcb 驱动；8 个 cluster 页的 mother 反链此页，故枢纽页不是孤儿页。生成走 io_util.write_final / selected，符合无变更不落盘。"
     },
     {
       "id": "longtail",
-      "title": "长尾关键词品类页（36 页）",
+      "title": "长尾关键词品类页（44 页）",
       "policy": "auto",
       "paths": [
         "ai-hardware-smart-glasses-oem.html",
@@ -308,7 +357,15 @@
         "tablet-pcba-sourcing.html",
         "usb-c-charger-oem.html",
         "verify-chinese-manufacturer.html",
-        "wearable-oem-shenzhen.html"
+        "wearable-oem-shenzhen.html",
+        "ccl-copper-clad-laminate-sourcing.html",
+        "low-loss-m8-m9-laminate.html",
+        "high-layer-count-pcb-ai-server.html",
+        "hdi-msap-anylayer-pcb.html",
+        "abf-fcbga-ic-substrate.html",
+        "800g-1-6t-optical-module-pcb.html",
+        "ai-server-pcba-ems.html",
+        "liquid-cooling-cold-plate-sourcing.html"
       ],
       "globs": [],
       "build": "python3 scripts/longtail.py",
@@ -316,7 +373,7 @@
       "invalidates": [
         "config"
       ],
-      "note": "Pillar-Cluster 的长尾层，含增强页导向区与公开案例参考（附来源 URL）。"
+      "note": "Pillar-Cluster 的长尾层，含增强页导向区与公开案例参考（附来源 URL）。其中 8 页为 cluster=pcb 的 PCB 产业链上下游 / AI 趋势页，mother 统一指向 pcb-supply-chain.html 枢纽页。"
     },
     {
       "id": "framework",

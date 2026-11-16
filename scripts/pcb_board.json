@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "updated": "2026-11-15",
+  "purpose": "Single source of truth for the PCB & PCBA supply-chain board (pillar hub page). Groups, AI-trend terms, public source URLs and the existing-page anchors all live here; build_pcb_hub.py renders them. The eight NEW long-tail pages themselves are seeded in longtail_seeds.json / longtail_depth.json (cluster=pcb) with cluster=pcb, so longtail.py and verifier 3g stay unchanged.",
+  "slug": "pcb-supply-chain",
+  "review_date": "2026-11-15",
+  "title": {
+    "en": "PCB & PCBA Supply Chain Sourcing | AI Server, HDI, Substrate & Optical Module Boards",
+    "zh": "PCB 与 PCBA 产业链采购 | AI 服务器、HDI、载板与光模块板"
+  },
+  "lede": {
+    "en": "Source the PCB supply chain end to end in the Greater Bay Area — from copper-clad laminate and low-loss materials to high-layer-count boards, IC substrates and AI server PCBA — under one accountable sourcing desk.",
+    "zh": "在大湾区一站式采购 PCB 产业链——从覆铜板与低损耗材料，到高多层板、IC 载板与 AI 服务器 PCBA，由单一采购责任人统筹。"
+  },
+  "serp_title": "PCB & PCBA Supply Chain Sourcing | AI Server Board Hub",
+  "serp_desc": "One desk for the PCB chain: CCL, low-loss laminate, high-layer-count and HDI boards, ABF substrates, 800G optical module PCB and AI-server PCBA in the Greater Bay Area.",
+  "keywords": "PCB supply chain sourcing, AI server PCB, high layer count PCB, HDI mSAP board, ABF IC substrate, 800G optical module PCB, low loss CCL, liquid cooling cold plate, PCBA Greater Bay Area",
+  "intro": {
+    "en": "A printed circuit board is not one purchase. It is a chain: copper foil, glass cloth and resin become copper-clad laminate; laminate is pressed, drilled and plated into a bare board; the bare board is populated, tested and integrated into a rack. AI compute hardware has tightened every link at once — layer counts, low-loss materials, substrate area and thermal design now move together. This board maps that chain to the pages where we document the engineering and sourcing decisions for each link, so a buyer can start at the material, the fabrication step or the finished assembly and still reach the same accountable quote.",
+    "zh": "一块印制板不是一个采购动作，而是一条链：铜箔、玻纤布与树脂做成覆铜板；覆铜板经压合、钻孔、电镀成为裸板；裸板再贴装、测试并集成进机柜。AI 算力硬件让每个环节同时收紧——层数、低损耗材料、载板面积与热设计彼此联动。本板块把这条链映射到逐环节的采购文档页，让买家无论从材料、制板工序还是成品组装进入，都能抵达同一个负责到底的报价窗口。"
+  },
+  "policy": "Standards (IPC, IEC, JEDEC, IEEE, PCI-SIG, UL) are cited as public editorial references for buyers to verify with their chosen supplier; Anchormere does NOT claim to hold any certification. Layer counts, Dk/Df figures, substrate sizes and lead times are typical industry ranges drawn from public reporting, not quotations, not commitments and not Anchormere capabilities. No client projects, no fabricated prices, no invented credentials. Public sources below are editorial citations, NOT Anchormere clients, partners or endorsements.",
+  "groups": [
+    {
+      "id": "upstream",
+      "en": "Upstream — laminate, foil & reinforcement",
+      "zh": "上游 — 覆铜板、铜箔与增强材料",
+      "note_en": "Material choices here set the electrical and thermal ceiling of everything downstream. Dk/Df, copper roughness and glass-cloth type are decided at RFQ, not discovered at first article inspection.",
+      "note_zh": "这一层的材料选择决定下游所有环节的电性能与热上限。介电常数/损耗、铜箔粗糙度与玻纤布类型应在询价阶段敲定，而不是在首件检验时才发现问题。",
+      "pages": ["ccl-copper-clad-laminate-sourcing", "low-loss-m8-m9-laminate"]
+    },
+    {
+      "id": "fabrication",
+      "en": "Midstream — board fabrication & substrate",
+      "zh": "中游 — 制板与封装载板",
+      "note_en": "Layer count, lamination registration, microvia structure and substrate build-up are where yield is won or lost. These pages cover the process controls a buyer should ask a fabricator to evidence.",
+      "note_zh": "层数、压合对位、微孔结构与载板增层是良率成败所在。这些页面记录买方应要求板厂提供证据的过程控制点。",
+      "pages": ["high-layer-count-pcb-ai-server", "hdi-msap-anylayer-pcb", "abf-fcbga-ic-substrate"]
+    },
+    {
+      "id": "downstream",
+      "en": "Downstream — assembly, interconnect & thermal",
+      "zh": "下游 — 组装、互联与热管理",
+      "note_en": "A bare board becomes a shippable assembly here. Large-format BGA, high-speed optical interconnect, system-level functional test and liquid cooling are the AI-era constraints that decide whether a rack passes acceptance.",
+      "note_zh": "裸板在这里变成可出货的组件。大尺寸 BGA、高速光互联、系统级功能测试与液冷，是决定 AI 机柜能否通过验收的关键约束。",
+      "pages": ["800g-1-6t-optical-module-pcb", "ai-server-pcba-ems", "liquid-cooling-cold-plate-sourcing"]
+    }
+  ],
+  "existing_pages": [
+    {"slug": "pcb-assembly-shenzhen", "en": "PCB Assembly Shenzhen (SMT, DIP & testing)", "zh": "PCB 组装深圳（SMT、插件与测试）"},
+    {"slug": "pcba-contract-manufacturer", "en": "Turnkey PCBA Contract Manufacturer", "zh": "一站式 PCBA 合约制造"},
+    {"slug": "tablet-pcba-sourcing", "en": "Tablet & Phone PCBA Sourcing", "zh": "平板与手机 PCBA 采购"},
+    {"slug": "ai-data-center-sourcing", "en": "AI Data-Center Hardware Sourcing", "zh": "AI 数据中心硬件采购"},
+    {"slug": "consumer-smart-electronics", "en": "Consumer & Smart Electronics", "zh": "消费与智能电子"}
+  ],
+  "ai_trends": [
+    {"term": "AI server PCB, 20–30 layers", "en": "Mainstream AI computing boards moved from 8–16 layers to 20–30; ultra-high-layer backplanes for next-gen accelerator platforms are reported at 40 layers and above.", "zh": "主流 AI 计算板由 8–16 层提升至 20–30 层；下一代加速平台的超高多层背板公开报道达 40 层以上。"},
+    {"term": "M8 / M9 low-loss CCL", "en": "Low-loss laminate grades are migrating from M7 toward M8/M9, paired with HVLP copper foil and low-Dk / Q-glass reinforcement for 224G-class SerDes and PCIe 6.0 channels.", "zh": "低损耗板材等级由 M7 向 M8/M9 迁移，并搭配 HVLP 超低粗糙度铜箔与低介电/石英玻纤布，服务 224G 级 SerDes 与 PCIe 6.0 通道。"},
+    {"term": "ABF / FC-BGA substrate", "en": "Larger AI GPU and ASIC packages drive ABF build-up substrate area, layer count and fine line/space up; high-end ABF capacity is widely reported as the tightest link in the chain.", "zh": "AI GPU 与 ASIC 封装面积增大，推高 ABF 增层载板的面积、层数与细线宽/线距；高端 ABF 产能被普遍报道为全链最紧环节。"},
+    {"term": "HDI / mSAP / Anylayer", "en": "Modified semi-additive processing and any-layer microvia structures are now standard for high-density compute and optical-module boards, with line/space tightening to a few micrometres.", "zh": "改良型半加成法（mSAP）与任意层微孔结构已成为高密度计算板与光模块板的主流工艺，线宽/线距收紧至数微米级。"},
+    {"term": "800G / 1.6T optical module PCB", "en": "Optical module boards climb from 10–12 layers at 800G to 12–16 at 1.6T, with near-package and co-packaged optics adding embedded capacitors and tighter insertion-loss budgets.", "zh": "光模块板由 800G 的 10–12 层升至 1.6T 的 12–16 层；近封装/共封装光学进一步引入埋入电容与更严格的插损预算。"},
+    {"term": "Liquid cooling & power delivery", "en": "Cold plates, quick disconnects, CDUs and 48V/800V power shelves turn thermal and power hardware into a PCB-adjacent sourcing category for AI racks.", "zh": "冷板、快接头、CDU 与 48V/800V 电源架，使热管理与供电硬件成为 AI 机柜里与 PCB 紧邻的采购品类。"}
+  ],
+  "sources": [
+    {
+      "title": "2026 PCB industry development & trend analysis (AI server, 800G/1.6T, advanced packaging)",
+      "url": "https://www.chinairn.com/news/20260916/174553102.shtml",
+      "publisher": "ChinaIRN / 中研普华",
+      "date": "2026-09-16",
+      "note": "Layer-count, material-grade (M7→M8/M9) and ABF-substrate demand figures quoted on this board as industry context."
+    },
+    {
+      "title": "AI Server PCBA Market Booms (TrendForce shipment and computing-PCB market data)",
+      "url": "https://www.smt-pcba.com.cn/en/newsxx.asp?id=869",
+      "publisher": "SMT-PCBA industry news",
+      "date": "2026",
+      "note": "AI server PCB layer counts, high-end PCBA lead times and functional-test requirements."
+
+    },
+    {
+      "title": "Nomura Asia / IMPACT-IAAC & TPCA survey: substrate, CCL, glass cloth and equipment bottlenecks",
+      "url": "https://www.fxbaogao.com/detail/5831127",
+      "publisher": "Report summary (Nomura / TPCA show survey)",
+      "date": "2026",
+      "note": "ABF/low-CTE glass, HVLP copper foil, mSAP-HDI layer counts for 800G/1.6T modules, and resin route divergence."
+    },
+    {
+      "title": "PCB industry deep research: AI reshapes the high-end landscape (Prismark/TPCA capacity data)",
+      "url": "https://loyan.ai/r/gOXwKGEIN8Y",
+      "publisher": "Loyan AI research note",
+      "date": "2026",
+      "note": "Capacity split, ABF substrate shortage and technology migration (multilayer → ultra-high-layer backplane, HDI → mSAP)."
+    }
+  ],
+  "disclaimer": {
+    "en": "These are publicly reported industry trends and standards references, printed with their full source URLs for independent verification. They are NOT Anchormere client projects, partnerships or endorsements, and the figures are NOT Anchormere quotations, capabilities or commitments. Circuit design and core R&D sit with specialist electronics partners; Anchormere coordinates sourcing, assembly integration and export documentation under single-point accountability. Confirm current official texts, specifications and lead times against your drawing, target market and written RFQ.",
+    "zh": "以上为公开报道的行业趋势与标准参考，保留完整来源网址以便独立核验；并非 Anchormere 的客户项目、合作或背书，相关数字也不是本站报价、能力或承诺。电路设计与核心研发由专业电子伙伴承担；Anchormere 负责采购统筹、组装集成与出口单证，并承担单一责任。请以贵方图纸、目标市场与书面询价确认最新版标准、规格与交期。"
+  },
+  "faq": [
+    {"q_en": "Can you source a single link of the chain, or only a full board?", "a_en": "Both. We routinely source laminate and materials for a buyer's own fabricator, quote bare-board fabrication, or manage turnkey PCBA and system integration. The engagement boundary is stated in writing at RFQ.", "q_zh": "可以只采购链条中的一环吗？", "a_zh": "可以。我们既可为买家自有板厂采购覆铜板与材料，也可单独报价裸板制造，或承接一站式 PCBA 与系统集成；合作边界在询价阶段书面确认。"},
+    {"q_en": "Do you hold IPC, UL or other certifications for these boards?", "a_en": "No. IPC, IEC, JEDEC, IEEE, PCI-SIG and UL designations on these pages are public editorial references so buyers can ask a supplier for the matching evidence. Anchormere claims no certification and does not represent the issuing bodies.", "q_zh": "你们持有 IPC、UL 等认证吗？", "a_zh": "不持有。页面上的 IPC、IEC、JEDEC、IEEE、PCI-SIG、UL 等仅为公开编辑性引用，便于买方要求供应商提供对应证据；Anchormere 不主张任何认证，也不代表发证机构。"},
+    {"q_en": "Are the layer counts and material grades on this board guaranteed?", "a_en": "No. They are typical industry ranges drawn from public 2026 reporting, included so buyers know what to ask about. Binding values are those confirmed against your stack-up, drawing, target market and written RFQ.", "q_zh": "板块上的层数与材料等级是承诺吗？", "a_zh": "不是。这些是 2026 年公开报道的行业典型区间，用于提示买方该核对什么；有约束力的是按贵方叠构、图纸、目标市场与书面询价确认的数值。"},
+    {"q_en": "What do you need to quote an AI-server or high-layer-count board?", "a_en": "A stack-up or Gerber/ODB++ set, BOM with manufacturer part numbers, impedance and insertion-loss requirements, target IPC class, test coverage by net, and the required documentation for the destination market.", "q_zh": "报价 AI 服务器或高多层板需要什么资料？", "a_zh": "需提供叠构或 Gerber/ODB++、带原厂料号的 BOM、阻抗与插损要求、目标 IPC 等级、按网络计的测试覆盖率，以及目的市场所需单证。"},
+    {"q_en": "How does this board relate to your existing PCB assembly pages?", "a_en": "It is the pillar that maps the whole chain. The existing PCB Assembly Shenzhen, Turnkey PCBA and Tablet PCBA pages remain the working pages for those specific intents; the new pages below document the material, fabrication and AI-interconnect links that were previously uncovered.", "q_zh": "这个板块与既有 PCB 组装页是什么关系？", "a_zh": "它是覆盖全链的枢纽页。既有的 PCB 组装深圳、一站式 PCBA 与平板 PCBA 页面仍是对应意向的工作页；新页补齐此前未覆盖的材料、制板与 AI 互联环节。"}
+  ]
+}

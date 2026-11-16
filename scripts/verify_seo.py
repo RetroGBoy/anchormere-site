@@ -439,6 +439,83 @@ else:
     else:
         ok('编辑标准页含结构化数据 / 边界声明 / 更正渠道 / 复核署名 / 可核验台账')
 
+# ---- 3h. PCB 产业链板块枢纽 + 上下游 / AI 集群不变量 ----------------------
+# 数据源驱动：期望值全部从 scripts/pcb_board.json / longtail_seeds.json /
+# longtail_depth.json 推导，不写死页数，换模型 / CI 重生都不漂移。始终全量执行。
+PCB_BOARD = os.path.join('scripts', 'pcb_board.json')
+if not os.path.exists(PCB_BOARD):
+    fail('缺少 scripts/pcb_board.json（PCB 板块枢纽数据源）')
+else:
+    pb = json.load(open(PCB_BOARD, encoding='utf-8'))
+    _seeds = json.load(open(os.path.join('scripts', 'longtail_seeds.json'), encoding='utf-8'))
+    _dj = json.load(open(DEPTH_JSON, encoding='utf-8')) if os.path.exists(DEPTH_JSON) else {'clusters': {}, 'pages': {}}
+    board_pages = [sl for g in pb['groups'] for sl in g['pages']]
+    pcb_slugs = [s['slug'] for s in _seeds if s.get('cluster') == 'pcb']
+
+    # (1) 数据源自洽：上中下游 3 段 / AI 趋势词 / 公开来源 URL / 边界声明
+    src_ok = (len(pb.get('sources', [])) >= 4
+              and all(str(x.get('url', '')).startswith('https://') for x in pb['sources']))
+    if (len(pb.get('groups', [])) != 3 or not pb.get('ai_trends') or not src_ok
+            or 'does NOT claim' not in pb.get('policy', '')
+            or not pb.get('disclaimer')):
+        fail('PCB 板块数据源结构不完整（分组 / AI 趋势 / 来源 URL / 边界声明）')
+    else:
+        ok(f'PCB 板块数据源自洽（3 段分组 / {len(pb["ai_trends"])} 条 AI 趋势词 / '
+           f'{len(pb["sources"])} 条公开来源）')
+
+    # (2) 8 个 cluster 页与枢纽分组一一对应，且 depth 均归入 pcb 簇
+    if sorted(board_pages) != sorted(pcb_slugs) or len(set(board_pages)) != len(board_pages):
+        fail('PCB 板块分组页与 cluster=pcb 种子不一致')
+    elif 'pcb' not in _dj.get('clusters', {}):
+        fail('longtail_depth.json 缺 clusters.pcb 簇元数据')
+    elif any(_dj['pages'].get(sl, {}).get('cluster') != 'pcb' for sl in pcb_slugs):
+        fail('PCB cluster 页的 depth 归属异常')
+    else:
+        ok(f'{len(pcb_slugs)} 个上下游 / AI 长尾页与枢纽分组、depth.pcb 簇一致')
+
+    # (3) 枢纽页：实体、趋势词表、完整来源 URL、边界、cluster 内链
+    hub = pb['slug'] + '.html'
+    ht = PAGE.get(hub, '')
+    hub_bad = []
+    if not ht:
+        hub_bad.append('枢纽页缺失')
+    else:
+        if '"CollectionPage"' not in ht or '"hasPart"' not in ht:
+            hub_bad.append('缺 CollectionPage / hasPart')
+        if ht.count('Source URL:') < len(pb['sources']):
+            hub_bad.append('公开来源 URL 明文不足')
+        if 'AI-compute PCB trend terms' not in ht:
+            hub_bad.append('缺 AI 趋势词表')
+        if 'NOT Anchormere client' not in ht and 'does NOT claim' not in ht:
+            hub_bad.append('缺非认证 / 非客户声明')
+        for sl in board_pages:
+            if f'href="/{sl}"' not in ht:
+                hub_bad.append(f'未内链 {sl}')
+        if 'sourcing-case-studies' not in ht or 'editorial-standards' not in ht:
+            hub_bad.append('缺案例枢纽 / 编辑标准页内链')
+    if hub_bad:
+        fail('PCB 枢纽页不变量失败: ' + ', '.join(hub_bad[:4]))
+    else:
+        ok(f'PCB 枢纽页含 CollectionPage / {len(board_pages)} 条 cluster 内链 / '
+           'AI 趋势词表 / 完整来源 URL')
+
+    # (4) 每个 cluster 页反链枢纽页（Pillar-Cluster 闭环，枢纽页非孤儿）
+    back = [sl + '.html' for sl in pcb_slugs
+            if 'href="/' + pb['slug'] + '"' not in PAGE.get(sl + '.html', '')]
+    if back:
+        fail(f'{len(back)} 个 PCB cluster 页未反链枢纽页: ' + ', '.join(back[:3]))
+    else:
+        ok(f'{len(pcb_slugs)} 个 PCB cluster 页均反链枢纽页（Pillar-Cluster 闭环）')
+
+    # (5) 枢纽页与 8 个 cluster 页必须进入 sitemap
+    sm = open('sitemap.xml', encoding='utf-8').read() if os.path.exists('sitemap.xml') else ''
+    miss_sm = [sl for sl in [pb['slug']] + pcb_slugs
+               if f'https://anchormere.com/{sl}<' not in sm]
+    if miss_sm:
+        fail(f'{len(miss_sm)} 个 PCB 页未进 sitemap: ' + ', '.join(miss_sm[:3]))
+    else:
+        ok(f'sitemap 收录枢纽页与 {len(pcb_slugs)} 个 PCB cluster 页')
+
 for need in ('Organization', 'WebSite', 'Service', 'BreadcrumbList'):
     if need in all_types:
         ok(f"全站含 {need} 实体")
@@ -628,6 +705,136 @@ if dead_anchors:
          + ", ".join(f"{f}→#{a}" for f, a in dead_anchors[:5]))
 else:
     ok(f"站内锚点全部可跳转（{len(S(pages))} 页，0 死锚）")
+
+# ---- 4f. 品牌域名文字：静态语义 / 数据源一致 / 零 CLS / 零图标资源 ----
+# 模块默认零侵入：profiles/pages 为空时全站不应出现任何域名标记（no-op PASS）。
+# 启用后校验：外链静态可见、display 与 href 同源、每页 href / display /
+# aria-label 与单一数据源逐字一致、全站无旧平台域名残留、占位尺寸锁定、
+# 动态加载器不变量完整、不得残留任何图标方案资源 / 痕迹。
+SOCIAL_CFG = os.path.join('scripts', 'social_links.json')
+try:
+    with open(SOCIAL_CFG, encoding='utf-8') as _sh:
+        _scfg = json.load(_sh)
+except (OSError, ValueError):
+    _scfg = {}
+_soc_profiles = _scfg.get('profiles') or []
+_soc_raw_pages = _scfg.get('pages') or []
+_LEGACY_MARKS = ('SOCIAL-ICONS:BEGIN', 'data-social-slot', 'assets/social-icons.js')
+_soc_marks = [f for f in pages
+              if 'SOCIAL-DOMAINS:BEGIN' in PAGE.get(f, '')
+              or 'data-domain-slot' in PAGE.get(f, '')
+              or any(m in PAGE.get(f, '') for m in _LEGACY_MARKS)]
+if not _soc_profiles or not _soc_raw_pages:
+    if _soc_marks:
+        fail("社媒模块已停用但 %d 页仍残留标记（跑 inject_social_domains.py --rollback）: "
+             % len(_soc_marks) + ", ".join(_soc_marks[:4]))
+    else:
+        ok("品牌域名文字模块未启用（profiles/pages 为空，全站 HTML 零改写）")
+else:
+    if '*' in _soc_raw_pages:
+        _soc_targets = set(S(pages))
+    else:
+        _soc_targets = {p if p.endswith('.html') else p + '.html'
+                        for p in _soc_raw_pages}
+    # 期望值全部从单一数据源推导，不写死域名 / 品牌文字
+    _exp = []
+    for _p in _soc_profiles:
+        _hm = re.match(r'https://([^/]+)', _p.get('href', ''))
+        _host = (_hm.group(1) if _hm else '').lower()
+        _disp = (_p.get('display') or _host).strip()
+        _exp.append({'href': _p.get('href', ''), 'host': _host,
+                     'display': _disp, 'label': _p.get('label', '')})
+    _soc_bad = []
+    for f in sorted(_soc_targets):
+        if f not in PAGE:
+            _soc_bad.append((f, '白名单页面不存在')); continue
+        t = PAGE[f]
+        links = re.findall(r'<a class="social-domain"[^>]*>', t)
+        if len(links) != len(_soc_profiles):
+            _soc_bad.append((f, '静态链接 %d 条，应为 %d 条'
+                             % (len(links), len(_soc_profiles))))
+        if 'assets/social-domains.js' not in t:
+            _soc_bad.append((f, '缺 defer 加载器'))
+        # 图标方案的历史痕迹必须清干净
+        if any(m in t for m in _LEGACY_MARKS) or 'threads.svg' in t:
+            _soc_bad.append((f, '残留图标方案痕迹'))
+        if re.search(r'threads\.net|aria-label="Threads"', t):
+            _soc_bad.append((f, '残留旧平台域名'))
+        _bm = re.search(r'SOCIAL-DOMAINS:BEGIN(.*?)SOCIAL-DOMAINS:END', t, re.S)
+        if _bm and ('<svg' in _bm.group(1) or '<img' in _bm.group(1)):
+            _soc_bad.append((f, '社媒块内出现图标资源'))
+        slots = re.findall(r'(<span data-domain-slot[^>]*>)([^<]*)</span>', t)
+        if len(slots) != len(_soc_profiles):
+            _soc_bad.append((f, '域名占位 %d 个，应为 %d 个'
+                             % (len(slots), len(_soc_profiles))))
+        for _si, (opening, inner) in enumerate(slots):
+            if not re.search(r'width:\d+ch;height:24px', opening) or 'overflow:hidden' not in opening:
+                _soc_bad.append((f, '占位未锁定尺寸（CLS 风险）'))
+            dm = re.search(r'data-domain="([A-Za-z0-9.-]+)"', opening)
+            if not dm:
+                _soc_bad.append((f, '占位缺合法 data-domain'))
+            elif inner.strip() != dm.group(1):
+                _soc_bad.append((f, '静态域名文字与 data-domain 不一致'))
+            _e = _exp[_si] if _si < len(_exp) else None
+            if _e is not None:
+                if inner.strip() != _e['display']:
+                    _soc_bad.append((f, '静态展示文字与数据源 display 不一致'))
+                _nh = _e['host'][4:] if _e['host'].startswith('www.') else _e['host']
+                _nd = _e['display'].lower()
+                _nd = _nd[4:] if _nd.startswith('www.') else _nd
+                if _nd != _nh:
+                    _soc_bad.append((f, 'display 与 href 不同源'))
+        if '<noscript>' in t:
+            _soc_bad.append((f, '静态文字已可见，不应再有 noscript 兜底'))
+        _cont = re.search(r'<div class="social-domains" style="([^"]*)"', t)
+        if not _cont or 'height:24px' not in _cont.group(1) or 'overflow:hidden' not in _cont.group(1):
+            _soc_bad.append((f, '域名容器未锁定 24px 高度（CLS 风险）'))
+        for _ai, a in enumerate(links):
+            m = re.search(r'href="([^"]+)"', a)
+            if not m or not m.group(1).startswith('https://'):
+                _soc_bad.append((f, '外链非 https 绝对 URL'))
+            elif _ai < len(_exp) and m.group(1) != _exp[_ai]['href']:
+                _soc_bad.append((f, 'href 与数据源不一致'))
+            _r = re.search(r'rel="([^"]+)"', a)
+            if not _r or 'noopener' not in _r.group(1) or 'noreferrer' not in _r.group(1):
+                _soc_bad.append((f, '外链缺 rel=noopener noreferrer'))
+            if 'aria-label=' not in a or 'data-zh-attrs' not in a:
+                _soc_bad.append((f, 'aria-label / 双语属性缺失'))
+            if _ai < len(_exp) and ('aria-label="%s"' % _exp[_ai]['label']) not in a:
+                _soc_bad.append((f, 'aria-label 与数据源不一致'))
+        if re.search(r'(scontent|cdninstagram|simpleicons|cdn\.jsdelivr)[^\s"\']*', t):
+            _soc_bad.append((f, '检测到第三方 CDN 热链'))
+    # 图标方案的文件不得残留（用户明确要求不用任何图标）
+    for _legacy in ('assets/threads.svg', 'assets/social-icons.js',
+                    'scripts/inject_social_icons.py'):
+        if os.path.exists(_legacy):
+            _soc_bad.append((_legacy, '图标方案文件仍存在，应删除'))
+    # 全站（含非白名单页）不得残留旧平台域名
+    _stale = [f for f in pages if 'threads.net' in PAGE.get(f, '')]
+    if _stale:
+        _soc_bad.append((_stale[0], '全站 %d 页残留旧平台域名' % len(_stale)))
+    # 动态加载器不变量：必须仍在加载过程中派生域名并写入
+    _js_path = os.path.join('assets', 'social-domains.js')
+    if not os.path.isfile(_js_path):
+        _soc_bad.append((_js_path, '动态加载器缺失'))
+    else:
+        with open(_js_path, encoding='utf-8') as _jf:
+            _js = _jf.read()
+        for _needle in ('new URL(', 'data-domain-ready', 'textContent',
+                        'requestIdleCallback', 'data-domain'):
+            if _needle not in _js:
+                _soc_bad.append((_js_path, '动态加载器缺 %s' % _needle))
+        # 先剥离注释再判定，避免把「绝不 innerHTML」这类说明文字误判为注入面
+        _js_code = re.sub(r'/\*.*?\*/', '', _js, flags=re.S)
+        _js_code = re.sub(r'^\s*//.*$', '', _js_code, flags=re.M)
+        if re.search(r'\bfetch\s*\(|\.innerHTML\b|new\s+Image\s*\(', _js_code):
+            _soc_bad.append((_js_path, '动态加载器引入了请求或注入面'))
+    if _soc_bad:
+        fail("品牌域名文字模块 %d 项不合规: " % len(_soc_bad)
+             + ", ".join("%s(%s)" % x for x in _soc_bad[:4]))
+    else:
+        ok("品牌域名文字：数据源逐页一致 / 静态外链可见 / 占位锁定零 CLS / "
+           "零图标资源 / 动态加载器完整 / 双语 aria（%d 页）" % len(_soc_targets))
 
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")
