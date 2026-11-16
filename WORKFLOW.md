@@ -177,6 +177,40 @@ python3 scripts/workarea.py audit
 
 **注意**：`site-health.yml` 与 `indexing-submit.yml` 保持全量/每日，因为它们监控的是线上真实状态，不属于"无需求不扫描"的本地模块范畴。
 
+### 8.1 以远端 tree 为 base 推送时，必须先对齐 CI 产物 ⭐
+
+GitHub 通道可用 PAT / API 但本地无法 `git pull` 时，推送走 `Git Data API`
+单 commit：以远端 `main` 的 tree 为 `base_tree`，只提交「本地相对远端有差异」
+的路径，`base_tree` 未提及的路径自动保留。**这一步有个必须先做的动作**：
+
+> 推送前，先把远端 CI 自动生成的产物同步回本地，否则「本地相对远端有差异」
+> 会把本地较旧的快照误判为待覆盖内容，把 CI 连续状态整体回退。
+
+CI 自动生成、本地工作区通常落后的产物（每日 `news-auto.yml` 提交）：
+
+- `news-20*.html`（每日新增新闻页）
+- `news.html` / `news-archive*.html`（索引与归档，链接全部新闻页）
+- `news_state.json`（去重记录，条数只增不减）
+- `sitemap.xml`（含全部新闻页；由 `build_sitemap.py` 从本地全站 html 重建）
+
+正确顺序：① 取回推送前远端 commit 的上述文件原始字节 → ② 本地跑
+`inject_social_domains.py`（若该模块启用）与 `build_sitemap.py` → ③
+`verify_seo.py --all` + `workarea.py audit` → ④ 再构造单 commit 推送。
+
+**校验锚点**：`news_state.json` 的 `posted` 条数不得比远端少；sitemap URL 数
+不得少于远端；`verify_seo.py` 的孤儿页与 `4f` 闸门必须全绿。这三个数字任一
+回退，都说明本地快照落后于远端，禁止推送。
+
+**为什么闸门没提前拦住**：`module-gate.yml` 设了
+`if: github.actor != 'Anchormere Bot'`，bot 自己的每日提交跳过闸门，所以 CI
+产物的缺陷只在**人工 / 非 bot 提交**时才会首次暴露。因此不要以「远端 CI 一直
+success」推断产物合规；推送前必须本地全量复验。（2026-11-16 实录）
+
+**生成链路根治**：`news_digest.py` 使用独立 FOOTER，每日新页不会自动带站点级
+footer 模块。凡新增「全站每页都必须成立」的不变量（如 `4f` 品牌域名文字），
+必须同步在 `news-auto.yml` 的 `Normalize` 之后、闸门之前加入对应幂等注入步骤，
+否则新生成的新闻页会持续不合规。
+
 ---
 
 ## 9. 状态文件失效与维护

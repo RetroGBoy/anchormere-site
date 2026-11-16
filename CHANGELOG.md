@@ -10,6 +10,43 @@
 
 ---
 
+## [2026-11-16] · 修复首次推送回退 CI 新闻状态 + 根治新闻页域名注入（二次 commit）
+
+首个推送 commit（`230cc37`）上线后，`Modular workspace gate` 首次由非 bot 提交
+触发（`module-gate.yml` 设 `if: github.actor != 'Anchormere Bot'`，此前 CI 自动
+提交全部跳过闸门），暴露两个被长期掩盖的缺陷：
+
+- **状态回退**：本地工作区不含 CI 在 11-11～11-15 生成的 20 个新闻页，且本地
+  `news.html` / `news-archive.html` / `news_state.json` / `sitemap.xml` 是较旧
+  快照。推送按「本地相对远端有差异」覆盖，把远端连续状态回退：去重记录
+  78→58、sitemap 155→144、新闻索引不再链接 20 个页（孤儿页）。
+- **新闻页缺域名块**：`news_digest.py` 自带独立 FOOTER，CI 生成链路从未执行
+  `inject_social_domains.py`，因此 24 个新闻页都没有品牌域名文字；此前 bot
+  提交跳过闸门所以 4f 从未对它们生效。
+
+修复（本地与远端 CI 连续状态对齐 + 源头根治）：
+
+- **回补**：从推送前远端 commit `a6c3454` 取回 20 个新闻页与 3 个状态文件
+  原始字节，`news_state.posted` 恢复 78 条；全站 165 页注入域名块，
+  sitemap 重建为 164 条 URL（含全部新闻页与 9 个 PCB 页）。
+- **根治生成链路**：`.github/workflows/news-auto.yml` 在 `Normalize` 之后、
+  `Rebuild sitemap` 与 `verify --gate` 之前新增幂等步骤
+  `python3 scripts/inject_social_domains.py`，此后每日新生成的新闻页自动带
+  域名块；无漂移时写 0 文件。
+- **闸门漏洞根治**：`verify_seo.py` 的 `4f` 逐页检查原用 `S(pages)`，在
+  `--global-only`（CI 无脏模块的 gate）下得到空集、逐页检查被静默跳过，
+  增量模式也只查脏页——这是历史页缺陷能长期潜伏的机制原因。改为始终使用
+  完整 `pages`（该模块已标 `force_global=true`），与「全局不变量始终使用完整
+  页集」的既定语义一致；`--all` / `--global-only` / `verify --gate` 三模式复验全绿。
+- **验证**：全站 `PASS=51 WARN=0 FAIL=0`；`workarea.py audit` PASS；
+  165/165 页含域名块、`threads.net` 0 残留；注入器与 sitemap 幂等复跑 0 写入。
+
+**制度教训（写入 WORKFLOW.md）**：以远端 tree 为 base 的增量推送，必须先把
+本地工作区与远端 CI 自动生成的产物对齐，否则「本地相对远端有差异」会把
+CI 连续状态误判为待覆盖的旧快照。
+
+---
+
 ## [2026-11-16] · footer 动态域名文字改为自有品牌 Anchormere.com（全站同步检查）
 
 用户指示「动态图标动态加载可以显示为 Anchormere.com，其他内容同步检查，不要有错漏」。

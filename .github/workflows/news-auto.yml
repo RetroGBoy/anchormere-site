@@ -33,6 +33,14 @@ jobs:
       - name: Normalize (idempotent fallback)
         run: python3 scripts/site_normalize.py
 
+      # Brand-domain text is a site-wide invariant (verify_seo.py 4f, pages=[*]):
+      # every *.html must carry the static footer link to https://anchormere.com/.
+      # news_digest.py renders its own footer, so newly generated news posts have
+      # no domain block until this idempotent injector runs. Must be BEFORE the
+      # verification gate and sitemap rebuild; writes 0 files when already clean.
+      - name: Inject brand domain text (idempotent)
+        run: python3 scripts/inject_social_domains.py
+
       - name: Rebuild sitemap (lastmod from real page content dates)
         run: python3 scripts/build_sitemap.py
 

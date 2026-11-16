@@ -732,7 +732,11 @@ if not _soc_profiles or not _soc_raw_pages:
         ok("品牌域名文字模块未启用（profiles/pages 为空，全站 HTML 零改写）")
 else:
     if '*' in _soc_raw_pages:
-        _soc_targets = set(S(pages))
+        # 全站不变量：pages=[*] 时永远检查完整页数，不受增量 SCOPE 影响。
+        # 该模块在 modules.json 标记 force_global=true；若这里用 S(pages)，
+        # --global-only（CI 无脏模块的 gate）会得到空集、逐页检查被静默跳过，
+        # 增量模式也只查脏页，历史页缺域名块将长期无法被发现。
+        _soc_targets = set(pages)
     else:
         _soc_targets = {p if p.endswith('.html') else p + '.html'
                         for p in _soc_raw_pages}
