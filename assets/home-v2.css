@@ -175,3 +175,56 @@ html[lang="zh-CN"] .cn{display:none}
 .final .say{color:var(--warm);font-size:22px;max-width:30ch;margin:0 auto 12px}
 .final .reply{color:var(--on-dark);max-width:56ch;margin:0 auto 20px}
 .final .btn-primary{background:var(--fire-deep)}
+
+/* ============================================================
+   多终端适配（首页 v2 专用，仅 index.html 引用）
+   ------------------------------------------------------------
+   * 追加在文件末尾覆盖同名规则；style.css 的适配层先加载，本表后加载，
+     因此每个断点都必须写全，避免 ≤1024 规则反向覆盖 ≤760 单列布局。
+   * 320px 基准：无横向滚动、三张对话卡改为纵向堆叠、锚线缩进收紧。
+   ============================================================ */
+@media(max-width:1024px){
+  section{padding:48px 0}
+  .dialogue{grid-template-columns:1fr}
+  .dialogue aside{order:-1}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .verify-grid,.plain-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  section{padding:38px 0}
+  .hero{padding:26px 0 22px}
+  .hero h1{font-size:29px;max-width:100%}
+  .hero .empathy{font-size:15.5px}
+  .hero p.lead-en{font-size:14px}
+  .talks{grid-template-columns:1fr}
+  .talk{min-height:0}
+  .say{font-size:19px}
+  .pullquote{font-size:22px}
+  .pullquote::before{font-size:52px}
+  .thread{padding-left:24px}
+  .thread>.beat::before{left:-22px}
+  .anchor-line{font-size:15.5px}
+  .wont{padding:20px 18px}
+  .final .say{font-size:20px}
+  .fold-index>summary{font-size:14.5px;padding:13px 14px;min-height:44px}
+  .fold-index-body{padding:4px 14px 16px}
+  .sector-grid{grid-template-columns:1fr 1fr}
+  .verify-grid,.plain-grid,.steps{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  section{padding:30px 0}
+  .hero h1{font-size:25.5px}
+  .hero .cta.lean{gap:10px}
+  .btn-primary{padding:12px 20px;font-size:14.5px}
+  .btn-link{white-space:normal}
+  .say{font-size:18px}
+  .talk .say{font-size:16px}
+  .sector-grid{grid-template-columns:1fr}
+  .wont ul{grid-template-columns:1fr}
+  .human-shot img,.evidence-shot img{height:160px}
+  .pullquote{font-size:20px}
+  .pullquote::before{font-size:46px}
+  .anchor-line{font-size:14.5px}
+  .fold-index>summary{font-size:14px}
+  .final .container{padding:34px 14px}
+}
