@@ -10,6 +10,64 @@
 
 ---
 
+## [2026-11-16] · GSC 数据驱动整改：搜索意图对齐 + 收录质量（11 页 + 管道）
+
+依据 GSC 截图数据（3 个月 475 展示 / 2 点击 / 平均排名 38.7；34 页已收录 /
+405 页未收录；japan-2026-shenzhen 展示 -72%）做的内容整改：
+
+- **意图对齐（按真实查询词）**：
+  - `oem marketplace`（18 展示，Top1）→ `marketplaces.html` 由 17KB 薄索引页
+    升级为完整《OEM 交易平台指南》：三种平台模式对比表、七项联系前核验、
+    「何时平台是错的工具」、7 条可见 FAQ + FAQPage 结构化数据（此前 2 条
+    schema 问题在页面上不可见，属 schema/内容不一致，已修复）。
+  - `how to find a manufacturer in china`（13 展示）→ 页首新增「经得起验厂的
+    六步」步骤卡 + 「四条渠道对比」表（展会/平台/代理/转介），直答查询意图。
+  - `canton fair 2026`（14 展示，页面仅 1 条内链）→ 新增展前/展中/展后行程卡
+    + 5 条可见 FAQ + FAQPage schema + 指向找厂页/平台页的内链。
+  - `charging solution for oem`（6 展示）→ `usb-c-charger-oem.html` 新增
+    「品牌方充电方案规格必须覆盖什么」清单 + 2 条 FAQ。
+  - `odm alternative to china`（5 展示）→ `china-plus-one-sourcing.html` 新增
+    「哪些能搬、哪些搬不走」章节 + 2 条 FAQ。
+- **失效页 301**：`/japan-2026-shenzhen → /news`（GSC 建议项）。
+- **新闻管道收紧**：`scripts/news_digest.py` 新增 SOFTWARE_BLOCK（纯软件/应用
+  技巧类标题直接丢弃）+ 消费类标题须含明确硬件名词；修复当天误发的
+  "iPhone Notes app / 手机热点" 类无关内容进入站点的根因。
+- **顺手修复 3 类历史 HTML 缺陷（11 页）**：data-zh 属性内嵌 `<a>`/`<span>`
+  未转义引号（34 处），导致中文态渲染与解析异常；全站 165 页现在 0 标签闭合问题。
+- sitemap 5 个改动页 lastmod → 2026-11-16；各改动页页脚 Last updated 同步。
+- **验证**：verify_seo --all PASS=54 / WARN=0 / FAIL=0；全站 165 页 0 标签
+  闭合问题；5 个改动页 1280/375 双视口渲染溢出 0。
+
+---
+
+## [2026-11-16] · 多终端 / 多分辨率兼容（纯 CSS，全站 165 页）
+
+按用户「兼容多终端、多设备、多平台、不同分辨率」要求落地，**只改表现层**：
+`assets/style.css` 追加分层断点适配层、`assets/home-v2.css` 追加首页专用断点、
+新增 `scripts/verify_responsive.py` 可复跑实测工具；**零 HTML 改动**，文案 /
+外链 / 结构化数据 / 关键词覆盖 / 入链 / 转化路径全部不变。
+
+- **断点**：`≤1024` 平板与横屏、`≤760` 手机、`≤480` 极窄视口；新增
+  `(pointer:coarse)` 按触屏交互能力保证 ≥44×44 目标、
+  `(prefers-reduced-motion:reduce)` 关闭动效。依据 WCAG 2.1 AA 1.4.10 /
+  1.4.4 / 2.5.8 与 iOS Safari 输入 ≥16px。
+- **修掉 5 类实测缺陷**：① topbar 折行高 75~184px 与写死 `top:38px` 的
+  sticky 偏移冲突；② 长来源 URL 在 320px 溢出 93~95px（改为只换行不截断）；
+  ③ 折叠面板未展开残留 338px 几何尺寸、左边缘负值与 834/915px 越界；
+  ④ 导航 34px / 语言按钮 23px 触控目标，且触屏 iPad 漏检；⑤ 表单输入
+  14px 触发 iOS 聚焦自动缩放。
+- **验证**：Chromium 12 分辨率 × 8 页面 = 96/96 通过；平台矩阵 14 配置 ×
+  4 页面 = 56/56 通过；**WebKit（iOS Safari 同引擎）24/24 通过**；
+  `verify_responsive.py --quick` 32/32 通过。
+- **闸门**：`verify_seo.py` 新增 `4i`（静态检查断点 / viewport / 首页专用样式
+  零污染 / 实测脚本存在），CI `module-gate.yml` 自动兜底。
+- 制度见 `WORKFLOW.md §13`。
+- **推送状态**：本轮改动目前仅在工作区，线上 `main` 仍为 `4b34dc1`（上一轮
+  已上线版本）。上一轮的 GitHub PAT 已按要求清理并建议撤销，本会话无可用写
+  凭据；待重新授权后以远端 `main` tree 为 base 单 commit 推送。
+
+---
+
 ## [2026-11-16] · 首页人本版 + 折叠导航 + 新闻稿原文权威性（已上线 · 6effd05）
 
 - **首页 `index.html`（protected，用户已显式授权）**：正文换为买方风险视角的

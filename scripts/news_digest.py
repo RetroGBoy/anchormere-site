@@ -144,6 +144,28 @@ BLOCK = [
     "bankrupt", "bribe", "corruption", "protest", "sanction",
 ]
 
+# 纯软件／应用技巧类：与采购、制造无关，命中标题即丢弃
+# 背景（2026-11-16 GSC 复盘）：旧过滤器只靠 "phone/electronics" 等宽词命中，
+# 结果把 "iPhone Notes app tips"、"手机当热点" 这类纯软件内容发成新闻稿，
+# 既稀释站点主题，也拉低收录率（405 未编入索引 / 34 已收录）。
+SOFTWARE_BLOCK = [
+    "notes app", "app store", "ios ", "ipados", "android ", "software update",
+    "operating system", "hotspot", "wallpaper", "ringtone", "emoji", "settings",
+    "how to use", "tips and tricks", "hidden feature", "web browser", "chatbot",
+    "chatgpt", "openai", "copilot", "password manager", "streaming app",
+    "social app", "photo app", "camera app", "keyboard app",
+]
+
+# 消费类（仅命中 consumer）必须在标题里出现明确的硬件名词，才算采购相关
+STRONG_HW = [
+    "chip", "semiconductor", "pcb", "pcba", "battery", "charger", "adapter",
+    "display", "oled", "lcd", "wearable", "earbuds", "headphone", "speaker",
+    "camera", "sensor", "module", "tablet", "laptop", "smartphone", "handset",
+    "console", "robot", "drone", "toy", "appliance", "device", "electronics",
+    "hardware", "component", "connector", "cable", "enclosure", "molding",
+    "tooling", "assembly", "factory",
+]
+
 # 命中后用于排序的权重：产品/采购类优先，泛科技靠后
 CAT_WEIGHT = {"consumer": 3, "toys": 3, "ev": 3, "datacenter": 2,
               "procurement": 3, "gba": 2}
@@ -894,7 +916,12 @@ def main():
         if not cats:
             continue
         blob = (it["title"] + " " + it["summary"]).lower()
+        title_l = it["title"].lower()
         if any(b in blob for b in BLOCK):
+            continue
+        if any(b in title_l for b in SOFTWARE_BLOCK):
+            continue
+        if set(cats) <= {"consumer"} and not any(w in title_l for w in STRONG_HW):
             continue
         if it["link"] in posted:
             continue

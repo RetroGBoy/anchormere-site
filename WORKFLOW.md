@@ -400,6 +400,68 @@ PCB 主题的真实公开案例，只需在 `case_references.json` 给该案例�
 - 原型里的 `/solutions` 是死链，上线改为 `#topic-index`；`#verify` /
   `#faq` 锚点保留。
 
-## 13. 一句话总结
+## 13. 多终端 / 多分辨率兼容（2026-11-16）
+
+用户要求「兼容多终端、多设备、多平台与不同分辨率」。本轮**只改表现层**：
+`assets/style.css`（全站 165 页）+ `assets/home-v2.css`（仅首页）+ 新增
+`scripts/verify_responsive.py`；**零 HTML 改动**，文案、外链、结构化数据、
+关键词覆盖、入链与转化路径全部不变。
+
+### 13.1 断点体系与依据
+
+| 断点 | 适用 | 关键规则 |
+|---|---|---|
+| `≤1024px` | 平板 / 横屏手机 | topbar 与 mainnav 均回文档流（`position:relative`），消除折行信任条与写死 `top:38px` 的偏移冲突；折叠面板 static 且展开时 `<details>` 占满整行；输入控件 ≥16px；多列网格收敛 |
+| `≤760px` | 手机 | 全部网格单列；`.container` 内边距收紧；横幅图降高；表格 `table-layout:fixed` |
+| `≤480px` | 小屏手机 / 320 CSS px | 信任条改为单行横向滚动（文案与 emoji 全保留在 DOM，不隐藏不截断）；字号、留白、页脚列收敛 |
+| `(pointer:coarse)` | **所有触屏设备，不看宽度** | 导航项 / More / CTA / 语言切换 / 分页 / 折叠开关 ≥44×44（iPad、横屏、触屏笔记本宽度可能 >760px，只靠宽度断点会漏） |
+| `(prefers-reduced-motion:reduce)` | 无障碍偏好 | 关闭 transition / animation / hover transform |
+
+依据：WCAG 2.1 AA **1.4.10 重排**（320 CSS px 无横向滚动）、**1.4.4 文字缩放**
+（200% 缩放等效窄视口内容不丢失）、**2.5.8 触控目标 ≥24×24**（本站移动端提升到
+44×44，对齐 2.5.5 AAA）；iOS Safari 输入控件字号 <16px 会在聚焦时自动放大视口。
+
+### 13.2 实测发现并修掉的 5 类真实缺陷
+
+1. **sticky 偏移硬编码**：`.topbar` 是 `flex-wrap`，折行后实测高 75~184px，而
+   `.mainnav{top:38px}` 写死 → 吸顶导航与信任条重叠（全站 165 页）。
+2. **长引用 URL 撑破视口**：PCB 枢纽页与长尾页的来源 URL 在 320px 下溢出
+   93~95px。修法：`overflow-wrap:anywhere;word-break:break-word`，**文本完整
+   保留、只换行不截断**，不破坏「新闻稿 / 引用页保持原文权威性」。
+3. **折叠面板越界**：`.nav-more-panel{display:grid}` 覆盖了浏览器对未展开
+   `<details>` 的隐藏，面板在未展开时仍留下 338px 几何尺寸、左边缘跑到
+   `-57px`(320) / `-199px`(852)；且 `position:absolute;right:0;min-width:210px`
+   在 834px 被 flex-wrap 挤到行首时越界。修法：`display:none` 未展开 +
+   面板 static + `.nav-more[open]{flex-basis:100%}`。
+4. **触控目标 <44px**：导航项 34px、语言按钮 23px；原规则绑在 `≤760px`
+   宽度断点上，触屏 iPad / 横屏（768~1194px）漏掉。改按 `pointer:coarse`。
+5. **iOS 输入自动缩放**：`.field input/select/textarea` 原 14px，iOS Safari
+   聚焦会放大整个视口。≤1024 提升到 16px。
+
+### 13.3 可复跑验证（换模型照跑）
+
+```bash
+python3 scripts/verify_responsive.py           # 完整：12 分辨率 × 8 页面 + 14 平台配置
+python3 scripts/verify_responsive.py --quick   # 4 核心分辨率 × 8 页面
+python3 scripts/verify_seo.py --all            # 4i 静态闸门（CI 用，不依赖浏览器）
+```
+
+`verify_responsive.py` 用 Chromium 模拟 iPhone / Android / iPad / 横竖屏 /
+DPR 2~3 / 200% 缩放 / reduced-motion / 深色偏好，逐组合检查横向溢出、越界
+元素、导航定位、触控目标、输入字号、图片加载、JS 错误与折叠展开交互。
+WebKit（iOS Safari 同引擎）已另行复验 24/24 通过。`verify_seo.py 4i` 是
+**静态闸门**，不依赖 playwright，CI `module-gate.yml` 会自动兜底断点、
+viewport、首页专用样式零污染等规则。
+
+### 13.4 别删的规则
+
+- `.nav-more:not([open])>.nav-more-panel{display:none}` —— 删掉会重现越界。
+- `@media(pointer:coarse)` —— 触控目标必须按交互能力判断，不能只按宽度。
+- 极窄屏信任条的 `overflow-x:auto` —— 文案必须全留在 DOM，禁止 `display:none`
+  隐藏条目（会削弱首页信任信号与 SEO 文本）。
+- 长 URL 只允许换行，禁止 `text-overflow:ellipsis` / 截断（原文权威性红线）。
+- `home-v2.css` **只被 `index.html` 引用**，4i 闸门会校验，别改成全站引用。
+
+## 14. 一句话总结
 
 **按板块声明改动 → 依赖闭包定范围 → 内容相同不写盘 → 只校验脏模块 → 状态写回仓库 → 换模型照章接手。** 全站页面不再因为改一个词而整体重跑；没有问题的板块永远保持原样。

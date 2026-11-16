@@ -204,3 +204,104 @@ html[lang="zh-CN"] .cn{display:none}
 .pager .pg:hover{border-color:var(--brass);color:var(--ink)}
 .pager .pg-cur{font-weight:600;color:var(--slate)}
 .pager .pg-disabled{display:inline-block;padding:7px 14px;border:1px solid var(--line);border-radius:8px;color:#bbb;background:#fafafa}
+
+/* ============================================================
+   多终端 / 多分辨率适配层（2026-11-16，全站 165 页）
+   ------------------------------------------------------------
+   * 纯 CSS 覆盖：不改任何 HTML、不改文案 / 外链 / 结构化数据 /
+     关键词覆盖 / 转化路径；只作用于表现层，与分板块增量制度一致。
+   * 断点：≤1024 平板与横屏、≤760 手机、≤480 极窄视口；≥1025 桌面
+     保持原有版式。320 CSS px 为 WCAG 1.4.10 重排基准。
+   * 依据：WCAG 2.1 AA 1.4.4 文字缩放 / 1.4.10 重排（无横向滚动）/
+     2.5.8 触控目标 ≥24×24（移动端提升到 44×44，对齐 2.5.5 AAA）；
+     iOS Safari 输入框字号 <16px 会触发聚焦时自动放大视口。
+   * 实测：Chromium 12 分辨率 × 8 类页面，见 CHANGELOG.md 2026-11-16。
+   ============================================================ */
+
+/* 1) 长引用 URL / 专有名词：文本完整保留，仅在必要时换行，绝不截断。
+      修复 PCB 枢纽页与长尾页在 320px 下由长来源 URL 撑出的 95px 横向溢出。 */
+a[href^="http"], .plain a.src, .crumb, .spec-table th, .spec-table td,
+footer a, .pager a{overflow-wrap:anywhere;word-break:break-word}
+
+/* 1b) 折叠面板未展开时显式不参与布局。UA 对 <details> 子内容的隐藏机制
+       会被 .nav-more-panel{display:grid} 覆盖，导致面板在未展开时仍留下
+       338px 几何尺寸、左边缘跑到视口外（实测 320px: -57 / 852px: -199）。 */
+.nav-more:not([open])>.nav-more-panel{display:none}
+
+/* 2) ≤1024px：平板 / 横屏手机 */
+@media(max-width:1024px){
+  /* topbar 是 flex-wrap，折行后实测高 75~184px，而 .mainnav 原 top:38px
+     是写死的，吸顶导航会与信任条重叠。≤1024 时两者均回到文档流：
+     零 JS、无偏移计算、跨 iOS / Android / 桌面一致；同时避免「More」
+     展开后 static 面板撑高 sticky 导航、滚动时遮挡正文。 */
+  .topbar{position:relative;top:auto}
+  .mainnav{position:relative;top:auto}
+  /* 折叠面板回到文档流。展开时让 <details> 占满导航容器整行，面板宽度
+     即等于容器内容区，面板链接 nowrap 也不再撑破视口（实测 915px 横屏
+     下 static + 窄包含块会溢出右边界）。未展开时由上方 1b 规则隐藏。 */
+  .nav-more[open]{flex-basis:100%}
+  .nav-more-panel{position:static;box-shadow:none;min-width:0;
+    width:100%;max-width:100%;margin-top:6px;
+    border:1px solid var(--line)}
+  /* iOS / iPad Safari：输入框 ≥16px，避免聚焦时自动放大整个视口 */
+  .field input,.field textarea,.field select{font-size:16px}
+  /* 平板下 3~5 列网格过挤 */
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .showcase,.cases,.trust3{grid-template-columns:repeat(2,1fr)}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+
+/* 3) ≤760px：手机 */
+@media(max-width:760px){
+  .container{padding:0 16px}
+  /* 触控目标 ≥44px（导航项 / 折叠开关 / CTA / 语言切换 / 分页） */
+  .mainnav a.nav,.nav-more>summary{min-height:44px;display:inline-flex;align-items:center}
+  .nav-more-panel a.nav{min-height:44px;display:flex;align-items:center}
+  .lang-switch button{min-height:44px;padding:8px 14px}
+  .pager .pg{min-height:44px;display:inline-flex;align-items:center}
+  /* 单列网格（覆盖上文 ≤1024 的多列规则，避免层叠顺序歧义） */
+  .grid-3,.grid-2,.showcase,.cases,.trust3,.form-grid,
+  .steps,.steps.cols2{grid-template-columns:1fr}
+  .hero{padding:36px 0 32px}
+  .page-banner img{height:180px}
+  .wa-float{right:12px;bottom:12px;padding:11px 16px;font-size:13.5px}
+  /* 表格列内长文本可换行，避免 min-content 撑破 320px */
+  .spec-table{table-layout:fixed}
+}
+
+/* 4) ≤480px：极窄视口 / 小屏手机 */
+@media(max-width:480px){
+  /* 信任条 5 条在 320px 折 5 行占 184px、吃掉首屏。改为单行横向滚动：
+     文案与 emoji 全部保留在 DOM，不隐藏、不截断、不影响 SEO 文本。 */
+  .topbar{flex-wrap:nowrap;justify-content:flex-start;white-space:nowrap;
+    overflow-x:auto;gap:14px;padding:7px 14px;font-size:12px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .topbar::-webkit-scrollbar{display:none}
+  .container{padding:0 14px}
+  h1{font-size:28px} h2{font-size:21px}
+  .hero h1{font-size:28px}
+  .lead,.hero p{font-size:15px}
+  .card,.method,.step,.ask,.plain{padding:16px}
+  footer .cols{grid-template-columns:1fr}
+  .page-banner img{height:150px}
+  .card-img{height:120px}
+  .crumb{font-size:12px}
+  .wa-float{right:10px;bottom:10px;padding:10px 14px}
+}
+
+/* 5) 动态效果偏好 / 无障碍设备 */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .tag:hover{transform:none}
+}
+
+/* 6) 触控设备：按交互能力（而非仅宽度）保证 ≥44×44 可点区域。
+      iPad / 横屏 / 触屏笔记本宽度可能 >760px，只靠宽度断点会漏掉。 */
+@media(pointer:coarse){
+  .mainnav a.nav,.nav-more>summary,.btn-quote,.nav-more-panel a.nav,
+  .lang-switch button,.pager .pg,.fold-index>summary{min-height:44px}
+  .mainnav a.nav,.nav-more>summary,.btn-quote,.pager .pg{display:inline-flex;align-items:center}
+  .nav-more-panel a.nav{display:flex;align-items:center}
+  .lang-switch button{padding:8px 14px}
+  .wa-float{min-height:44px;display:inline-flex;align-items:center}
+}

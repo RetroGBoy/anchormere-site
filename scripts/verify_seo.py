@@ -924,6 +924,48 @@ else:
           sum(1 for f in _AUTHORITY for a in re.findall(r'<a\b[^>]*href="https?://[^"]*"[^>]*>', PAGE[f])
               if 'data-keep-en' in a and not any(k in a for k in _NON_SRC))))
 
+# ---- 4i. 多终端 / 多分辨率兼容：静态闸门（浏览器实测见 verify_responsive.py）------
+# 用户要求：兼容多终端、多设备、多平台与不同分辨率。
+# 规则：分层断点（≤1024 / ≤760 / ≤480）+ 触屏交互能力（pointer:coarse）+
+# 减弱动效偏好；长引用 URL 只换行不截断；iOS 输入 ≥16px；≤1024 导航回
+# 文档流，避免与折行 topbar 的写死 top:38px 冲突；未展开折叠面板必须
+# display:none（否则残留 338px 几何尺寸、左边缘被判越界）。
+# 制度见 WORKFLOW.md §13；实测工具 scripts/verify_responsive.py。
+_resp_bad = []
+with open(os.path.join('assets', 'style.css'), encoding='utf-8') as _rsf:
+    _rcss = _rsf.read()
+with open(os.path.join('assets', 'home-v2.css'), encoding='utf-8') as _rhf:
+    _rhcss = _rhf.read()
+for _n in ('@media(max-width:1024px)', '@media(max-width:760px)',
+           '@media(max-width:480px)', '@media(pointer:coarse)',
+           '@media(prefers-reduced-motion:reduce)', 'overflow-wrap:anywhere',
+           'font-size:16px', 'min-height:44px',
+           '.mainnav{position:relative;top:auto}',
+           '.nav-more:not([open])>.nav-more-panel{display:none}'):
+    if _n not in _rcss:
+        _resp_bad.append(('assets/style.css', '缺 ' + _n))
+for _n in ('@media(max-width:1024px)', '@media(max-width:760px)', '@media(max-width:480px)'):
+    if _n not in _rhcss:
+        _resp_bad.append(('assets/home-v2.css', '缺 ' + _n))
+# 首页专用样式只被首页引用，零污染其余 164 页
+_hv = [f for f in pages if 'home-v2.css' in PAGE[f]]
+if _hv != ['index.html']:
+    _resp_bad.append(('assets/home-v2.css', '引用页异常 %s' % _hv[:4]))
+# 全站 viewport
+_novp = [f for f in pages if 'name="viewport"' not in PAGE[f]
+         or 'width=device-width' not in PAGE[f]]
+if _novp:
+    _resp_bad.append(('viewport', '%d 页缺响应式 viewport' % len(_novp)))
+if not os.path.exists(os.path.join('scripts', 'verify_responsive.py')):
+    _resp_bad.append(('scripts/verify_responsive.py', '缺可复跑实测工具'))
+if _resp_bad:
+    fail("多终端兼容 %d 项不合规: " % len(_resp_bad)
+         + ", ".join("%s(%s)" % x for x in _resp_bad[:4]))
+else:
+    ok("多终端兼容：分层断点 ≤1024/760/480 + 触屏 pointer:coarse + 减弱动效 + "
+       "长 URL 换行不截断 + iOS 输入 ≥16px；%d 页 viewport 齐全，首页专用样式零污染"
+       "（浏览器实测见 verify_responsive.py）" % len(pages))
+
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")
 print(f"  校验模式：{MODE}  |  全站 {len(htmls)} 个 HTML，单次读取缓存")
