@@ -840,6 +840,90 @@ else:
         ok("品牌域名文字：数据源逐页一致 / 静态外链可见 / 占位锁定零 CLS / "
            "零图标资源 / 动态加载器完整 / 双语 aria（%d 页）" % len(_soc_targets))
 
+# ---- 4g. 收敛式折叠导航：单一数据源 / 全站一致 / 入链不减 ------------------
+# 用户要求：菜单里非核心入口折叠、主体内容更突出。折叠项在 <details> 内仍是
+# 真实 <a href>，故站内入链、关键词覆盖与孤儿页检测都不受影响。CI 的
+# inject_nav.py 在 Normalize 之后兜底，避免每日新闻页回退成旧的平铺 NAV。
+_NAV_CFG = os.path.join('scripts', 'nav_source.json')
+_nav_bad = []
+if not os.path.isfile(_NAV_CFG):
+    fail("nav_source.json 缺失，折叠导航单一数据源未落地")
+else:
+    with open(_NAV_CFG, encoding='utf-8') as _nf:
+        _navc = json.load(_nf)
+    _exp_hrefs = [x['href'] for x in _navc['primary'] + _navc['more']] + [_navc['cta']['href']]
+    _NAV_BLOCK = re.compile(r'<!-- NAV:BEGIN -->(.*?)<!-- NAV:END -->', re.S)
+    for f in pages:                       # 站点级不变量：始终检查完整页面集
+        t = PAGE[f]
+        m = _NAV_BLOCK.search(t)
+        if not m:
+            _nav_bad.append((f, '缺 NAV 标记块'))
+            continue
+        b = m.group(1)
+        if '<details class="nav-more">' not in b or '</details>' not in b:
+            _nav_bad.append((f, '折叠 details 缺失'))
+        hrefs = re.findall(r'<a\s[^>]*href="([^"]+)"', b)
+        for h in _exp_hrefs:
+            if h not in hrefs:
+                _nav_bad.append((f, 'nav 缺 %s' % h))
+        if re.search(r'href="[^"]*\.html', b):
+            _nav_bad.append((f, 'nav 含 .html 站内链接'))
+    with open(os.path.join('assets', 'style.css'), encoding='utf-8') as _cf:
+        _css = _cf.read()
+    if '.nav-more-panel' not in _css:
+        _nav_bad.append(('assets/style.css', '缺折叠面板样式'))
+    if _nav_bad:
+        fail("折叠导航 %d 项不合规: " % len(_nav_bad)
+             + ", ".join("%s(%s)" % x for x in _nav_bad[:4]))
+    else:
+        ok("折叠导航：单一数据源一致 / %d 页 details 折叠 / 主项与 CTA 外露加权 / "
+           "折叠项仍为真实入链（关键词覆盖零损失）" % len(pages))
+
+# ---- 4h. 新闻稿 / 引用页原文权威性：默认英文 + 来源永不置换 ----------------
+# 用户要求：语言置换时，新闻稿与引用页要保持原来的权威性。
+# 规则：权威页 <body data-lang-default="en">（首访默认英文，用户仍可主动切中文）；
+# 来源标题 / 来源列表 / 来源外链锚文本带 data-keep-en，lang.js 永不置换；
+# 域名块与 WhatsApp 按钮不是来源引用，禁止打标（否则与 inject_social_domains
+# 互相覆盖、破坏幂等）。制度见 WORKFLOW.md §12。
+_AUTHORITY = [f for f in pages if f.startswith('news-20')
+             or 'Source URL:' in PAGE[f]
+             or re.search(r'Sources\s*(?:&amp;|&)\s*references', PAGE[f], re.I)]
+_lang_bad = []
+with open(os.path.join('assets', 'lang.js'), encoding='utf-8') as _ljf:
+    _lj = _ljf.read()
+for _needle in ('data-keep-en', 'data-lang-default', 'closest("[data-keep-en]")'):
+    if _needle not in _lj:
+        _lang_bad.append(('assets/lang.js', '缺 %s 机制' % _needle))
+_NON_SRC = ('social-domain', 'wa-float', 'https://anchormere.com/', 'https://wa.me/')
+for f in _AUTHORITY:
+    t = PAGE[f]
+    _bm = re.search(r'<body\b[^>]*>', t)
+    if not _bm or 'data-lang-default="en"' not in _bm.group(0):
+        _lang_bad.append((f, '未设默认英文'))
+    for hm in re.finditer(r'<h2\b([^>]*)>(.*?)</h2>|<h3\b([^>]*)>(.*?)</h3>', t, re.I | re.S):
+        attrs = hm.group(1) if hm.group(1) is not None else hm.group(3)
+        inner = hm.group(2) if hm.group(2) is not None else hm.group(4)
+        if re.search(r'sources.{0,60}?(?:references|figures|boundaries|urls)', inner, re.I | re.S):
+            if 'data-keep-en' not in attrs:
+                _lang_bad.append((f, '来源标题未锁英文'))
+                break
+    for a in re.findall(r'<a\b[^>]*href="https?://[^"]*"[^>]*>', t):
+        if any(k in a for k in _NON_SRC):
+            if 'data-keep-en' in a:
+                _lang_bad.append((f, '域名块 / WhatsApp 被误标（幂等冲突）'))
+        elif 'data-keep-en' not in a:
+            _lang_bad.append((f, '来源外链未锁英文'))
+            break
+if _lang_bad:
+    fail("原文权威性 %d 项不合规: " % len(_lang_bad)
+         + ", ".join("%s(%s)" % x for x in _lang_bad[:4]))
+else:
+    ok("原文权威性：%d 个新闻稿/引用页默认英文、来源标题与 %d 条外链锚文本锁英文、"
+       "域名块零冲突（正文仍可切中文）"
+       % (len(_AUTHORITY),
+          sum(1 for f in _AUTHORITY for a in re.findall(r'<a\b[^>]*href="https?://[^"]*"[^>]*>', PAGE[f])
+              if 'data-keep-en' in a and not any(k in a for k in _NON_SRC))))
+
 # ---- 汇总 ----
 print("\n================ SEO 验证闭环报告 ================")
 print(f"  校验模式：{MODE}  |  全站 {len(htmls)} 个 HTML，单次读取缓存")

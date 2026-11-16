@@ -10,6 +10,33 @@
 
 ---
 
+## [2026-11-16] · 首页人本版 + 折叠导航 + 新闻稿原文权威性（本地已就绪，待推送授权）
+
+- **首页 `index.html`（protected，用户已显式授权）**：正文换为买方风险视角的
+  五屏人本叙事；`head` 全部技术资产、FAQ 五条与 `FAQPage` 结构化数据、
+  `footer`（含 4f 域名块）、`wa-float`、`lang.js` 原样保留；44 专题与区域
+  简报入链完整保留并折进 `<details>` 默认收起；原型里的 `/solutions` 死链
+  改为 `#topic-index`；图片复用仓库同源素材，无新增二进制。新增
+  `assets/home-v2.css`（仅首页引用，零污染其余 164 页）。
+- **折叠导航**：新增 `scripts/nav_source.json` + `scripts/inject_nav.py`，
+  核心 5 项外露、其余 7 项收进原生 `<details>`（仍是真实 `<a href>`，站内
+  入链零损失）；`style.css` 加 `.nav-more*`，主按钮改用 `--fire-deep` 修
+  WCAG AA 对比度；`news-auto.yml` 加幂等步骤，每日新闻页不回退。
+- **语言权威性**：`assets/lang.js`（protected）新增 `data-lang-default="en"`
+  与 `data-keep-en` 跳过机制；新增 `scripts/inject_lang_authority.py`，
+  126 个新闻稿 / 引用页首访默认英文、来源标题与 1105 条外链锚文本锁英文，
+  正文仍可切中文。刻意排除域名块 / WhatsApp，避免与域名注入器互相覆盖。
+- **闸门**：`verify_seo.py` 新增 `4g`（折叠导航数据源一致）与 `4h`（原文
+  权威性）；全量 `PASS=53 / WARN=0 / FAIL=0`（原 51），`workarea.py audit
+  PASS`，三个注入器连续复跑均 0 写入。
+- **浏览器实测**：折叠导航 / 索引默认收起，展开后 34 个专题链接可见；
+  三张对话卡完整进首屏；死锚 0、横向溢出 0、图片全加载；中文态下新闻页
+  来源标题与外链仍为英文、正文可译。
+- **推送状态**：GitHub 凭据已失效（上次 PAT 依要求清理并建议撤销），本地
+  全部就绪，待重新授权后以单 commit 推送。制度见 `WORKFLOW.md §12`。
+
+---
+
 ## [2026-11-16] · 修复首次推送回退 CI 新闻状态 + 根治新闻页域名注入（二次 commit）
 
 首个推送 commit（`230cc37`）上线后，`Modular workspace gate` 首次由非 bot 提交

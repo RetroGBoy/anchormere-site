@@ -340,6 +340,66 @@ PCB 主题的真实公开案例，只需在 `case_references.json` 给该案例�
 **不碰的东西**：`protected` 核心转化页、`assets/lang.js`、既有 36 个长尾页与
 28 个框架页的既定内容；社媒域名模块对新页照常注入，规则不变。
 
-## 12. 一句话总结
+## 12. 首页人本版 / 折叠导航 / 原文权威性（2026-11-16）
+
+本轮三项都是**站点级不变量**，统一走「单一数据源 + 幂等注入器 + CI 步骤 +
+验证闸门」四件套，换模型后照章接手即可。
+
+### 12.1 收敛式折叠导航（闸门 4g）
+
+- 单一真源 `scripts/nav_source.json`：`primary` 外露加权、`more` 折叠、
+  `cta` 常驻。**不要手改** `longtail.py` / `news_digest.py` /
+  `build_briefings.py` / `seo_inject.py` 里的旧 `NAV` 常量。
+- `scripts/inject_nav.py` 用 `<!-- NAV:BEGIN/END -->` 标记块整段替换全站
+  `*.html`；`--rollback` 渲染等价平铺版（链接一条不少）。生成器仍输出旧
+  NAV，但 CI 在 `Normalize` 之后调用注入器兜底，每日新闻页不会回退。
+- 折叠项在 `<details>` 内**仍是真实 `<a href>`**：爬虫可见、站内入链不减、
+  孤儿页检测照常通过，关键词覆盖与转化路径零损失。原生 details 零 JS、
+  零 fetch、可键盘 / 读屏操作、无 CLS。
+- `assets/style.css` 的 `.nav-more*` 是全站唯一样式来源；`4g` 闸门逐页比对
+  数据源 href 集合、details 结构与 clean URL。
+
+### 12.2 新闻稿 / 引用页原文权威性（闸门 4h）
+
+用户规则：**语言置换时，新闻稿与引用页保持原来的权威性**。落地为
+「正文可译、来源不译 + 首访默认英文」。
+
+- `assets/lang.js`（protected）：
+  - `<body data-lang-default="en">` → `decide()` 首访返回 `en`，不按访客
+    地区自动切中文；用户主动点切换器后 `setStored()` 优先，仍可看中文正文。
+  - `data-keep-en`（元素自身或祖先）→ `applyLang()` 永不置换 `innerHTML`，
+    机构名、专有名词、引用原句、Source URL 在任何语言下保持英文原文。
+- `scripts/inject_lang_authority.py`：权威页按**内容特征**判定（文件名
+  `news-20*` 或正文含 `Source URL:` / `Sources & references`），无需维护
+  白名单；给 `<body>` 打默认英文，给来源区标题（h2/h3 多种写法）与其后
+  `ol/ul` 及全部来源外链锚文本打 `data-keep-en`。`--rollback` 一键还原。
+- **排除项（刻意的）**：`social-domain` / `wa-float` / `anchormere.com` /
+  `wa.me` 不是来源引用，且域名块由 `inject_social_domains.py` 幂等重渲染。
+  若给它们打标，两个注入器会互相覆盖、每次复跑都写盘 —— 破坏幂等性。
+  这条是实测踩过的坑，别删。
+- CI 顺序：`Normalize → inject_nav → inject_lang_authority →
+  inject_social_domains → sitemap → gate`；三者连续复跑均为 0 写入。
+- `4h` 闸门逐页校验默认英文、来源标题 / 外链锁英文、lang.js 机制存在、
+  非引用外链零误标。
+
+### 12.3 首页人本版 v2（protected 页，改动需显式授权）
+
+- `index.html` 正文换成买方风险视角的五屏叙事；叙事骨架固定：
+  主屏共情 → 六段对话 → 制度型信任 → 可核验证据 → 不声称与收束。
+- `assets/home-v2.css` **仅首页引用**，与 `style.css` 同名类的覆盖只影响
+  首页，其余 164 页零污染。配色经 WCAG 2.1 AA 实测（主按钮 5.12:1、
+  浅底 eyebrow 6.92:1），行宽 ≤62ch。
+- 从原文件精确切片保留：`head`（meta / canonical / hreflang / OG / 3 组
+  JSON-LD / consent / social-domains）、FAQ 五条（与 `FAQPage` 结构化数据
+  逐句一致）、`footer`（含 4f 域名块）、`wa-float`、`lang.js`。
+- **44 专题与区域简报入链完整保留**，只是折进 `<details class="fold-index">`
+  默认收起，让主体突出；孤儿页检测照常通过。
+- 图片复用仓库同源素材（`port-containers` / `handshake` /
+  `engineering-drawings` / `datacenter-racks`），无新增二进制；示意配图
+  全部标注「非客户 / 员工实拍」，不虚构资质、案例、成交量。
+- 原型里的 `/solutions` 是死链，上线改为 `#topic-index`；`#verify` /
+  `#faq` 锚点保留。
+
+## 13. 一句话总结
 
 **按板块声明改动 → 依赖闭包定范围 → 内容相同不写盘 → 只校验脏模块 → 状态写回仓库 → 换模型照章接手。** 全站页面不再因为改一个词而整体重跑；没有问题的板块永远保持原样。

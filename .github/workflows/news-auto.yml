@@ -33,6 +33,17 @@ jobs:
       - name: Normalize (idempotent fallback)
         run: python3 scripts/site_normalize.py
 
+      # 收敛式折叠导航是站点级不变量（单一数据源 scripts/nav_source.json）：
+      # news_digest.py 仍输出旧的平铺 NAV，需在此幂等兜底，避免每日新闻页回退。
+      # 折叠项仍是真实 <a href>，站内入链与关键词覆盖零损失。
+      - name: Inject collapsed nav (idempotent)
+        run: python3 scripts/inject_nav.py
+
+      # 新闻稿 / 引用页的原文权威性：默认英文 + 来源块永不置换。
+      # news_digest.py 生成的新页也需在此补齐，见 WORKFLOW.md §12。
+      - name: Enforce source-language authority (idempotent)
+        run: python3 scripts/inject_lang_authority.py
+
       # Brand-domain text is a site-wide invariant (verify_seo.py 4f, pages=[*]):
       # every *.html must carry the static footer link to https://anchormere.com/.
       # news_digest.py renders its own footer, so newly generated news posts have

@@ -57,6 +57,12 @@
   function decide() {
     var s = getStored();
     if (s) return Promise.resolve(s);
+    // 新闻稿 / 引用页保持原文权威性：默认英文，不按访客地区自动切中文，
+    // 避免来源标题、引用原句、机构名与专有名词被译文替代而削弱可核验性。
+    // 用户主动点切换器后 setStored() 优先于本规则，仍可选择中文正文。
+    if (document.body && document.body.getAttribute("data-lang-default") === "en") {
+      return Promise.resolve("en");
+    }
     return geoLang().then(function (g) { return g || browserLang() || "en"; });
   }
 
@@ -105,9 +111,12 @@
     document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
 
     // 1) Explicit data-zh elements (nav / footer / headings / paragraphs / lists … any element).
+    //    原文权威性：带 data-keep-en 的元素（或其祖先带）永不置换——来源标题、
+    //    外链锚文本、引用原句、机构名、专有名词与 URL 在任何语言下都保持英文原文。
     var nodes = document.querySelectorAll("[data-zh]");
     for (var i = 0; i < nodes.length; i++) {
       var n = nodes[i];
+      if (n.hasAttribute("data-keep-en") || (n.closest && n.closest("[data-keep-en]"))) continue;
       if (!n.getAttribute("data-en")) n.setAttribute("data-en", n.innerHTML);
       n.innerHTML = (lang === "zh") ? n.getAttribute("data-zh") : n.getAttribute("data-en");
     }
@@ -117,7 +126,7 @@
     var btns = document.querySelectorAll(sel);
     for (var j = 0; j < btns.length; j++) {
       var b = btns[j];
-      if (b.hasAttribute("data-zh")) continue;
+      if (b.hasAttribute("data-zh") || (b.closest && b.closest("[data-keep-en]"))) continue;
       var key = b.textContent.trim();
       if (CTA_DICT[key]) {
         if (!b.getAttribute("data-en")) b.setAttribute("data-en", key);

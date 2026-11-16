@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "note": "全站主导航单一数据源。primary 外露并视觉加权；其余入口收进原生 <details>/<summary>。折叠项在 DOM 中仍是真实 <a href>，爬虫可见、入链不减、孤儿页检测照常通过。改这里即可，不要手改各生成器里的 NAV 常量——注入器会幂等兜底。",
+  "brand_en": "Anchormere <small>锚泊 · 中国采购合作伙伴</small>",
+  "brand_zh": "Anchormere <small>锚泊 · 中国采购合作伙伴</small>",
+  "primary": [
+    {"href": "/", "en": "Home", "zh": "首页"},
+    {"href": "/rack-accessories", "en": "Rack Accessories", "zh": "机架配件"},
+    {"href": "/cable-management", "en": "Cable Mgmt", "zh": "线缆管理"},
+    {"href": "/consumer-smart-electronics", "en": "Consumer", "zh": "消费与智能电子"},
+    {"href": "/pcb-supply-chain", "en": "PCB & AI Hardware", "zh": "PCB 与 AI 硬件"}
+  ],
+  "more_label_en": "More",
+  "more_label_zh": "更多",
+  "more": [
+    {"href": "/smart-toys-devices", "en": "Toys & Devices", "zh": "智能玩具与设备"},
+    {"href": "/capabilities", "en": "Capabilities", "zh": "供应能力"},
+    {"href": "/supply-base", "en": "Supply Base", "zh": "供应基地"},
+    {"href": "/certifications", "en": "Certifications", "zh": "认证说明"},
+    {"href": "/about", "en": "About", "zh": "关于我们"},
+    {"href": "/faq", "en": "FAQ", "zh": "常见问题"},
+    {"href": "/news", "en": "News", "zh": "资讯动态"}
+  ],
+  "cta": {"href": "/contact", "en": "Get a Quote", "zh": "获取报价"},
+  "pages": ["*"],
+  "allow_protected": true
+}
