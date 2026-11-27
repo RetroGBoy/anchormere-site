@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T09:17:53+00:00",
-  "head": "ad57178",
+  "generated_at": "2026-11-27T09:32:31+00:00",
+  "head": "38e81eb",
   "modules": {
     "archive": {
       "files": 1,
@@ -44,11 +44,11 @@
     },
     "config": {
       "files": 8,
-      "hash": "12089da636dcf59e48cf027ee27774df9f3731bd509084a65aaae3899d9e6f14",
+      "hash": "4c835ae7fa5b3ccf05baa1f50b2fdf5f993442efe7a49a3718e65f1d23a86215",
       "result": "PASS",
       "scope": "full",
-      "verified_at": "2026-11-26T09:17:53+00:00",
-      "verified_hash": "12089da636dcf59e48cf027ee27774df9f3731bd509084a65aaae3899d9e6f14"
+      "verified_at": "2026-11-27T09:32:31+00:00",
+      "verified_hash": "4c835ae7fa5b3ccf05baa1f50b2fdf5f993442efe7a49a3718e65f1d23a86215"
     },
     "data-briefings": {
       "files": 1,
@@ -84,11 +84,11 @@
     },
     "data-news": {
       "files": 1,
-      "hash": "1343a3d54269d1c2d8445b9733ef95f6704a9e16e7f134b27a1ee8b248b54bf5",
+      "hash": "4c2af4f51992c666f2a5775cca3ca0b7459aff0b111af07ebd9eb75153d43b4a",
       "result": "PASS",
       "scope": "full",
-      "verified_at": "2026-11-26T09:17:53+00:00",
-      "verified_hash": "1343a3d54269d1c2d8445b9733ef95f6704a9e16e7f134b27a1ee8b248b54bf5"
+      "verified_at": "2026-11-27T09:32:31+00:00",
+      "verified_hash": "4c2af4f51992c666f2a5775cca3ca0b7459aff0b111af07ebd9eb75153d43b4a"
     },
     "data-org": {
       "files": 1,
@@ -155,20 +155,20 @@
       "verified_hash": "447b297801c2569ca789a108e35d957d52b33c13a48ce73010b9d1f03ce63501"
     },
     "news-digest": {
-      "files": 118,
-      "hash": "b69c9bb8bae0691901a09050b7c800e07871b99d65d1a21c30a4e4b85d953542",
+      "files": 122,
+      "hash": "91ad776ea0337896e6520acb3babe186bf776cc09cb36a6ed0b3d753688b83b9",
       "result": "PASS",
       "scope": "full",
-      "verified_at": "2026-11-26T09:17:53+00:00",
-      "verified_hash": "b69c9bb8bae0691901a09050b7c800e07871b99d65d1a21c30a4e4b85d953542"
+      "verified_at": "2026-11-27T09:32:31+00:00",
+      "verified_hash": "91ad776ea0337896e6520acb3babe186bf776cc09cb36a6ed0b3d753688b83b9"
     },
     "news-index": {
       "files": 3,
-      "hash": "58408bd40d8192415db381a22cfd65e6664779e15835d7070b693949ca6393eb",
+      "hash": "1a4b8d884ec25a8606171751f27f4041709efea4636007a91c39568dbd4ff624",
       "result": "PASS",
       "scope": "full",
-      "verified_at": "2026-11-26T09:17:53+00:00",
-      "verified_hash": "58408bd40d8192415db381a22cfd65e6664779e15835d7070b693949ca6393eb"
+      "verified_at": "2026-11-27T09:32:31+00:00",
+      "verified_hash": "1a4b8d884ec25a8606171751f27f4041709efea4636007a91c39568dbd4ff624"
     },
     "pcb-hub": {
       "files": 1,
