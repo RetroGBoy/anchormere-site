@@ -142,6 +142,12 @@ BLOCK = [
     "spy", "investigation", "investigated", "lawsuit", "arrest", "indict",
     "breach", "hacked", "fraud", "scam", "rumor", "leak", "layoff", "fired",
     "bankrupt", "bribe", "corruption", "protest", "sanction",
+    # 促销/折扣/优惠券聚合类：与采购、制造无关，命中标题或摘要即丢弃
+    # 背景（2026-11-28 运营体检）：11-16 只补了软件类噪声，折扣页靠
+    # appliances/headphones 等硬件词绕过 STRONG_HW 门槛混入 6 篇/11天。
+    "promo code", "promo codes", "coupon code", "coupon codes",
+    "discount code", "coupons", "promo", "voucher", "% off",
+    "off today", "deal of the day", "best deals", "black friday deals",
 ]
 
 # 纯软件／应用技巧类：与采购、制造无关，命中标题即丢弃

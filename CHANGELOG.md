@@ -10,6 +10,25 @@
 
 ---
 
+## [2026-11-28] · 运营体检：促销/折扣噪声页源头治理
+
+运营体检（间隔 12 天）发现 11-16 只补了软件类噪声过滤，promo/coupon 折扣页靠
+appliances/headphones 等硬件词绕过 STRONG_HW 门槛，11 天又混入 6 篇、全站存量 18 篇，
+且被 IndexNow 每日全量推送，稀释主题信号。三层修复：
+
+- **源头过滤**：`news_digest.py` 的 `BLOCK` 增加 promo code / coupons / discount /
+  % off / black friday deals 等词，命中标题+摘要即丢弃（与软件类同机制）。
+- **sitemap 排除**：`build_sitemap.py` 新增 `SITEMAP_EXCLUDE_RE`，CI 每晚重建时
+  自动排除 news-*promo* / *coupon* 页——sitemap 213 → 195 条，promo 18 → 0。
+- **历史页 noindex**：18 篇存量 promo 页注入 `<meta name="robots" content="noindex,follow">`，
+  保留页面与外链（供已入链访问）但不进索引，与 sitemap 排除形成双重信号。
+- 新闻列表页（news.html / news-archive）历史卡片保留：noindex 页入链不传递权重，
+  且列表由 CI 每晚按 state 重建，手工清理会被覆盖，故不介入。
+- **验证**：合成数据测试 promo 拦截 3/3、真实采购新闻放行 2/2；
+  `verify_seo --all` PASS=54 / WARN=0 / FAIL=0；`workarea audit` 23 模块 / 315 文件 PASS。
+
+---
+
 ## [2026-11-16] · GSC 数据驱动整改：搜索意图对齐 + 收录质量（11 页 + 管道）
 
 依据 GSC 截图数据（3 个月 475 展示 / 2 点击 / 平均排名 38.7；34 页已收录 /

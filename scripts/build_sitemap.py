@@ -28,6 +28,11 @@ PRIORITY = {
 CORE = 0.7          # other static pages
 NEWS_POST = 0.4     # dated news posts
 
+# 促销/折扣聚合页不进 sitemap：与采购/制造主题无关，且会稀释抓取预算。
+# 页面本身保留（供已入链访问），但由工作脚本注入 noindex，双重信号。
+# 用文件名匹配，CI 每晚重建时自动排除，无需手工维护 sitemap。
+SITEMAP_EXCLUDE_RE = re.compile(r'promo|coupon|discount-code|voucher-code', re.I)
+
 DATE_PATTERNS = (
     re.compile(r'Last updated:\s*(\d{4}-\d{2}-\d{2})'),
     re.compile(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})'),
@@ -58,6 +63,8 @@ def main():
     for fn in sorted(os.listdir(ROOT)):
         if not fn.endswith(".html") or fn == "404.html":
             continue
+        if fn.startswith("news-") and SITEMAP_EXCLUDE_RE.search(fn):
+            continue  # 促销/折扣噪声页
         # Home is the canonical root (200); /index is a 308 redirect.
         slug = "" if fn == "index.html" else fn[:-5]
         url = SITE + "/" + slug
